@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_one_extend_definition_config">
+    <sys_one_extend_definition_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <capability display_value="Guardian User Lookup Skill">ebf146e8ebbbe610e4a8f1b4cad0cd69</capability>
+        <default>true</default>
+        <definition display_value="Guardian User Lookup Skill (Now LLM Service - Now LLM Generic)">b3f1822cebbbe610e4a8f1b4cad0cdea</definition>
+        <enable_large_input_support>false</enable_large_input_support>
+        <sys_class_name>sys_one_extend_definition_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-02 05:30:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bff1822cebbbe610e4a8f1b4cad0cdec</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_one_extend_definition_config_bff1822cebbbe610e4a8f1b4cad0cdec</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-02 05:30:22</sys_updated_on>
+    </sys_one_extend_definition_config>
+</record_update>

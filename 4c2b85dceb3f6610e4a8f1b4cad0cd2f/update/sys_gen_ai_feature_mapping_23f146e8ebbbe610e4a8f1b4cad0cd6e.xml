@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_gen_ai_feature_mapping">
+    <sys_gen_ai_feature_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <customer_updatable>true</customer_updatable>
+        <default_tier>false</default_tier>
+        <document>ebf146e8ebbbe610e4a8f1b4cad0cd69</document>
+        <document_table>sys_one_extend_capability</document_table>
+        <feature_name>Guardian User Lookup Skill</feature_name>
+        <licensable>true</licensable>
+        <metadata/>
+        <skip_on_group_call>false</skip_on_group_call>
+        <sys_class_name>sys_gen_ai_feature_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-02 05:30:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>23f146e8ebbbe610e4a8f1b4cad0cd6e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Guardian User Lookup Skill</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_gen_ai_feature_mapping_23f146e8ebbbe610e4a8f1b4cad0cd6e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-02 05:30:22</sys_updated_on>
+        <tier/>
+    </sys_gen_ai_feature_mapping>
+</record_update>

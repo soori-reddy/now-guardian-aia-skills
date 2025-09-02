@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_aleen_aia_skills.GuardianAIAgentHelper</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This Script Include enables AI agents and their skills, leveraging Guardian Script Includes internally</description>
+        <mobile_callable>false</mobile_callable>
+        <name>GuardianAIAgentHelper</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var GuardianAIAgentHelper = Class.create();
+GuardianAIAgentHelper.prototype = {
+    initialize: function() {
+        this.identity_table_name = "x_aleen_snguardian_identity";
+        this.identity_access_table_name = "x_aleen_snguardian_identity_access";
+        this.identity_asset_table_name = "x_aleen_snguardian_identity_asset";
+        this.visitor_table_name = "x_aleen_snguardian_visitor";
+    },
+    getIdentityByMail: function(mail) {
+        var response = {};
+        var identityGr = new GlideRecordSecure(this.identity_table_name);
+        identityGr.addQuery('email', mail);
+        identityGr.addQuery('is_deleted', false);
+        identityGr.query();
+        if (identityGr.next()) {
+            response['success'] = true;
+            var user_type = identityGr.type.code;
+            response['full_name'] = identityGr.full_name.toString();
+            response['phone'] = identityGr.phone.toString();
+            response['sys_id'] = identityGr.sys_id.toString();
+            response['email'] = identityGr.email.toString();
+            response['type'] = identityGr.type.name.toString();
+            if (user_type == 'VISITOR') {
+                var visitorGr = new GlideRecordSecure(this.visitor_table_name);
+                if (visitorGr.get(identityGr.sys_id)) {
+                    response['status'] = visitorGr.visitor_status.name.toString();
+                }
+            } else {
+                response['status'] = identityGr.status.name.toString();
+                response['department'] = identityGr.department.toString();
+                response['user_name'] = identityGr.user_name.toString();
+            }
+        } else {
+            response['success'] = false;
+            response['message'] = "Identity information not found for the supplied email " + mail;
+        }
+        return response;
+    },
+    getIdentityAccessByMail: function(mail) {
+        var response = [];
+        var identityAccessGr = new GlideRecordSecure(this.identity_access_table_name);
+        identityAccessGr.addQuery('identity.email', mail);
+        identityAccessGr.addQuery('is_deleted', false);
+        identityAccessGr.query();
+        while (identityAccessGr.next()) {
+            var access = {};
+            access['Name'] = identityAccessGr.access_level.name.toString();
+            access['valid_from'] = identityAccessGr.valid_from.toString();
+            access['valid_to'] = identityAccessGr.valid_to.toString();
+            response.push(access);
+        }
+        return response;
+    },
+    getIdentityAssetsByMail: function(mail) {
+        var response = [];
+        var identityAssetGr = new GlideRecordSecure(this.identity_asset_table_name);
+        identityAssetGr.addQuery('identity.email', mail);
+        identityAssetGr.addQuery('is_deleted', false);
+        identityAssetGr.query();
+        while (identityAssetGr.next()) {
+            var asset = {};
+            asset['badge_id'] = identityAssetGr.asset.serial.toString();
+            asset['badge_type'] = identityAssetGr.asset.type.name.toString();
+            asset['valid_from'] = identityAssetGr.valid_from.toString();
+            asset['valid_to'] = identityAssetGr.valid_to.toString();
+            asset['status'] = identityAssetGr.status.name.toString();
+            response.push(asset);
+        }
+        return response;
+    },
+    getIdentityAssetsByMailandSerial: function(mail, serial) {
+        var response = [];
+        var identityAssetGr = new GlideRecordSecure(this.identity_asset_table_name);
+        identityAssetGr.addQuery('identity.email', mail);
+        identityAssetGr.addQuery('asset.serial', serial);
+        identityAssetGr.addQuery('is_deleted', false);
+        identityAssetGr.query();
+        while (identityAssetGr.next()) {
+            var asset = {};
+            asset['badge_id'] = identityAssetGr.asset.serial.toString();
+            asset['badge_type'] = identityAssetGr.asset.type.name.toString();
+            asset['valid_from'] = identityAssetGr.valid_from.toString();
+            asset['valid_to'] = identityAssetGr.valid_to.toString();
+            asset['status'] = identityAssetGr.status.name.toString();
+            asset['identity_asset_sys_id'] = identityAssetGr.toString();
+            asset['asset_sys_id'] = identityAssetGr.asset.toString();
+            response.push(asset);
+        }
+        return response;
+    },
+    type: 'GuardianAIAgentHelper'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-02 06:07:21</sys_created_on>
+        <sys_id>e22acee4ebfbe610e4a8f1b4cad0cd24</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GuardianAIAgentHelper</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_script_include_e22acee4ebfbe610e4a8f1b4cad0cd24</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-02 06:07:21</sys_updated_on>
+    </sys_script_include>
+</record_update>
