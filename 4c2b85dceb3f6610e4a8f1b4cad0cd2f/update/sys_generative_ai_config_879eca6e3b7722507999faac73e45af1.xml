@@ -53,13 +53,24 @@ GUADIAN_USER_HAS_ACCESS : {{GuardianUserAccessLookupSkillScriptTool.output.GUADI
 1. Strip all non-JSON text from the response.  
 2. Format as valid JSON.  
 3. Do not include any extra strings or text outside JSON.  
-4. Always return the response in this JSON format But remove keys if values are null: 
-  {   "userFound": GUADIAN_USER_FOUND,
-      "userId":GUARDIAN_USER_IDENTIFIER, 
-      "userAccess" : ACCESS,
-      "useHasAccess": GUADIAN_USER_HAS_ACCESS,
-      "message":ERROR_MESSAGE 
-  }</prompt>
+4. The output should be a JSON object containing the following fields:
+- userFound: a boolean indicating whether the user was found
+- userId: the identifier of the user if found, otherwise null
+- userHasAccess: a boolean indicating whether the user has access
+- userAccess: a list of access details if the user has access, otherwise null
+- message: an error message if the user was not found or has no access
+
+The JSON object should be formatted as follows:
+```
+{
+  "userFound": &lt;GUADIAN_USER_FOUND&gt;,
+  "userId": &lt;GUARDIAN_USER_IDENTIFIER&gt;,
+  "userHasAccess": &lt;GUADIAN_USER_HAS_ACCESS&gt;,
+  "userAccess": &lt;ACCESS&gt;,
+  "message": &lt;ERROR_MESSAGE&gt;
+}
+```
+Note: The keys with null values should be removed from the JSON object.</prompt>
         <prompt_template_role>user</prompt_template_role>
         <request_tokens>32018</request_tokens>
         <show_in_prompt_library>false</show_in_prompt_library>
@@ -70,7 +81,7 @@ GUADIAN_USER_HAS_ACCESS : {{GuardianUserAccessLookupSkillScriptTool.output.GUADI
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>879eca6e3b7722507999faac73e45af1</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>f69eca6e3b7722507999faac73e45ad9</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
@@ -78,7 +89,7 @@ GUADIAN_USER_HAS_ACCESS : {{GuardianUserAccessLookupSkillScriptTool.output.GUADI
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_generative_ai_config_879eca6e3b7722507999faac73e45af1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-08 12:20:33</sys_updated_on>
+        <sys_updated_on>2025-09-08 12:55:52</sys_updated_on>
         <temperature>0.2</temperature>
         <thinking_tokens>0</thinking_tokens>
         <version>1</version>
