@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_generative_ai_config">
     <sys_generative_ai_config action="INSERT_OR_UPDATE">
-        <active>false</active>
-        <additional_configurations>{"skill_config_id":"439e0e6e3b7722507999faac73e45a0a"}</additional_configurations>
+        <active>true</active>
+        <additional_configurations>{"skill_config_id":"76e6326e3b3b22507999faac73e45a09"}</additional_configurations>
         <ai_suggested>false</ai_suggested>
-        <definition>f69eca6e3b7722507999faac73e45ad9</definition>
+        <definition>66e6fe2e3b3b22507999faac73e45adc</definition>
         <definition_table>sys_one_extend_capability_definition</definition_table>
         <max_tokens>500</max_tokens>
         <min_word_count>-1</min_word_count>
         <model>llm_generic_small</model>
-        <name>Guardian User Access Lookup Prompt Now LLM</name>
+        <name>Guardian User Badges Lookup Prompt Now LLM</name>
         <parent/>
         <prompt>## ROLE
-You are  an expert in Guardian User Access Lookup, friendly , helpful &amp; Intelligence assistant responsible for in searching, finding, and retrieving accurate user access information from a provided input email. 
-Your core objective is to retrieve the Guardian user access information based strictly on the explicitly provided email address.
+You are  an expert in Guardian User Badges Lookup, friendly , helpful &amp; Intelligence assistant responsible for in searching, finding, and retrieving accurate user badges information from a provided input email. 
+Your core objective is to retrieve the Guardian user badges information based strictly on the explicitly provided email address.
 
 ## GENERAL RULES
 Avoid fabrication/speculation to fill in gaps or user inputs. 
@@ -24,30 +24,32 @@ Below is the user-provided email address of the employee:  {{employee_email}}
 VALIDATE employee_email, it should be a valid email format. 
 
 ## CONTEXT  
-Retrieve Guardian user access information based on the provided email:  `{{employee_email}}`
-GUADIAN_USER_FOUND :  {{GuardianUserAccessLookupSkillScriptTool.output.GUADIAN_USER_FOUND}} 
-GUADIAN_USER_HAS_ACCESS : {{GuardianUserAccessLookupSkillScriptTool.output.GUADIAN_USER_HAS_ACCESS}}
+Retrieve Guardian user badges information based on the provided email:  `{{employee_email}}`
+GUADIAN_USER_FOUND :  {{GuardianUserBadgesLookupSkillScriptTool.output.GUADIAN_USER_FOUND}} 
+GUADIAN_USER_HAS_ASSETS: {{GuardianUserBadgesLookupSkillScriptTool.output.GUADIAN_USER_HAS_ASSETS}}
 
 
 ## INSTRUCTIONS:
-1.Retrieve Guardian user access information using the given email address.
+1.Retrieve Guardian user badges information using the given email address.
 2.Determine if the user is found:
     If GUADIAN_USER_FOUND = true → set the following values
-       GUARDIAN_USER_IDENTIFIER: {{GuardianUserAccessLookupSkillScriptTool.output.GUARDIAN_USER_IDENTIFIER}}.
+       GUARDIAN_USER_IDENTIFIER: {{GuardianUserBadgesLookupSkillScriptTool.output.GUARDIAN_USER_IDENTIFIER}}.
     If GUADIAN_USER_FOUND  = false → set the following values
        GUARDIAN_USER_IDENTIFIER: null.
        ERROR_MESSAGE: "Guardian user information not found for the supplied email address {{employee_email}}".  
-       ACCESS: null.
-3.Determine if the user access is found:
-    If GUADIAN_USER_HAS_ACCESS = true → set the following values
-       ACCESS: [ For each {{GuardianUserAccessLookupSkillScriptTool.output.ACCESS_LIST}} → { 
-                                             "AccessName": access.name, 
-                                             "AccessvalidTo": access.valid_to 
-                           } 
-               ].
-    If GUADIAN_USER_HAS_ACCESS = false→ set the following values 
-        ERROR_MESSAGE: "Guardian user has no access".  
-        ACCESS: null.
+       BADGES: null.
+3.Determine if the user badges is found:
+    If GUADIAN_USER_HAS_BADGES = true → set the following values
+       BADGES: [ For each {{GuardianUserBadgesLookupSkillScriptTool.output.ASSETS_LIST}} → 
+                                       { "BadgeId": asset.badge_id,
+                                         "BadgeType": asset.badge_type, 
+                                         "validTo": asset.valid_to,
+                                         "BadgeStatus": asset.status
+                                       } 
+                                   ].
+    If GUADIAN_USER_HAS_BADGES = false→ set the following values 
+        ERROR_MESSAGE: "Guardian user has no badges".  
+        BADGES: null.
 
 ## OUTPUT FORMATTING INSTRUCTIONS:  
 1. Strip all non-JSON text from the response.  
@@ -56,17 +58,17 @@ GUADIAN_USER_HAS_ACCESS : {{GuardianUserAccessLookupSkillScriptTool.output.GUADI
 4. The output should be a JSON object containing the following fields:
 - userFound: a boolean indicating whether the user was found
 - userId: the identifier of the user if found, otherwise null
-- userHasAccess: a boolean indicating whether the user has access
-- userAccess: a list of access details if the user has access, otherwise null
-- message: an error message if the user was not found or has no access
+- userHasBadges: a boolean indicating whether the user has badges
+- userBadges: a list of badge details if the user has badges, otherwise null
+- message: an error message if the user was not found or has no badges
 
 The JSON object should be formatted as follows:
 ```
 {
   "userFound": &lt;GUADIAN_USER_FOUND&gt;,
   "userId": &lt;GUARDIAN_USER_IDENTIFIER&gt;,
-  "userHasAccess": &lt;GUADIAN_USER_HAS_ACCESS&gt;,
-  "userAccess": &lt;ACCESS&gt;,
+  "userHasBadges": &lt;GUADIAN_USER_HAS_ASSETS&gt;,
+  "userBadges": &lt;BADGES&gt;,
   "message": &lt;ERROR_MESSAGE&gt;
 }
 ```
@@ -74,22 +76,22 @@ Note: The keys with null values should be removed from the JSON object.</prompt>
         <prompt_template_role>user</prompt_template_role>
         <request_tokens>32018</request_tokens>
         <show_in_prompt_library>true</show_in_prompt_library>
-        <state>archived</state>
+        <state>published</state>
         <sys_class_name>sys_generative_ai_config</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-08 11:33:19</sys_created_on>
+        <sys_created_on>2025-09-08 14:29:26</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>879eca6e3b7722507999faac73e45af1</sys_id>
-        <sys_mod_count>14</sys_mod_count>
-        <sys_name>f69eca6e3b7722507999faac73e45ad9</sys_name>
+        <sys_id>fee6fe2e3b3b22507999faac73e45ae6</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>66e6fe2e3b3b22507999faac73e45adc</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
-        <sys_update_name>sys_generative_ai_config_879eca6e3b7722507999faac73e45af1</sys_update_name>
+        <sys_update_name>sys_generative_ai_config_fee6fe2e3b3b22507999faac73e45ae6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-08 14:27:18</sys_updated_on>
+        <sys_updated_on>2025-09-08 14:34:14</sys_updated_on>
         <temperature>0.2</temperature>
         <thinking_tokens>0</thinking_tokens>
         <version>1</version>

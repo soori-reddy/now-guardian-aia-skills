@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_generative_ai_prompt_config">
     <sys_generative_ai_prompt_config action="INSERT_OR_UPDATE">
-        <ai_config display_value="OneExtend Capability Definition: Guardian User Access Lookup Skill (Now LLM Service - Now LLM Generic)">879eca6e3b7722507999faac73e45af1</ai_config>
+        <ai_config display_value="OneExtend Capability Definition: Guardian User Access Lookup Skill (Now LLM Service - Now LLM Generic)">0056322e3b3b22507999faac73e45a93</ai_config>
         <definition display_value="Guardian User Access Lookup Skill (Now LLM Service - Now LLM Generic)">f69eca6e3b7722507999faac73e45ad9</definition>
         <filter_properties>{}</filter_properties>
         <filter_type>default</filter_type>
-        <is_default>false</is_default>
+        <is_default>true</is_default>
         <order>0</order>
         <sys_class_name>sys_generative_ai_prompt_config</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-08 11:33:19</sys_created_on>
+        <sys_created_on>2025-09-08 14:26:47</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>039eca6e3b7722507999faac73e45af4</sys_id>
+        <sys_id>0c56322e3b3b22507999faac73e45a95</sys_id>
         <sys_mod_count>2</sys_mod_count>
-        <sys_name>879eca6e3b7722507999faac73e45af1</sys_name>
+        <sys_name>0056322e3b3b22507999faac73e45a93</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
-        <sys_update_name>sys_generative_ai_prompt_config_039eca6e3b7722507999faac73e45af4</sys_update_name>
+        <sys_update_name>sys_generative_ai_prompt_config_0c56322e3b3b22507999faac73e45a95</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2025-09-08 14:27:02</sys_updated_on>
     </sys_generative_ai_prompt_config>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_one_extend_capability_definition">
+    <sys_one_extend_capability_definition action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <api>4d9a83679f9202107c0e2305fa0a1c8c</api>
+        <api_type>sys_hub_action_type_definition</api_type>
+        <capability display_value="e22acee4ebfbe610e4a8f1b4cad0cd24_Guardia">4c87b66e3b3b22507999faac73e45aaa</capability>
+        <category display_value="Other">04c489f3532121106b38ddeeff7b1215</category>
+        <connection/>
+        <description/>
+        <filter_properties>{}</filter_properties>
+        <metadata>{"scriptFunctionName":"getIdentityAssetsByMail","scriptId":"e22acee4ebfbe610e4a8f1b4cad0cd24"}</metadata>
+        <name>e22acee4ebfbe610e4a8f1b4cad0cd24_GuardianAIAgentHelper.getIdentityAssetsByMail</name>
+        <order>0</order>
+        <postprocessor><![CDATA[(function(outputs) {     	/* write code here to transform definition output to capability output.*/     	     	outputs = JSON.parse(outputs);     	     	return outputs;     })(outputs);]]></postprocessor>
+        <preprocessor><![CDATA[(function(inputs) {     	/* write code here to transform capability input to definition input.*/     	     	inputs = JSON.parse(inputs);     	     	return inputs;     })(inputs);]]></preprocessor>
+        <sys_class_name>sys_one_extend_capability_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 14:31:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0c87b66e3b3b22507999faac73e45ab1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>e22acee4ebfbe610e4a8f1b4cad0cd24_GuardianAIAgentHelper.getIdentityAssetsByMail</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_one_extend_capability_definition_0c87b66e3b3b22507999faac73e45ab1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 14:31:59</sys_updated_on>
+        <truncate_strategy display_value="Default Truncation Strategy">2b99e1137fb20210f465c3b76d86650d</truncate_strategy>
+    </sys_one_extend_capability_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=0c87b66e3b3b22507999faac73e45ab1"/>
+</record_update>
