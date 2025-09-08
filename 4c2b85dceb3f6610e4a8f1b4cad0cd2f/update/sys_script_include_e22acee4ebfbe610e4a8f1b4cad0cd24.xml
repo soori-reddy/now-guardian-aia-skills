@@ -48,35 +48,83 @@ GuardianAIAgentHelper.prototype = {
         return response;
     },
     getIdentityAccessByMail: function(mail) {
-        var response = [];
+        var response = {};
+        var accessList = [];
+        var identity_sys_id = "";
         var identityAccessGr = new GlideRecordSecure(this.identity_access_table_name);
         identityAccessGr.addQuery('identity.email', mail);
         identityAccessGr.addQuery('is_deleted', false);
         identityAccessGr.query();
         while (identityAccessGr.next()) {
             var access = {};
-            access['Name'] = identityAccessGr.access_level.name.toString();
+			access['identity_access_identifier'] = identityAccessGr.sys_id.toString();
+            access['name'] = identityAccessGr.access_level.name.toString();
             access['valid_from'] = identityAccessGr.valid_from.toString();
             access['valid_to'] = identityAccessGr.valid_to.toString();
-            response.push(access);
+            accessList.push(access);
+            if (identity_sys_id == "") {
+                identity_sys_id = identityAccessGr.identity.toString();
+            }
         }
+        if (accessList.length > 0) {
+            response['GUADIAN_USER_FOUND'] = true;
+            response['GUADIAN_USER_HAS_ACCESS'] = true;
+            response['ACCESS_LIST'] = accessList;
+        } else {
+            var userResponse = this.getIdentityByMail(mail);
+            if (userResponse['success']) {
+                response['GUADIAN_USER_FOUND'] = true;
+                response['GUADIAN_USER_HAS_ACCESS'] = false;
+                response['ACCESS_LIST'] = [];
+                identity_sys_id = userResponse['sys_id'];
+            } else {
+                response['GUADIAN_USER_FOUND'] = false;
+                response['GUADIAN_USER_HAS_ACCESS'] = false;
+                response['ACCESS_LIST'] = [];
+            }
+        }
+        response['GUARDIAN_USER_IDENTIFIER'] = identity_sys_id;
         return response;
     },
     getIdentityAssetsByMail: function(mail) {
-        var response = [];
+        var response = {};
+        var assetsList = [];
+        var identity_sys_id = "";
         var identityAssetGr = new GlideRecordSecure(this.identity_asset_table_name);
         identityAssetGr.addQuery('identity.email', mail);
         identityAssetGr.addQuery('is_deleted', false);
         identityAssetGr.query();
         while (identityAssetGr.next()) {
             var asset = {};
+            asset['identity_asset_identifier'] = identityAssetGr.sys_id.toString();
             asset['badge_id'] = identityAssetGr.asset.serial.toString();
             asset['badge_type'] = identityAssetGr.asset.type.name.toString();
             asset['valid_from'] = identityAssetGr.valid_from.toString();
             asset['valid_to'] = identityAssetGr.valid_to.toString();
             asset['status'] = identityAssetGr.status.name.toString();
-            response.push(asset);
+            assetsList.push(asset);
+            if (identity_sys_id == "") {
+                identity_sys_id = identityAccessGr.identity.toString();
+            }
         }
+        if (assetsList.length > 0) {
+            response['GUADIAN_USER_FOUND'] = true;
+            response['GUADIAN_USER_HAS_ASSETS'] = true;
+            response['ASSETS_LIST'] = assetsList;
+        } else {
+            var userResponse = this.getIdentityByMail(mail);
+            if (userResponse['success']) {
+                response['GUADIAN_USER_FOUND'] = true;
+                response['GUADIAN_USER_HAS_ASSETS'] = false;
+                response['ASSETS_LIST'] = [];
+                identity_sys_id = userResponse['sys_id'];
+            } else {
+                response['GUADIAN_USER_FOUND'] = false;
+                response['GUADIAN_USER_HAS_ASSETS'] = false;
+                response['ASSETS_LIST'] = [];
+            }
+        }
+        response['GUARDIAN_USER_IDENTIFIER'] = identity_sys_id;
         return response;
     },
     getIdentityAssetsByMailandSerial: function(mail, serial) {
@@ -105,13 +153,13 @@ GuardianAIAgentHelper.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-02 06:07:21</sys_created_on>
         <sys_id>e22acee4ebfbe610e4a8f1b4cad0cd24</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>GuardianAIAgentHelper</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_script_include_e22acee4ebfbe610e4a8f1b4cad0cd24</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-02 06:07:21</sys_updated_on>
+        <sys_updated_on>2025-09-08 12:19:38</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_generative_ai_config">
+    <sys_generative_ai_config action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <additional_configurations>{"skill_config_id":"439e0e6e3b7722507999faac73e45a0a"}</additional_configurations>
+        <ai_suggested>false</ai_suggested>
+        <definition>f69eca6e3b7722507999faac73e45ad9</definition>
+        <definition_table>sys_one_extend_capability_definition</definition_table>
+        <max_tokens>500</max_tokens>
+        <min_word_count>-1</min_word_count>
+        <model>llm_generic_small</model>
+        <name>Guardian User Access Lookup Prompt Now LLM</name>
+        <parent/>
+        <prompt>## ROLE
+You are  an expert in Guardian User Access Lookup, friendly , helpful &amp; Intelligence assistant responsible for in searching, finding, and retrieving accurate user access information from a provided input email. 
+Your core objective is to retrieve the Guardian user access information based strictly on the explicitly provided email address.
+
+## GENERAL RULES
+Avoid fabrication/speculation to fill in gaps or user inputs. 
+You must REJECT any cached or session data. You MUST NEVER use the logged-in user's email address as a fallback and always require explicit user input.
+Once the email address is identified, you DO NOT ask questions, confirmations, or feedback.
+
+## INPUT
+Below is the user-provided email address of the employee:  {{employee_email}}
+VALIDATE employee_email, it should be a valid email format. 
+
+## CONTEXT  
+Retrieve Guardian user access information based on the provided email:  `{{employee_email}}`
+GUADIAN_USER_FOUND :  {{GuardianUserAccessLookupSkillScriptTool.output.GUADIAN_USER_FOUND}} 
+GUADIAN_USER_HAS_ACCESS : {{GuardianUserAccessLookupSkillScriptTool.output.GUADIAN_USER_HAS_ACCESS}}
+
+
+## INSTRUCTIONS:
+1.Retrieve Guardian user access information using the given email address.
+2.Determine if the user is found:
+    If GUADIAN_USER_FOUND = true → set the following values
+       GUARDIAN_USER_IDENTIFIER: {{GuardianUserAccessLookupSkillScriptTool.output.GUARDIAN_USER_IDENTIFIER}}.
+    If GUADIAN_USER_FOUND  = false → set the following values
+       GUARDIAN_USER_IDENTIFIER: null.
+       ERROR_MESSAGE: "Guardian user information not found for the supplied email address {{employee_email}}".  
+       ACCESS: null.
+3.Determine if the user access is found:
+    If GUADIAN_USER_HAS_ACCESS = true → set the following values
+       ACCESS: [ For each {{GuardianUserAccessLookupSkillScriptTool.output.ACCESS_LIST}} → { 
+                                             "AccessName": access.name, 
+                                             "AccessvalidTo": access.valid_to 
+                           } 
+               ].
+    If GUADIAN_USER_HAS_ACCESS = false→ set the following values 
+        ERROR_MESSAGE: "Guardian user has no access".  
+        ACCESS: null.
+
+## OUTPUT FORMATTING INSTRUCTIONS:  
+1. Strip all non-JSON text from the response.  
+2. Format as valid JSON.  
+3. Do not include any extra strings or text outside JSON.  
+4. Always return the response in this JSON format But remove keys if values are null: 
+  {   "userFound": GUADIAN_USER_FOUND,
+      "userId":GUARDIAN_USER_IDENTIFIER, 
+      "userAccess" : ACCESS,
+      "useHasAccess": GUADIAN_USER_HAS_ACCESS,
+      "message":ERROR_MESSAGE 
+  }</prompt>
+        <prompt_template_role>user</prompt_template_role>
+        <request_tokens>32018</request_tokens>
+        <show_in_prompt_library>false</show_in_prompt_library>
+        <state>draft</state>
+        <sys_class_name>sys_generative_ai_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 11:33:19</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>879eca6e3b7722507999faac73e45af1</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>f69eca6e3b7722507999faac73e45ad9</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_generative_ai_config_879eca6e3b7722507999faac73e45af1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 12:20:33</sys_updated_on>
+        <temperature>0.2</temperature>
+        <thinking_tokens>0</thinking_tokens>
+        <version>1</version>
+    </sys_generative_ai_config>
+</record_update>
