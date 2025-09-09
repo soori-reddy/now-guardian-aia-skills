@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_gen_ai_skill">
+    <sys_gen_ai_skill action="INSERT_OR_UPDATE">
+        <enable_followup>false</enable_followup>
+        <skill_description> This Topic allows user to perform badge-related actions for individuals using their email addresses.
+1. Recognize and process synonymous terms for badge types and actions.
+    ** Badge Actions with Synonyms **
+    -Assign (synonyms: Add, Issue, New)
+    -Update (synonyms: Modify, Edit, Change)
+    -Replace (synonyms: Swap, Reissue)
+    -Activate (synonyms: Enable, Turn On)
+    -Deactivate (synonyms: Disable, Turn Off, Suspend)
+    -Remove (synonyms: Delete, Revoke, Withdraw)
+    -Return (synonyms: Surrender, Hand Back)
+** Badge Types with Synonyms **
+     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)
+     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)
+     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
+
+2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.
+3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.
+3. Identify the target user for badge actions by their provided email address.</skill_description>
+        <skill_document>c53243723b3f62507999faac73e45a14</skill_document>
+        <skill_name>Guardian Badge Operations Topic</skill_name>
+        <skill_table>sys_cs_topic</skill_table>
+        <sys_class_name>sys_gen_ai_skill</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-09 09:57:14</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>513247763b3f62507999faac73e45add</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_gen_ai_skill_513247763b3f62507999faac73e45add</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-09 09:57:14</sys_updated_on>
+    </sys_gen_ai_skill>
+    <sys_translated_text action="delete_multiple" query="documentkey=513247763b3f62507999faac73e45add"/>
+</record_update>

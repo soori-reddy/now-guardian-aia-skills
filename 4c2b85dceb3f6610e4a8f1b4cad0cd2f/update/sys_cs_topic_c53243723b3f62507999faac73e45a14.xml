@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic">
+    <sys_cs_topic action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability>true</applicability>
+        <autopilot_topic>false</autopilot_topic>
+        <cb_topic_id display_value="Guardian Badge Operations Topic">5941c7f23b3f62507999faac73e45a9f</cb_topic_id>
+        <channels/>
+        <definition>{"id":"5941c7f23b3f62507999faac73e45a9f","name":"Guardian Badge Operations Topic","system_topic":false,"autopilot_topic":false,"vendor_id":"c2f0b8f187033200246ddd4c97cb0bb9","description":" This Topic allows user to perform badge-related actions for individuals using their email addresses.\n1. Recognize and process synonymous terms for badge types and actions.\n    ** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)\n\n2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.\n3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.\n3. Identify the target user for badge actions by their provided email address.","applicability":"true","categories":[],"key_phrases":[],"variables":[{"name":"__segment_trigger_fdbbab6059ef4bec8d8bc76b4c9ea2dd_done","type":"java.lang.Object","init_value":"false"},{"name":"previous_graph_node","type":"java.lang.Object"}],"fields":[{"type":"Reference","table_name":"sys_user","auto_select":false,"name":"user","unique":false,"key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[]},{"type":"Boolean","name":"RootDecisionBranch_99dbc71e09954339811c623ece0c8f63","unique":false,"default_value":"true","key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[]},{"type":"String","name":"__silent_StartGoal_60433aac602d41e48e785e05c3017a15","unique":false,"key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_LibraryCall_dc5a52afc9c240e7b6c2556196f275c7","unique":false,"key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6","unique":false,"key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TerminateGoal_8946c83b78bd4fad9062da06a0641e1d","unique":false,"key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_RootDecision_a2d465585af34386a8ec984f5c78a6b1","unique":false,"key_phrases":[],"mask_type":"NONE","input_format_type":"","list":false,"expert_mode":false,"choices":[],"static_enum_list":[],"encrypt_if_secure":true}],"actions":[],"tasks":[{"type":"Consumer to system","show_as_button":true,"name":"primary","description":"primary","applicability":"vaVars.__segment_trigger_fdbbab6059ef4bec8d8bc76b4c9ea2dd_done==false &amp;&amp; true","mode":"Qmode","key_phrases":[],"greeting_msg":"vaInputs.initialize(\"user\");vaInputs.initialize(\"RootDecisionBranch_99dbc71e09954339811c623ece0c8f63\");vaInputs.initialize(\"__silent_StartGoal_60433aac602d41e48e785e05c3017a15\");vaInputs.initialize(\"__silent_Branch_RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6\");vaInputs.initialize(\"__silent_Decision_RootDecision_a2d465585af34386a8ec984f5c78a6b1\");vaInputs.initialize(\"__silent_TerminateGoal_8946c83b78bd4fad9062da06a0641e1d\");vaInputs.initialize(\"__silent_LibraryCall_dc5a52afc9c240e7b6c2556196f275c7\");null;","fields":[{"name":"__silent_Decision_RootDecision_a2d465585af34386a8ec984f5c78a6b1","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"RootDecision_for_goal_primary___RootDecision_a2d465585af34386a8ec984f5c78a6b1\";vaInputs.__silent_Decision_RootDecision_a2d465585af34386a8ec984f5c78a6b1=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"cardFields":[],"expert_mode":false,"acknowledge_msg":"vaVars.previous_graph_node=\"RootDecision_for_goal_primary___RootDecision_a2d465585af34386a8ec984f5c78a6b1\";var ackMsg=null;ackMsg=null;vaInputs.RootDecisionBranch_99dbc71e09954339811c623ece0c8f63=true;ackMsg;"},{"name":"__silent_Branch_RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6","applicable":"(vaVars.previous_graph_node==\"RootDecision_for_goal_primary___RootDecision_a2d465585af34386a8ec984f5c78a6b1\") &amp;&amp; (((vaInputs.RootDecisionBranch_99dbc71e09954339811c623ece0c8f63.getValue() == true)))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6___RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6\";vaInputs.__silent_Branch_RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"cardFields":[],"expert_mode":false,"acknowledge_msg":"vaVars.previous_graph_node=\"RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6___RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6\";var ackMsg=null;ackMsg=null;ackMsg;"},{"name":"__silent_StartGoal_60433aac602d41e48e785e05c3017a15","applicable":"(vaVars.previous_graph_node==\"RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6___RootDecisionBranch_385e051e10284f1a9b830cc9de5f18d6\")","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Start___60433aac602d41e48e785e05c3017a15\";vaInputs.__silent_StartGoal_60433aac602d41e48e785e05c3017a15=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"cardFields":[],"expert_mode":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Start___60433aac602d41e48e785e05c3017a15\";var ackMsg=null;ackMsg=null;ackMsg;"},{"name":"__silent_LibraryCall_dc5a52afc9c240e7b6c2556196f275c7","applicable":"(vaVars.previous_graph_node==\"Start___60433aac602d41e48e785e05c3017a15\")","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Response___dc5a52afc9c240e7b6c2556196f275c7\";(function execute() {(function execute() {var topicName = 'AI Output';vaSystem.invokeSubTopic(topicName, JSON.stringify({\"type\":\"LibraryCall\",\"library_topic_name\":\"AI Output\",\"library_topic_id\":\"fc4c14b2431cc21006650464dbb8f2a9\",\"library_topic_is_template\":false,\"parameter-mappings\":[{\"parameter-name\":\"definition\",\"value\":{\"type\":\"String\",\"mode\":\"script\",\"value\":\"(function execute() {\\n        var config = {\\n            configuration: {\\\"description\\\":\\\"{{0}}\\\"}\\n        };\\n        return JSON.stringify(config);\\n    })()\"},\"metadata\":{\"type\":\"String\",\"list\":false,\"use_items\":false}},{\"parameter-name\":\"inputs\",\"value\":{\"type\":\"String\",\"mode\":\"script\",\"value\":\"(function() {return [\\\"Use a Informative message with all data Inputs you have identified and resolved like Badge Type , Badge action &amp; User Email in bullet format.\\\"];})()\"},\"metadata\":{\"type\":\"String\",\"list\":true,\"use_items\":true}}],\"return-value-mappings\":[],\"header_card_fields\":[],\"input_parameters_mode\":\"dynamic\",\"output_parameters_mode\":\"dynamic\",\"id\":\"dc5a52afc9c240e7b6c2556196f275c7\",\"name\":\"Response\",\"goal_id\":\"primary\",\"applicability\":{\"type\":\"Applicability\",\"mode\":\"script\",\"value\":\"true\"},\"expert_mode\":false}));})();})();vaInputs.__silent_LibraryCall_dc5a52afc9c240e7b6c2556196f275c7=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"cardFields":[],"expert_mode":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Response___dc5a52afc9c240e7b6c2556196f275c7\";var ackMsg=null;ackMsg=null;ackMsg;"},{"name":"__silent_TerminateGoal_8946c83b78bd4fad9062da06a0641e1d","applicable":"(vaVars.previous_graph_node==\"Response___dc5a52afc9c240e7b6c2556196f275c7\")","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"End___8946c83b78bd4fad9062da06a0641e1d\";vaInputs.__silent_TerminateGoal_8946c83b78bd4fad9062da06a0641e1d=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"cardFields":[],"expert_mode":false,"acknowledge_msg":"vaVars.previous_graph_node=\"End___8946c83b78bd4fad9062da06a0641e1d\";var ackMsg=null;ackMsg=null;vaVars.__segment_trigger_fdbbab6059ef4bec8d8bc76b4c9ea2dd_done=true;ackMsg;"}],"variables_update":[]}],"roles":[],"active":true,"published":true,"library":false,"expose_on_palette":false,"palette_label":"","flexible_conversation_switching":false,"design_categories":[],"nlu_provider":"","nlu_model":"","nlu_intent":"","topic_type":"STANDARD","channels":[],"triggerable_by_notification":false,"secure_custom_input_control":false,"foundational":false,"modelType":"llm","score":0.0,"visible":true,"discoverable":true,"sys_scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f","sys_domain":"global","title":"Guardian Badge Operations Topic","nlu_intent_label":"","nlu_model_label":"","dialog_acts_enabled":false,"modify_confirmation_enabled":false}</definition>
+        <description> This Topic allows user to perform badge-related actions for individuals using their email addresses.
+1. Recognize and process synonymous terms for badge types and actions.
+    ** Badge Actions with Synonyms **
+    -Assign (synonyms: Add, Issue, New)
+    -Update (synonyms: Modify, Edit, Change)
+    -Replace (synonyms: Swap, Reissue)
+    -Activate (synonyms: Enable, Turn On)
+    -Deactivate (synonyms: Disable, Turn Off, Suspend)
+    -Remove (synonyms: Delete, Revoke, Withdraw)
+    -Return (synonyms: Surrender, Hand Back)
+** Badge Types with Synonyms **
+     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)
+     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)
+     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
+
+2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.
+3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.
+3. Identify the target user for badge actions by their provided email address.</description>
+        <design_category/>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <discoverable>true</discoverable>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <input_variables>[]</input_variables>
+        <is_system_topic>false</is_system_topic>
+        <key_phrases/>
+        <last_published_on>2025-09-09 09:57:13</last_published_on>
+        <library>false</library>
+        <library_usage>null</library_usage>
+        <metaphone/>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Guardian Badge Operations Topic</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <published>true</published>
+        <roles/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <sys_class_name>sys_cs_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-09 09:57:13</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>c53243723b3f62507999faac73e45a14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Guardian Badge Operations Topic</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cs_topic_c53243723b3f62507999faac73e45a14</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-09 09:57:13</sys_updated_on>
+        <title>Guardian Badge Operations Topic</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+        <vendor display_value="ServiceNow">c2f0b8f187033200246ddd4c97cb0bb9</vendor>
+        <visible>true</visible>
+    </sys_cs_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=c53243723b3f62507999faac73e45a14"/>
+</record_update>
