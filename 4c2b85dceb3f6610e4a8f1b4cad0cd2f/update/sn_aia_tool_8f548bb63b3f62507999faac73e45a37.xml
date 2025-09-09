@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_tool">
+    <sn_aia_tool action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description> This Topic allows user to perform badge-related actions for individuals using their email addresses.
+1. Recognize and process synonymous terms for badge types and actions.
+    ** Badge Actions with Synonyms **
+    -Assign (synonyms: Add, Issue, New)
+    -Update (synonyms: Modify, Edit, Change)
+    -Replace (synonyms: Swap, Reissue)
+    -Activate (synonyms: Enable, Turn On)
+    -Deactivate (synonyms: Disable, Turn Off, Suspend)
+    -Remove (synonyms: Delete, Revoke, Withdraw)
+    -Return (synonyms: Surrender, Hand Back)
+** Badge Types with Synonyms **
+     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)
+     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)
+     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
+
+2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.
+3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.
+3. Identify the target user for badge actions by their provided email address.</description>
+        <input_schema>[]</input_schema>
+        <name>Guardian Badge Operations Topic</name>
+        <record_type>custom</record_type>
+        <script><![CDATA[undefined]]></script>
+        <sys_class_name>sn_aia_tool</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-09 10:06:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>8f548bb63b3f62507999faac73e45a37</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Guardian Badge Operations Topic</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sn_aia_tool_8f548bb63b3f62507999faac73e45a37</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-09 10:06:39</sys_updated_on>
+        <target_document>c53243723b3f62507999faac73e45a14</target_document>
+        <target_document_table>sys_cs_topic</target_document_table>
+        <type>topic</type>
+    </sn_aia_tool>
+</record_update>
