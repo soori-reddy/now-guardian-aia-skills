@@ -7,7 +7,7 @@
 
 4. Strict Use of Standardized Terms 
 - If Badge action is Identified, it should be extracted and mapped to their **standardized forms** only.
-- If Badge type is Identified, it should be extracted and mapped to their **standardized forms** only.
+- If Badge type is Identified and not empty, it SHOULD be extracted and mapped to their **standardized forms** only.
 - If Badge type is NOT Identified, DO NOT ASK USER.
 - Non-standard or synonymous terms must not be passed through as-is.
 - The system must eliminate synonyms and retain **only the corresponding standard term** for further processing.
@@ -37,7 +37,7 @@
         <sys_created_on>2025-09-09 09:20:23</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>5dc9723a3bfb62507999faac73e45afb</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>V1</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
@@ -45,7 +45,7 @@
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sn_aia_version_5dc9723a3bfb62507999faac73e45afb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-10 16:34:58</sys_updated_on>
+        <sys_updated_on>2025-09-10 17:04:34</sys_updated_on>
         <target_id>6718f6763bfb62507999faac73e45a21</target_id>
         <target_table>sn_aia_agent</target_table>
         <version_name>V1</version_name>
