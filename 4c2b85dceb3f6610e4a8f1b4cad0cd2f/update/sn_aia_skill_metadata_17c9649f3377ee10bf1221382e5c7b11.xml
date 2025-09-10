@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_skill_metadata">
+    <sn_aia_skill_metadata action="INSERT_OR_UPDATE">
+        <description>This agentic workflow assists administrators in managing badge-related tasks for users identified by their email addresses. It supports issuing, updating, replacing, activating, deactivating, removing, deleting, and returning badges across various badge types, including temporary badges, mobile credentials, and permanent badges. Synonyms for actions and badge types are intelligently resolved to ensure efficient and seamless badge management.   DO NOT use logged in user email, and NEVER EVER ask for confirmation from user</description>
+        <document_id>c819a6b23bbb62507999faac73e45a1b</document_id>
+        <document_table>sn_aia_usecase</document_table>
+        <internal_name>global.x_aleen_aia_skills.Guardian Badge Management Agentic Workflow</internal_name>
+        <name>Guardian Badge Management Agentic Workflow</name>
+        <sys_class_name>sn_aia_skill_metadata</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-10 12:08:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>17c9649f3377ee10bf1221382e5c7b11</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Guardian Badge Management Agentic Workflow</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sn_aia_skill_metadata_17c9649f3377ee10bf1221382e5c7b11</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-10 12:08:20</sys_updated_on>
+    </sn_aia_skill_metadata>
+</record_update>

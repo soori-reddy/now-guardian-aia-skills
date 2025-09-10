@@ -2,20 +2,20 @@
     <sys_cs_topic_library_usage action="INSERT_OR_UPDATE">
         <calling_cs_topic_id display_value="Guardian Badge Operations Topic">c53243723b3f62507999faac73e45a14</calling_cs_topic_id>
         <library_cs_topic_id display_value="AI Output">fc4c14b2431cc21006650464dbb8f2a9</library_cs_topic_id>
-        <library_usage>{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Use a Informative message with all data Inputs you have identified and resolved like Badge Type , Badge action &amp; User Email in bullet format."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"dc5a52afc9c240e7b6c2556196f275c7","name":"Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}</library_usage>
+        <library_usage>{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Use a Informative message with all data Inputs you have identified and resolved like Badge Type  {{vaVars.badge_type}} , Badge action {{vaVars.badge_action}} &amp; User Email  {{vaVars.user_email}} in bullet format."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"dc5a52afc9c240e7b6c2556196f275c7","name":"Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}</library_usage>
         <node_id>dc5a52afc9c240e7b6c2556196f275c7</node_id>
         <sys_class_name>sys_cs_topic_library_usage</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-09 09:57:13</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>413247763b3f62507999faac73e45a93</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cs_topic_library_usage_413247763b3f62507999faac73e45a93</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-09 09:57:13</sys_updated_on>
+        <sys_updated_on>2025-09-10 14:19:10</sys_updated_on>
     </sys_cs_topic_library_usage>
 </record_update>

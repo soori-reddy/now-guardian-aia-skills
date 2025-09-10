@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_version">
     <sn_aia_version action="INSERT_OR_UPDATE">
         <condition/>
-        <instructions>* Always REJET Cany cached, stored, or session-based data.
-* NEVER use the logged-in user’s email, default email, or any system-generated email as a fallback.
-* Always require explicit user-provided input for the email address.
-* Once the email is captured, do not ask for confirmation or feedback (e.g., “Is this okay?” or “Should I proceed?” or " Is it okay to proceed?"). Such follow-up questions are strictly PROHIBITED.
+        <instructions>1. Identify the email address explicitly provided by the user. If not identified you MUST prompt user to "Enter **Employee** email address"
+2. Identify the badge action, including synonyms, from the user input.
+3. Identify the badge type, including synonyms, from the user input, It is OPTIONAL input, just in case if it is not found NEVER ask user to input.
 
-If any information like badge type, badge action or email is not directly provided, then proceed to **Guardian Badge Operations Tool**. Do Not stuck at asking user everything
+4. Strict Use of Standardized Terms 
+- If Badge action is Identified, it should be extracted and mapped to their **standardized forms** only.
+- If Badge type is Identified, it should be extracted and mapped to their **standardized forms** only.
+- If Badge type is NOT Identified, DO NOT ASK USER.
+- Non-standard or synonymous terms must not be passed through as-is.
+- The system must eliminate synonyms and retain **only the corresponding standard term** for further processing.
 
-Section 1: Input Processing
-1. Extract the badge action and badge type from the user request, including any synonymous terms.
-2. Identify the target user's email address from the request.
+5. Synonym Mapping and Normalization
+- All recognized synonyms must be **mapped** to the following **standard terms**:
 
-Section 2: Badge Action Execution
-3. Map the extracted badge action and badge type to their standardized forms.
-4. Use the Guardian Badge Operation Tool to perform the requested badge action for the identified user and badge type.
+#### Standard Badge Actions
+- **Assign** (synonyms: Add, Issue, New)
+- **Update** (synonyms: Modify, Edit, Change)
+- **Replace** (synonyms: Swap, Reissue)
+- **Activate** (synonyms: Enable, Turn On)
+- **Deactivate** (synonyms: Disable, Turn Off, Suspend)
+- **Remove** (synonyms: Delete, Revoke, Withdraw)
+- **Return** (synonyms: Surrender, Hand Back)
 
-Section 3: Response Handling
-5. Return the result of the badge operation to the user.
-6. If the request is missing required information, prompt the user to provide the missing details.
-7. Understand the outputs returned by Tool. Infer a message and then prompt user about this information. DON'T DIRECTLY DISPLAY TOOL OUPTUT.
+#### Standard Badge Types
+- **Temporary Badge** (synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)
+- **Mobile Credential** (synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)
+- **Permanent Badge** (synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
 
-NOTE: DO NOT REPEAT SAME MESSAGES FOR USER AND DO NOT ASK USER EVERYTIME FOR CONFIRMATION.</instructions>
+6. Call the 'Guardian Badge Operation Tool' with the required operation and user email address.
+7. Return the outcome from the 'Guardian Badge Operation Tool' to the user.</instructions>
         <state>published</state>
         <sys_class_name>sn_aia_version</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-09 09:20:23</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>5dc9723a3bfb62507999faac73e45afb</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>V1</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
@@ -36,7 +45,7 @@ NOTE: DO NOT REPEAT SAME MESSAGES FOR USER AND DO NOT ASK USER EVERYTIME FOR CON
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sn_aia_version_5dc9723a3bfb62507999faac73e45afb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-09 09:20:23</sys_updated_on>
+        <sys_updated_on>2025-09-10 16:34:58</sys_updated_on>
         <target_id>6718f6763bfb62507999faac73e45a21</target_id>
         <target_table>sn_aia_agent</target_table>
         <version_name>V1</version_name>
