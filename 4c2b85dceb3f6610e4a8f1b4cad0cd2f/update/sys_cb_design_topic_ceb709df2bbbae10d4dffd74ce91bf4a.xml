@@ -1,34 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
-    <sys_cb_topic action="INSERT_OR_UPDATE">
-        <applicability/>
-        <applicability_mode>query</applicability_mode>
-        <autopilot_topic>false</autopilot_topic>
-        <category/>
-        <channels/>
-        <connect_queue/>
-        <context_profiles/>
-        <description> This Topic allows user to perform badge-related actions for individuals using their email addresses.
-1. Recognize and process synonymous terms for badge types and actions.
-    ** Badge Actions with Synonyms **
-    -Assign (synonyms: Add, Issue, New)
-    -Update (synonyms: Modify, Edit, Change)
-    -Replace (synonyms: Swap, Reissue)
-    -Activate (synonyms: Enable, Turn On)
-    -Deactivate (synonyms: Disable, Turn Off, Suspend)
-    -Remove (synonyms: Delete, Revoke, Withdraw)
-    -Return (synonyms: Surrender, Hand Back)
-** Badge Types with Synonyms **
-     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)
-     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)
-     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
-
-2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.
-3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.
-3. Identify the target user for badge actions by their provided email address.</description>
-        <dialog_acts_enabled>false</dialog_acts_enabled>
-        <expose_on_palette>false</expose_on_palette>
-        <flexible_conversation_switching>false</flexible_conversation_switching>
-        <foundational>false</foundational>
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__204c2ccc60b3488885aa97938a62212b">06b7c1db2bbbae10d4dffd74ce91bf6c</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"84fc6ee399f7457285d241c1e096f8e1","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"84fc6ee399f7457285d241c1e096f8e1"}],"goals":[{"name":"primary","trigger_id":"84fc6ee399f7457285d241c1e096f8e1","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"60433aac602d41e48e785e05c3017a15","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"8946c83b78bd4fad9062da06a0641e1d","name":"End","expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Use a Informative message with all data Inputs you have identified and resolved like Badge Type  {{vaVars.badge_type}} , Badge action {{vaVars.badge_action}} &amp; User Email  {{vaVars.user_email}} in bullet format."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"dc5a52afc9c240e7b6c2556196f275c7","name":"Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"InputPrompt","variable_id":"38109bd7111849deb4dc281605081fad","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"8132ff1c06db49f1945f1e09cafbddf2","name":"topic_input_badge_type","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Identify the badge type, intelligently recognizes synonymous terms and infers user intent.\n\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)"},{"type":"InputPrompt","variable_id":"a20b234c47bb45eab13b0e04f666d4a1","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"6ab93d3ed0984386956f249f29894f65","name":"topic_input_badge_action","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Identify the target user for badge action, intelligently recognizes synonymous terms and infers user intent.\n** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)"},{"type":"InputPrompt","variable_id":"01e03ac060c94c0a9e5da7549686f871","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"4fedd561430645ef8d30f623e2b08c70","name":"topic_input_user_email","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"33513d135b1200101f254d3ba881c7d5","validationScript":"","description":"Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session."},{"type":"InputPrompt","variable_id":"5ee4f2419fe54932a6ea0a1e2754094a","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"f40c27a34c464f72bce6dcab8c74301a","name":"user_input_email","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"33513d135b1200101f254d3ba881c7d5","validationScript":"","description":"Ask for email address"},{"type":"InputPrompt","variable_id":"38f15c5808e94f8a94da206df5b22dbe","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"1fa60f44d61e46a98808c1591a136091","name":"user_input_badge_type","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Ask for Badge Type"},{"type":"InputPrompt","variable_id":"5b15a5ffd38240b0963523b25d506613","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"7cf49252aa6142dabd6bdae678069c9c","name":"user_input_badge_action","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"ask for Badge Action"},{"type":"ScriptedAction","script":"(function execute() {\n    if(null != vaInputs.topic_input_user_email &amp;&amp; \"\" != vaInputs.topic_input_user_email){\n        vaVars.user_email = vaInputs.topic_input_user_email;\n    }else{\n\t\tvaVars.user_email = \"\"; \n    }\n    \n    if(null != vaInputs.topic_input_badge_action &amp;&amp; \"\" != vaInputs.topic_input_badge_action){\n        vaVars.badge_action = vaInputs.topic_input_badge_action;\n    }else{\n\t    vaVars.badge_action = \"\";\n    }\n\n    if(null != vaInputs.topic_input_badge_type &amp;&amp; \"\" != vaInputs.topic_input_badge_type){\n        vaVars.badge_type = vaInputs.topic_input_badge_type;\n    }else{\n\t\tvaVars.badge_type = \"\"; \n    }\n})()\n","id":"670c1625b89d4ada833dc9d965f4b79b","name":"Identify the user Intent","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"dc5a52afc9c240e7b6c2556196f275c7","target_node_id":"8946c83b78bd4fad9062da06a0641e1d","id":"a7d2efc8d1fc4e73a57d26a36179e57b"},{"type":"Edge","source_node_id":"6ab93d3ed0984386956f249f29894f65","target_node_id":"8132ff1c06db49f1945f1e09cafbddf2","id":"6615d70dfb87479787ce0c6dc3a92434"},{"type":"Edge","source_node_id":"4fedd561430645ef8d30f623e2b08c70","target_node_id":"6ab93d3ed0984386956f249f29894f65","id":"2b13cee872884c49a44a842d1a57ea1e"},{"type":"Edge","source_node_id":"f40c27a34c464f72bce6dcab8c74301a","target_node_id":"4fedd561430645ef8d30f623e2b08c70","id":"5ef6a9cb98dd4d0299eb861f0d8e7640"},{"type":"Edge","source_node_id":"1fa60f44d61e46a98808c1591a136091","target_node_id":"f40c27a34c464f72bce6dcab8c74301a","id":"b07bd334b29b46e5a72d5debc189797a"},{"type":"Edge","source_node_id":"60433aac602d41e48e785e05c3017a15","target_node_id":"7cf49252aa6142dabd6bdae678069c9c","id":"3be0afda788349eeaeb0dfdc1188bbb1"},{"type":"Edge","source_node_id":"7cf49252aa6142dabd6bdae678069c9c","target_node_id":"1fa60f44d61e46a98808c1591a136091","id":"58b5d12cdc0f409bb139743e461857ea"},{"type":"Edge","source_node_id":"8132ff1c06db49f1945f1e09cafbddf2","target_node_id":"670c1625b89d4ada833dc9d965f4b79b","id":"75eb3ff14f8a4e27a900a065ff106bdd"},{"type":"Edge","source_node_id":"670c1625b89d4ada833dc9d965f4b79b","target_node_id":"dc5a52afc9c240e7b6c2556196f275c7","id":"47623421db4b4b9a95de16ec1550e65d"}],"id":"primary"}],"script_variables":[{"type":"String","name":"badge_action","value":{"type":"String","mode":"string"},"list":false,"id":"09a0bab780554442bb0734ed8cd70bcd","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_type","value":{"type":"String","mode":"string"},"list":false,"id":"cfbc45b8d042422381c96fd0dbaaa925","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_email","value":{"type":"String","mode":"string"},"list":false,"id":"e6618f792ab54dfa879ef89e1793c64f","formatType":"text","secure":false,"sensitive":false,"aiInput":false}],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"topic_input_badge_type","description":"Identify the badge type, intelligently recognizes synonymous terms and infers user intent.\n\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)","list":false,"id":"38109bd7111849deb4dc281605081fad","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"topic_input_badge_action","description":"Identify the target user for badge action, intelligently recognizes synonymous terms and infers user intent.\n** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)","list":false,"id":"a20b234c47bb45eab13b0e04f666d4a1","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"topic_input_user_email","description":"Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session.","list":false,"id":"01e03ac060c94c0a9e5da7549686f871","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_input_email","description":"Ask for email address","list":false,"id":"5ee4f2419fe54932a6ea0a1e2754094a","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_input_badge_type","description":"Ask for Badge Type","list":false,"id":"38f15c5808e94f8a94da206df5b22dbe","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_input_badge_action","description":"ask for Badge Action","list":false,"id":"5b15a5ffd38240b0963523b25d506613","formatType":"text","secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"5941c7f23b3f62507999faac73e45a9f","name":"_PRVW__204c2ccc60b3488885aa97938a62212b","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":" This Topic allows user to perform badge-related actions for individuals using their email addresses.\n1. Recognize and process synonymous terms for badge types and actions.\n    ** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)\n\n2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.\n3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.\n3. Identify the target user for badge actions by their provided email address.","model_type":"llm","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Guardian Badge Operations Topic","library":false,"csTopicId":"c53243723b3f62507999faac73e45a14","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>5941c7f23b3f62507999faac73e45a9f</design_topic_id>
         <graph>{
   "graph_api_version": "1.0.82",
   "goals": {
@@ -302,7 +276,7 @@
               "value": "Set by NLU"
             },
             "inputType": {
-              "format": "Text",
+              "format": "33513d135b1200101f254d3ba881c7d5",
               "script": ""
             },
             "detailDescription": "",
@@ -703,8 +677,7 @@
       "varType": "string",
       "category": "vaInputs",
       "nodeId": "8132ff1c06db49f1945f1e09cafbddf2",
-      "isHidden": true,
-      "description": "Identify the badge type, intelligently recognizes synonymous terms and infers user intent.\n\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)"
+      "isHidden": true
     },
     "a20b234c47bb45eab13b0e04f666d4a1": {
       "id": "a20b234c47bb45eab13b0e04f666d4a1",
@@ -713,8 +686,7 @@
       "varType": "string",
       "category": "vaInputs",
       "nodeId": "6ab93d3ed0984386956f249f29894f65",
-      "isHidden": true,
-      "description": "Identify the target user for badge action, intelligently recognizes synonymous terms and infers user intent.\n** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)"
+      "isHidden": true
     },
     "01e03ac060c94c0a9e5da7549686f871": {
       "id": "01e03ac060c94c0a9e5da7549686f871",
@@ -723,8 +695,7 @@
       "varType": "string",
       "category": "vaInputs",
       "nodeId": "4fedd561430645ef8d30f623e2b08c70",
-      "isHidden": true,
-      "description": "Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session."
+      "isHidden": true
     },
     "5ee4f2419fe54932a6ea0a1e2754094a": {
       "id": "5ee4f2419fe54932a6ea0a1e2754094a",
@@ -733,8 +704,7 @@
       "varType": "string",
       "category": "vaInputs",
       "nodeId": "f40c27a34c464f72bce6dcab8c74301a",
-      "isHidden": true,
-      "description": "Ask for email address"
+      "isHidden": true
     },
     "38f15c5808e94f8a94da206df5b22dbe": {
       "id": "38f15c5808e94f8a94da206df5b22dbe",
@@ -743,8 +713,7 @@
       "varType": "string",
       "category": "vaInputs",
       "nodeId": "1fa60f44d61e46a98808c1591a136091",
-      "isHidden": true,
-      "description": "Ask for Badge Type"
+      "isHidden": true
     },
     "5b15a5ffd38240b0963523b25d506613": {
       "id": "5b15a5ffd38240b0963523b25d506613",
@@ -753,8 +722,7 @@
       "varType": "string",
       "category": "vaInputs",
       "nodeId": "7cf49252aa6142dabd6bdae678069c9c",
-      "isHidden": true,
-      "description": "ask for Badge Action"
+      "isHidden": true
     },
     "09a0bab780554442bb0734ed8cd70bcd": {
       "id": "09a0bab780554442bb0734ed8cd70bcd",
@@ -791,38 +759,20 @@
     }
   }
 }</graph>
-        <key_phrases/>
-        <library>false</library>
-        <live_agent>false</live_agent>
-        <model_type>llm</model_type>
-        <modify_confirmation_enabled>false</modify_confirmation_enabled>
-        <name>Guardian Badge Operations Topic</name>
-        <nlu_intent/>
-        <nlu_intent_label/>
-        <nlu_model/>
-        <nlu_model_label/>
-        <nlu_provider/>
-        <palette_label/>
-        <roles/>
-        <root_topic_id/>
-        <secure_custom_input_control>false</secure_custom_input_control>
-        <source_topic_id/>
-        <sys_class_name>sys_cb_topic</sys_class_name>
+        <name>_PRVW__204c2ccc60b3488885aa97938a62212b</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-09 09:53:08</sys_created_on>
+        <sys_created_on>2025-09-10 14:19:02</sys_created_on>
         <sys_domain>global</sys_domain>
-        <sys_id>5941c7f23b3f62507999faac73e45a9f</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>Guardian Badge Operations Topic</sys_name>
+        <sys_id>ceb709df2bbbae10d4dffd74ce91bf4a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
-        <sys_update_name>sys_cb_topic_5941c7f23b3f62507999faac73e45a9f</sys_update_name>
+        <sys_update_name>sys_cb_design_topic_ceb709df2bbbae10d4dffd74ce91bf4a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-10 14:25:00</sys_updated_on>
-        <title>Guardian Badge Operations Topic</title>
-        <triggerable_by_notification>false</triggerable_by_notification>
-        <type>STANDARD</type>
-    </sys_cb_topic>
-    <sys_translated_text action="delete_multiple" query="documentkey=5941c7f23b3f62507999faac73e45a9f"/>
+        <sys_updated_on>2025-09-10 14:19:02</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
 </record_update>
