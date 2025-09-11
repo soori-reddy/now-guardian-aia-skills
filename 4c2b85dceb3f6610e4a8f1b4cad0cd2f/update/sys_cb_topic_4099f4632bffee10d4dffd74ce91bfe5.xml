@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>This Topic Block handles the replacement of an existing badge for a user. It is typically used when a badge is lost, damaged, expired, or needs to be upgraded (e.g., from a temporary to a permanent badge).
+Inputs:
+User ID: The unique identifier of the user whose badge is being replaced.
+Badge Type: Type of the badge to be replaced
+Output:
+Response String: A confirmation message or status string indicating the outcome of the badge replacement process.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "d93fd5536a214959ad54393aacc51dc9": {
+          "id": "d93fd5536a214959ad54393aacc51dc9",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "b1513b274e2144f7a069773f647d812f": {
+          "id": "b1513b274e2144f7a069773f647d812f",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "caf58e4313164b7ca17c9978a4f3c450": {
+          "id": "caf58e4313164b7ca17c9978a4f3c450",
+          "stepType": "AITextOutput",
+          "name": "Replace Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "\"Great news! 🎉 The badge replacement has been successfully processed. Your new badge is all set and ready to go!\""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "cc07ab6b1632479294a1571e89ba4006",
+          "edgeType": "Edge",
+          "source": "d93fd5536a214959ad54393aacc51dc9",
+          "target": "caf58e4313164b7ca17c9978a4f3c450",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "88744015b8744f00878be7dcc4b74efe",
+          "edgeType": "Edge",
+          "source": "caf58e4313164b7ca17c9978a4f3c450",
+          "target": "b1513b274e2144f7a069773f647d812f",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Guardian Badge Replacement Topic Block</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 07:55:40</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>4099f4632bffee10d4dffd74ce91bfe5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Guardian Badge Replacement Topic Block</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cb_topic_4099f4632bffee10d4dffd74ce91bfe5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 10:21:52</sys_updated_on>
+        <title>Guardian Badge Replacement Topic Block</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>TOPIC_BLOCK</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=4099f4632bffee10d4dffd74ce91bfe5"/>
+</record_update>

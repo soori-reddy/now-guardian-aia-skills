@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>This topic block is designed to identify whether a user exists within the system. If the user is found, it returns the relevant user details, including their unique identifier.
+
+We use this block to provide flexibility in handling user data—whether through direct record lookup, invoking a skill, or triggering a sub flow for real-time integrations when needed.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "873db8fa26ad4d9a8ecc32d3c3e226f6": {
+          "id": "873db8fa26ad4d9a8ecc32d3c3e226f6",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Please wait while we retrieve user details..."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "parameters": [
+            {
+              "type": "String",
+              "value": "",
+              "id": "609743e663684bc486f96826fa75c6a7",
+              "name": "user_email",
+              "required": true,
+              "hint": "User Email",
+              "referenced": true,
+              "disabled": true
+            }
+          ],
+          "variableIds": [
+            "609743e663684bc486f96826fa75c6a7"
+          ]
+        },
+        "b8f27cef568f48cf8f1ea8206adfc78d": {
+          "id": "b8f27cef568f48cf8f1ea8206adfc78d",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          },
+          "outputVariables": [
+            {
+              "key": "Guardian_Identity_GR",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.guardian_user_sys_id}}",
+                        "displayValue": "Script Variables➛guardian_user_sys_id"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": true,
+              "cannotBeDeleted": false
+            }
+          ]
+        },
+        "295a3d83b55f49c6a9e0cff8334a237b": {
+          "id": "295a3d83b55f49c6a9e0cff8334a237b",
+          "stepType": "LookupRecord",
+          "name": "Guardian User Lookup",
+          "condition": {
+            "mode": "glide_query",
+            "value": "email={{vaInputs.user_email}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "3547733d6a084c81af9e10966cba5e62"
+        },
+        "2e402398dd8a47a1a66e6150f818d781": {
+          "id": "2e402398dd8a47a1a66e6150f818d781",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "08e41d2620a54f988fd76a30fe20b19f": {
+          "id": "08e41d2620a54f988fd76a30fe20b19f",
+          "name": "Set User ID ",
+          "script": "(function execute() {\n    vaVars.guardian_user_sys_id = null;\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "24c2690977484a7c8126c351205abd11": {
+          "id": "24c2690977484a7c8126c351205abd11",
+          "name": "Set User Sys ID",
+          "script": "(function execute() {\n    vaVars.guardian_user_sys_id =  vaInputs.guardian_user_lookup.getDisplayValue();\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "bf31667ff75e46e793bfbfff857e0d9a",
+          "edgeType": "Edge",
+          "source": "873db8fa26ad4d9a8ecc32d3c3e226f6",
+          "target": "295a3d83b55f49c6a9e0cff8334a237b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "cea5b41ce7854d83bc45478d06d00399",
+          "edgeType": "Edge",
+          "source": "295a3d83b55f49c6a9e0cff8334a237b",
+          "target": "2e402398dd8a47a1a66e6150f818d781",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8bc8601ccd4345ceaa11ec75ede61ba1",
+          "edgeType": "Branch",
+          "source": "2e402398dd8a47a1a66e6150f818d781",
+          "target": "08e41d2620a54f988fd76a30fe20b19f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.guardian_user_lookupISEMPTY",
+            "mode": "query"
+          },
+          "label": "User Not Found"
+        },
+        {
+          "id": "91af88ea7e75476da28b761dbffa5201",
+          "edgeType": "Edge",
+          "source": "08e41d2620a54f988fd76a30fe20b19f",
+          "target": "b8f27cef568f48cf8f1ea8206adfc78d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "750b4a2a67b74352a2cbfff7e6ada612",
+          "edgeType": "Branch",
+          "source": "2e402398dd8a47a1a66e6150f818d781",
+          "target": "24c2690977484a7c8126c351205abd11",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.guardian_user_lookupISNOTEMPTY",
+            "mode": "query"
+          },
+          "label": "User Found"
+        },
+        {
+          "id": "5f75131f3b504d3b9cb3b3115d6f36ea",
+          "edgeType": "Edge",
+          "source": "24c2690977484a7c8126c351205abd11",
+          "target": "b8f27cef568f48cf8f1ea8206adfc78d",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "609743e663684bc486f96826fa75c6a7": {
+      "id": "609743e663684bc486f96826fa75c6a7",
+      "name": "user_email",
+      "label": "User_email",
+      "defaultValue": "",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "873db8fa26ad4d9a8ecc32d3c3e226f6",
+      "isHidden": false
+    },
+    "3547733d6a084c81af9e10966cba5e62": {
+      "id": "3547733d6a084c81af9e10966cba5e62",
+      "name": "guardian_user_lookup",
+      "label": "Guardian User Lookup",
+      "varType": "reference",
+      "table": "x_aleen_snguardian_identity",
+      "category": "vaInputs",
+      "nodeId": "295a3d83b55f49c6a9e0cff8334a237b",
+      "isHidden": false
+    },
+    "702fa11fe9da4c9e9541dc7d9a39f67a": {
+      "id": "702fa11fe9da4c9e9541dc7d9a39f67a",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "guardian_user_sys_id",
+      "label": "guardian_user_sys_id",
+      "varType": "script",
+      "category": "vaVars"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Guardian User Information Retriever</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 06:04:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>2900e4a72b3fee10d4dffd74ce91bfe8</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Guardian User Information Retriever</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cb_topic_2900e4a72b3fee10d4dffd74ce91bfe8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 07:34:30</sys_updated_on>
+        <title>Guardian User Information Retriever</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>TOPIC_BLOCK</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=2900e4a72b3fee10d4dffd74ce91bfe8"/>
+</record_update>

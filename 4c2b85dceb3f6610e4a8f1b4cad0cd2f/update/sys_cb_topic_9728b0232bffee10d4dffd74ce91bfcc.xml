@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>This Topic Block is responsible for assigning badges to users within the system. It supports multiple badge types, including: Temporary Badge, Permanent Badge, Mobile Credential
+Inputs:
+User ID: The unique identifier of the user receiving the badge.
+Badge Type: Type of the badge to be assigned.
+Output:
+Response String: A structured string confirming the result of the badge assignment operation.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "f16955ef9e724edb9417999db2bd353b": {
+          "id": "f16955ef9e724edb9417999db2bd353b",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "a2ee8aecd3184254b755fb5bc409adf4": {
+          "id": "a2ee8aecd3184254b755fb5bc409adf4",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "1075fc19c99447d3b0e46f6f472f3551": {
+          "id": "1075fc19c99447d3b0e46f6f472f3551",
+          "stepType": "AITextOutput",
+          "name": "Assign Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Success! 🎉 A new badge has been assigned successfully. You're all set to use your badge!"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "cae390e092c44358a1ca2176aa50760d",
+          "edgeType": "Edge",
+          "source": "f16955ef9e724edb9417999db2bd353b",
+          "target": "1075fc19c99447d3b0e46f6f472f3551",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3d9ae4c2e5d74bd1b134e41e35c0aad7",
+          "edgeType": "Edge",
+          "source": "1075fc19c99447d3b0e46f6f472f3551",
+          "target": "a2ee8aecd3184254b755fb5bc409adf4",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Guardian Badge Assignment Topic Block</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 07:49:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>9728b0232bffee10d4dffd74ce91bfcc</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Guardian Badge Assignment Topic Block</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cb_topic_9728b0232bffee10d4dffd74ce91bfcc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 10:22:46</sys_updated_on>
+        <title>Guardian Badge Assignment Topic Block</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>TOPIC_BLOCK</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=9728b0232bffee10d4dffd74ce91bfcc"/>
+</record_update>

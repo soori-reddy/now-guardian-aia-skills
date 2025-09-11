@@ -1,34 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
-    <sys_cb_topic action="INSERT_OR_UPDATE">
-        <applicability/>
-        <applicability_mode>query</applicability_mode>
-        <autopilot_topic>false</autopilot_topic>
-        <category/>
-        <channels/>
-        <connect_queue/>
-        <context_profiles/>
-        <description> This Topic allows user to perform badge-related actions for individuals using their email addresses.
-1. Recognize and process synonymous terms for badge types and actions.
-    ** Badge Actions with Synonyms **
-    -Assign (synonyms: Add, Issue, New)
-    -Update (synonyms: Modify, Edit, Change)
-    -Replace (synonyms: Swap, Reissue)
-    -Activate (synonyms: Enable, Turn On)
-    -Deactivate (synonyms: Disable, Turn Off, Suspend)
-    -Remove (synonyms: Delete, Revoke, Withdraw)
-    -Return (synonyms: Surrender, Hand Back)
-** Badge Types with Synonyms **
-     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)
-     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)
-     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
-
-2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.
-3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.
-3. Identify the target user for badge actions by their provided email address.</description>
-        <dialog_acts_enabled>false</dialog_acts_enabled>
-        <expose_on_palette>false</expose_on_palette>
-        <flexible_conversation_switching>false</flexible_conversation_switching>
-        <foundational>false</foundational>
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__8269c531e7e5469b81b4a4cbf3537029">5505fceb2bbfee10d4dffd74ce91bf2d</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"1f8c48fa4cd04e64a30e6fe17a44c741","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"1f8c48fa4cd04e64a30e6fe17a44c741"}],"goals":[{"name":"primary","trigger_id":"1f8c48fa4cd04e64a30e6fe17a44c741","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"60433aac602d41e48e785e05c3017a15","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"8946c83b78bd4fad9062da06a0641e1d","name":"End","expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Use a Informative message with all data Inputs you have identified and resolved like Badge Type  {{vaVars.badge_type}} , Badge action {{vaVars.badge_action}} &amp; User Email  {{vaVars.user_email}} in bullet format."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"dc5a52afc9c240e7b6c2556196f275c7","name":"Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"InputPrompt","variable_id":"38109bd7111849deb4dc281605081fad","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"8132ff1c06db49f1945f1e09cafbddf2","name":"topic_input_badge_type","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Identify the badge type, intelligently recognizes synonymous terms and infers user intent.\n\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)"},{"type":"InputPrompt","variable_id":"a20b234c47bb45eab13b0e04f666d4a1","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"6ab93d3ed0984386956f249f29894f65","name":"topic_input_badge_action","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Identify the target user for badge action, intelligently recognizes synonymous terms and infers user intent.\n** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)"},{"type":"InputPrompt","variable_id":"01e03ac060c94c0a9e5da7549686f871","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"4fedd561430645ef8d30f623e2b08c70","name":"topic_input_user_email","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session."},{"type":"InputPrompt","variable_id":"5ee4f2419fe54932a6ea0a1e2754094a","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"f40c27a34c464f72bce6dcab8c74301a","name":"user_input_email","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"33513d135b1200101f254d3ba881c7d5","validationScript":"","description":"Ask for email address"},{"type":"InputPrompt","variable_id":"38f15c5808e94f8a94da206df5b22dbe","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"1fa60f44d61e46a98808c1591a136091","name":"user_input_badge_type","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"Ask for Badge Type"},{"type":"InputPrompt","variable_id":"5b15a5ffd38240b0963523b25d506613","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"7cf49252aa6142dabd6bdae678069c9c","name":"user_input_badge_action","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":"ask for Badge Action"},{"type":"ScriptedAction","script":"(function execute() {\n    if(null != vaInputs.topic_input_user_email &amp;&amp; \"\" != vaInputs.topic_input_user_email){\n        vaVars.user_email = vaInputs.topic_input_user_email;\n    }else{\n\t\tvaVars.user_email = \"jacob.many@gmail.com\"; \n    }\n    \n    if(null != vaInputs.topic_input_badge_action &amp;&amp; \"\" != vaInputs.topic_input_badge_action){\n        vaVars.badge_action = vaInputs.topic_input_badge_action;\n    }else{\n\t    vaVars.badge_action = \"\";\n    }\n\n    if(null != vaInputs.topic_input_badge_type &amp;&amp; \"\" != vaInputs.topic_input_badge_type){\n        vaVars.badge_type = vaInputs.topic_input_badge_type;\n    }else{\n\t\tvaVars.badge_type = \"\"; \n    }\n})()\n","id":"670c1625b89d4ada833dc9d965f4b79b","name":"Identify the user Intent","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LibraryCall","library_topic_name":"Guardian User Information Retriever","library_topic_id":"64f7a8e72b7fee10d4dffd74ce91bf83","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"user_email","value":{"type":"String","mode":"string","value":"{{vaVars.user_email}}"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"guardian_identity_gr","main_topic_mapped_variable_name":"guardian_identity_gr"}],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","output_parameter_variable":"","id":"2e3f565bd01946a89e6bcef744587181","name":"Verify User Email","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"input_parameters_script":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"If User Not Found","expression":{"type":"Applicability","mode":"query","value":"guardian_identity_grISEMPTY"},"id":"163d066f1b8e409ba86b2e70cdb31f4f","name":"If User Not Found","expert_mode":false},{"type":"Branch","label":"Always","expression":{"type":"Applicability","mode":"query","value":"guardian_identity_grISNOTEMPTY"},"id":"c1a3f48fee2f46d1ac0cb3f1413f73ec","name":"Always","expert_mode":false}],"id":"f9bd4564e35944df9e9d2a900e5f9c07","goal_id":"primary","expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"\"We were unable to locate user details associated with the email address provided. Kindly verify the email address and submit a valid entry to proceed. If you wish to exit this process, please type 'exit'.\"\n\nMaintain a courteous and respectful tone at all times. Do not attempt to infer or suggest alternative emails. Wait for valid input or an explicit command to exit before proceeding."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"af2ac14ca69b48d49927ea137e57bd08","name":"Return Response ","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"\"Employee details have been successfully located for the provided email address. Proceeding with the next steps.\"\n\nMaintain a respectful and efficient tone."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"28cfe95a727c452fa8cd1a0a427a717c","name":"Display  User Information","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"60433aac602d41e48e785e05c3017a15","target_node_id":"7cf49252aa6142dabd6bdae678069c9c","id":"3be0afda788349eeaeb0dfdc1188bbb1"},{"type":"Edge","source_node_id":"6ab93d3ed0984386956f249f29894f65","target_node_id":"8132ff1c06db49f1945f1e09cafbddf2","id":"6615d70dfb87479787ce0c6dc3a92434"},{"type":"Edge","source_node_id":"4fedd561430645ef8d30f623e2b08c70","target_node_id":"6ab93d3ed0984386956f249f29894f65","id":"2b13cee872884c49a44a842d1a57ea1e"},{"type":"Edge","source_node_id":"f40c27a34c464f72bce6dcab8c74301a","target_node_id":"4fedd561430645ef8d30f623e2b08c70","id":"5ef6a9cb98dd4d0299eb861f0d8e7640"},{"type":"Edge","source_node_id":"1fa60f44d61e46a98808c1591a136091","target_node_id":"f40c27a34c464f72bce6dcab8c74301a","id":"b07bd334b29b46e5a72d5debc189797a"},{"type":"Edge","source_node_id":"7cf49252aa6142dabd6bdae678069c9c","target_node_id":"1fa60f44d61e46a98808c1591a136091","id":"58b5d12cdc0f409bb139743e461857ea"},{"type":"Edge","source_node_id":"8132ff1c06db49f1945f1e09cafbddf2","target_node_id":"670c1625b89d4ada833dc9d965f4b79b","id":"75eb3ff14f8a4e27a900a065ff106bdd"},{"type":"Edge","source_node_id":"670c1625b89d4ada833dc9d965f4b79b","target_node_id":"dc5a52afc9c240e7b6c2556196f275c7","id":"47623421db4b4b9a95de16ec1550e65d"},{"type":"Edge","source_node_id":"dc5a52afc9c240e7b6c2556196f275c7","target_node_id":"2e3f565bd01946a89e6bcef744587181","id":"a7d2efc8d1fc4e73a57d26a36179e57b"},{"type":"Edge","source_node_id":"2e3f565bd01946a89e6bcef744587181","target_node_id":"f9bd4564e35944df9e9d2a900e5f9c07","id":"c22d4389d71c404bbe8bf6d7fa38098b"},{"type":"Edge","source_node_id":"f9bd4564e35944df9e9d2a900e5f9c07","target_node_id":"af2ac14ca69b48d49927ea137e57bd08","branch_id":"163d066f1b8e409ba86b2e70cdb31f4f","id":"b9581dea8dbd4fdc90bfc9a0d027207f","name":"163d066f1b8e409ba86b2e70cdb31f4f"},{"type":"Edge","source_node_id":"af2ac14ca69b48d49927ea137e57bd08","target_node_id":"8946c83b78bd4fad9062da06a0641e1d","id":"281689cd60834e2795c6a2d6d84b3bea"},{"type":"Edge","source_node_id":"f9bd4564e35944df9e9d2a900e5f9c07","target_node_id":"28cfe95a727c452fa8cd1a0a427a717c","branch_id":"c1a3f48fee2f46d1ac0cb3f1413f73ec","id":"47669e078fab46e1abe8d15eeee298bd","name":"c1a3f48fee2f46d1ac0cb3f1413f73ec"},{"type":"Edge","source_node_id":"28cfe95a727c452fa8cd1a0a427a717c","target_node_id":"8946c83b78bd4fad9062da06a0641e1d","id":"5db3073249814daea19b2f02d19c9d0d"}],"id":"primary"}],"script_variables":[{"type":"String","name":"badge_action","value":{"type":"String","mode":"string"},"list":false,"id":"09a0bab780554442bb0734ed8cd70bcd","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_type","value":{"type":"String","mode":"string"},"list":false,"id":"cfbc45b8d042422381c96fd0dbaaa925","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_email","value":{"type":"String","mode":"string"},"list":false,"id":"e6618f792ab54dfa879ef89e1793c64f","formatType":"text","secure":false,"sensitive":false,"aiInput":false}],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"topic_input_badge_type","description":"Identify the badge type, intelligently recognizes synonymous terms and infers user intent.\n\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)","list":false,"id":"38109bd7111849deb4dc281605081fad","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"topic_input_badge_action","description":"Identify the target user for badge action, intelligently recognizes synonymous terms and infers user intent.\n** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)","list":false,"id":"a20b234c47bb45eab13b0e04f666d4a1","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"topic_input_user_email","description":"Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session.","list":false,"id":"01e03ac060c94c0a9e5da7549686f871","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_input_email","description":"Ask for email address","list":false,"id":"5ee4f2419fe54932a6ea0a1e2754094a","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_input_badge_type","description":"Ask for Badge Type","list":false,"id":"38f15c5808e94f8a94da206df5b22dbe","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_input_badge_action","description":"ask for Badge Action","list":false,"id":"5b15a5ffd38240b0963523b25d506613","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"guardian_identity_gr","list":false,"id":"57b4a9e9ee7a4d708faa91cc1bf61dc3","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"5941c7f23b3f62507999faac73e45a9f","name":"_PRVW__8269c531e7e5469b81b4a4cbf3537029","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":" This Topic allows user to perform badge-related actions for individuals using their email addresses.\n1. Recognize and process synonymous terms for badge types and actions.\n    ** Badge Actions with Synonyms **\n    -Assign (synonyms: Add, Issue, New)\n    -Update (synonyms: Modify, Edit, Change)\n    -Replace (synonyms: Swap, Reissue)\n    -Activate (synonyms: Enable, Turn On)\n    -Deactivate (synonyms: Disable, Turn Off, Suspend)\n    -Remove (synonyms: Delete, Revoke, Withdraw)\n    -Return (synonyms: Surrender, Hand Back)\n** Badge Types with Synonyms **\n     -Temporary Badge(synonyms: Visitor Badge, Guest Badge, Contractor Badge, Short-Term Badge, Day Pass)\n     -Mobile Credential(synonyms: Digital Badge, Virtual Badge, Mobile Pass, Phone Credential, NFC Badge, App Credential)\n     -Permanent Badge(synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)\n\n2. Assign, update, replace, activate, deactivate, remove or return badges are Badge Actions.\n3. Temporary Badge, Permanent Badge and Mobile Credential are Badge Types.\n3. Identify the target user for badge actions by their provided email address.","model_type":"llm","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Guardian Badge Operations Topic","library":false,"csTopicId":"c53243723b3f62507999faac73e45a14","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>5941c7f23b3f62507999faac73e45a9f</design_topic_id>
         <graph>{
   "graph_api_version": "1.0.82",
   "goals": {
@@ -57,6 +31,73 @@
           "confirmationMessage": {
             "mode": "simple",
             "value": ""
+          }
+        },
+        "dc5a52afc9c240e7b6c2556196f275c7": {
+          "id": "dc5a52afc9c240e7b6c2556196f275c7",
+          "stepType": "AITextOutput",
+          "name": "Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Use a Informative message with all data Inputs you have identified and resolved like Badge Type  "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaVars.badge_type}}",
+                      "displayValue": "Script Variables➛badge_type"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": " , Badge action "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaVars.badge_action}}",
+                      "displayValue": "Script Variables➛badge_action"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": " &amp; User Email  "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaVars.user_email}}",
+                      "displayValue": "Script Variables➛user_email"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": " in bullet format. "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
           }
         },
         "8132ff1c06db49f1945f1e09cafbddf2": {
@@ -536,7 +577,7 @@
         "670c1625b89d4ada833dc9d965f4b79b": {
           "id": "670c1625b89d4ada833dc9d965f4b79b",
           "name": "Identify the user Intent",
-          "script": "(function execute() {\n    if(null != vaInputs.topic_input_user_email &amp;&amp; \"\" != vaInputs.topic_input_user_email){\n        vaVars.user_email = vaInputs.topic_input_user_email;\n    }else{\n\t\tvaVars.user_email = \"jacob.many@gmadddddil.com\"; \n    }\n    \n    if(null != vaInputs.topic_input_badge_action &amp;&amp; \"\" != vaInputs.topic_input_badge_action){\n        vaVars.badge_action = vaInputs.topic_input_badge_action;\n    }else{\n\t    vaVars.badge_action = \"\";\n    }\n\n    if(null != vaInputs.topic_input_badge_type &amp;&amp; \"\" != vaInputs.topic_input_badge_type){\n        vaVars.badge_type = vaInputs.topic_input_badge_type;\n    }else{\n\t\tvaVars.badge_type = \"\"; \n    }\n})()\n",
+          "script": "(function execute() {\n    if(null != vaInputs.topic_input_user_email &amp;&amp; \"\" != vaInputs.topic_input_user_email){\n        vaVars.user_email = vaInputs.topic_input_user_email;\n    }else{\n\t\tvaVars.user_email = \"jacob.many@gmail.com\"; \n    }\n    \n    if(null != vaInputs.topic_input_badge_action &amp;&amp; \"\" != vaInputs.topic_input_badge_action){\n        vaVars.badge_action = vaInputs.topic_input_badge_action;\n    }else{\n\t    vaVars.badge_action = \"\";\n    }\n\n    if(null != vaInputs.topic_input_badge_type &amp;&amp; \"\" != vaInputs.topic_input_badge_type){\n        vaVars.badge_type = vaInputs.topic_input_badge_type;\n    }else{\n\t\tvaVars.badge_type = \"\"; \n    }\n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -606,7 +647,7 @@
         "f9bd4564e35944df9e9d2a900e5f9c07": {
           "id": "f9bd4564e35944df9e9d2a900e5f9c07",
           "stepType": "Decision",
-          "name": "User"
+          "name": "Decision"
         },
         "af2ac14ca69b48d49927ea137e57bd08": {
           "id": "af2ac14ca69b48d49927ea137e57bd08",
@@ -646,100 +687,46 @@
             "mode": "query"
           }
         },
-        "b3b93d969f054cf999b943abf60399b8": {
-          "id": "b3b93d969f054cf999b943abf60399b8",
-          "stepType": "Decision",
-          "name": "Badge Action"
-        },
-        "00597b82bc424b0689d6274b57ee3464": {
-          "id": "00597b82bc424b0689d6274b57ee3464",
-          "stepType": "ReusableTopic",
-          "name": "Assign Badge",
-          "fields": [],
+        "28cfe95a727c452fa8cd1a0a427a717c": {
+          "id": "28cfe95a727c452fa8cd1a0a427a717c",
+          "stepType": "AITextOutput",
+          "name": "Display  User Information",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "\"Employee details have been successfully located for the provided email address. Proceeding with the next steps.\""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Maintain a respectful and efficient tone."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
           "applicability": {
             "value": "",
             "mode": "query"
-          },
-          "useTemplateTopic": false,
-          "reusableTopicChoice": "Guardian Badge Assignment Topic Block",
-          "reusableTopicId": "63bc7ca72bffee10d4dffd74ce91bf34",
-          "inputs": {},
-          "outputs": [],
-          "variableIds": [],
-          "dynamicTopicBlockName": {
-            "value": "",
-            "mode": "simple"
-          },
-          "inputDynamicModal": {},
-          "outputDynamicModal": {}
-        },
-        "98dfe32c26a24eaebba6b979782b6472": {
-          "id": "98dfe32c26a24eaebba6b979782b6472",
-          "stepType": "ReusableTopic",
-          "name": "Replace Badge",
-          "fields": [],
-          "applicability": {
-            "value": "",
-            "mode": "query"
-          },
-          "useTemplateTopic": false,
-          "reusableTopicChoice": "Guardian Badge Replacement Topic Block",
-          "reusableTopicId": "c7dcfca72bffee10d4dffd74ce91bf9b",
-          "inputs": {},
-          "outputs": [],
-          "variableIds": [],
-          "dynamicTopicBlockName": {
-            "value": "",
-            "mode": "simple"
-          },
-          "inputDynamicModal": {},
-          "outputDynamicModal": {}
-        },
-        "aaedf2c53c10421f8778dd94790afaec": {
-          "id": "aaedf2c53c10421f8778dd94790afaec",
-          "stepType": "ReusableTopic",
-          "name": "Update,Activate,Returns",
-          "fields": [],
-          "applicability": {
-            "value": "",
-            "mode": "query"
-          },
-          "useTemplateTopic": false,
-          "reusableTopicChoice": "Guardian Badge Update Action Topic Block",
-          "reusableTopicId": "02ac78a72bffee10d4dffd74ce91bff2",
-          "inputs": {},
-          "outputs": [],
-          "variableIds": [],
-          "dynamicTopicBlockName": {
-            "value": "",
-            "mode": "simple"
-          },
-          "inputDynamicModal": {},
-          "outputDynamicModal": {}
+          }
         }
       },
       "edges": [
-        {
-          "id": "47669e078fab46e1abe8d15eeee298bd",
-          "edgeType": "Branch",
-          "source": "f9bd4564e35944df9e9d2a900e5f9c07",
-          "target": "b3b93d969f054cf999b943abf60399b8",
-          "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "value": "vaInputs.guardian_identity_grISNOTEMPTY",
-            "mode": "query"
-          },
-          "label": "User Found"
-        },
-        {
-          "id": "47623421db4b4b9a95de16ec1550e65d",
-          "edgeType": "Edge",
-          "source": "670c1625b89d4ada833dc9d965f4b79b",
-          "target": "2e3f565bd01946a89e6bcef744587181",
-          "sourcePort": "",
-          "targetPort": ""
-        },
         {
           "id": "3be0afda788349eeaeb0dfdc1188bbb1",
           "edgeType": "Edge",
@@ -797,6 +784,22 @@
           "targetPort": ""
         },
         {
+          "id": "47623421db4b4b9a95de16ec1550e65d",
+          "edgeType": "Edge",
+          "source": "670c1625b89d4ada833dc9d965f4b79b",
+          "target": "dc5a52afc9c240e7b6c2556196f275c7",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a7d2efc8d1fc4e73a57d26a36179e57b",
+          "edgeType": "Edge",
+          "source": "dc5a52afc9c240e7b6c2556196f275c7",
+          "target": "2e3f565bd01946a89e6bcef744587181",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
           "id": "c22d4389d71c404bbe8bf6d7fa38098b",
           "edgeType": "Edge",
           "source": "2e3f565bd01946a89e6bcef744587181",
@@ -826,64 +829,22 @@
           "targetPort": ""
         },
         {
-          "id": "428dc31055344f65bf2c9927931ac223",
+          "id": "47669e078fab46e1abe8d15eeee298bd",
           "edgeType": "Branch",
-          "source": "b3b93d969f054cf999b943abf60399b8",
-          "target": "00597b82bc424b0689d6274b57ee3464",
+          "source": "f9bd4564e35944df9e9d2a900e5f9c07",
+          "target": "28cfe95a727c452fa8cd1a0a427a717c",
           "sourcePort": "",
           "targetPort": "",
           "expression": {
-            "value": "vaInputs.topic_input_badge_actionCONTAINSassign",
+            "value": "vaInputs.guardian_identity_grISNOTEMPTY",
             "mode": "query"
           },
-          "label": "Assign"
+          "label": "Always"
         },
         {
-          "id": "c32c1d77778a4565a6bd00cb50d98bc7",
+          "id": "5db3073249814daea19b2f02d19c9d0d",
           "edgeType": "Edge",
-          "source": "00597b82bc424b0689d6274b57ee3464",
-          "target": "8946c83b78bd4fad9062da06a0641e1d",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "f946b9433beb4a21bee41bbf718ab7cf",
-          "edgeType": "Branch",
-          "source": "b3b93d969f054cf999b943abf60399b8",
-          "target": "98dfe32c26a24eaebba6b979782b6472",
-          "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "value": "vaInputs.topic_input_badge_actionCONTAINSreplace",
-            "mode": "query"
-          },
-          "label": "Replace"
-        },
-        {
-          "id": "ab5564a97869460298ba39ec7b33d2f7",
-          "edgeType": "Edge",
-          "source": "98dfe32c26a24eaebba6b979782b6472",
-          "target": "8946c83b78bd4fad9062da06a0641e1d",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "4aa1b958573e494a8b0c0bb116170270",
-          "edgeType": "Branch",
-          "source": "b3b93d969f054cf999b943abf60399b8",
-          "target": "aaedf2c53c10421f8778dd94790afaec",
-          "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "value": "vaInputs.topic_input_badge_actionDOES NOT CONTAINassign^vaInputs.topic_input_badge_actionDOES NOT CONTAINreplace",
-            "mode": "query"
-          },
-          "label": "Direct Update"
-        },
-        {
-          "id": "d77fcda0693449bf9474b2e851395ac7",
-          "edgeType": "Edge",
-          "source": "aaedf2c53c10421f8778dd94790afaec",
+          "source": "28cfe95a727c452fa8cd1a0a427a717c",
           "target": "8946c83b78bd4fad9062da06a0641e1d",
           "sourcePort": "",
           "targetPort": ""
@@ -1008,38 +969,20 @@
     }
   }
 }</graph>
-        <key_phrases/>
-        <library>false</library>
-        <live_agent>false</live_agent>
-        <model_type>llm</model_type>
-        <modify_confirmation_enabled>false</modify_confirmation_enabled>
-        <name>Guardian Badge Operations Topic</name>
-        <nlu_intent/>
-        <nlu_intent_label/>
-        <nlu_model/>
-        <nlu_model_label/>
-        <nlu_provider/>
-        <palette_label/>
-        <roles/>
-        <root_topic_id/>
-        <secure_custom_input_control>false</secure_custom_input_control>
-        <source_topic_id/>
-        <sys_class_name>sys_cb_topic</sys_class_name>
+        <name>_PRVW__8269c531e7e5469b81b4a4cbf3537029</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-09 09:53:08</sys_created_on>
+        <sys_created_on>2025-09-11 07:35:49</sys_created_on>
         <sys_domain>global</sys_domain>
-        <sys_id>5941c7f23b3f62507999faac73e45a9f</sys_id>
-        <sys_mod_count>21</sys_mod_count>
-        <sys_name>Guardian Badge Operations Topic</sys_name>
+        <sys_id>5505fceb2bbfee10d4dffd74ce91bf30</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
-        <sys_update_name>sys_cb_topic_5941c7f23b3f62507999faac73e45a9f</sys_update_name>
+        <sys_update_name>sys_cb_design_topic_5505fceb2bbfee10d4dffd74ce91bf30</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-11 10:34:34</sys_updated_on>
-        <title>Guardian Badge Operations Topic</title>
-        <triggerable_by_notification>false</triggerable_by_notification>
-        <type>STANDARD</type>
-    </sys_cb_topic>
-    <sys_translated_text action="delete_multiple" query="documentkey=5941c7f23b3f62507999faac73e45a9f"/>
+        <sys_updated_on>2025-09-11 07:35:49</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
 </record_update>

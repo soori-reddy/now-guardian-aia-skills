@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic_library_usage">
+    <sys_cb_topic_library_usage action="DELETE">
+        <calling_cb_topic_id display_value="Guardian Badge Operations Topic">5941c7f23b3f62507999faac73e45a9f</calling_cb_topic_id>
+        <library_cb_topic_id display_value="Guardian User Information Retriever">2900e4a72b3fee10d4dffd74ce91bfe8</library_cb_topic_id>
+        <sys_class_name>sys_cb_topic_library_usage</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 06:40:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>2448286b2b7fee10d4dffd74ce91bf41</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 06:40:04</sys_updated_on>
+    </sys_cb_topic_library_usage>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
+        <file_path/>
+        <instance_id>e930a3a4db4f5780cbf6d5b0cf9619fd</instance_id>
+        <instance_name>alert</instance_name>
+        <name>sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic_library_usage"><sys_cb_topic_library_usage action="INSERT_OR_UPDATE"><calling_cb_topic_id display_value="Guardian Badge Operations Topic">5941c7f23b3f62507999faac73e45a9f</calling_cb_topic_id><library_cb_topic_id display_value="Guardian User Information Retriever">2900e4a72b3fee10d4dffd74ce91bfe8</library_cb_topic_id><sys_class_name>sys_cb_topic_library_usage</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-09-11 06:40:04</sys_created_on><sys_domain>global</sys_domain><sys_id>2448286b2b7fee10d4dffd74ce91bf41</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package><sys_policy/><sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope><sys_update_name>sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-09-11 06:40:04</sys_updated_on></sys_cb_topic_library_usage></record_update>]]></payload>
+        <payload_hash>-1079548297</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>bd7550972bb7ae10d4dffd74ce91bf70</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 06:40:04</sys_created_on>
+        <sys_id>2c48286b2b7fee10d4dffd74ce91bf43</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1993780ae2b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 06:40:04</sys_updated_on>
+        <type>Topic Library Usage</type>
+        <update_guid>ec48286bd47fee10048cf508bbc81542</update_guid>
+        <update_guid_history>ec48286bd47fee10048cf508bbc81542:-1079548297</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 07:00:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_cb_topic_library_usage">sys_cb_topic_library_usage</sys_db_object>
+        <sys_id>008ec9c3e6d94dd98033282af20668a9</sys_id>
+        <sys_metadata>2448286b2b7fee10d4dffd74ce91bf41</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope_delete display_value="">9ec05a3293244f7799d83cc267c72489</sys_scope_delete>
+        <sys_update_name>sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41</sys_update_name>
+        <sys_update_version display_value="sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41">2c48286b2b7fee10d4dffd74ce91bf43</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 07:00:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

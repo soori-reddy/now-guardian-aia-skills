@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>This Topic Block is designed to manage existing badges assigned to users. It supports a range of administrative actions including updating badge details, activating or deactivating badge access, removing badge assignments, and processing badge returns.
+
+Inputs:
+User ID: The unique identifier of the user whose badge is being managed.
+Badge Action: The specific action to be performed (e.g., activate, return, remove).
+(Optional) Badge ID: Identifier of the badge being updated, deactivated, or removed.
+(Optional) Badge Type: Specifies the type of badge involved in the action.
+Output:
+Response String: A structured message confirming the result of the action performed.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "4220c13b7fd34e40b32e8a94ca056280": {
+          "id": "4220c13b7fd34e40b32e8a94ca056280",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "c26049557dfc42369a7eb9644a02f831": {
+          "id": "c26049557dfc42369a7eb9644a02f831",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "5f7a729e99874838882845c709da05c2": {
+          "id": "5f7a729e99874838882845c709da05c2",
+          "stepType": "AITextOutput",
+          "name": "Update Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Update successful! ✅ The badge details have been updated smoothly. You're all set!"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "9dffea7341ec4e4186ca02a483c72078",
+          "edgeType": "Edge",
+          "source": "4220c13b7fd34e40b32e8a94ca056280",
+          "target": "5f7a729e99874838882845c709da05c2",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "98c49e0093744513af6f161b415a2374",
+          "edgeType": "Edge",
+          "source": "5f7a729e99874838882845c709da05c2",
+          "target": "c26049557dfc42369a7eb9644a02f831",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Guardian Badge Update Action Topic Block</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 08:05:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>20cbf4672bffee10d4dffd74ce91bf78</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Guardian Badge Update Action Topic Block</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cb_topic_20cbf4672bffee10d4dffd74ce91bf78</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 10:23:32</sys_updated_on>
+        <title>Guardian Badge Update Action Topic Block</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>TOPIC_BLOCK</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=20cbf4672bffee10d4dffd74ce91bf78"/>
+</record_update>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>please wait while we retrieve user details...</key>
+        <language>en</language>
+        <message>Please wait while we retrieve user details...</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-11 06:38:41</sys_created_on>
+        <sys_id>1cf7a8e72b7fee10d4dffd74ce91bf7e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>please wait while we retrieve user details...</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_ui_message_1cf7a8e72b7fee10d4dffd74ce91bf7e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-11 06:38:41</sys_updated_on>
+    </sys_ui_message>
+</record_update>
