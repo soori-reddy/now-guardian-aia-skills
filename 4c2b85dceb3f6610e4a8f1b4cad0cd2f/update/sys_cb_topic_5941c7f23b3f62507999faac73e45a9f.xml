@@ -296,247 +296,10 @@
           "detailDescription": "Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session.",
           "node_id": "4fedd561430645ef8d30f623e2b08c70"
         },
-        "f40c27a34c464f72bce6dcab8c74301a": {
-          "id": "f40c27a34c464f72bce6dcab8c74301a",
-          "stepType": "SlotFillPrompt",
-          "name": "user_input_email",
-          "type": "string",
-          "withNluUserInput": false,
-          "skipIfFulfilled": true,
-          "variableId": "5ee4f2419fe54932a6ea0a1e2754094a",
-          "values": {
-            "supportedControlNote": "",
-            "name": "",
-            "variableName": "",
-            "label": "Text 88",
-            "prompt": {
-              "mode": "simple",
-              "value": "Set by NLU"
-            },
-            "inputType": {
-              "format": "33513d135b1200101f254d3ba881c7d5",
-              "script": ""
-            },
-            "detailDescription": "",
-            "skipIfFulfilled": false,
-            "node_id": "",
-            "variable_name": "",
-            "headerCardNote": "Add cards which may include images or YouTube videos.",
-            "hasCardHeader": false,
-            "cardMetadata": {
-              "mode": "card",
-              "metadataScript": "",
-              "cardTemplate": "",
-              "cardFields": {},
-              "cardDefinition": {}
-            },
-            "helpTextNote": "Add help text that will display from an icon next to the message.",
-            "helpText": false,
-            "helpTextMessage": {
-              "mode": "simple",
-              "value": ""
-            },
-            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
-            "secure": false,
-            "encryptionHashFunction": "SHA-256",
-            "encryptionSalt": {
-              "value": "MTc1NzUxMzE3NjMyNiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
-              "mode": "simple"
-            },
-            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
-            "defaultValue": {
-              "value": "",
-              "mode": "simple"
-            },
-            "acknowledgeMsg": {
-              "value": "",
-              "mode": "simple"
-            },
-            "confirmMessage": {
-              "value": "",
-              "mode": "simple"
-            },
-            "withNluUserInput": false,
-            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
-            "applicability": {
-              "mode": "script",
-              "value": "(function() { return false; })()"
-            },
-            "skippable": {
-              "value": "",
-              "mode": "query"
-            },
-            "skipReprompt": {
-              "value": "",
-              "mode": "query"
-            }
-          },
-          "hidden": true,
-          "detailDescription": "Ask for email address",
-          "node_id": "f40c27a34c464f72bce6dcab8c74301a"
-        },
-        "1fa60f44d61e46a98808c1591a136091": {
-          "id": "1fa60f44d61e46a98808c1591a136091",
-          "stepType": "SlotFillPrompt",
-          "name": "user_input_badge_type",
-          "type": "string",
-          "withNluUserInput": false,
-          "skipIfFulfilled": true,
-          "variableId": "38f15c5808e94f8a94da206df5b22dbe",
-          "values": {
-            "supportedControlNote": "",
-            "name": "",
-            "variableName": "",
-            "label": "Text 95",
-            "prompt": {
-              "mode": "simple",
-              "value": "Set by NLU"
-            },
-            "inputType": {
-              "format": "Text",
-              "script": ""
-            },
-            "detailDescription": "",
-            "skipIfFulfilled": false,
-            "node_id": "",
-            "variable_name": "",
-            "headerCardNote": "Add cards which may include images or YouTube videos.",
-            "hasCardHeader": false,
-            "cardMetadata": {
-              "mode": "card",
-              "metadataScript": "",
-              "cardTemplate": "",
-              "cardFields": {},
-              "cardDefinition": {}
-            },
-            "helpTextNote": "Add help text that will display from an icon next to the message.",
-            "helpText": false,
-            "helpTextMessage": {
-              "mode": "simple",
-              "value": ""
-            },
-            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
-            "secure": false,
-            "encryptionHashFunction": "SHA-256",
-            "encryptionSalt": {
-              "value": "MTc1NzUxMzIwNzg4OCBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
-              "mode": "simple"
-            },
-            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
-            "defaultValue": {
-              "value": "",
-              "mode": "simple"
-            },
-            "acknowledgeMsg": {
-              "value": "",
-              "mode": "simple"
-            },
-            "confirmMessage": {
-              "value": "",
-              "mode": "simple"
-            },
-            "withNluUserInput": false,
-            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
-            "applicability": {
-              "mode": "script",
-              "value": "(function() { return false; })()"
-            },
-            "skippable": {
-              "value": "",
-              "mode": "query"
-            },
-            "skipReprompt": {
-              "value": "",
-              "mode": "query"
-            }
-          },
-          "hidden": true,
-          "detailDescription": "Ask for Badge Type",
-          "node_id": "1fa60f44d61e46a98808c1591a136091"
-        },
-        "7cf49252aa6142dabd6bdae678069c9c": {
-          "id": "7cf49252aa6142dabd6bdae678069c9c",
-          "stepType": "SlotFillPrompt",
-          "name": "user_input_badge_action",
-          "type": "string",
-          "withNluUserInput": false,
-          "skipIfFulfilled": true,
-          "variableId": "5b15a5ffd38240b0963523b25d506613",
-          "values": {
-            "supportedControlNote": "",
-            "name": "",
-            "variableName": "",
-            "label": "Text 15",
-            "prompt": {
-              "mode": "simple",
-              "value": "Set by NLU"
-            },
-            "inputType": {
-              "format": "Text",
-              "script": ""
-            },
-            "detailDescription": "",
-            "skipIfFulfilled": false,
-            "node_id": "",
-            "variable_name": "",
-            "headerCardNote": "Add cards which may include images or YouTube videos.",
-            "hasCardHeader": false,
-            "cardMetadata": {
-              "mode": "card",
-              "metadataScript": "",
-              "cardTemplate": "",
-              "cardFields": {},
-              "cardDefinition": {}
-            },
-            "helpTextNote": "Add help text that will display from an icon next to the message.",
-            "helpText": false,
-            "helpTextMessage": {
-              "mode": "simple",
-              "value": ""
-            },
-            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
-            "secure": false,
-            "encryptionHashFunction": "SHA-256",
-            "encryptionSalt": {
-              "value": "MTc1NzUxMzI1ODM2OCBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
-              "mode": "simple"
-            },
-            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
-            "defaultValue": {
-              "value": "",
-              "mode": "simple"
-            },
-            "acknowledgeMsg": {
-              "value": "",
-              "mode": "simple"
-            },
-            "confirmMessage": {
-              "value": "",
-              "mode": "simple"
-            },
-            "withNluUserInput": false,
-            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
-            "applicability": {
-              "mode": "script",
-              "value": "(function() { return false; })()"
-            },
-            "skippable": {
-              "value": "",
-              "mode": "query"
-            },
-            "skipReprompt": {
-              "value": "",
-              "mode": "query"
-            }
-          },
-          "hidden": true,
-          "detailDescription": "ask for Badge Action",
-          "node_id": "7cf49252aa6142dabd6bdae678069c9c"
-        },
         "670c1625b89d4ada833dc9d965f4b79b": {
           "id": "670c1625b89d4ada833dc9d965f4b79b",
           "name": "Identify the user Intent",
-          "script": "(function execute() {\n    if(null != vaInputs.topic_input_user_email &amp;&amp; \"\" != vaInputs.topic_input_user_email){\n        vaVars.user_email = vaInputs.topic_input_user_email;\n    }else{\n\t\tvaVars.user_email = \"jacob.many@gmadddddil.com\"; \n    }\n    \n    if(null != vaInputs.topic_input_badge_action &amp;&amp; \"\" != vaInputs.topic_input_badge_action){\n        vaVars.badge_action = vaInputs.topic_input_badge_action;\n    }else{\n\t    vaVars.badge_action = \"\";\n    }\n\n    if(null != vaInputs.topic_input_badge_type &amp;&amp; \"\" != vaInputs.topic_input_badge_type){\n        vaVars.badge_type = vaInputs.topic_input_badge_type;\n    }else{\n\t\tvaVars.badge_type = \"\"; \n    }\n})()\n",
+          "script": "(function execute() {\n    if(null != vaInputs.topic_input_user_email &amp;&amp; \"\" != vaInputs.topic_input_user_email){\n        vaVars.user_email = vaInputs.topic_input_user_email;\n    }else{\n\t\tvaVars.user_email = \"\"; \n    }\n    \n    if(null != vaInputs.topic_input_badge_action &amp;&amp; \"\" != vaInputs.topic_input_badge_action){\n        vaVars.badge_action = vaInputs.topic_input_badge_action;\n    }else{\n\t    vaVars.badge_action = \"\";\n    }\n\n    if(null != vaInputs.topic_input_badge_type &amp;&amp; \"\" != vaInputs.topic_input_badge_type){\n        vaVars.badge_type = vaInputs.topic_input_badge_type;\n    }else{\n\t\tvaVars.badge_type = \"\"; \n    }\n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -590,18 +353,61 @@
             {
               "id": "57b4a9e9ee7a4d708faa91cc1bf61dc3",
               "value": "guardian_identity_gr",
-              "mapping": "guardian_identity_gr"
+              "mapping": "guardian_identity_gr",
+              "preventDisable": true
+            },
+            {
+              "id": "80cd0daecb2e4403a9a4f84ce8e99722",
+              "value": "guardian_user_name",
+              "mapping": "guardian_user_name",
+              "preventDisable": true
+            },
+            {
+              "id": "8350382bdb734320bf891ad5916cea44",
+              "value": "guardian_user_type",
+              "mapping": "guardian_user_type",
+              "preventDisable": true
+            },
+            {
+              "id": "de6e0a69f1de445ba4f549f985b41160",
+              "value": "guardian_user_status",
+              "mapping": "guardian_user_status",
+              "preventDisable": true
+            },
+            {
+              "id": "32da2cca6dff40dc80324a7e3d7ca17c",
+              "value": "guardian_user_photo",
+              "mapping": "guardian_user_photo",
+              "preventDisable": true
+            },
+            {
+              "id": "246a432bf6ed46708842b409c815ba33",
+              "value": "guardian_user_number",
+              "mapping": "guardian_user_number",
+              "preventDisable": true
             }
           ],
           "variableIds": [
-            "57b4a9e9ee7a4d708faa91cc1bf61dc3"
+            "57b4a9e9ee7a4d708faa91cc1bf61dc3",
+            "80cd0daecb2e4403a9a4f84ce8e99722",
+            "8350382bdb734320bf891ad5916cea44",
+            "de6e0a69f1de445ba4f549f985b41160",
+            "32da2cca6dff40dc80324a7e3d7ca17c",
+            "246a432bf6ed46708842b409c815ba33"
           ],
           "dynamicTopicBlockName": {
             "value": "",
             "mode": "simple"
           },
           "inputDynamicModal": {},
-          "outputDynamicModal": {}
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false,
+          "inputParametersMode": "dynamic",
+          "inputParameterScript": "",
+          "outputParametersMode": "dynamic",
+          "outputParameterVariable": "",
+          "outputParameterId": "c9be3ea101624c919a6a0f2ad83996e0"
         },
         "f9bd4564e35944df9e9d2a900e5f9c07": {
           "id": "f9bd4564e35944df9e9d2a900e5f9c07",
@@ -618,7 +424,7 @@
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "\"We were unable to locate user details associated with the email address provided. Kindly verify the email address and submit a valid entry to proceed. If you wish to exit this process, please type 'exit'.\""
+                    "text": "Inform user in little disappointed tone &amp; include emoji."
                   }
                 ]
               },
@@ -634,7 +440,15 @@
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Maintain a courteous and respectful tone at all times. Do not attempt to infer or suggest alternative emails. Wait for valid input or an explicit command to exit before proceeding."
+                    "text": "\"We couldn’t find anything for the email you entered.  No user details found. 😔\" "
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
                   }
                 ]
               }
@@ -663,7 +477,42 @@
           "useTemplateTopic": false,
           "reusableTopicChoice": "Guardian Badge Assignment Topic Block",
           "reusableTopicId": "63bc7ca72bffee10d4dffd74ce91bf34",
-          "inputs": {},
+          "inputs": {
+            "user_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_identity_gr}}",
+                        "displayValue": "Input Variables➛Guardian_identity_gr"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "badge_type": {
+              "value": "",
+              "mode": "simple",
+              "type": "String"
+            }
+          },
           "outputs": [],
           "variableIds": [],
           "dynamicTopicBlockName": {
@@ -671,7 +520,14 @@
             "mode": "simple"
           },
           "inputDynamicModal": {},
-          "outputDynamicModal": {}
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false,
+          "inputParametersMode": "dynamic",
+          "inputParameterScript": "",
+          "outputParametersMode": "dynamic",
+          "outputParameterVariable": "",
+          "outputParameterId": "b03bf20bc5ed4e6da12e2967c11595b3"
         },
         "98dfe32c26a24eaebba6b979782b6472": {
           "id": "98dfe32c26a24eaebba6b979782b6472",
@@ -685,7 +541,42 @@
           "useTemplateTopic": false,
           "reusableTopicChoice": "Guardian Badge Replacement Topic Block",
           "reusableTopicId": "c7dcfca72bffee10d4dffd74ce91bf9b",
-          "inputs": {},
+          "inputs": {
+            "user_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_identity_gr}}",
+                        "displayValue": "Input Variables➛Guardian_identity_gr"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "badge_type": {
+              "value": "",
+              "mode": "simple",
+              "type": "String"
+            }
+          },
           "outputs": [],
           "variableIds": [],
           "dynamicTopicBlockName": {
@@ -693,7 +584,14 @@
             "mode": "simple"
           },
           "inputDynamicModal": {},
-          "outputDynamicModal": {}
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false,
+          "inputParametersMode": "dynamic",
+          "inputParameterScript": "",
+          "outputParametersMode": "dynamic",
+          "outputParameterVariable": "",
+          "outputParameterId": "a87596ee3edc48939a6088333d10280a"
         },
         "aaedf2c53c10421f8778dd94790afaec": {
           "id": "aaedf2c53c10421f8778dd94790afaec",
@@ -707,7 +605,71 @@
           "useTemplateTopic": false,
           "reusableTopicChoice": "Guardian Badge Update Action Topic Block",
           "reusableTopicId": "02ac78a72bffee10d4dffd74ce91bff2",
-          "inputs": {},
+          "inputs": {
+            "user_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_identity_gr}}",
+                        "displayValue": "Input Variables➛Guardian_identity_gr"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "badge_action": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.topic_input_badge_action}}",
+                        "displayValue": "Input Variables➛Topic_input_badge_action"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "user_badges_count": {
+              "value": "",
+              "mode": "simple",
+              "type": "String"
+            }
+          },
           "outputs": [],
           "variableIds": [],
           "dynamicTopicBlockName": {
@@ -723,35 +685,227 @@
           "outputParametersMode": "dynamic",
           "outputParameterVariable": "",
           "outputParameterId": "ac4790c85ca7473f814c5743edcee260"
+        },
+        "0c87b4691c1a4f92ab4fe81602e274af": {
+          "id": "0c87b4691c1a4f92ab4fe81602e274af",
+          "stepType": "RecordOutput",
+          "name": "Guardian User Details",
+          "variableId": "",
+          "cardTemplate": "Small image with text",
+          "cardFields": {
+            "1cf75c317313101081e06502edf6a738_title": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Name : "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_user_name}}",
+                        "displayValue": "Input Variables➛Guardian_user_name"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "("
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_user_number}}",
+                        "displayValue": "Input Variables➛Guardian_user_number"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ")     "
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple"
+            },
+            "1cf75c317313101081e06502edf6a738_description": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Type: "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_user_type}}",
+                        "displayValue": "Input Variables➛Guardian_user_type"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Status : "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_user_status}}",
+                        "displayValue": "Input Variables➛Guardian_user_status"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple"
+            },
+            "1cf75c317313101081e06502edf6a738_image": {
+              "value": "(function execute() {\n     return vaInputs.guardian_user_photo;\n})()\n",
+              "mode": "script"
+            },
+            "1cf75c317313101081e06502edf6a738_imageAlt": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple"
+            }
+          },
+          "mode": "variable",
+          "tableName": "",
+          "fields": [],
+          "cardDefinition": {
+            "sys_id": "1cf75c317313101081e06502edf6a738",
+            "name": "Small image with text",
+            "sys_name": "Small image with text",
+            "thumbnail.name": "Small image with text.svg",
+            "fields": [
+              {
+                "label": "Title",
+                "position": "1",
+                "mandatory": true,
+                "name": "title",
+                "id": "1cf75c317313101081e06502edf6a738_title"
+              },
+              {
+                "label": "Description",
+                "position": "2",
+                "mandatory": false,
+                "name": "description",
+                "id": "1cf75c317313101081e06502edf6a738_description"
+              },
+              {
+                "label": "Image URL link",
+                "position": "3",
+                "mandatory": true,
+                "type": "image",
+                "name": "image",
+                "id": "1cf75c317313101081e06502edf6a738_image"
+              },
+              {
+                "label": "Image alt text",
+                "position": "4",
+                "mandatory": false,
+                "name": "imageAlt",
+                "id": "1cf75c317313101081e06502edf6a738_imageAlt"
+              }
+            ],
+            "value": "Small image with text",
+            "hasTemplateError": false
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        },
+        "77b6fa3da4e0475a93c395a98d2eae87": {
+          "id": "77b6fa3da4e0475a93c395a98d2eae87",
+          "name": "User Photo",
+          "script": "(function execute() {\n     var baseURL = gs.getProperty('glide.servlet.uri');\n    if (vaInputs.guardian_user_photo != \"\" &amp;&amp; vaInputs.guardian_user_photo != null){\n        vaInputs.guardian_user_photo = baseURL +\"/\"+vaInputs.guardian_user_photo+\".iix\";\n    }else{\n        vaInputs.guardian_user_photo = baseURL +\"/x_aleen_aia_skills.nophoto.png\";\n    }\n    \n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
         }
       },
       "edges": [
         {
-          "id": "47669e078fab46e1abe8d15eeee298bd",
-          "edgeType": "Branch",
-          "source": "f9bd4564e35944df9e9d2a900e5f9c07",
-          "target": "b3b93d969f054cf999b943abf60399b8",
+          "id": "3be0afda788349eeaeb0dfdc1188bbb1",
+          "edgeType": "Edge",
+          "source": "60433aac602d41e48e785e05c3017a15",
+          "target": "4fedd561430645ef8d30f623e2b08c70",
           "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "value": "vaInputs.guardian_identity_grISNOTEMPTY",
-            "mode": "query"
-          },
-          "label": "User Found"
+          "targetPort": ""
+        },
+        {
+          "id": "535ce8f697934373a298bbe463721449",
+          "edgeType": "Edge",
+          "source": "77b6fa3da4e0475a93c395a98d2eae87",
+          "target": "0c87b4691c1a4f92ab4fe81602e274af",
+          "sourcePort": "",
+          "targetPort": ""
         },
         {
           "id": "47623421db4b4b9a95de16ec1550e65d",
           "edgeType": "Edge",
           "source": "670c1625b89d4ada833dc9d965f4b79b",
           "target": "2e3f565bd01946a89e6bcef744587181",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "3be0afda788349eeaeb0dfdc1188bbb1",
-          "edgeType": "Edge",
-          "source": "60433aac602d41e48e785e05c3017a15",
-          "target": "7cf49252aa6142dabd6bdae678069c9c",
           "sourcePort": "",
           "targetPort": ""
         },
@@ -768,30 +922,6 @@
           "edgeType": "Edge",
           "source": "4fedd561430645ef8d30f623e2b08c70",
           "target": "6ab93d3ed0984386956f249f29894f65",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "5ef6a9cb98dd4d0299eb861f0d8e7640",
-          "edgeType": "Edge",
-          "source": "f40c27a34c464f72bce6dcab8c74301a",
-          "target": "4fedd561430645ef8d30f623e2b08c70",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "b07bd334b29b46e5a72d5debc189797a",
-          "edgeType": "Edge",
-          "source": "1fa60f44d61e46a98808c1591a136091",
-          "target": "f40c27a34c464f72bce6dcab8c74301a",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "58b5d12cdc0f409bb139743e461857ea",
-          "edgeType": "Edge",
-          "source": "7cf49252aa6142dabd6bdae678069c9c",
-          "target": "1fa60f44d61e46a98808c1591a136091",
           "sourcePort": "",
           "targetPort": ""
         },
@@ -894,6 +1024,27 @@
           "target": "8946c83b78bd4fad9062da06a0641e1d",
           "sourcePort": "",
           "targetPort": ""
+        },
+        {
+          "id": "2fe12a2e1e4342a8961bf10870178ad9",
+          "edgeType": "Edge",
+          "source": "0c87b4691c1a4f92ab4fe81602e274af",
+          "target": "b3b93d969f054cf999b943abf60399b8",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "47669e078fab46e1abe8d15eeee298bd",
+          "edgeType": "Branch",
+          "source": "f9bd4564e35944df9e9d2a900e5f9c07",
+          "target": "77b6fa3da4e0475a93c395a98d2eae87",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.guardian_identity_grISNOTEMPTY",
+            "mode": "query"
+          },
+          "label": "User Found"
         }
       ]
     }
@@ -936,36 +1087,6 @@
       "nodeId": "4fedd561430645ef8d30f623e2b08c70",
       "isHidden": true,
       "description": "Identify the target user for badge actions by their provided email address. REJECT Logged In User information /email and any data from session."
-    },
-    "5ee4f2419fe54932a6ea0a1e2754094a": {
-      "id": "5ee4f2419fe54932a6ea0a1e2754094a",
-      "name": "user_input_email",
-      "label": "User_input_email",
-      "varType": "string",
-      "category": "vaInputs",
-      "nodeId": "f40c27a34c464f72bce6dcab8c74301a",
-      "isHidden": true,
-      "description": "Ask for email address"
-    },
-    "38f15c5808e94f8a94da206df5b22dbe": {
-      "id": "38f15c5808e94f8a94da206df5b22dbe",
-      "name": "user_input_badge_type",
-      "label": "User_input_badge_type",
-      "varType": "string",
-      "category": "vaInputs",
-      "nodeId": "1fa60f44d61e46a98808c1591a136091",
-      "isHidden": true,
-      "description": "Ask for Badge Type"
-    },
-    "5b15a5ffd38240b0963523b25d506613": {
-      "id": "5b15a5ffd38240b0963523b25d506613",
-      "name": "user_input_badge_action",
-      "label": "User_input_badge_action",
-      "varType": "string",
-      "category": "vaInputs",
-      "nodeId": "7cf49252aa6142dabd6bdae678069c9c",
-      "isHidden": true,
-      "description": "ask for Badge Action"
     },
     "09a0bab780554442bb0734ed8cd70bcd": {
       "id": "09a0bab780554442bb0734ed8cd70bcd",
@@ -1010,6 +1131,77 @@
       "metadata": {
         "libraryMappingType": "output"
       },
+      "preventDisable": true,
+      "nodeId": "2e3f565bd01946a89e6bcef744587181",
+      "isHidden": false
+    },
+    "80cd0daecb2e4403a9a4f84ce8e99722": {
+      "id": "80cd0daecb2e4403a9a4f84ce8e99722",
+      "name": "guardian_user_name",
+      "label": "Guardian_user_name",
+      "defaultValue": "guardian_user_name",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "2e3f565bd01946a89e6bcef744587181",
+      "isHidden": false
+    },
+    "8350382bdb734320bf891ad5916cea44": {
+      "id": "8350382bdb734320bf891ad5916cea44",
+      "name": "guardian_user_type",
+      "label": "Guardian_user_type",
+      "defaultValue": "guardian_user_type",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "2e3f565bd01946a89e6bcef744587181",
+      "isHidden": false
+    },
+    "de6e0a69f1de445ba4f549f985b41160": {
+      "id": "de6e0a69f1de445ba4f549f985b41160",
+      "name": "guardian_user_status",
+      "label": "Guardian_user_status",
+      "defaultValue": "guardian_user_status",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "2e3f565bd01946a89e6bcef744587181",
+      "isHidden": false
+    },
+    "32da2cca6dff40dc80324a7e3d7ca17c": {
+      "id": "32da2cca6dff40dc80324a7e3d7ca17c",
+      "name": "guardian_user_photo",
+      "label": "Guardian_user_photo",
+      "defaultValue": "guardian_user_photo",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "2e3f565bd01946a89e6bcef744587181",
+      "isHidden": false
+    },
+    "246a432bf6ed46708842b409c815ba33": {
+      "id": "246a432bf6ed46708842b409c815ba33",
+      "name": "guardian_user_number",
+      "label": "Guardian_user_number",
+      "defaultValue": "guardian_user_number",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
       "nodeId": "2e3f565bd01946a89e6bcef744587181",
       "isHidden": false
     }
@@ -1036,14 +1228,14 @@
         <sys_created_on>2025-09-09 09:53:08</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>5941c7f23b3f62507999faac73e45a9f</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_name>Guardian Badge Operations Topic</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_5941c7f23b3f62507999faac73e45a9f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-11 10:46:03</sys_updated_on>
+        <sys_updated_on>2025-09-12 10:27:00</sys_updated_on>
         <title>Guardian Badge Operations Topic</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>

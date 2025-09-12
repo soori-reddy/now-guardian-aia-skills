@@ -36,7 +36,31 @@ Response String: A structured string confirming the result of the badge assignme
           "greetingResponse": {
             "mode": "simple",
             "value": ""
-          }
+          },
+          "parameters": [
+            {
+              "type": "String",
+              "value": "",
+              "id": "9e987bfa0f0343b3bdb656b2dcb6b9df",
+              "name": "user_sys_id",
+              "required": true,
+              "referenced": false,
+              "disabled": false
+            },
+            {
+              "type": "String",
+              "value": "",
+              "id": "07613e6845ed48ea9f46252f90f0df3b",
+              "name": "badge_type",
+              "required": false,
+              "referenced": false,
+              "disabled": false
+            }
+          ],
+          "variableIds": [
+            "9e987bfa0f0343b3bdb656b2dcb6b9df",
+            "07613e6845ed48ea9f46252f90f0df3b"
+          ]
         },
         "a2ee8aecd3184254b755fb5bc409adf4": {
           "id": "a2ee8aecd3184254b755fb5bc409adf4",
@@ -98,6 +122,32 @@ Response String: A structured string confirming the result of the badge assignme
       "name": "user",
       "table": "sys_user",
       "varType": "reference"
+    },
+    "9e987bfa0f0343b3bdb656b2dcb6b9df": {
+      "id": "9e987bfa0f0343b3bdb656b2dcb6b9df",
+      "name": "user_sys_id",
+      "label": "User_sys_id",
+      "defaultValue": "",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "f16955ef9e724edb9417999db2bd353b",
+      "isHidden": false
+    },
+    "07613e6845ed48ea9f46252f90f0df3b": {
+      "id": "07613e6845ed48ea9f46252f90f0df3b",
+      "name": "badge_type",
+      "label": "Badge_type",
+      "defaultValue": "",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "f16955ef9e724edb9417999db2bd353b",
+      "isHidden": false
     }
   }
 }</graph>
@@ -122,14 +172,14 @@ Response String: A structured string confirming the result of the badge assignme
         <sys_created_on>2025-09-11 07:49:37</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9728b0232bffee10d4dffd74ce91bfcc</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Guardian Badge Assignment Topic Block</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_9728b0232bffee10d4dffd74ce91bfcc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-11 10:22:46</sys_updated_on>
+        <sys_updated_on>2025-09-11 11:20:01</sys_updated_on>
         <title>Guardian Badge Assignment Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>

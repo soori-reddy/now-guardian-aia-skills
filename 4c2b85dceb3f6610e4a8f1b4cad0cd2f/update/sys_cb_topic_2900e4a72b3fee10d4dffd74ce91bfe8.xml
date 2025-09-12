@@ -36,7 +36,7 @@ We use this block to provide flexibility in handling user data—whether through
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Please wait while we retrieve user details..."
+                    "text": "😊 Please wait while we securely retrieve user details...."
                   }
                 ]
               }
@@ -64,8 +64,17 @@ We use this block to provide flexibility in handling user data—whether through
           "stepType": "TerminateGoal",
           "name": "End",
           "confirmationMessage": {
-            "mode": "simple",
-            "value": ""
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "✅ User details check completed"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
           },
           "outputVariables": [
             {
@@ -97,43 +106,187 @@ We use this block to provide flexibility in handling user data—whether through
               ],
               "mode": "simple",
               "disabled": true,
-              "cannotBeDeleted": false
+              "cannotBeDeleted": true,
+              "alertMessage": "You cannot delete this parameter because other calling topics use it.",
+              "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
+              "additionalInfoLabel": "See calling topics"
+            },
+            {
+              "key": "Guardian_User_Name",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_name}}",
+                        "displayValue": "Script Variables➛user_name"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": true,
+              "cannotBeDeleted": true,
+              "alertMessage": "You cannot delete this parameter because other calling topics use it.",
+              "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
+              "additionalInfoLabel": "See calling topics"
+            },
+            {
+              "key": "Guardian_User_Type",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_type}}",
+                        "displayValue": "Script Variables➛user_type"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": true,
+              "cannotBeDeleted": true,
+              "alertMessage": "You cannot delete this parameter because other calling topics use it.",
+              "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
+              "additionalInfoLabel": "See calling topics"
+            },
+            {
+              "key": "Guardian_User_Status",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_status}}",
+                        "displayValue": "Script Variables➛user_status"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": true,
+              "cannotBeDeleted": true,
+              "alertMessage": "You cannot delete this parameter because other calling topics use it.",
+              "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
+              "additionalInfoLabel": "See calling topics"
+            },
+            {
+              "key": "Guardian_User_Photo",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_photo}}",
+                        "displayValue": "Script Variables➛user_photo"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": true,
+              "cannotBeDeleted": true,
+              "alertMessage": "You cannot delete this parameter because other calling topics use it.",
+              "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
+              "additionalInfoLabel": "See calling topics"
+            },
+            {
+              "key": "Guardian_User_Number",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_number}}",
+                        "displayValue": "Script Variables➛user_number"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": true,
+              "cannotBeDeleted": true,
+              "alertMessage": "You cannot delete this parameter because other calling topics use it.",
+              "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
+              "additionalInfoLabel": "See calling topics"
             }
           ]
         },
-        "295a3d83b55f49c6a9e0cff8334a237b": {
-          "id": "295a3d83b55f49c6a9e0cff8334a237b",
-          "stepType": "LookupRecord",
-          "name": "Guardian User Lookup",
-          "condition": {
-            "mode": "glide_query",
-            "value": "email={{vaInputs.user_email}}"
-          },
-          "applicability": {
-            "value": "",
-            "mode": "query"
-          },
-          "variableId": "3547733d6a084c81af9e10966cba5e62"
-        },
-        "2e402398dd8a47a1a66e6150f818d781": {
-          "id": "2e402398dd8a47a1a66e6150f818d781",
-          "stepType": "Decision",
-          "name": "Decision"
-        },
-        "08e41d2620a54f988fd76a30fe20b19f": {
-          "id": "08e41d2620a54f988fd76a30fe20b19f",
-          "name": "Set User ID ",
-          "script": "(function execute() {\n    vaVars.guardian_user_sys_id = null;\n})()\n",
-          "stepType": "ScriptAction",
-          "applicability": {
-            "value": "",
-            "mode": "query"
-          }
-        },
-        "24c2690977484a7c8126c351205abd11": {
-          "id": "24c2690977484a7c8126c351205abd11",
-          "name": "Set User Sys ID",
-          "script": "(function execute() {\n    vaVars.guardian_user_sys_id =  vaInputs.guardian_user_lookup.getDisplayValue();\n})()\n",
+        "f82185e9de674056baf341ae59029d45": {
+          "id": "f82185e9de674056baf341ae59029d45",
+          "name": "User Lookup",
+          "script": "(function execute() {\n   \n        var identityGr = new GlideRecordSecure(\"x_aleen_snguardian_identity\");\n        identityGr.addQuery('email', vaInputs.user_email);\n        identityGr.addQuery('is_deleted', false);\n        identityGr.query();\n        if (identityGr.next()) {\n            var user_type = identityGr.type.code;\n            vaVars.guardian_user_sys_id = identityGr.sys_id.toString();\n            vaVars.user_name = identityGr.full_name.toString();\n            vaVars.user_photo = identityGr.photo.toString();\n            vaVars.user_type = identityGr.type.name.toString();\n            if (user_type == 'VISITOR') {\n                var visitorGr = new GlideRecordSecure(\"x_aleen_snguardian_visitor\");\n                if (visitorGr.get(identityGr.sys_id)) {\n                   vaVars.user_status = visitorGr.visitor_status.name.toString();\n                   vaVars.user_number = visitorGr.number.toString();\n                }\n            } else {\n                vaVars.user_status = identityGr.status.name.toString();\n                vaVars.user_number = identityGr.number.toString();\n            }\n        } else {\n            vaVars.guardian_user_sys_id = '';\n            vaVars.user_name = '';\n            vaVars.user_photo = '';\n            vaVars.user_type = '';\n            vaVars.user_status = '';\n            vaVars.user_number = '';\n        }\n     \n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -143,60 +296,18 @@ We use this block to provide flexibility in handling user data—whether through
       },
       "edges": [
         {
+          "id": "6e3ec3ce6cb745649e78f685ea952f42",
+          "edgeType": "Edge",
+          "source": "f82185e9de674056baf341ae59029d45",
+          "target": "b8f27cef568f48cf8f1ea8206adfc78d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
           "id": "bf31667ff75e46e793bfbfff857e0d9a",
           "edgeType": "Edge",
           "source": "873db8fa26ad4d9a8ecc32d3c3e226f6",
-          "target": "295a3d83b55f49c6a9e0cff8334a237b",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "cea5b41ce7854d83bc45478d06d00399",
-          "edgeType": "Edge",
-          "source": "295a3d83b55f49c6a9e0cff8334a237b",
-          "target": "2e402398dd8a47a1a66e6150f818d781",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "8bc8601ccd4345ceaa11ec75ede61ba1",
-          "edgeType": "Branch",
-          "source": "2e402398dd8a47a1a66e6150f818d781",
-          "target": "08e41d2620a54f988fd76a30fe20b19f",
-          "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "value": "vaInputs.guardian_user_lookupISEMPTY",
-            "mode": "query"
-          },
-          "label": "User Not Found"
-        },
-        {
-          "id": "91af88ea7e75476da28b761dbffa5201",
-          "edgeType": "Edge",
-          "source": "08e41d2620a54f988fd76a30fe20b19f",
-          "target": "b8f27cef568f48cf8f1ea8206adfc78d",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "750b4a2a67b74352a2cbfff7e6ada612",
-          "edgeType": "Branch",
-          "source": "2e402398dd8a47a1a66e6150f818d781",
-          "target": "24c2690977484a7c8126c351205abd11",
-          "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "value": "vaInputs.guardian_user_lookupISNOTEMPTY",
-            "mode": "query"
-          },
-          "label": "User Found"
-        },
-        {
-          "id": "5f75131f3b504d3b9cb3b3115d6f36ea",
-          "edgeType": "Edge",
-          "source": "24c2690977484a7c8126c351205abd11",
-          "target": "b8f27cef568f48cf8f1ea8206adfc78d",
+          "target": "f82185e9de674056baf341ae59029d45",
           "sourcePort": "",
           "targetPort": ""
         }
@@ -225,16 +336,6 @@ We use this block to provide flexibility in handling user data—whether through
       "nodeId": "873db8fa26ad4d9a8ecc32d3c3e226f6",
       "isHidden": false
     },
-    "3547733d6a084c81af9e10966cba5e62": {
-      "id": "3547733d6a084c81af9e10966cba5e62",
-      "name": "guardian_user_lookup",
-      "label": "Guardian User Lookup",
-      "varType": "reference",
-      "table": "x_aleen_snguardian_identity",
-      "category": "vaInputs",
-      "nodeId": "295a3d83b55f49c6a9e0cff8334a237b",
-      "isHidden": false
-    },
     "702fa11fe9da4c9e9541dc7d9a39f67a": {
       "id": "702fa11fe9da4c9e9541dc7d9a39f67a",
       "value": {
@@ -243,6 +344,61 @@ We use this block to provide flexibility in handling user data—whether through
       },
       "name": "guardian_user_sys_id",
       "label": "guardian_user_sys_id",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "ea7e67a389624c18a4986730dcc8dc10": {
+      "id": "ea7e67a389624c18a4986730dcc8dc10",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_name",
+      "label": "user_name",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "4f3ba501c4d742169eee34481176c40f": {
+      "id": "4f3ba501c4d742169eee34481176c40f",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_number",
+      "label": "user_number",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "b37dc923db0f4912980e719ec45f6970": {
+      "id": "b37dc923db0f4912980e719ec45f6970",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_status",
+      "label": "user_status",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "52e872bfd2de49c797217db3a1944423": {
+      "id": "52e872bfd2de49c797217db3a1944423",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_type",
+      "label": "user_type",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "0753c1184b904ac6ae2ca0a53fb696f5": {
+      "id": "0753c1184b904ac6ae2ca0a53fb696f5",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_photo",
+      "label": "user_photo",
       "varType": "script",
       "category": "vaVars"
     }
@@ -269,14 +425,14 @@ We use this block to provide flexibility in handling user data—whether through
         <sys_created_on>2025-09-11 06:04:05</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>2900e4a72b3fee10d4dffd74ce91bfe8</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>Guardian User Information Retriever</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_2900e4a72b3fee10d4dffd74ce91bfe8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-11 07:34:30</sys_updated_on>
+        <sys_updated_on>2025-09-12 10:06:44</sys_updated_on>
         <title>Guardian User Information Retriever</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>

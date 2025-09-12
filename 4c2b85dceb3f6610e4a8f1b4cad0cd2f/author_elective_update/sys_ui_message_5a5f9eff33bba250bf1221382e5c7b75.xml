@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="DELETE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>va:topic:2900e4a72b3fee10d4dffd74ce91bfe8:node:b8f27cef568f48cf8f1ea8206adfc78d:field:confirmationmsg</key>
+        <language>en</language>
+        <message>🎉 User details have been successfully retrieved.</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 09:58:51</sys_created_on>
+        <sys_id>5a5f9eff33bba250bf1221382e5c7b75</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:2900e4a72b3fee10d4dffd74ce91bfe8:node:b8f27cef568f48cf8f1ea8206adfc78d:field:confirmationmsg</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_ui_message_5a5f9eff33bba250bf1221382e5c7b75</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 09:58:51</sys_updated_on>
+    </sys_ui_message>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
+        <file_path/>
+        <instance_id>e930a3a4db4f5780cbf6d5b0cf9619fd</instance_id>
+        <instance_name>alert</instance_name>
+        <name>sys_ui_message_5a5f9eff33bba250bf1221382e5c7b75</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message"><sys_ui_message action="INSERT_OR_UPDATE"><application>Virtual Agent</application><code/><commented_message/><key>va:topic:2900e4a72b3fee10d4dffd74ce91bfe8:node:b8f27cef568f48cf8f1ea8206adfc78d:field:confirmationmsg</key><language>en</language><message>]]>🎉<![CDATA[ User details have been successfully retrieved.</message><sys_class_name>sys_ui_message</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-09-12 09:58:51</sys_created_on><sys_id>5a5f9eff33bba250bf1221382e5c7b75</sys_id><sys_mod_count>0</sys_mod_count><sys_name>va:topic:2900e4a72b3fee10d4dffd74ce91bfe8:node:b8f27cef568f48cf8f1ea8206adfc78d:field:confirmationmsg</sys_name><sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package><sys_policy/><sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope><sys_update_name>sys_ui_message_5a5f9eff33bba250bf1221382e5c7b75</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-09-12 09:58:51</sys_updated_on></sys_ui_message></record_update>]]></payload>
+        <payload_hash>772184301</payload_hash>
+        <record_name>va:topic:2900e4a72b3fee10d4dffd74ce91bfe8:node:b8f27cef568f48cf8f1ea8206adfc78d:field:confirmationms</record_name>
+        <reverted_from/>
+        <source>bd7550972bb7ae10d4dffd74ce91bf70</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 09:58:52</sys_created_on>
+        <sys_id>d25fd67333fba250bf1221382e5c7b58</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1993d5d0b6e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 09:58:52</sys_updated_on>
+        <type>Message</type>
+        <update_guid>d65fd673c0fba250962dc7cfa53b1057</update_guid>
+        <update_guid_history>d65fd673c0fba250962dc7cfa53b1057:772184301</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 10:24:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_message">sys_ui_message</sys_db_object>
+        <sys_id>eb8b2abdb6c14b46a80c2af0620706e9</sys_id>
+        <sys_metadata>5a5f9eff33bba250bf1221382e5c7b75</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:2900e4a72b3fee10d4dffd74ce91bfe8:node:b8f27cef568f48cf8f1ea8206adfc78d:field:confirmationmsg</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope_delete display_value="">9ec05a3293244f7799d83cc267c72489</sys_scope_delete>
+        <sys_update_name>sys_ui_message_5a5f9eff33bba250bf1221382e5c7b75</sys_update_name>
+        <sys_update_version display_value="sys_ui_message_5a5f9eff33bba250bf1221382e5c7b75">d25fd67333fba250bf1221382e5c7b58</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 10:24:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
