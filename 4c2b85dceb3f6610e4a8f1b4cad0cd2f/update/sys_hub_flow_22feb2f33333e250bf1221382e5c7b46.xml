@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,intermediateFlowVersion=1.3,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>27000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>This Subflow will be used by AI agent to perform User badge updates from  virtual agent and now assist panel.</description>
+        <display_name_after_preview>Guardian AI Agent Badge Update subflow</display_name_after_preview>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source>text2flow</generation_source>
+        <internal_name>guardian_ai_agent_badge_update_subflow5af</internal_name>
+        <label_cache>[{"name":"subflow.action","label":"Input➛action_to_perform","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","usedInstances":{"8da46c7c-5d86-4d5d-9c72-76281b83e6f3":["condition"],"d8030914-f468-436e-a270-a11c7a360e31":["condition"],"b14c9efb-be9c-4b13-9a9e-24311ca2b085":["condition"],"564ef4f5-f842-4e1d-951b-d55bf4e93b70":["condition"],"0004f1b4-e8af-45e6-9d2f-fb30dc83fbfe":["condition"],"c0730332-85b0-438d-9ad4-2de0df21dfc9":["log_message"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"944a5381-0476-454c-b58e-199945fba251","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"8bfef2f3-1533-e250-19b8-0a055060024f.Record","label":"1 - Look Up Record➛Identity Asset Record","reference":"x_aleen_snguardian_identity_asset","reference_display":"Identity Asset Record","type":"reference","base_type":"reference","usedInstances":{"cffef2f3-e733-e250-0b59-19c1d76f445d":["condition"],"43b561a2-97f4-4b62-9fbb-47d64ddae292":["record"],"4cb1f4a3-b596-40b3-a519-71b0940f7b95":["record"],"ec9a8852-5ea9-450b-a51c-5a8c8daeafc2":["record"],"0c0e9276-b212-4314-a86e-ce207088481e":["record"],"1682d98c-c91e-4d6a-97c8-5370e1c309e7":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.record_id","label":"Input➛record_id","reference":"","reference_display":"","type":"GUID","base_type":"GUID","column_name":"","usedInstances":{"8bfef2f3-1533-e250-19b8-0a055060024f":["conditions"],"dffef2f3-7133-e250-c120-069a38fb219f":["log_message"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"GUID","uiUniqueId":"ea5d26b3-56c8-46f0-b462-a341e801ff7d","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"8bfef2f3-1533-e250-19b8-0a055060024f.status","label":"1 - Look Up Record➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Error","value":"1","order":0.0},{"label":"Success","value":"0","order":1.0}],"usedInstances":{},"attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}}]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <master_snapshot_digest/>
+        <name>Guardian AI Agent Badge Update subflow</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles>1c4b85dceb3f6610e4a8f1b4cad0cdb1,cfb6b5381b14c6106962fe60cd4bcb60</run_with_roles>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>22feb2f33333e250bf1221382e5c7b46</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>Guardian AI Agent Badge Update subflow</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_hub_flow_22feb2f33333e250bf1221382e5c7b46</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:47</sys_updated_on>
+        <type>subflow</type>
+        <updation_source/>
+        <version>2</version>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_variable_value action="delete_multiple" query="document_key=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_22feb2f33333e250bf1221382e5c7b46^id=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=22feb2f33333e250bf1221382e5c7b46^sys_idNOT IN62feb2f33333e250bf1221382e5c7b47"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>22feb2f33333e250bf1221382e5c7b46</id>
+        <name>Guardian AI Agent Badge Update subflow5af</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:03</sys_created_on>
+        <sys_id>62feb2f33333e250bf1221382e5c7b47</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:17:03</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=62feb2f33333e250bf1221382e5c7b47"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=22feb2f33333e250bf1221382e5c7b46^sys_idNOT IN01e387bb3333e250bf1221382e5c7b83,3c1ff6f33333e250bf1221382e5c7bc4,b81ff6f33333e250bf1221382e5c7bc1,e01ff6f33333e250bf1221382e5c7bb1"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=944a5381-0476-454c-b58e-199945fba251</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>action</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>action_to_perform</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</model>
+        <model_id>22feb2f33333e250bf1221382e5c7b46</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:31</sys_created_on>
+        <sys_id>01e387bb3333e250bf1221382e5c7b83</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:31</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=01e387bb3333e250bf1221382e5c7b83"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=GUID,uiTypeLabel=Sys ID (GUID),uiUniqueId=e38f02ab-c6db-49ad-80c7-24707b86672d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>user_sys_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">GUID</internal_type>
+        <label>user_sys_id</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</model>
+        <model_id>22feb2f33333e250bf1221382e5c7b46</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:29</sys_created_on>
+        <sys_id>3c1ff6f33333e250bf1221382e5c7bc4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:32</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=3c1ff6f33333e250bf1221382e5c7bc4"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=36ed731d-e48a-4f69-948b-a9b01843b83b</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>valid_to</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>valid_to</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</model>
+        <model_id>22feb2f33333e250bf1221382e5c7b46</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:29</sys_created_on>
+        <sys_id>b81ff6f33333e250bf1221382e5c7bc1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:31</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b81ff6f33333e250bf1221382e5c7bc1"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=GUID,uiTypeLabel=Sys ID (GUID),uiUniqueId=ea5d26b3-56c8-46f0-b462-a341e801ff7d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>record_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">GUID</internal_type>
+        <label>record_id</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</model>
+        <model_id>22feb2f33333e250bf1221382e5c7b46</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:28</sys_created_on>
+        <sys_id>e01ff6f33333e250bf1221382e5c7bb1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:31</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e01ff6f33333e250bf1221382e5c7bb1"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=22feb2f33333e250bf1221382e5c7b46^sys_idNOT INd21f7af33333e250bf1221382e5c7b64"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=83b593ec-27fb-41fa-bc36-052e4c83968e</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>response</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>response</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</model>
+        <model_id>22feb2f33333e250bf1221382e5c7b46</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_22feb2f33333e250bf1221382e5c7b46</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:35</sys_created_on>
+        <sys_id>d21f7af33333e250bf1221382e5c7b64</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:32</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=d21f7af33333e250bf1221382e5c7b64"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=22feb2f33333e250bf1221382e5c7b46^sys_idNOT IN11e387bb3333e250bf1221382e5c7be5,13fef2f33333e250bf1221382e5c7bc9,19e387bb3333e250bf1221382e5c7be2,1de387bb3333e250bf1221382e5c7be3,1de387bb3333e250bf1221382e5c7be6,59e387bb3333e250bf1221382e5c7be0,9ffef2f33333e250bf1221382e5c7bd0,b9764f7f3333e250bf1221382e5c7b82"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source>flowRecommendation</generation_source>
+        <order>10</order>
+        <parent_ui_id>564ef4f5-f842-4e1d-951b-d55bf4e93b70</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>11e387bb3333e250bf1221382e5c7be5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>0c0e9276-b212-4314-a86e-ce207088481e</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VS0/jMBD+K5XPbZRHQ9PekCokDgsSi7jQVeTYk2LJcbKxU+hW/e87dpzyWFgqhLQcNjeP5/F9M58ztzsiOFkQSHg8CxljCTtJ4jCMs2lUnCRFFPOEwjwjY6JoBejZAqtbjucNlZ017HZZUUIZl8kkSpNkAnEaTqJ5kU1CGqZpeILZpmVw5eL2e4zkQjeSbm98ArSwOyF5C4osbn+MSUNbrGWgJYvdiyuzbSCXtACJgcuadRUoMzpfYo5jeQzRVwORl8RsDTxznz0X1ohXFk8Ujgk8GFAcsFxJpYYxqaji1NTtlixM26GhBcovldwePO6EMj3Tij5o8QvzT0PrVwJSY74Lh2PuOzQ0pxYMLhsjatVbDC3k0LladpW66CnY3kJJO2me9LbTmA8aC9mC6BGW3+/q+6uh3plQjp1HK2tG5eFEjWlF0RnQdhwgwTWlok0j1Dpv2nojXDBCqYK1xENQyvoea2qxVgFlFneADaLBGdqXznxDW2FJfMM0GLx35POfna3b0/CAc8fZEc7doNBVs1Y05hQTb8DD3I+9kKMSBcCyNwRQzB/n/STno5gfcioBVK7VuqMtF1Th+BGGMNucag3mT/me+/vRqb//mJivLZzRRQ/nWCrPgt+g5uX8zObVnH6amrN/pGaP6IvJGQeo816lnpsr/q7M3xM3zP72d8uKRwU4PesnwnbENEK3LHsSqy4ME75bDYJekcWKXNejAkZL7IsBviLjVZ/B3cXJrMyAp1FRsCyOwlk6n6ZpMo3ptGBFnDl3vdX4ZI70f2UbfF2gH3zXUCFmA6Oe4PjoSQ4JzgRIrl8Z7fCwfYF84wscVtWnve4Id7j9/m+sozeWUE1ndPD+4vrxG14PFMKDCQAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=11e387bb3333e250bf1221382e5c7be5"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment>look up record #x_aleen_snguardian_identity_asset by record id</comment>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source>text2flow</generation_source>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:06</sys_created_on>
+        <sys_id>13fef2f33333e250bf1221382e5c7bc9</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>8bfef2f3-1533-e250-19b8-0a055060024f</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/9VY227bOBD9FUHPjlfyTXbeggYGAuw2QJv2JQ0ISqRsYmlSJakkjuF/71CkbMf3OC6aPnI4lzMzZ8aU72chI+FlSAbRIB8Muv0kitrtKOr12hmO07Tdy9IoxZ2wEQo8oaBpcMopHB8xL+35GWFOqUBajEqsCMMCMUKFYWaKsNbUgC5huuB4+t2b3Pj74MrfZ2PGiaIivLx/aIQFVhDKUBVeztauzLSgiOOUcnBzZ5EEny2sxtFZvDLezMoGqI9IONdSEYslaoT02VBBKITKMde0EU6wINhINV1IFMXkVvClYMyEAY+hVX7W7AXc9yOrl1NIK6PubnFEvlZOnI0ly+htYZgUTuKAukvJy4n47BKwVaY5LrmpqwySUoM/WljMFoRHlH8dy6cvdcAhE1V6/pLLDPPFCRujWFoaqm0vKKcTcIQmuCiYGKFCyUdWGQOWSXPE4dDMuXyCoJqNRBNnFngTSoSbQ5BfV+LvWDGbxX/gBowBEOPQbeSKrmWpqqo8ooyXurpQWGjnK5xXtUI/S4vSZe3zQ65EoKAzxQpzBQaP1Kcyb9RE7+6lyGBJiUwKwmxMvcJ2PdVA7x8lGJPZTJepTbepaAYkgYv5fJPtx5icNgCfVhEem91W420p+1F4JfOjEJ9tFDpR9IeGwajy483CIXa7hA9QPCZ7SUCW/dZSGeQqt8LxTQqfzNAho5y8WtFHgKuNby3ZgnS6C68naG5jrO3q1l+/qz8kPQEQQa7eTHAmqp9KAHoe3nb3UiON13hQtX9lM1sZ1tkme3FgZPBy+pat+lrz9wiQteFXQBTcOZRbgNf7tXbvqds+G3XbrbdRF4hzP1ugX1RtS4HrF5FtXa3/YvXxuj6wa8Ugnj8sqP/ptJjxW2O2bMy12Wy/aThXmeVurncQ7MzvrR3D1vid0z0GUx8PuWFFT4yMqFlGr7WINE+Y/7/t3rNrMUNVeu9+u8V7n/fpytuN5WgCfWIFPCjdS0sjrCjKZSkI8k/JJW1s33KmtPHKmzvkCzWlEoGEkQvMmAaVdrDQPsdmOSK72vAmD+r0PAYdQHpBlV6wSO9txdixjzpnfOu9Zx8NMeNV6eGToFjpHVVKqh076UDX9rT/yIV1JKj4rKDev9G28X3rZjuA9a/4vnzv1skoTjst3EvacRxFcUSSqJ8kcb+X5j2cdPLloCGkRQZrETznQAxwj2oi1F2NNleL240n/wkCO/efoXdxLN7a+FoK+13aSkxgAUOfgxrw4ZT8vkil5BSLJT27f2xhfJT/SUp2t14bJ/p3W9N+1495yb4J9rOkN5YUfRq1+jHJLvpJnFx0ctK7GBDcvcCDtJu0Cc06+em/zw+/ADJGXwVGFAAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=13fef2f33333e250bf1221382e5c7bc9"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source>flowRecommendation</generation_source>
+        <order>6</order>
+        <parent_ui_id>d8030914-f468-436e-a270-a11c7a360e31</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>19e387bb3333e250bf1221382e5c7be2</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>4cb1f4a3-b596-40b3-a519-71b0940f7b95</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VS0/jMBD+K5XPbZRHQ9PekCokDgsSi7jQVeTHpFhynGzsFLpV//uOE6c8FpYKIS2Hzc3jeXzfzOfM7Y5IQRYEEhHPQs55wk+SOAzjbBqxk4RFsUgozDMyJpqWgJ4N8KoReN5Q1TrDbpexAoq4SCZRmiQTiNNwEs1ZNglpmKbhCWabFsFVF7ffY6SQplZ0e+MToIXfSSUa0GRx+2NMatpgLQsNWexeXNltDbmiDBQGLivelqDt6HyJOY7lMURfDUReEnM18Cx89lw6I145PFE4JvBgQQvAcgVVBsakpFpQWzVbsrBNi4YGqLjUanvwuJPa9kxL+mDkL8w/DZ1fAUiN+y4cjrnv0NCcSnK4rK2sdG+xlKmhc5VqS33RU3C9hYK2yj7pbWswH9QOsgPRIyy+31X3V0O9M6k7dh6tqjhVhxO1tpGstWDcOEBB15SS1rXU67xuqo3sghFKGawVHoJCVfdY08i1Dih3uANsEA3O0L7szDe0kY7EN0yDwfuOfP6zdXV7Gh5w3nHuCOfdoNDV8EbW9hQTb8DD3I+9kKMCBcCzNwTA5o/zfpLzUcwPOVUAOjd63dJGSKpx/AhD2m1OjQH7p3zP/f3o1N9/TMzXDs7ooodzLJVnwW9Q83J+ZvNqTj9Nzdk/UrNH9MXkjAM0ea9Sz60r/q7M3xM3zP72d8vYowI6PZsnwu6IGYTuWPYkVm0YJmK3GgS9IosVua5GDEZLcC4bakGsyHjVZ+nuYzYrMhBpxBjP4iicpfNpmibTmE4ZZ/G8czdbg8/mSP9XNsLXBvvB9w0l4rYw6kmOj57okOBMghLmlREPD9wXyDe+wGFlfdorj3CXu+//5jp6c0ldt9YE7y+wH78BRC5EMIsJAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=19e387bb3333e250bf1221382e5c7be2"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source>flowRecommendation</generation_source>
+        <order>8</order>
+        <parent_ui_id>b14c9efb-be9c-4b13-9a9e-24311ca2b085</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>1de387bb3333e250bf1221382e5c7be3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>ec9a8852-5ea9-450b-a51c-5a8c8daeafc2</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VS0/jMBD+K5XPbZRHQ9PekCokDgsSi7jQVeTYk2LJcbKxU+hW/e87dpzyWFgqhLQcNjeP5/F9M58ztzsiOFkQSHg8CxljCTtJ4jCMs2lUnCRFFPOEwjwjY6JoBejZAqtbjucNlZ017HZZUUIZl8kkSpNkAnEaTqJ5kU1CGqZpeILZpmVw5eL2e4zkQjeSbm98ArSwOyF5C4osbn+MSUNbrGWgJYvdiyuzbSCXtACJgcuadRUoMzpfYo5jeQzRVwORl8RsDTxznz0X1ohXFk8Ujgk8GFAcsFxJpYYxqaji1NTtlixM26GhBcovldwePO6EMj3Tij5o8QvzT0PrVwJSY74Lh2PuOzQ0pxYMLhsjatVbDC3k0LladpW66CnY3kJJO2me9LbTmA8aC9mC6BGW3+/q+6uh3plQjp1HK2tG5eFEjWlF0RnQdhwgwTWlok0j1Dpv2nojXDBCqYK1xENQyvoea2qxVgFlFneADaLBGdqXznxDW2FJfMM0GLx35POfna3b0/CAc8fZEc7doNBVs1Y05hQTb8DD3I+9kKMSBcCyNwRQzB/n/STno5gfcioBVK7VuqMtF1Th+BGGMNucag3mT/me+/vRqb//mJivLZzRRQ/nWCrPgt+g5uX8zObVnH6amrN/pGaP6IvJGQeo816lnpsr/q7M3xM3zP72d8uKRwU4PesnwnbENEK3LHsSqy4ME75bDYJekcWKXNejAkZL7IsBviLjVZ/B3cXJrMyAp1FRsCyOwlk6n6ZpMo3ptGBFnDl3vdX4ZI70f2UbfF2gH3zXUCFmA6Oe4PjoSQ4JzgRIrl8Z7fCwfYF84wscVtWnve4Id7j9/m+sozeWUE1ndPD+4vrxG14PFMKDCQAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1de387bb3333e250bf1221382e5c7be3"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source/>
+        <order>12</order>
+        <parent_ui_id>0004f1b4-e8af-45e6-9d2f-fb30dc83fbfe</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>1de387bb3333e250bf1221382e5c7be6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:32</sys_updated_on>
+        <ui_id>1682d98c-c91e-4d6a-97c8-5370e1c309e7</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VXU/bMBT9K5Wf0yqfpe0bEkLiYSAxxgudIju+KZYcJ4udQlf1v+/acUphjFUIaZu0vPl+nnPvcXy3JYKTBUmBh9E8mhZJlCRxGMazNGLThEUxTyhARAKiaAUY2UJRtxzPayo7a9huZ6yEMi6TcZQlyRjiLBxHczYbhzTMsnCK1dJycu3ydjvM5EI3km5ufQG0FPdC8hYUWdx9DUhDW+xloCWL7QuX2TSQS8pAYuJZXXQVKDO6OMMax/IYsq8HIi+J2R545r56LqwRXRZPFAYEHg0oDtiupFJDQCqqODV1uyEL03ZoaIHyKyU3+4h7oUzPtKKPWnzH+mlo40pAaoWfwv6Y+wkNw6lFAVeNEbXqLYYyOUyull2lLnsKdrZQ0k6ag9l2GutBYyFbED3C8vN9/XA99DsXyrHzaGVdULk/UWNawToD2q4DJLihVLRphFrlTVuvhUtGKNVkJfEwKWX9gD21WKkJLSzuCQ6ITs7RfubMt7QVlsQnLIPJO0c+/9bZvj0NDzh3nB3h3C0KQ3XRisacYuE1eJi7wAuZZW8JoJg/7fug5pOYH3MqAVSu1aqjLRdU4foRhjCbnGoN5mf5Xnj/6NT73yfmGwtndNnDOZbKs+RfUPNyfmbzas4+TM2zP6Rmj+gfk/PvRBzGb/7FDjbtdKsPBOwIaIRo2fRgl10YJny7HIS7JIslualHDEZfGiQCfEmCZV/B+abspJwBzyLGilkchSfZPM2yJI1pygoWn7hwvdF4NY6Mf+Wv//cCfef9hQoxGxj1BIOjNzkUOBcguX5ltcMF9g3ytW+wf5I+7BZH+Fbb7//L9IEv09cf3sZHj2QJAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1de387bb3333e250bf1221382e5c7be6"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source>flowRecommendation</generation_source>
+        <order>4</order>
+        <parent_ui_id>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>59e387bb3333e250bf1221382e5c7be0</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>43b561a2-97f4-4b62-9fbb-47d64ddae292</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VS0/jMBD+K1XOaZRH06a9ISEkDgsSy3KhEPkxKZYcJxs7hW7V/77jxCmvZakQ0nLY3Dyex/fNfM5cbz3BvYUHCY9nIWMsYdMkDsM4m0R0mtAo5gmBeeb5niIloGcDrGo4ntdEttaw3Wa0gCIuknGUJskY4jQcR3OajUMSpmk4xWyTIrjo4nY7jORC15JsrlwCtLA7IXkDyltc3/heTRqsZaDxFtsXV2ZTQy4JBYmBxxVrS1BmdHqMOQ7lMURfDEReErM18Mxd9lxYI15ZPFHoe/BgQHHAcgWRGnyvJIoTUzUbb2GaFg0NEH6u5GbvcSeU6ZmW5EGLX5h/Elq/ApAac13YH3PXoaE5lWBwXhtRqd5iCJVD5yrZluqsp2B7CwVppXnS21ZjPqgtZAuiR1h8v6vuL4Z6J0J17BxaWTEi9ydiTCNoa0DbcYCEriklqWuhVnndVGvRBSOUMlhJPASFrO6xphYrFRBmcQfYIBKcoP24M1+RRlgS3zANBu868vnP1tbtaTjAece5I5x3g0JXzRpRmyNMvAYHc+c7IUcFCoBlbwiAzh/n/STno5gfciIBVK7VqiUNF0Th+BGGMJucaA3mtXxP3f3oyN1/TMyXFs7orIdzKJVnwW9Qc3J+ZnNqTj9Nzdk/UrND9MXkjAPUea9Sx60r/q7M3xM3zP72d8voowI6Pesnwu6IaYRuWfYklm0YJny7HAS99BZL77IaURj9qJEg8KXnL/sM3d2UzooMeBpRyrI4CmfpfJKmySQmE8poPOvc9UbjkznQf3fbg3j9qr483g++cigRuoFRz9M/eK5DghMBkus/DHp45q5AvnYF9ovr0956hBvdfv/318H7S6i6NTp4f43d/AZWWXLNkQkAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=59e387bb3333e250bf1221382e5c7be0"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Log">5bc1bcc6531003003bf1d9109ec587d4</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment>log a message</comment>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source>text2flow</generation_source>
+        <order>16</order>
+        <parent_ui_id>53fef2f3-d533-e250-ec43-d5258231069d</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:06</sys_created_on>
+        <sys_id>9ffef2f33333e250bf1221382e5c7bd0</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:47</sys_updated_on>
+        <ui_id>dffef2f3-7133-e250-c120-069a38fb219f</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/91UUW/aMBD+K5mfAREo68obKquEtLbSkEBVVUWOfQmWHDuzEyhD/PedExMyhiaY+jSJB/zl8/m7u+/udUcEJ2MyilkYM/Z5NAz7/SH+4iTkd2H/Dtjoyy2/JR2iaAbIlDqNJKxBIrSmsnSYUInGIxc2l3S78OisRtlKSG5AkfHrW4fk1GCcAgwZ704+FdscIkljDD0m9ystGOD1S+UdLn7z2s7IdQ8gxA6hteFOR79D4L0AxQGfSqi00CEZVZwW2mwbxADlz0oegZVQBUYjjvxuxU8MfdN3vAQwJQb1t+YY+erUcK3BYuK7Rnm3GzxpBUG32yptS+a+c+T62p40wDPDNnNJjRIqbZE3iBzJgzb5qzHatKjgz5473GObOCS0lMX99RmEF2cwuCaD4RUZ3LgM6uI/54XQaD0SOmvQWHqxTMsyU0+1fUiT7+LE6zU6PWv50mK7IXeWch7xhknmK735fvDDg1CVIv9RakZlc6JFYURcFq6+OwISMgwUZTTPsRBRbvRaVJdRbNZLJR56idQbfNSKVPUoc6n10MG094D4tIIX1AiX5iOGwcv7ypzRj9K9WyfqFUdVWRzBMiPyYoLh1uDFuWJXMzkY/m0mYfT7DGZgLU2h1Zm5xj2AQ5QGS3wzWBqNfz8FnWAyCyapg3JqLfBAKLwieDB/mUezaRDsdraMXbo9Awz7Ggm+3/+5fj48/r8tsjl2sjLvpUU7XHxsKna2jH6Z2UP4w4x92DIbjEbXbbNmoK6ap/99XN5+AaNj97pjBwAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=9ffef2f33333e250bf1221382e5c7bd0"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Log">5bc1bcc6531003003bf1d9109ec587d4</action_type>
+        <action_type_parent display_value="Log">0e0ae8c2531003003bf1d9109ec587c8</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <generation_source/>
+        <order>14</order>
+        <parent_ui_id>189e2caa-7735-4f53-b92d-aaad35464810</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:49:46</sys_created_on>
+        <sys_id>b9764f7f3333e250bf1221382e5c7b82</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>c0730332-85b0-438d-9ad4-2de0df21dfc9</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/91UXWvbMBT9K0ZPGyQhTup1zVvWrlBYW1gheyjFyNK1I5AlT7KTZib/fVe27CRdV5LRp0EeouNzr865H3qsieBkRqKEhQljn6JpOB5P8ZekIb8IxxfAos/n/JwMiKI5IFPqLJawAonQisrKYWCMNnjmwhaSbhYe/uphthSSG1Bk9vg0IAU1mKkEQ2b1i0/lpoBY0gSTz8jlUgsGGH6swC7wm1f3imB3AUKsS60NdzrGAwLPJSgOeFVKpYUByanitNRm0yMGKL9XcgcshSoxG3HkZyt+YeqzseOlgJYYtN/6Y+zL08KtBovG6175cBjcaQXBcLhX3AOwE7wd7KJuVKr3+KI9ema4z/xBjRIq2yOvEdmRJ/vkrnsvm+y50y02jENKK1leHuvlL7redDA5xcH0BAdnzkHbhvuiFBqHkIRuSGgivVimZZWru3aQSO93cSjUo1eH0+9NVRYbD4UbLjctfnTSh6Vef+8m41qoRpH/KDWjsj/RsjQiqUpX35qAhBwTxTktCixEXBi9Ek0wis1HmcTDKJV6jZdakakRZc7aCGeZjq4Rv2rgBTXC2bzFNBi8bcY0/lm5e1ujXnHclMURLDOiKOeYbgVenCt2s52T6VvbCdHhNuZgLc1grzM3Cv8JHnyhPINg3kgOPtS1rRLnxZvYboOPwZrawIDVcgU8SDbB/CaYZyg0+PP9eaes//Z8PWDXmkE9tkBd4G1fnVdL5p8w26Xv9undnrBJFJ32hvXLc9Lu/O+r8fQbc1o5UVsHAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b9764f7f3333e250bf1221382e5c7b82"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=22feb2f33333e250bf1221382e5c7b46^sys_idNOT IN13fef2f33333e250bf1221382e5c7bcb,1bfef2f33333e250bf1221382e5c7bd0,1de387bb3333e250bf1221382e5c7be1,1ffef2f33333e250bf1221382e5c7bd1,3d764f7f3333e250bf1221382e5c7b81,95e387bb3333e250bf1221382e5c7be3,99e387bb3333e250bf1221382e5c7bdf,99e387bb3333e250bf1221382e5c7be4,9de387bb3333e250bf1221382e5c7be5"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">d3fef2f33333e250bf1221382e5c7bca</block>
+        <comment>if record exists</comment>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>text2flow</generation_source>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:06</sys_created_on>
+        <sys_id>13fef2f33333e250bf1221382e5c7bcb</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+2UX2/aMBTFvwrKM0ROQhD0rdpWqVJbpoIqTVUVOc41WHXszHagDPHdd50/FK10m7Y97g2fa997zs1P7ANdu6p2dqkvrRUrFVw8Pg0DobyGv/eBoiUEFwHTqhBOaJU1wjDYUFn7wo3Wz3U1EHawqBkDa3ktsVwIW0m6e/j5LbYWsjDQTa2owd4OTHCx/6HkdhVkkuYgsdnCGaFW+FwUeOKE8mjGIpbEkyQmJJ6Oo3yS5FFcJBRogvf6hx/6EIObRhm+m87PQ932k7QpvK2IDAN4caAKwNGcSgvDoKSqoE6b3VExQIu5kq/CWiiH7QJ/+cWKb9g7TlN/kQNmZNAWj8esW18rs7UWDOaVN9gqjuaye8O0rEt11+bwiwdOa+n6xaNSW+wHlTftXXSW+GKtt/f9wCuhmoBdUWpG5fFEHa4hrx1Y/2FAQomNspJWFS4nq4zeiOYxeinDlcRDyKXe4lBPVEiZNx7ijmh4hfrHRn6gRvgUt9gGH7c2c2oFyxr6sJ0zGOHQrCX7WntDbcAuStZuAy9YZkTlLnHOBjrXh+FbdE+o3e+nOQce82QUpUkygjglo2iWT0eEkjQlE+RozMN7YPjlD4frxd18+en28/LLW7T/ptW/4H9GU55GJD3P/3hyjv8z5L8PffwL6P1n+k3mCSH/oT+FXtishbfL1gz/Y+afPODtBNtyUwATFo0svXbd/6v7wg4BEOxU2mrz7CO8aofvYKjJpB8GAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">53fef2f33333e250bf1221382e5c7bd0</block>
+        <comment>else</comment>
+        <connected_to>cffef2f3-e733-e250-0b59-19c1d76f445d</connected_to>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>text2flow</generation_source>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>15</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:06</sys_created_on>
+        <sys_id>1bfef2f33333e250bf1221382e5c7bd0</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:47</sys_updated_on>
+        <ui_id>53fef2f3-d533-e250-ec43-d5258231069d</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">55e387bb3333e250bf1221382e5c7be1</block>
+        <comment/>
+        <connected_to>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</connected_to>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>flowRecommendation</generation_source>
+        <logic_definition display_value="Else If">666e5545c3e232002841b63b12d3ae99</logic_definition>
+        <order>5</order>
+        <outputs_assigned/>
+        <parent_ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>1de387bb3333e250bf1221382e5c7be1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>d8030914-f468-436e-a270-a11c7a360e31</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Uy27bMBD8FUNnwZDkJmh9C/IAgqYN0AS5tIGwIlc2UYpUScqOa/jfuytKjtHmhR566k07+5pZDrRNbBfaLvhbe+K9Wphk/vU+TZRhjL63iYEGk3kirJEqKGvKHkiTFeiOEyAYnXzrsmwmJ2fI8QoCl0jlWw2bu9crxVJp6XDY3oKjHQFdMt/+lgqbFksNFWoaeBOcMgtqV5KiOoM6/yByMSuOZ0WWFe/f5dXxrMoLOQOEgurGxtNRzOSqR9JnVfI+wv24yTrJtPIsTfAhoJFIq2vQHtOkASMhWLfZIw5BXhv9CCyVCTQu4eIHr37S7OLoiAtrJI0CY3IflsMJIyyWVgm8bplgRAJUeugRVneN+Rx18PGxhk6H8fiEdJ7mYcukmcVAqb5Z2vWXceGFMr3AIamtAL2PINAZqi6g54dBjQ0NKhtoWzpO2Tq7Un0zcWmmC03BtNZ2TUvZWdP4/lO6EUwvCD/r4TtwilV8ojHUHGlW4JUoexfSuOBIwq4/S/mjY0JR4CCljNegAi+casMJ+woH1rv0TwsfuHe79V3FJAd2u93V5cdz+YKL39DxD9ycP+XmJ3z8vIWLVyzMR3+jg7Ms+2/hQwsrX0YrDtr65X/t4Hu2a9zgo28kCuWJyC1jl+O/mhMbMoASh9Dauu8s4RHb/QJzqWb79QUAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">57fef2f33333e250bf1221382e5c7bd1</block>
+        <comment>assign subflow outputs</comment>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>text2flow</generation_source>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>17</order>
+        <outputs_assigned>response</outputs_assigned>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:06</sys_created_on>
+        <sys_id>1ffef2f33333e250bf1221382e5c7bd1</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:47</sys_updated_on>
+        <ui_id>dbfef2f3-bb33-e250-8b87-c3e543bed0a0</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/41T224aMRD9lcjPgGCXW3iLVEWK1DZVoHmpqpXXHoNVr+34AqGIf+8MuxBEX7JPnuO5nHM8e2AuJ59TXLmHGPXassWvA9OSLZgsRmrGVUkfFJNhrUZFMSrnBUzErJ6OWY9Z3gBmBoje2QiIbLnJBL3AW4aY7n4EJyBGkHfLLOiksjF7TJQ6esP3r5/NFxttZADi97vHPA84OkFgi8PNVdp7qAyvwWDbZQrarrH8s4rOhVeS/hdJIxCJ5+YuSGIy6jF4T2Al4DDFTYQea7iVPLmwvyABuHy25gPYaJuwG6Pk96j/Yuv5cDikTAUoS0B7ewmrzrsWFhunBTz7pJ1tkcRr09UIZ3Jjv7cKyHVQPJt0dh2RHLEfeGJNNDpOarlxu5fzwEdtTwK7S+MEN5eIJ7ShzgkivUXWqxtzWuTr7YOAgQYnVg33HpHKB7fVpylIuhmsDQYDZdwO2dFeDrgghQN0kw8eEf9ygl950CT3G7bBYhr302rcpSd68HlZT+5LEP1ipur+eKR4vxbltD+cFDAW8/J+Ogd2PFlbvWUS1ZrU2VG1jmJCFEH79IAUttApP+KuaUu/Trt3245JF0oQOiLhFWFPV3lyjwulxTW0c+EPSf3Ajv8A7buUDJgDAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">75764f7f3333e250bf1221382e5c7b81</block>
+        <comment/>
+        <connected_to>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</connected_to>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>flowRecommendation</generation_source>
+        <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
+        <order>13</order>
+        <outputs_assigned/>
+        <parent_ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:49:46</sys_created_on>
+        <sys_id>3d764f7f3333e250bf1221382e5c7b81</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>189e2caa-7735-4f53-b92d-aaad35464810</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">dde387bb3333e250bf1221382e5c7be2</block>
+        <comment/>
+        <connected_to>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</connected_to>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>flowRecommendation</generation_source>
+        <logic_definition display_value="Else If">666e5545c3e232002841b63b12d3ae99</logic_definition>
+        <order>7</order>
+        <outputs_assigned/>
+        <parent_ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>95e387bb3333e250bf1221382e5c7be3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>b14c9efb-be9c-4b13-9a9e-24311ca2b085</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1UXW/TMBT9K5WfoyhJ2QR9m2CTJgaTtmkvMEWOfdNaOHawnXalyn/n3jjpKlg3xANPvNXnfpxzbo66Y7YLbRf8nT3zXi0NW3x5SJgyhOHvHTO8AbZgwhqpgrKmHICErbnuqMAFobOvXZbN5ewGGrumslS+1Xx7/3KXWCktHYysLXe4O4Bji90vpbBtodS8Ao3LboNTZonjSuKrznidvxO5mBen8yLLirdv8up0XuWFnHPgBfZNg+8nE7OrAUmOuiM+xP3EZJ0kWXmWMHgMYCQgdc21h4Q13EgerNvuEQdcXhv9BKyUCbiOUfOjVz9wd3FyQo01oEcBsbh/luP5IixWVgm4bklgRAKv9DgjrO4a8zn6oMNDzTsdpsMj0nncBy2JJhWjpPp2ZTc3E+GFMoPBsait4Hr/4gHPUHUBPH0Y0NDgorLhbYvHKVtn12oYRi1NutT4SGttN0hKiUrjt0/xRjy9QPzDAN9zp8jFJ1yDw1Fmxb0S5ZA+XBccWuiHs5TfOxIUDY5WyngNbPDCqTacIQ+mKqruk9+je5Da3c53FYkc1fX91eXHc3ckva90/4MU58+l+Jn8Ho9u8Up06dh/mNwsy/5H9zC6ypcxgqO3gfyvk/tAMY0MPuZGglAehdwRdjn9N1NhiwFQ4hDaWPeNLDxh/U/NLGaO5QUAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">9de387bb3333e250bf1221382e5c7bde</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <parent_ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>99e387bb3333e250bf1221382e5c7bdf</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Uy27bMBD8FYNnwdAjMhrfgrQBjKYN0AS5tIGwIimbKEWqJGXHNfzv3dXDMVobCYoee9POvmaWA+2YbUPTBv9gr7xXS8PmX58ipgxh+L1jBmrJ5oxbI1RQ1hQdELE16JYSi2pyxSkx+dbGcSa6aA2BaoTyjYbt4xtK+Upp4eSwvwGHW4J0bL77LRW2jSw0lFLjxPvglFliuxIYVTFUySVPeJbOsjSO03cXSTnLyiQVGUjIsG5svB7lTG47JDqrk/Yh7sdN1gmilcQRk89BGiFxdQXay4jVYAQE67YHxEkQd0a/ACtlAo5jVPzs1U+cneY5FVYSNXLZJw9hMdywh/nKKi7vGiLYIwFKPfRwq9vafO510PVlBa0O4/URaT3Okw2RJhYDpep+ZTdfxoU3ynQCh6S2HPQhgoBnKNsgPT2M1LLGQUUNTYPHKRpn16prRi71dKkxmFbabnApeWsK3etP8UYwvUH8fQc/glOk4hOOweaeZgle8aLzIY4LDiXsu7MUP1oi1AscpBT9NbDAc6ea0PlKDqz30Z8mPvLvbufbkkgO7Pb728XHD3DWxK/W/wsnX0Je5Umcn3byxeyUk094+Lx901fsSwd/o3vjOP5v32P7Kl/0Nhy0dcv/2r1PZNV+g+99IyRXHok8ELYY/9SU2KIBFD+GNtZ9Jwkv2P4XAR43lPMFAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">d1e387bb3333e250bf1221382e5c7be4</block>
+        <comment/>
+        <connected_to>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</connected_to>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Else If">666e5545c3e232002841b63b12d3ae99</logic_definition>
+        <order>9</order>
+        <outputs_assigned/>
+        <parent_ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>99e387bb3333e250bf1221382e5c7be4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>564ef4f5-f842-4e1d-951b-d55bf4e93b70</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Uy27bMBD8FYNnwZDkJmh9C9oECJo2QBLk0gbCilzZRClS5cOOa/jfuxQlx2jjpOihp97M2cfMrAbeMhN8F7y7M2fOyYVm8y8PGZM6YvR7yzS0yOaMGy2kl0ZXPZCxFagQC8AjOvka8nwmJjfog9VUFtJ1Cjb3L3fxpVTC4sDagaXdHi2bb38p+U2HlYIaFS279VbqBY1LQa8mh6Z4xws+K09nZZ6Xb98U9emsLkoxA4SS+sbB96OJyVWPZEfdRT7C3chkrIiyijxj+OhRCyTqBpTDjLWgBXhjN3vEIohrrZ6ApdSe1rHY/OjkD9pdnpzExgbJI8dU3D+r4XwJ5ksjOV53UWBCPNRqmOFGhVZ/Tj7i4bGBoPx4eEKCo33YRdFRxSCpuV2a9c1IeCF1b3AoKsNB7V/g6Qx18Ojih0GFLS2qWug6Ok7VWbOS/TBpaacLRY9po8yaSGOipunbT+lGML0g/EMP34OV0cUnWkPDSWYNTvKqTx+t85Ys7PqzVN9DFJQMDlaqdA1qcNzKzp8RzwoH1bvs9+gepHa7daGOIgd1u93V5cdzeyS9r3T/gxQXz6X4mfwej275SnTjsf8wuXme/4/uYXSlq1IEB289+V8n9yHGNDG4lBuBXDoSchexy/G/ORY2FADJD6G1sd+ihSds9xOVuDox5QUAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">d5e387bb3333e250bf1221382e5c7be5</block>
+        <comment/>
+        <connected_to>8da46c7c-5d86-4d5d-9c72-76281b83e6f3</connected_to>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Guardian AI Agent Badge Update subflow">22feb2f33333e250bf1221382e5c7b46</flow>
+        <flow_variables_assigned/>
+        <generation_source>flowRecommendation</generation_source>
+        <logic_definition display_value="Else If">666e5545c3e232002841b63b12d3ae99</logic_definition>
+        <order>11</order>
+        <outputs_assigned/>
+        <parent_ui_id>cffef2f3-e733-e250-0b59-19c1d76f445d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:32</sys_created_on>
+        <sys_id>9de387bb3333e250bf1221382e5c7be5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:49:46</sys_updated_on>
+        <ui_id>0004f1b4-e8af-45e6-9d2f-fb30dc83fbfe</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1UXW/TMBT9K5WfoyhJ2QR9m2CTJgaT2NgLTJFjO62FYxt/tCtR/zv3xklXsZUhHnjirT7345xzc9SemBhsDP7WnHkvl5osvtxnRGrE4HdPNO0EWRBmNJdBGl0PQEbWVEUsUIbo7GssijmffbacBixz6a2i27vfd7GVVNyJkdVSB7uDcGTR/1IKWytqRRuhYNlNcFIvYVxyeLUFbcs3rGTz6nReFUX1+lXZnM6bsuJzKmgFfdPg28nE7GpAsqPukA9wPzEZx1FWWWREPAShuQDqliovMtJRDXaM2+4RJyi/1uoRWEkdYB3B5gcvf8Du6uQEG1sBHplIxf2zHs+XYLYykolriwITEmijxhlmVOz0x+QDDy9aGlWYDg9I9LBPWBSNKkZJ7c3KbD5NhBdSDwbHojKMqv2LBjhDE4Pw+GGEEh0sqjtqLRynts6s5TAMWrp8qeCRt8psgBQTladvn8ONaH4B+LsBvqNOoosPsAaGk8yGesnqIX2wLjiwsBvOUn+PKCgZHK3U6RrQ4JmTNpwBz1qMqnfZ0+gepLbvfWxQ5Khut7u6fH8ej6T3he5/kOLyuRQ/k9/j0a1eiC4e+w+TWxTF/+geRlf6OkVw9DaQ/3Vy7zGmicGn3HDBpAcht4hdTv/NWNhCACQ7hDbGfUMLj9juJyrgcmflBQAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>action</element>
+        <help/>
+        <hint/>
+        <label>action_to_perform</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:38:31</sys_created_on>
+        <sys_id>05e387bb3333e250bf1221382e5c7b87</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:31</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>record_id</element>
+        <help/>
+        <hint/>
+        <label>record_id</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:28</sys_created_on>
+        <sys_id>3c1ff6f33333e250bf1221382e5c7bba</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:31</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>valid_to</element>
+        <help/>
+        <hint/>
+        <label>valid_to</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:29</sys_created_on>
+        <sys_id>7c1ff6f33333e250bf1221382e5c7bc3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:31</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>user_sys_id</element>
+        <help/>
+        <hint/>
+        <label>user_sys_id</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:29</sys_created_on>
+        <sys_id>fc1ff6f33333e250bf1221382e5c7bc6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:38:32</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>response</element>
+        <help/>
+        <hint/>
+        <label>response</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_22feb2f33333e250bf1221382e5c7b46</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-12 12:17:35</sys_created_on>
+        <sys_id>561f7af33333e250bf1221382e5c7b67</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-12 12:17:35</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=22feb2f33333e250bf1221382e5c7b46"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=22feb2f33333e250bf1221382e5c7b46"/>
+</record_update>
