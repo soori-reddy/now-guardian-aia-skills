@@ -263,6 +263,377 @@ Response String: A structured message confirming the result of the action perfor
           "variableIds": [
             "422be5c7c7da4a4baa0ff1c113e1e521"
           ]
+        },
+        "89e4363a66eb41c683e6b2edc46eb601": {
+          "id": "89e4363a66eb41c683e6b2edc46eb601",
+          "name": "Guardian AI agent  Badge Update Flow",
+          "invocationType": "subflow",
+          "stepType": "FlowAction",
+          "actionRunAs": "session_user",
+          "permissionsNote": "By default, the Action executes based on the permissions of the user who initiated the conversation. For elevated privileges, you can set to System User.",
+          "actionSecureField": false,
+          "actionSelectSecureField": "",
+          "actionPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "actionConfirmPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "actionNonSecureChannelMessage": {
+            "mode": "simple",
+            "value": "This action is not supported on this channel."
+          },
+          "subflowSpoke": "4c2b85dceb3f6610e4a8f1b4cad0cd2f",
+          "subflowSpokeSubflow": "22feb2f33333e250bf1221382e5c7b46",
+          "subflowWaitType": "sync",
+          "subflowSecureField": false,
+          "subflowSelectSecureField": "",
+          "subflowPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowConfirmPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowNonSecureChannelMessage": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowInputs": {
+            "input-record_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.select_a_badge}}",
+                        "displayValue": "Input Variables➛Select A Badge"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-action": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.badge_action}}",
+                        "displayValue": "Input Variables➛Badge_action"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-user_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.user_sys_id}}",
+                        "displayValue": "Input Variables➛User_sys_id"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-valid_to": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.user_input_valid_to}}",
+                        "displayValue": "Input Variables➛User_input_valid_to"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            }
+          },
+          "subflowOutputs": {
+            "output-response": [
+              {
+                "id": "ad5689f76ed149d18da9f9ea9e095f69",
+                "mapping": "response",
+                "disabled": false,
+                "type": "string",
+                "value": "response",
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "variable": "Response",
+                "variableName": "response"
+              }
+            ]
+          },
+          "subflowDefinition": {
+            "id": "22feb2f33333e250bf1221382e5c7b46",
+            "latest_snapshot_id": "f1e4b7bf2b37a250d4dffd74ce91bf42",
+            "parent_id": null,
+            "type": "subflow",
+            "name": "guardian_ai_agent_badge_update_subflow5af",
+            "label": "Guardian AI Agent Badge Update subflow",
+            "scope_id": "4c2b85dceb3f6610e4a8f1b4cad0cd2f",
+            "description": "This Subflow will be used by AI agent to perform User badge updates from  virtual agent and now assist panel.",
+            "category": null,
+            "parameters_have_loaded": true,
+            "input_parameters": [
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "record_id",
+                "label": "record_id",
+                "type": "string",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "action",
+                "label": "action_to_perform",
+                "type": "string",
+                "order": 2,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "valid_to",
+                "label": "valid_to",
+                "type": "string",
+                "order": 3,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "user_sys_id",
+                "label": "user_sys_id",
+                "type": "string",
+                "order": 4,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              }
+            ],
+            "output_parameters": [
+              {
+                "name": "response",
+                "label": "response",
+                "type": "string",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              }
+            ]
+          },
+          "variableIds": [
+            "ad5689f76ed149d18da9f9ea9e095f69"
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "70bf7bb867e64517ba255ec57c666ca4": {
+          "id": "70bf7bb867e64517ba255ec57c666ca4",
+          "stepType": "Decision",
+          "name": "Badge Action"
+        },
+        "bdfae5f0407e4e7bbc77583f6af4a7de": {
+          "id": "bdfae5f0407e4e7bbc77583f6af4a7de",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "user_input_valid_to",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "72b77ad979434a8e8be14c7c70f9e622",
+              "displayName": "user_input_valid_to",
+              "name": "user_input_valid_to",
+              "description": "Ask user to enter  Valid To",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "bddd69bc7e964f299aa7db1699c9e27f",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "1024c259a76d4587aa436c35856478f2"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_bdfae5f0407e4e7bbc77583f6af4a7de_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "bddd69bc7e964f299aa7db1699c9e27f"
+          ]
         }
       },
       "edges": [
@@ -325,10 +696,52 @@ Response String: A structured message confirming the result of the action perfor
           "label": "Always"
         },
         {
+          "id": "6629cb9d6d134696bae34ba2efcc1d9e",
+          "edgeType": "Edge",
+          "source": "89e4363a66eb41c683e6b2edc46eb601",
+          "target": "5f7a729e99874838882845c709da05c2",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
           "id": "0409e3d7bf9e49cd88c397be8c9a07c6",
           "edgeType": "Edge",
           "source": "e7c1145931d849fdb48fe6770c29543e",
-          "target": "5f7a729e99874838882845c709da05c2",
+          "target": "70bf7bb867e64517ba255ec57c666ca4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "41e5ced4822746e6a7bd344bdc802641",
+          "edgeType": "Branch",
+          "source": "70bf7bb867e64517ba255ec57c666ca4",
+          "target": "89e4363a66eb41c683e6b2edc46eb601",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "",
+            "mode": "query"
+          },
+          "label": "Others"
+        },
+        {
+          "id": "e6ec756f14a74810bb19cd28c1cfaeb5",
+          "edgeType": "Branch",
+          "source": "70bf7bb867e64517ba255ec57c666ca4",
+          "target": "bdfae5f0407e4e7bbc77583f6af4a7de",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Update Badge"
+        },
+        {
+          "id": "e16f809c5d0e45b0825c495a0f293f37",
+          "edgeType": "Edge",
+          "source": "bdfae5f0407e4e7bbc77583f6af4a7de",
+          "target": "89e4363a66eb41c683e6b2edc46eb601",
           "sourcePort": "",
           "targetPort": ""
         }
@@ -428,6 +841,56 @@ Response String: A structured message confirming the result of the action perfor
       },
       "nodeId": "4220c13b7fd34e40b32e8a94ca056280",
       "isHidden": false
+    },
+    "ad5689f76ed149d18da9f9ea9e095f69": {
+      "id": "ad5689f76ed149d18da9f9ea9e095f69",
+      "name": "response",
+      "label": "Response",
+      "defaultValue": "response",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "description": "",
+      "is_list_data_entry": false,
+      "dependent_on_field": "",
+      "nodeId": "89e4363a66eb41c683e6b2edc46eb601",
+      "isHidden": false
+    },
+    "1024c259a76d4587aa436c35856478f2": {
+      "id": "1024c259a76d4587aa436c35856478f2",
+      "name": "ai_data_collector_bdfae5f0407e4e7bbc77583f6af4a7de_output",
+      "label": "Ai_data_collector_bdfae5f0407e4e7bbc77583f6af4a7de_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "bddd69bc7e964f299aa7db1699c9e27f": {
+      "id": "bddd69bc7e964f299aa7db1699c9e27f",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "User_input_valid_to",
+      "name": "user_input_valid_to",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "bdfae5f0407e4e7bbc77583f6af4a7de",
+      "isHidden": false
     }
   }
 }</graph>
@@ -452,14 +915,14 @@ Response String: A structured message confirming the result of the action perfor
         <sys_created_on>2025-09-11 08:05:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>20cbf4672bffee10d4dffd74ce91bf78</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>Guardian Badge Update Action Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_20cbf4672bffee10d4dffd74ce91bf78</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-12 06:24:55</sys_updated_on>
+        <sys_updated_on>2025-09-12 16:22:57</sys_updated_on>
         <title>Guardian Badge Update Action Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
