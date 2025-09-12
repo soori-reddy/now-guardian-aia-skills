@@ -722,7 +722,7 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "("
+                      "text": "ID:"
                     },
                     {
                       "type": "datapill",
@@ -737,7 +737,7 @@
                       ]
                     },
                     {
-                      "text": ")     "
+                      "text": "     "
                     }
                   ]
                 }
@@ -1228,14 +1228,14 @@
         <sys_created_on>2025-09-09 09:53:08</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>5941c7f23b3f62507999faac73e45a9f</sys_id>
-        <sys_mod_count>58</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>Guardian Badge Operations Topic</sys_name>
         <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_5941c7f23b3f62507999faac73e45a9f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-12 10:27:00</sys_updated_on>
+        <sys_updated_on>2025-09-12 10:29:31</sys_updated_on>
         <title>Guardian Badge Operations Topic</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
