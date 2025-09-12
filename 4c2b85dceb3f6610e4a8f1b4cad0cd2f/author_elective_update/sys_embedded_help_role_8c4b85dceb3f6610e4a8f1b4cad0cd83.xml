@@ -17,7 +17,7 @@
     </sys_embedded_help_role>
 <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
+        <application display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
         <file_path/>
         <instance_id>2d30a3a4db4f5780cbf6d5b0cf961946</instance_id>
         <instance_name>aicenter</instance_name>
@@ -67,10 +67,10 @@
         <sys_metadata>8c4b85dceb3f6610e4a8f1b4cad0cd83</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>c04b85dceb3f6610e4a8f1b4cad0cd7f</sys_name>
-        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_parent/>
         <sys_policy/>
-        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_scope_delete display_value="">9ec05a3293244f7799d83cc267c72489</sys_scope_delete>
         <sys_update_name>sys_embedded_help_role_8c4b85dceb3f6610e4a8f1b4cad0cd83</sys_update_name>
         <sys_update_version display_value="sys_embedded_help_role_8c4b85dceb3f6610e4a8f1b4cad0cd83">77b4c25c3bbf66107999faac73e45a14</sys_update_version>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_feature_provider">
+    <one_api_feature_provider action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <feature display_value="19eff04c37bf1210cfb0e84c24924b4d">a5fae01333b7ee10bf1221382e5c7b6d</feature>
+        <feature_service display_value="OneExtendGenericProvider">5233278353111110c271ddeeff7b129b</feature_service>
+        <feature_service_factory><![CDATA[(function() { return new global.OneExtendGenericProvider(); })()]]></feature_service_factory>
+        <name>AIA Data Extractor provider</name>
+        <short_description>Auto Generated </short_description>
+        <sys_class_name>one_api_feature_provider</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-10 12:13:24</sys_created_on>
+        <sys_id>e9fae01333b7ee10bf1221382e5c7b6d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AIA Data Extractor provider</sys_name>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>one_api_feature_provider_e9fae01333b7ee10bf1221382e5c7b6d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-10 12:13:24</sys_updated_on>
+        <type>FDIH Subflow</type>
+        <type_document display_value="Now LLM Integration">936e514a53b3b110f028ddeeff7b128c</type_document>
+    </one_api_feature_provider>
+</record_update>

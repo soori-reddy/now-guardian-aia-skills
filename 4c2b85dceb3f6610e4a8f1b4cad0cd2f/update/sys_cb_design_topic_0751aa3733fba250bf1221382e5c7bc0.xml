@@ -1189,9 +1189,9 @@
         <sys_id>0751aa3733fba250bf1221382e5c7bc0</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>FlowTopic</sys_name>
-        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_design_topic_0751aa3733fba250bf1221382e5c7bc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2025-09-12 10:07:39</sys_updated_on>

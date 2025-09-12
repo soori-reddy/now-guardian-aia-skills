@@ -19,7 +19,7 @@
     </sys_cb_topic_library_usage>
     <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
+        <application display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
         <file_path/>
         <instance_id>e930a3a4db4f5780cbf6d5b0cf9619fd</instance_id>
         <instance_name>alert</instance_name>
@@ -52,10 +52,10 @@
         <sys_metadata>2448286b2b7fee10d4dffd74ce91bf41</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
-        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_parent/>
         <sys_policy/>
-        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_scope_delete display_value="">9ec05a3293244f7799d83cc267c72489</sys_scope_delete>
         <sys_update_name>sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41</sys_update_name>
         <sys_update_version display_value="sys_cb_topic_library_usage_2448286b2b7fee10d4dffd74ce91bf41">2c48286b2b7fee10d4dffd74ce91bf43</sys_update_version>
