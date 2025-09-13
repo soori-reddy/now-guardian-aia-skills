@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
     <sys_cb_design_topic action="INSERT_OR_UPDATE">
         <compiled_topic display_value="Guardian Badge Assignment Topic Block">63bc7ca72bffee10d4dffd74ce91bf34</compiled_topic>
-        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"2a3e16709e954b6dae4bd21a0c28c29f","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"2a3e16709e954b6dae4bd21a0c28c29f"}],"goals":[{"name":"primary","trigger_id":"2a3e16709e954b6dae4bd21a0c28c29f","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"f16955ef9e724edb9417999db2bd353b","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"a2ee8aecd3184254b755fb5bc409adf4","name":"End","expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Success! 🎉 A new badge has been assigned successfully. You're all set to use your badge!"}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"1075fc19c99447d3b0e46f6f472f3551","name":"Assign Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"f16955ef9e724edb9417999db2bd353b","target_node_id":"1075fc19c99447d3b0e46f6f472f3551","id":"cae390e092c44358a1ca2176aa50760d"},{"type":"Edge","source_node_id":"1075fc19c99447d3b0e46f6f472f3551","target_node_id":"a2ee8aecd3184254b755fb5bc409adf4","id":"3d9ae4c2e5d74bd1b134e41e35c0aad7"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"user_sys_id","list":false,"id":"9e987bfa0f0343b3bdb656b2dcb6b9df","formatType":"text","metadata":{"libraryMappingType":"input"},"secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_type","list":false,"id":"07613e6845ed48ea9f46252f90f0df3b","formatType":"text","metadata":{"libraryMappingType":"input"},"secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f","library-usage":{"type":"Library","input-parameters":[{"name":"user_sys_id","label":"user_sys_id","default-value":"\"\"","required":true,"metadata":{"type":"String","list":false,"items":[],"use_items":false},"id":"9e987bfa0f0343b3bdb656b2dcb6b9df","type":"String"},{"name":"badge_type","label":"badge_type","default-value":"\"\"","required":false,"metadata":{"type":"String","list":false,"items":[],"use_items":false},"id":"07613e6845ed48ea9f46252f90f0df3b","type":"String"}],"return-values-mapping":[]},"domain":"global","topic_type":"TOPIC_BLOCK","channels":[],"dialog_acts_enabled":false,"id":"9728b0232bffee10d4dffd74ce91bfcc","name":"Guardian Badge Assignment Topic Block","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":true,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"This Topic Block is responsible for assigning badges to users within the system. It supports multiple badge types, including: Temporary Badge, Permanent Badge, Mobile Credential\nInputs:\nUser ID: The unique identifier of the user receiving the badge.\nBadge Type: Type of the badge to be assigned.\nOutput:\nResponse String: A structured string confirming the result of the badge assignment operation.","model_type":"llm","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Guardian Badge Assignment Topic Block","library":true,"csTopicId":"63bc7ca72bffee10d4dffd74ce91bf34","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"59a9d6c9aa464acd9f6b51361ac3df5d","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"59a9d6c9aa464acd9f6b51361ac3df5d"}],"goals":[{"name":"primary","trigger_id":"59a9d6c9aa464acd9f6b51361ac3df5d","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"f16955ef9e724edb9417999db2bd353b","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"a2ee8aecd3184254b755fb5bc409adf4","name":"End","expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Success! 🎉 A new badge has been assigned successfully. You're all set to use your badge!"}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"1075fc19c99447d3b0e46f6f472f3551","name":"Assign Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"f16955ef9e724edb9417999db2bd353b","target_node_id":"1075fc19c99447d3b0e46f6f472f3551","id":"cae390e092c44358a1ca2176aa50760d"},{"type":"Edge","source_node_id":"1075fc19c99447d3b0e46f6f472f3551","target_node_id":"a2ee8aecd3184254b755fb5bc409adf4","id":"3d9ae4c2e5d74bd1b134e41e35c0aad7"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"user_sys_id","list":false,"id":"9e987bfa0f0343b3bdb656b2dcb6b9df","formatType":"text","metadata":{"libraryMappingType":"input"},"secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_type","list":false,"id":"07613e6845ed48ea9f46252f90f0df3b","formatType":"text","metadata":{"libraryMappingType":"input"},"secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_type_sys_id","list":false,"id":"20bddc1f22ea48faa4912e31d8fd713f","formatType":"text","metadata":{"libraryMappingType":"input"},"secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f","library-usage":{"type":"Library","input-parameters":[{"name":"user_sys_id","label":"user_sys_id","default-value":"\"\"","required":true,"metadata":{"type":"String","list":false,"items":[],"use_items":false},"id":"9e987bfa0f0343b3bdb656b2dcb6b9df","type":"String"},{"name":"badge_type","label":"badge_type","default-value":"\"\"","required":false,"metadata":{"type":"String","list":false,"items":[],"use_items":false},"id":"07613e6845ed48ea9f46252f90f0df3b","type":"String"},{"name":"user_type_sys_id","label":"user_type_sys_id","default-value":"\"\"","required":true,"metadata":{"type":"String","list":false,"items":[],"use_items":false},"id":"20bddc1f22ea48faa4912e31d8fd713f","type":"String"}],"return-values-mapping":[]},"domain":"global","topic_type":"TOPIC_BLOCK","channels":[],"dialog_acts_enabled":false,"id":"9728b0232bffee10d4dffd74ce91bfcc","name":"Guardian Badge Assignment Topic Block","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":true,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"This Topic Block is responsible for assigning badges to users within the system. It supports multiple badge types, including: Temporary Badge, Permanent Badge, Mobile Credential\nInputs:\nUser ID: The unique identifier of the user receiving the badge.\nBadge Type: Type of the badge to be assigned.\nOutput:\nResponse String: A structured string confirming the result of the badge assignment operation.","model_type":"llm","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Guardian Badge Assignment Topic Block","library":true,"csTopicId":"63bc7ca72bffee10d4dffd74ce91bf34","readOnly":false,"nluMapping":"[]"}</design_definition>
         <design_topic_id>9728b0232bffee10d4dffd74ce91bfcc</design_topic_id>
         <graph>{
   "graph_api_version": "1.0.82",
@@ -31,7 +31,7 @@
               "name": "user_sys_id",
               "required": true,
               "referenced": false,
-              "disabled": false
+              "disabled": true
             },
             {
               "type": "String",
@@ -40,12 +40,22 @@
               "name": "badge_type",
               "required": false,
               "referenced": false,
+              "disabled": true
+            },
+            {
+              "type": "String",
+              "value": "",
+              "id": "20bddc1f22ea48faa4912e31d8fd713f",
+              "name": "user_type_sys_id",
+              "referenced": false,
+              "required": true,
               "disabled": false
             }
           ],
           "variableIds": [
             "9e987bfa0f0343b3bdb656b2dcb6b9df",
-            "07613e6845ed48ea9f46252f90f0df3b"
+            "07613e6845ed48ea9f46252f90f0df3b",
+            "20bddc1f22ea48faa4912e31d8fd713f"
           ]
         },
         "a2ee8aecd3184254b755fb5bc409adf4": {
@@ -134,6 +144,19 @@
       },
       "nodeId": "f16955ef9e724edb9417999db2bd353b",
       "isHidden": false
+    },
+    "20bddc1f22ea48faa4912e31d8fd713f": {
+      "id": "20bddc1f22ea48faa4912e31d8fd713f",
+      "name": "user_type_sys_id",
+      "label": "User_type_sys_id",
+      "defaultValue": "",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "f16955ef9e724edb9417999db2bd353b",
+      "isHidden": false
     }
   }
 }</graph>
@@ -143,14 +166,14 @@
         <sys_created_on>2025-09-11 08:09:34</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>afbc7ca72bffee10d4dffd74ce91bf37</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>FlowTopic</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_design_topic_afbc7ca72bffee10d4dffd74ce91bf37</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-11 11:20:03</sys_updated_on>
+        <sys_updated_on>2025-09-13 08:54:27</sys_updated_on>
         <type>FlowTopic</type>
     </sys_cb_design_topic>
 </record_update>

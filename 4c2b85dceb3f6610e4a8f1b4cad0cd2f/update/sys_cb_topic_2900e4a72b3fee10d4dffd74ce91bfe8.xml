@@ -280,13 +280,43 @@ We use this block to provide flexibility in handling user data—whether through
               "alertMessage": "You cannot delete this parameter because other calling topics use it.",
               "additionalInfoUrl": "/sys_cs_topic_library_usage_list.do?sysparm_query=library_cs_topic_id=64f7a8e72b7fee10d4dffd74ce91bf83%5Ecalling_cs_topic_idINc53243723b3f62507999faac73e45a14",
               "additionalInfoLabel": "See calling topics"
+            },
+            {
+              "key": "Guardian_user_type_sys_id",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_type_sys_id}}",
+                        "displayValue": "Script Variables➛user_type_sys_id"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": false
             }
           ]
         },
         "f82185e9de674056baf341ae59029d45": {
           "id": "f82185e9de674056baf341ae59029d45",
           "name": "User Lookup",
-          "script": "(function execute() {\n   \n        var identityGr = new GlideRecordSecure(\"x_aleen_snguardian_identity\");\n        identityGr.addQuery('email', vaInputs.user_email);\n        identityGr.addQuery('is_deleted', false);\n        identityGr.query();\n        if (identityGr.next()) {\n            var user_type = identityGr.type.code;\n            vaVars.guardian_user_sys_id = identityGr.sys_id.toString();\n            vaVars.user_name = identityGr.full_name.toString();\n            vaVars.user_photo = identityGr.photo.toString();\n            vaVars.user_type = identityGr.type.name.toString();\n            if (user_type == 'VISITOR') {\n                var visitorGr = new GlideRecordSecure(\"x_aleen_snguardian_visitor\");\n                if (visitorGr.get(identityGr.sys_id)) {\n                   vaVars.user_status = visitorGr.visitor_status.name.toString();\n                   vaVars.user_number = visitorGr.number.toString();\n                }\n            } else {\n                vaVars.user_status = identityGr.status.name.toString();\n                vaVars.user_number = identityGr.number.toString();\n            }\n        } else {\n            vaVars.guardian_user_sys_id = '';\n            vaVars.user_name = '';\n            vaVars.user_photo = '';\n            vaVars.user_type = '';\n            vaVars.user_status = '';\n            vaVars.user_number = '';\n        }\n     \n})()\n",
+          "script": "(function execute() {\n   \n        var identityGr = new GlideRecordSecure(\"x_aleen_snguardian_identity\");\n        identityGr.addQuery('email', vaInputs.user_email);\n        identityGr.addQuery('is_deleted', false);\n        identityGr.query();\n        if (identityGr.next()) {\n            var user_type = identityGr.type.code;\n            vaVars.guardian_user_sys_id = identityGr.sys_id.toString();\n            vaVars.user_name = identityGr.full_name.toString();\n            vaVars.user_photo = identityGr.photo.toString();\n            vaVars.user_type = identityGr.type.name.toString();\n            vaVars.user_type_sys_id = identityGr.type.toString();\n            if (user_type == 'VISITOR') {\n                var visitorGr = new GlideRecordSecure(\"x_aleen_snguardian_visitor\");\n                if (visitorGr.get(identityGr.sys_id)) {\n                   vaVars.user_status = visitorGr.visitor_status.name.toString();\n                   vaVars.user_number = visitorGr.number.toString();\n                }\n            } else {\n                vaVars.user_status = identityGr.status.name.toString();\n                vaVars.user_number = identityGr.number.toString();\n            }\n        } else {\n            vaVars.guardian_user_sys_id = '';\n            vaVars.user_name = '';\n            vaVars.user_photo = '';\n            vaVars.user_type = '';\n            vaVars.user_status = '';\n            vaVars.user_number = '';\n            vaVars.user_type_sys_id ='';\n        }\n     \n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -401,6 +431,17 @@ We use this block to provide flexibility in handling user data—whether through
       "label": "user_photo",
       "varType": "script",
       "category": "vaVars"
+    },
+    "5d668e6467ad417a888988e55e143da6": {
+      "id": "5d668e6467ad417a888988e55e143da6",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_type_sys_id",
+      "label": "user_type_sys_id",
+      "varType": "script",
+      "category": "vaVars"
     }
   }
 }</graph>
@@ -425,14 +466,14 @@ We use this block to provide flexibility in handling user data—whether through
         <sys_created_on>2025-09-11 06:04:05</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>2900e4a72b3fee10d4dffd74ce91bfe8</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>Guardian User Information Retriever</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_2900e4a72b3fee10d4dffd74ce91bfe8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-12 10:06:44</sys_updated_on>
+        <sys_updated_on>2025-09-13 08:52:43</sys_updated_on>
         <title>Guardian User Information Retriever</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>

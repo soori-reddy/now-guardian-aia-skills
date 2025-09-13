@@ -385,6 +385,11 @@
               "value": "guardian_user_number",
               "mapping": "guardian_user_number",
               "preventDisable": true
+            },
+            {
+              "id": "76508638763b44c4a831197f41e5aff5",
+              "value": "guardian_user_type_sys_id",
+              "mapping": "guardian_user_type_sys_id"
             }
           ],
           "variableIds": [
@@ -393,7 +398,8 @@
             "8350382bdb734320bf891ad5916cea44",
             "de6e0a69f1de445ba4f549f985b41160",
             "32da2cca6dff40dc80324a7e3d7ca17c",
-            "246a432bf6ed46708842b409c815ba33"
+            "246a432bf6ed46708842b409c815ba33",
+            "76508638763b44c4a831197f41e5aff5"
           ],
           "dynamicTopicBlockName": {
             "value": "",
@@ -508,8 +514,61 @@
               "type": "String"
             },
             "badge_type": {
-              "value": "",
-              "mode": "simple",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.badge_type}}",
+                        "displayValue": "Script Variables➛badge_type"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "user_type_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.guardian_user_type_sys_id}}",
+                        "displayValue": "Input Variables➛Guardian_user_type_sys_id"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
               "type": "String"
             }
           },
@@ -1204,6 +1263,16 @@
       "preventDisable": true,
       "nodeId": "2e3f565bd01946a89e6bcef744587181",
       "isHidden": false
+    },
+    "76508638763b44c4a831197f41e5aff5": {
+      "id": "76508638763b44c4a831197f41e5aff5",
+      "name": "guardian_user_type_sys_id",
+      "label": "Guardian_user_type_sys_id",
+      "defaultValue": "guardian_user_type_sys_id",
+      "varType": "string",
+      "category": "vaInputs",
+      "nodeId": "2e3f565bd01946a89e6bcef744587181",
+      "isHidden": false
     }
   }
 }</graph>
@@ -1228,14 +1297,14 @@
         <sys_created_on>2025-09-09 09:53:08</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>5941c7f23b3f62507999faac73e45a9f</sys_id>
-        <sys_mod_count>59</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>Guardian Badge Operations Topic</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_5941c7f23b3f62507999faac73e45a9f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-12 10:29:31</sys_updated_on>
+        <sys_updated_on>2025-09-13 08:56:35</sys_updated_on>
         <title>Guardian Badge Operations Topic</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
