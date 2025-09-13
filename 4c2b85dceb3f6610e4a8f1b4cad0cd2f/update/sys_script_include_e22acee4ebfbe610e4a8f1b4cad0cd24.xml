@@ -57,7 +57,7 @@ GuardianAIAgentHelper.prototype = {
         identityAccessGr.query();
         while (identityAccessGr.next()) {
             var access = {};
-			access['identity_access_identifier'] = identityAccessGr.sys_id.toString();
+            access['identity_access_identifier'] = identityAccessGr.sys_id.toString();
             access['name'] = identityAccessGr.access_level.name.toString();
             access['valid_from'] = identityAccessGr.valid_from.toString();
             access['valid_to'] = identityAccessGr.valid_to.toString();
@@ -147,19 +147,81 @@ GuardianAIAgentHelper.prototype = {
         }
         return response;
     },
+    getDTConfigs(decision_table_sysid, input_object) {
+        var dtInputs = {};
+        // Create separate object for DT inputs
+        if (input_object.user_location) {
+            var locationGr = new GlideRecordSecure('x_aleen_snguardian_location');
+            locationGr.addQuery('sys_id', input_object.user_location);
+            locationGr.query();
+            if (locationGr.next()) {
+                dtInputs['u_location'] = locationGr;
+            }
+        }
+        if (input_object.user_type) {
+            var identityType = new GlideRecordSecure('x_aleen_snguardian_identitytype');
+            identityType.addQuery('sys_id', input_object.user_type);
+            identityType.query();
+            if (identityType.next()) {
+                dtInputs['u_type'] = identityType;
+            }
+        }
+        if (input_object.badge_type) {
+            dtInputs['u_badge_type'] = input_object.badge_type;
+        }
+        if (input_object.badge_action) {
+            dtInputs['u_badge_action'] = input_object.badge_action;
+        }
+        gs.info("Input to DT :::: " + JSON.stringify(dtInputs));
+        var dt = new sn_dt.DecisionTableAPI();
+        var result = {};
+        try {
+            var response = dt.getDecisions(decision_table_sysid, dtInputs);
+            var output = [];
+
+            for (var kl = 0; kl < response.length; kl++) {
+                var decision = response[kl];
+                var elements = decision['result_elements'];
+                var formattedDecision = {};
+
+                for (var key in elements) {
+                    if (elements[key] != null) {
+                        var newKey = key.startsWith("u_") ? key.slice(2) : key;
+                        newKey = newKey.replace(/([a-z])/g, function(letter) {
+                            return letter.toUpperCase();
+                        });
+                        formattedDecision[newKey] = elements[key].toString();
+                    }
+                }
+                output.push(formattedDecision);
+            }
+
+            if (output.length > 0) {
+                result = output[0];
+                gs.info("returning first record " + JSON.stringify(output[0]));
+            } else {
+                result = {};
+            }
+        } catch (e) {
+            gs.error("Error in getting decisions from the Decision Table: " + e.message);
+            result = {};
+            return result;
+        }
+        return result;
+    },
     type: 'GuardianAIAgentHelper'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-02 06:07:21</sys_created_on>
         <sys_id>e22acee4ebfbe610e4a8f1b4cad0cd24</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>GuardianAIAgentHelper</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_script_include_e22acee4ebfbe610e4a8f1b4cad0cd24</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-08 14:35:56</sys_updated_on>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-13 10:19:22</sys_updated_on>
     </sys_script_include>
 </record_update>

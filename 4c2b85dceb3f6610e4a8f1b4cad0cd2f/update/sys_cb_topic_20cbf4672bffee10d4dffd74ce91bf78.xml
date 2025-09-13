@@ -645,8 +645,8 @@ Response String: A structured message confirming the result of the action perfor
           "sourcePort": "",
           "targetPort": "",
           "expression": {
-            "mode": "query",
-            "value": ""
+            "value": "vaInputs.badge_action=update^ORvaInputs.badge_action=Update",
+            "mode": "query"
           },
           "label": "Update Badge"
         },
@@ -732,7 +732,7 @@ Response String: A structured message confirming the result of the action perfor
           "sourcePort": "",
           "targetPort": "",
           "expression": {
-            "value": "",
+            "value": "vaInputs.badge_action!=Update^vaInputs.badge_action!=update",
             "mode": "query"
           },
           "label": "Others"
@@ -916,14 +916,14 @@ Response String: A structured message confirming the result of the action perfor
         <sys_created_on>2025-09-11 08:05:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>20cbf4672bffee10d4dffd74ce91bf78</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>Guardian Badge Update Action Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_20cbf4672bffee10d4dffd74ce91bf78</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 05:50:15</sys_updated_on>
+        <sys_updated_by>harmandeep.kaur</sys_updated_by>
+        <sys_updated_on>2025-09-13 10:43:30</sys_updated_on>
         <title>Guardian Badge Update Action Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
