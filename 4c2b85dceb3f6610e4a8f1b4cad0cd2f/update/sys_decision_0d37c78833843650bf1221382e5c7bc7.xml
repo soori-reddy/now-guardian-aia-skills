@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision">
     <sys_decision action="INSERT_OR_UPDATE">
         <access>public</access>
-        <active>false</active>
+        <active>true</active>
         <answer_table>sys_decision_multi_result</answer_table>
         <answer_type>reference</answer_type>
         <delta/>
@@ -10,14 +10,14 @@
         <label/>
         <name>Guardian AI Agent Badge Action Config</name>
         <reference_qualifier/>
-        <status>draft</status>
+        <status>published</status>
         <sys_class_name>sys_decision</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-13 07:31:29</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0d37c78833843650bf1221382e5c7bc7</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>Guardian AI Agent Badge Action Config</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
@@ -25,6 +25,6 @@
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_decision_0d37c78833843650bf1221382e5c7bc7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 08:19:19</sys_updated_on>
+        <sys_updated_on>2025-09-13 09:20:10</sys_updated_on>
     </sys_decision>
 </record_update>

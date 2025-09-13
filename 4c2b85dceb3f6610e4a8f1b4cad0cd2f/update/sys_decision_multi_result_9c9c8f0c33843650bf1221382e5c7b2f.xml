@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_multi_result">
     <sys_decision_multi_result action="INSERT_OR_UPDATE">
         <decision_table display_value="Guardian AI Agent Badge Action Config">0d37c78833843650bf1221382e5c7bc7</decision_table>
-        <label>MC_SUPPORTED: true, AUTO_BADGE_ALLOCATION: true, CREATE_REQUEST: false, DEF_VALID_FROM: true, DEF_VALID_TO:  8 Hours , COPY_ACCESS: false, DEF_ACCESS: true, DEACTIVATE_OLD_BADGE: false</label>
+        <label>AUTO_BADGE_ALLOCATION: true, CREATE_REQUEST: false, DEF_VALID_FROM: true, DEF_VALID_TO:  8 Hours , COPY_ACCESS: false, DEF_ACCESS: true, DEACTIVATE_OLD_BADGE: false</label>
         <result_elements/>
         <sys_class_name>sys_decision_multi_result</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -9,15 +9,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9c9c8f0c33843650bf1221382e5c7b2f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>MC_SUPPORTED: true, AUTO_BADGE_ALLOCATION: true, CREATE_REQUEST: false, DEF_VALID_FROM: true, DEF_VALID_TO:  8 Hours , COPY_ACCESS: false, DEF_ACCESS: true, DEACTIVATE_OLD_BADGE: false</sys_name>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>AUTO_BADGE_ALLOCATION: true, CREATE_REQUEST: false, DEF_VALID_FROM: true, DEF_VALID_TO:  8 Hours , COPY_ACCESS: false, DEF_ACCESS: true, DEACTIVATE_OLD_BADGE: false</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_decision_multi_result_9c9c8f0c33843650bf1221382e5c7b2f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 07:54:54</sys_updated_on>
+        <sys_updated_on>2025-09-13 09:20:00</sys_updated_on>
     </sys_decision_multi_result>
     <sys_variable_value action="delete_multiple" query="document_key=9c9c8f0c33843650bf1221382e5c7b2f"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -117,19 +117,5 @@
         <sys_updated_on>2025-09-13 07:54:54</sys_updated_on>
         <value>1</value>
         <variable display_value="AUTO_BADGE_ALLOCATION">163b8b4833843650bf1221382e5c7bfd</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_decision_multi_result</document>
-        <document_key>9c9c8f0c33843650bf1221382e5c7b2f</document_key>
-        <order>100</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 07:54:54</sys_created_on>
-        <sys_id>dc9c8f0c33843650bf1221382e5c7b30</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 07:54:54</sys_updated_on>
-        <value>1</value>
-        <variable display_value="MC_SUPPORTED">6eb8cfc833843650bf1221382e5c7ba7</variable>
     </sys_variable_value>
 </record_update>
