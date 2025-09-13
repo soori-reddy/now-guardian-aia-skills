@@ -94,13 +94,13 @@ Response String: A structured message confirming the result of the action perfor
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Update successful! ✅ The badge "
+                    "text": "Present Response to user."
                   },
                   {
                     "type": "datapill",
                     "dataPill": {
-                      "value": "{{vaInputs.select_a_badge}}",
-                      "displayValue": "Input Variables➛Select A Badge"
+                      "value": "{{vaInputs.response}}",
+                      "displayValue": "Input Variables➛Response"
                     },
                     "children": [
                       {
@@ -109,7 +109,7 @@ Response String: A structured message confirming the result of the action perfor
                     ]
                   },
                   {
-                    "text": " details have been updated smoothly. You're all set!"
+                    "text": ""
                   }
                 ]
               }
@@ -398,8 +398,8 @@ Response String: A structured message confirming the result of the action perfor
                     {
                       "type": "datapill",
                       "dataPill": {
-                        "value": "{{vaInputs.user_input_valid_to}}",
-                        "displayValue": "Input Variables➛User_input_valid_to"
+                        "value": "{{vaInputs.user_input_valid_to_datetime}}",
+                        "displayValue": "Input Variables➛User_input_valid_to_datetime"
                       },
                       "children": [
                         {
@@ -536,10 +536,10 @@ Response String: A structured message confirming the result of the action perfor
           "stepType": "Decision",
           "name": "Badge Action"
         },
-        "bdfae5f0407e4e7bbc77583f6af4a7de": {
-          "id": "bdfae5f0407e4e7bbc77583f6af4a7de",
-          "stepType": "StandaloneAITextPrompt",
-          "name": "user_input_valid_to",
+        "648640bfcb174908818b260b250c1201": {
+          "id": "648640bfcb174908818b260b250c1201",
+          "stepType": "StandaloneAIDateTimePrompt",
+          "name": "user_input_valid_to_datetime",
           "purpose": {
             "value": "",
             "mode": "simple"
@@ -550,17 +550,17 @@ Response String: A structured message confirming the result of the action perfor
           },
           "inputs": [
             {
-              "itemId": "72b77ad979434a8e8be14c7c70f9e622",
-              "displayName": "user_input_valid_to",
-              "name": "user_input_valid_to",
-              "description": "Ask user to enter  Valid To",
+              "itemId": "9e4aac250e02491495dacfa7339d2b04",
+              "displayName": "user_input_valid_to_datetime",
+              "name": "user_input_valid_to_datetime",
+              "description": "Ask User to enter Valid To",
               "discoverable": true,
               "dynamicDescription": {
                 "value": "",
                 "mode": "simple"
               },
-              "type": "string",
-              "variableId": "bddd69bc7e964f299aa7db1699c9e27f",
+              "type": "date_time",
+              "variableId": "b74a486efb2047d387b62cd22868b8e1",
               "choices": [
                 {
                   "label": "",
@@ -577,7 +577,7 @@ Response String: A structured message confirming the result of the action perfor
                 "value": "",
                 "mode": "glide_query"
               },
-              "stepType": "TextPrompt",
+              "stepType": "DateTimePrompt",
               "enforcePrompt": false,
               "helpText": false,
               "skippable": {
@@ -623,20 +623,33 @@ Response String: A structured message confirming the result of the action perfor
             "mode": "query"
           },
           "hiddenVariableIds": [
-            "1024c259a76d4587aa436c35856478f2"
+            "ba6773a730be40d4a86b3a6a02044352"
           ],
           "hiddenVariableNames": [
-            "ai_data_collector_bdfae5f0407e4e7bbc77583f6af4a7de_output"
+            "ai_data_collector_648640bfcb174908818b260b250c1201_output"
           ],
           "classificationEnabled": false,
           "classificationOverrides": [],
           "standalone": true,
           "variableIds": [
-            "bddd69bc7e964f299aa7db1699c9e27f"
+            "b74a486efb2047d387b62cd22868b8e1"
           ]
         }
       },
       "edges": [
+        {
+          "id": "e6ec756f14a74810bb19cd28c1cfaeb5",
+          "edgeType": "Branch",
+          "source": "70bf7bb867e64517ba255ec57c666ca4",
+          "target": "648640bfcb174908818b260b250c1201",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Update Badge"
+        },
         {
           "id": "98c49e0093744513af6f161b415a2374",
           "edgeType": "Edge",
@@ -725,22 +738,9 @@ Response String: A structured message confirming the result of the action perfor
           "label": "Others"
         },
         {
-          "id": "e6ec756f14a74810bb19cd28c1cfaeb5",
-          "edgeType": "Branch",
-          "source": "70bf7bb867e64517ba255ec57c666ca4",
-          "target": "bdfae5f0407e4e7bbc77583f6af4a7de",
-          "sourcePort": "",
-          "targetPort": "",
-          "expression": {
-            "mode": "query",
-            "value": ""
-          },
-          "label": "Update Badge"
-        },
-        {
-          "id": "e16f809c5d0e45b0825c495a0f293f37",
+          "id": "c0a76c47a2124a01802eb001803b7e50",
           "edgeType": "Edge",
-          "source": "bdfae5f0407e4e7bbc77583f6af4a7de",
+          "source": "648640bfcb174908818b260b250c1201",
           "target": "89e4363a66eb41c683e6b2edc46eb601",
           "sourcePort": "",
           "targetPort": ""
@@ -858,10 +858,10 @@ Response String: A structured message confirming the result of the action perfor
       "nodeId": "89e4363a66eb41c683e6b2edc46eb601",
       "isHidden": false
     },
-    "1024c259a76d4587aa436c35856478f2": {
-      "id": "1024c259a76d4587aa436c35856478f2",
-      "name": "ai_data_collector_bdfae5f0407e4e7bbc77583f6af4a7de_output",
-      "label": "Ai_data_collector_bdfae5f0407e4e7bbc77583f6af4a7de_output",
+    "ba6773a730be40d4a86b3a6a02044352": {
+      "id": "ba6773a730be40d4a86b3a6a02044352",
+      "name": "ai_data_collector_648640bfcb174908818b260b250c1201_output",
+      "label": "Ai_data_collector_648640bfcb174908818b260b250c1201_output",
       "isReferenceable": false,
       "varType": "string",
       "category": "vaInputs",
@@ -869,12 +869,12 @@ Response String: A structured message confirming the result of the action perfor
         "libraryMappingType": "output"
       }
     },
-    "bddd69bc7e964f299aa7db1699c9e27f": {
-      "id": "bddd69bc7e964f299aa7db1699c9e27f",
-      "varType": "string",
+    "b74a486efb2047d387b62cd22868b8e1": {
+      "id": "b74a486efb2047d387b62cd22868b8e1",
+      "varType": "date_time",
       "category": "vaInputs",
-      "label": "User_input_valid_to",
-      "name": "user_input_valid_to",
+      "label": "User_input_valid_to_datetime",
+      "name": "user_input_valid_to_datetime",
       "choices": [
         {
           "label": "",
@@ -885,12 +885,13 @@ Response String: A structured message confirming the result of the action perfor
           "value": ""
         }
       ],
-      "mode": "",
+      "mode": "date_time",
       "table": "",
       "aiInput": true,
       "inputId": 0,
-      "nodeId": "bdfae5f0407e4e7bbc77583f6af4a7de",
-      "isHidden": false
+      "nodeId": "648640bfcb174908818b260b250c1201",
+      "isHidden": false,
+      "description": "Ask User to enter Valid To"
     }
   }
 }</graph>
@@ -915,14 +916,14 @@ Response String: A structured message confirming the result of the action perfor
         <sys_created_on>2025-09-11 08:05:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>20cbf4672bffee10d4dffd74ce91bf78</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>Guardian Badge Update Action Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_20cbf4672bffee10d4dffd74ce91bf78</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-12 16:22:57</sys_updated_on>
+        <sys_updated_on>2025-09-13 05:50:15</sys_updated_on>
         <title>Guardian Badge Update Action Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
