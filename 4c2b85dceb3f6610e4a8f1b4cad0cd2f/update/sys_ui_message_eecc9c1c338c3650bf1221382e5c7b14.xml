@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>plastic</key>
+        <language>en</language>
+        <message>Plastic</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-13 13:45:25</sys_created_on>
+        <sys_id>eecc9c1c338c3650bf1221382e5c7b14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>plastic</sys_name>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_ui_message_eecc9c1c338c3650bf1221382e5c7b14</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-13 13:45:25</sys_updated_on>
+    </sys_ui_message>
+</record_update>
