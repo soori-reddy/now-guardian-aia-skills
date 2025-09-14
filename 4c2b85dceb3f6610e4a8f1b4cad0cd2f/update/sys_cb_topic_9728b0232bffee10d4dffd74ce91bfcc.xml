@@ -49,7 +49,7 @@ Response String: A structured string confirming the result of the badge assignme
             },
             {
               "type": "String",
-              "value": "",
+              "value": "mobile",
               "id": "07613e6845ed48ea9f46252f90f0df3b",
               "name": "badge_type",
               "required": false,
@@ -200,6 +200,81 @@ Response String: A structured string confirming the result of the badge assignme
               }
             },
             {
+              "itemId": "31af29c19e444ae88911a73bb01c99a5",
+              "displayName": "Temp Badge Reason",
+              "name": "temp_badge_reason",
+              "description": "Ask reason?",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "choice",
+              "variableId": "c2036837f5d4404ca65c095d769625a3",
+              "choices": [
+                {
+                  "label": "New Hire",
+                  "value": "new_hire"
+                },
+                {
+                  "label": "Forgot Badge",
+                  "value": "forgot_badge"
+                },
+                {
+                  "label": "Lost / Stolen",
+                  "value": "lost_stolen",
+                  "checked": true,
+                  "meta": {}
+                },
+                {
+                  "label": "Others",
+                  "value": "others",
+                  "checked": true,
+                  "meta": {}
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "ChoicePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "script",
+                "value": "(function execute() {\n     return true;\n})()\n"
+              },
+              "applicability": {
+                "value": "vaInputs.badge_typeCONTAINStemp^NQvaInputs.badge_type_input_choice=temporary badge",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            },
+            {
               "itemId": "f50a669fe30546cd969f1b2f8747b215",
               "displayName": "badge_issue_type",
               "name": "badge_issue_type",
@@ -282,7 +357,8 @@ Response String: A structured string confirming the result of the badge assignme
           "classificationOverrides": [],
           "variableIds": [
             "aafc79a6091c41e9b070a1780b1c1779",
-            "f5b96668fb294efba937a50f9cba6f9c"
+            "f5b96668fb294efba937a50f9cba6f9c",
+            "c2036837f5d4404ca65c095d769625a3"
           ],
           "standalone": false
         },
@@ -604,7 +680,7 @@ Response String: A structured string confirming the result of the badge assignme
       "id": "07613e6845ed48ea9f46252f90f0df3b",
       "name": "badge_type",
       "label": "Badge_type",
-      "defaultValue": "",
+      "defaultValue": "mobile",
       "varType": "string",
       "category": "vaInputs",
       "metadata": {
@@ -782,7 +858,7 @@ Response String: A structured string confirming the result of the badge assignme
       "aiInput": true,
       "nodeId": "25f3c8600b1042f7983fd4f6f918add5",
       "isHidden": false,
-      "inputId": 1,
+      "inputId": 2,
       "description": "Ask user to select one badge Issue Type",
       "translation": true
     },
@@ -820,6 +896,43 @@ Response String: A structured string confirming the result of the badge assignme
       "nodeId": "622731843be846758f92380d2ea19b7d",
       "isHidden": false,
       "description": "Ask the user: “Would you like to continue with a plastic badge instead?”"
+    },
+    "c2036837f5d4404ca65c095d769625a3": {
+      "id": "c2036837f5d4404ca65c095d769625a3",
+      "varType": "choice",
+      "category": "vaInputs",
+      "label": "Temp Badge Reason",
+      "name": "temp_badge_reason",
+      "choices": [
+        {
+          "label": "New Hire",
+          "value": "new_hire"
+        },
+        {
+          "label": "Forgot Badge",
+          "value": "forgot_badge"
+        },
+        {
+          "label": "Lost / Stolen",
+          "value": "lost_stolen",
+          "checked": true,
+          "meta": {}
+        },
+        {
+          "label": "Others",
+          "value": "others",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "25f3c8600b1042f7983fd4f6f918add5",
+      "isHidden": false,
+      "inputId": 1,
+      "description": "Ask reason?",
+      "translation": true
     }
   }
 }</graph>
@@ -844,14 +957,14 @@ Response String: A structured string confirming the result of the badge assignme
         <sys_created_on>2025-09-11 07:49:37</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9728b0232bffee10d4dffd74ce91bfcc</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>89</sys_mod_count>
         <sys_name>Guardian Badge Assignment Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_9728b0232bffee10d4dffd74ce91bfcc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 16:02:49</sys_updated_on>
+        <sys_updated_on>2025-09-14 04:05:30</sys_updated_on>
         <title>Guardian Badge Assignment Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
