@@ -49,7 +49,7 @@ Response String: A structured string confirming the result of the badge assignme
             },
             {
               "type": "String",
-              "value": "mobile",
+              "value": "",
               "id": "07613e6845ed48ea9f46252f90f0df3b",
               "name": "badge_type",
               "required": false,
@@ -116,7 +116,7 @@ Response String: A structured string confirming the result of the badge assignme
         "4714693e19b843dfa3edff4a07f9f956": {
           "id": "4714693e19b843dfa3edff4a07f9f956",
           "name": "get DT Badge Config",
-          "script": "(function execute() {\n    var dtInputs = {};\n    dtInputs.user_location = vaVars.user_location;\n    dtInputs.user_type = vaInputs.user_type_sys_id;\n    if(null != vaInputs.badge_issue_type &amp;&amp; \"\" != vaInputs.badge_issue_type &amp;&amp; vaInputs.badge_issue_type.indexOf(\"plastic\") &gt; -1){\n        if(null != vaInputs.badge_type_input_choice &amp;&amp; \"\" != vaInputs.badge_type_input_choice ){\n            dtInputs.badge_type = vaInputs.badge_type_input_choice;\n        } else {\n            dtInputs.badge_type = vaVars.badge_type;\n        }\n    } else if(null != vaInputs.badge_issue_type &amp;&amp; \"\" != vaInputs.badge_issue_type &amp;&amp; vaInputs.badge_issue_type.indexOf(\"mobile\") &gt; -1){\n        dtInputs.badge_type = \"mobile credentials\";\n    } else {\n        if(vaVars.badge_type != \"\"){\n            dtInputs.badge_type = vaVars.badge_type;\n        }else{\n            dtInputs.badge_type = vaInputs.badge_type_input_choice;\n        }\n    }\n     // Final badge_typs is in dtInputs.badge_type // DON'T DARE TO TOUCH UNLESS TESTED DEEPLY.\n    dtInputs.badge_action = \"assign\";\n    var result = new GuardianAIAgentHelper().getDTConfigs(\"0d37c78833843650bf1221382e5c7bc7\",dtInputs);\n    gs.info(\"DT Result : \"+JSON.stringify(result));\n// {\n//   \"SUB_TYPE\": \"\",\n//   \"VALID_FROM\": \"CURRENT\",\n//   \"VALID_TO\": \"PROMPT\",\n//   \"DEFAULT_ACCESS\": \"true\",\n//   \"APPROVAL\": \"false\",\n//   \"DEACTIVATE_EXISTING\": \"false\",\n//   \"COPY_ACCESS\": \"false\",\n//   \"DEFAULT_STATUS\": \"2a7f0ed51bbc8210759455342a4bcbe9\",\n//   \"ASSIGNMENT_TYPE\": \"Auto\",\n//   \"SYS_ID\": \"2c4b76f22bf72e10d4dffd74ce91bfd0\"\n// }\n    //default system\n    var locationAdminGr = new GlideRecordSecure('x_aleen_snguardian_badge_office');\n    locationAdminGr.addQuery('locationsLIKE'+vaVars.user_location);\n    locationAdminGr.orderBy('order');\n    locationAdminGr.query();\n    if(locationAdminGr.next()){\n        vaVars.default_system = locationAdminGr.system;\n    }\n\n    //default access\n    if(vaVars.user_location){\n        var accessList = [];\n        var accessLocationGr = new GlideRecordSecure('x_aleen_snguardian_access_location');\n        accessLocationGr.addQuery('location', vaVars.user_location);\n        accessLocationGr.addQuery('is_default', true);\n        accessLocationGr.query();\n        while (accessLocationGr.next()) {\n            var accessLevel = accessLocationGr.access_level.toString(); // Convert to string\n            if (accessList.indexOf(accessLevel) === -1) {\n                accessList.push(accessLevel);\n            }\n        }\n        vaVars.default_access = accessList.join();             \n    }\n})()\n",
+          "script": "(function execute() {\n    var dtInputs = {};\n    // DON'T CHANGE CODE UNLESS WILLING TO TEST 16 scenarios ::BEGIN.\n    var badge_issue_userInput = vaInputs.badge_issue_type;\n    if(null == badge_issue_userInput || undefined == badge_issue_userInput){\n         badge_issue_userInput= \"\";\n    }else{\n          badge_issue_userInput = badge_issue_userInput.toString();\n    }\n    if(null != badge_issue_userInput &amp;&amp; \"\" != badge_issue_userInput &amp;&amp; badge_issue_userInput.indexOf(\"plastic\") &gt; -1){\n        if(null != vaInputs.badge_type_input_choice &amp;&amp; \"\" != vaInputs.badge_type_input_choice ){\n            dtInputs.badge_type = vaInputs.badge_type_input_choice.toString();\n        } else {\n            dtInputs.badge_type = vaVars.badge_type.toString();\n        }\n    } else if(null != badge_issue_userInput &amp;&amp; \"\" != badge_issue_userInput &amp;&amp; badge_issue_userInput.indexOf(\"mobile\") &gt; -1){\n        dtInputs.badge_type = \"mobile credentials\";\n    } else {\n        if(vaVars.badge_type != \"\"){\n            dtInputs.badge_type = vaVars.badge_type;\n        }else{\n            dtInputs.badge_type = vaInputs.badge_type_input_choice;\n        }\n    }\n    vaVars.badge_type = dtInputs.badge_type;\n    // Final badge_typs is in dtInputs.badge_type \n    gs.info(\"FINAL BADGE_TYPE  ====&gt;\" + dtInputs.badge_type);\n    dtInputs.badge_action = \"assign\";\n    dtInputs.user_location = vaVars.user_location;\n    dtInputs.user_type = vaInputs.user_type_sys_id;\n   \n    var result = new GuardianAIAgentHelper().getDTConfigs(\"0d37c78833843650bf1221382e5c7bc7\",dtInputs);\n    gs.info(\"DT Result : \"+JSON.stringify(result));\n// {\n//   \"SUB_TYPE\": \"\",\n//   \"VALID_FROM\": \"CURRENT\",\n//   \"VALID_TO\": \"PROMPT\",\n//   \"DEFAULT_ACCESS\": \"true\",\n//   \"APPROVAL\": \"false\",\n//   \"DEACTIVATE_EXISTING\": \"false\",\n//   \"COPY_ACCESS\": \"false\",\n//   \"DEFAULT_STATUS\": \"2a7f0ed51bbc8210759455342a4bcbe9\",\n//   \"ASSIGNMENT_TYPE\": \"Auto\",\n//   \"SYS_ID\": \"2c4b76f22bf72e10d4dffd74ce91bfd0\"\n// }\n    //default system\n    var locationAdminGr = new GlideRecordSecure('x_aleen_snguardian_badge_office');\n    locationAdminGr.addQuery('locationsLIKE'+vaVars.user_location);\n    locationAdminGr.orderBy('order');\n    locationAdminGr.query();\n    if(locationAdminGr.next()){\n        vaVars.default_system = locationAdminGr.system;\n    }\n\n    //default access\n    if(vaVars.user_location){\n        var accessList = [];\n        var accessLocationGr = new GlideRecordSecure('x_aleen_snguardian_access_location');\n        accessLocationGr.addQuery('location', vaVars.user_location);\n        accessLocationGr.addQuery('is_default', true);\n        accessLocationGr.query();\n        while (accessLocationGr.next()) {\n            var accessLevel = accessLocationGr.access_level.toString(); // Convert to string\n            if (accessList.indexOf(accessLevel) === -1) {\n                accessList.push(accessLevel);\n            }\n        }\n        vaVars.default_access = accessList.join();             \n    }\n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -311,7 +311,7 @@ Response String: A structured string confirming the result of the badge assignme
               },
               "applicability": {
                 "mode": "script",
-                "value": "(function execute() {\n    if(vaVars.location_mobile_cred_enabled){\n        if(vaVars.location_mobile_cred_enabled == \"false\"){\n           return false;\n        }\n        var badgeTypeData = vaVars.badge_type;\n         var badgeTypeInputData = vaInputs.badge_type;\n        gs.info(\"SHOW AAAAAAAAAAAAA MC_INPUT: IN \"+ badgeTypeData );\n        if(badgeTypeData == \"\" &amp;&amp; badgeTypeInputData == \"\"){\n             gs.info(\"SHOW MC_INPUT: IN SIDE  AAAAAAAAAAAAAAAAAAAAAA\"+ badgeTypeData );\n            return true;\n        }\n        if(badgeTypeData.indexOf(\"perm\") &gt; -1 ||  badgeTypeData.indexOf(\"temp\") &gt; -1 ){\n             gs.info(\"SHOW MC_INPUT: IN SIDE  BBBBBBBBBBBBBBBBBBB\"+ badgeTypeData );\n            return true;\n        }\n         gs.info(\"SHOW MC_INPUT: RETURNINGAAAAAAAAAAAAAAAAAAAAAA \"+ badgeTypeData );\n        \n\n    }\n     gs.info(\"SHOW MC_INPUT: RETURNING  CCCC \" );\n     return false;\n\n})()\n"
+                "value": "(function execute() {\n    if(vaVars.location_mobile_cred_enabled){\n        if(vaVars.location_mobile_cred_enabled == \"false\"){\n           return false;\n        }\n        var badgeTypeData = vaVars.badge_type;\n        var badgeTypeInputData = vaInputs.badge_type;  \n        if(badgeTypeData == \"\" &amp;&amp; badgeTypeInputData == \"\"){\n             return true;\n        }\n        if(badgeTypeData.indexOf(\"perm\") &gt; -1 ||  badgeTypeData.indexOf(\"temp\") &gt; -1 ){\n            return true;\n        }\n     }\n     return false;\n\n})()\n"
               },
               "promptMessage": {
                 "value": "",
@@ -680,7 +680,7 @@ Response String: A structured string confirming the result of the badge assignme
       "id": "07613e6845ed48ea9f46252f90f0df3b",
       "name": "badge_type",
       "label": "Badge_type",
-      "defaultValue": "mobile",
+      "defaultValue": "",
       "varType": "string",
       "category": "vaInputs",
       "metadata": {
@@ -957,14 +957,14 @@ Response String: A structured string confirming the result of the badge assignme
         <sys_created_on>2025-09-11 07:49:37</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9728b0232bffee10d4dffd74ce91bfcc</sys_id>
-        <sys_mod_count>89</sys_mod_count>
+        <sys_mod_count>110</sys_mod_count>
         <sys_name>Guardian Badge Assignment Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_9728b0232bffee10d4dffd74ce91bfcc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-14 04:05:30</sys_updated_on>
+        <sys_updated_on>2025-09-14 08:06:48</sys_updated_on>
         <title>Guardian Badge Assignment Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
