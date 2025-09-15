@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
     <sys_metadata_link action="INSERT_OR_UPDATE">
         <directory>update</directory>
-        <documentkey>47b8cf0833843650bf1221382e5c7b14</documentkey>
+        <documentkey>346cc9b82bc8b650d4dffd74ce91bf39</documentkey>
         <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question">
-    <sys_decision_question action="DELETE">
+    <sys_decision_question action="INSERT_OR_UPDATE">
         <active>true</active>
-        <answer>549ccb4033c43650bf1221382e5c7b74</answer>
+        <answer>4e6c85b82bc8b650d4dffd74ce91bf2e</answer>
         <condition/>
         <decision_table display_value="Guardian AI Agent Badge Action Config">0d37c78833843650bf1221382e5c7bc7</decision_table>
         <default_answer>true</default_answer>
         <input_table>var__m_sys_decision_input_0d37c78833843650bf1221382e5c7bc7</input_table>
         <label>Guardian AI Agent Badge Action Config default result</label>
-        <marked_for_deletion>true</marked_for_deletion>
+        <marked_for_deletion>false</marked_for_deletion>
         <order>100</order>
         <sys_class_name>sys_decision_question</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 07:38:10</sys_created_on>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-15 06:30:19</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>47b8cf0833843650bf1221382e5c7b14</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_id>346cc9b82bc8b650d4dffd74ce91bf39</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Guardian AI Agent Badge Action Config default result</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
-        <sys_update_name>sys_decision_question_47b8cf0833843650bf1221382e5c7b14</sys_update_name>
+        <sys_update_name>sys_decision_question_346cc9b82bc8b650d4dffd74ce91bf39</sys_update_name>
         <sys_updated_by>chirag.alert</sys_updated_by>
-        <sys_updated_on>2025-09-15 05:47:12</sys_updated_on>
+        <sys_updated_on>2025-09-15 06:30:25</sys_updated_on>
     </sys_decision_question>
 </record_update>
 ]]></payload>
         <sys_class_name>sys_metadata_link</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 07:38:10</sys_created_on>
-        <sys_id>4bb8cf0833843650bf1221382e5c7b16</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-15 06:30:19</sys_created_on>
+        <sys_id>b86cc9b82bc8b650d4dffd74ce91bf3a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Guardian AI Agent Badge Action Config default result</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
-        <sys_update_name>sys_metadata_link_4bb8cf0833843650bf1221382e5c7b16</sys_update_name>
+        <sys_update_name>sys_metadata_link_b86cc9b82bc8b650d4dffd74ce91bf3a</sys_update_name>
         <sys_updated_by>chirag.alert</sys_updated_by>
-        <sys_updated_on>2025-09-15 05:47:17</sys_updated_on>
+        <sys_updated_on>2025-09-15 06:30:25</sys_updated_on>
         <tablename>sys_decision_question</tablename>
     </sys_metadata_link>
 </record_update>
