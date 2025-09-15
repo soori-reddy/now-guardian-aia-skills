@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition">
+    <sn_decision_table_decision_condition action="DELETE">
+        <decision_input display_value="Location">418aa97433803a50bf1221382e5c7b96</decision_input>
+        <decision_table display_value="Guardian AI Agent Location Config delta">0d8a61b433803a50bf1221382e5c7bf0</decision_table>
+        <default_operator>=</default_operator>
+        <description>Location</description>
+        <field/>
+        <field_label/>
+        <field_parent_table/>
+        <label>Location</label>
+        <order>100</order>
+        <parent display_value="">d7fd5f4833083650bf1221382e5c7b54</parent>
+        <reference display_value="Location" name="x_aleen_snguardian_location">ca8d0af41b7842106962fe60cd4bcb18</reference>
+        <sys_class_name>sn_decision_table_decision_condition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-15 08:42:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>f98aed7433803a50bf1221382e5c7b37</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sn_decision_table_decision_condition_f98aed7433803a50bf1221382e5c7b37</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-15 08:42:00</sys_updated_on>
+        <type display_value="Reference">52a227c1bf3320001875647fcf07396a</type>
+    </sn_decision_table_decision_condition>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
+        <file_path/>
+        <instance_id>e930a3a4db4f5780cbf6d5b0cf9619fd</instance_id>
+        <instance_name>alert</instance_name>
+        <name>sn_decision_table_decision_condition_f98aed7433803a50bf1221382e5c7b37</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition"><sn_decision_table_decision_condition action="INSERT_OR_UPDATE"><decision_input display_value="Location">418aa97433803a50bf1221382e5c7b96</decision_input><decision_table display_value="Guardian AI Agent Location Config delta">0d8a61b433803a50bf1221382e5c7bf0</decision_table><default_operator>=</default_operator><description>Location</description><field/><field_label/><field_parent_table/><label>Location</label><order>100</order><parent display_value="">d7fd5f4833083650bf1221382e5c7b54</parent><reference display_value="Location" name="x_aleen_snguardian_location">ca8d0af41b7842106962fe60cd4bcb18</reference><sys_class_name>sn_decision_table_decision_condition</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-09-15 08:42:00</sys_created_on><sys_domain>global</sys_domain><sys_id>f98aed7433803a50bf1221382e5c7b37</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package><sys_policy/><sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope><sys_update_name>sn_decision_table_decision_condition_f98aed7433803a50bf1221382e5c7b37</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-09-15 08:42:00</sys_updated_on><type display_value="Reference">52a227c1bf3320001875647fcf07396a</type></sn_decision_table_decision_condition></record_update>]]></payload>
+        <payload_hash>2078720802</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>bd7550972bb7ae10d4dffd74ce91bf70</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-15 08:42:01</sys_created_on>
+        <sys_id>358aed7433803a50bf1221382e5c7b3b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1994c89c4290000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-15 08:42:01</sys_updated_on>
+        <type>Decision Condition</type>
+        <update_guid>398aed7491803a50d1f196cb408ce23a</update_guid>
+        <update_guid_history>398aed7491803a50d1f196cb408ce23a:2078720802</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">2b6ba9f433803a50bf1221382e5c7b6d</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-15 08:45:57</sys_created_on>
+        <sys_db_object display_value="" name="sn_decision_table_decision_condition">sn_decision_table_decision_condition</sys_db_object>
+        <sys_id>4837d39291674d1996f182315791ddc9</sys_id>
+        <sys_metadata>f98aed7433803a50bf1221382e5c7b37</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope_delete display_value="">9ec05a3293244f7799d83cc267c72489</sys_scope_delete>
+        <sys_update_name>sn_decision_table_decision_condition_f98aed7433803a50bf1221382e5c7b37</sys_update_name>
+        <sys_update_version display_value="sn_decision_table_decision_condition_f98aed7433803a50bf1221382e5c7b37">358aed7433803a50bf1221382e5c7b3b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-15 08:45:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
