@@ -116,7 +116,7 @@ Response String: A structured string confirming the result of the badge assignme
         "4714693e19b843dfa3edff4a07f9f956": {
           "id": "4714693e19b843dfa3edff4a07f9f956",
           "name": "get DT Badge Config",
-          "script": "(function execute() {\n    var dtInputs = {};\n    // DON'T CHANGE CODE UNLESS WILLING TO TEST 16 scenarios ::BEGIN.\n    var badge_issue_userInput = vaInputs.badge_issue_type;\n    if(null == badge_issue_userInput || undefined == badge_issue_userInput){\n         badge_issue_userInput= \"\";\n    }else{\n          badge_issue_userInput = badge_issue_userInput.toString();\n    }\n    if(null != badge_issue_userInput &amp;&amp; \"\" != badge_issue_userInput &amp;&amp; badge_issue_userInput.indexOf(\"plastic\") &gt; -1){\n        if(null != vaInputs.badge_type_input_choice &amp;&amp; \"\" != vaInputs.badge_type_input_choice ){\n            dtInputs.badge_type = vaInputs.badge_type_input_choice.toString();\n        } else {\n            dtInputs.badge_type = vaVars.badge_type.toString();\n        }\n    } else if(null != badge_issue_userInput &amp;&amp; \"\" != badge_issue_userInput &amp;&amp; badge_issue_userInput.indexOf(\"mobile\") &gt; -1){\n        dtInputs.badge_type = \"mobile credentials\";\n    } else {\n        if(vaVars.badge_type != \"\"){\n            dtInputs.badge_type = vaVars.badge_type;\n        }else{\n            dtInputs.badge_type = vaInputs.badge_type_input_choice;\n        }\n    }\n    vaVars.badge_type = dtInputs.badge_type;\n    // Final badge_typs is in dtInputs.badge_type \n    gs.info(\"FINAL BADGE_TYPE  ====&gt;\" + dtInputs.badge_type);\n    dtInputs.badge_action = \"assign\";\n    dtInputs.user_location = vaVars.user_location;\n    dtInputs.user_type = vaInputs.user_type_sys_id;\n   \n    var result = new GuardianAIAgentHelper().getDTConfigs(\"0d37c78833843650bf1221382e5c7bc7\",dtInputs);\n    gs.info(\"DT Result : \"+JSON.stringify(result));\n// {\n//   \"SUB_TYPE\": \"\",\n//   \"VALID_FROM\": \"CURRENT\",\n//   \"VALID_TO\": \"PROMPT\",\n//   \"DEFAULT_ACCESS\": \"true\",\n//   \"APPROVAL\": \"false\",\n//   \"DEACTIVATE_EXISTING\": \"false\",\n//   \"COPY_ACCESS\": \"false\",\n//   \"DEFAULT_STATUS\": \"2a7f0ed51bbc8210759455342a4bcbe9\",\n//   \"ASSIGNMENT_TYPE\": \"Auto\",\n//   \"SYS_ID\": \"2c4b76f22bf72e10d4dffd74ce91bfd0\"\n// }\n    //default system\n    var locationAdminGr = new GlideRecordSecure('x_aleen_snguardian_badge_office');\n    locationAdminGr.addQuery('locationsLIKE'+vaVars.user_location);\n    locationAdminGr.orderBy('order');\n    locationAdminGr.query();\n    if(locationAdminGr.next()){\n        vaVars.default_system = locationAdminGr.system;\n    }\n\n    //default access\n    if(vaVars.user_location){\n        var accessList = [];\n        var accessLocationGr = new GlideRecordSecure('x_aleen_snguardian_access_location');\n        accessLocationGr.addQuery('location', vaVars.user_location);\n        accessLocationGr.addQuery('is_default', true);\n        accessLocationGr.query();\n        while (accessLocationGr.next()) {\n            var accessLevel = accessLocationGr.access_level.toString(); // Convert to string\n            if (accessList.indexOf(accessLevel) === -1) {\n                accessList.push(accessLevel);\n            }\n        }\n        vaVars.default_access = accessList.join();             \n    }\n})()\n",
+          "script": "(function execute() {\n    var badge_type_calculated = \"\";\n    // DON'T CHANGE CODE UNLESS WILLING TO TEST 16 scenarios ::BEGIN.\n    var badge_issue_userInput = vaInputs.badge_issue_type;\n    if(null == badge_issue_userInput || undefined == badge_issue_userInput){\n         badge_issue_userInput= \"\";\n    }else{\n          badge_issue_userInput = badge_issue_userInput.toString();\n    }\n    if(null != badge_issue_userInput &amp;&amp; \"\" != badge_issue_userInput &amp;&amp; badge_issue_userInput.indexOf(\"plastic\") &gt; -1){\n        if(null != vaInputs.badge_type_input_choice &amp;&amp; \"\" != vaInputs.badge_type_input_choice ){\n            badge_type_calculated = vaInputs.badge_type_input_choice.toString();\n        } else {\n            badge_type_calculated = vaVars.badge_type.toString();\n        }\n    } else if(null != badge_issue_userInput &amp;&amp; \"\" != badge_issue_userInput &amp;&amp; badge_issue_userInput.indexOf(\"mobile\") &gt; -1){\n        badge_type_calculated = \"mobile credentials\";\n    } else {\n        if(vaVars.badge_type != \"\"){\n            badge_type_calculated = vaVars.badge_type;\n        }else{\n            badge_type_calculated = vaInputs.badge_type_input_choice;\n        }\n    }\n    vaVars.badge_type = badge_type_calculated;\n    gs.info(\"FINAL BADGE_TYPE  ====&gt;\" + badge_type_calculated);\n   \n  \n    var inputs = {};\n    inputs['user_location'] = vaVars.user_location; // Reference, Sys ID of the record \n    inputs['user_type'] = vaInputs.user_type_sys_id; // Reference, Sys ID of the record \n    inputs['u_badge_type'] = vaVars.badge_type; // String \n    inputs['u_badge_action'] = \"assign\"; // String \n    \n    var dt = new sn_dt.DecisionTableAPI();\n    var response = dt.getDecision('0d37c78833843650bf1221382e5c7bc7', inputs);\n\n    var result_elements = response.result_elements;\n    vaVars.dt_res_u_auto_badge_allocation = result_elements.u_auto_badge_allocation.getValue(); // True/False\n    vaVars.dt_res_u_create_request = result_elements.u_create_request.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_from = result_elements.u_def_valid_from.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_to = result_elements.u_def_valid_to.getValue(); // Duration\n    vaVars.dt_res_u_def_access = result_elements.u_def_access.getValue(); // True/False\n   \n    //default system\n    var locationAdminGr = new GlideRecordSecure('x_aleen_snguardian_badge_office');\n    locationAdminGr.addQuery('locationsLIKE'+vaVars.user_location);\n    locationAdminGr.orderBy('order');\n    locationAdminGr.query();\n    if(locationAdminGr.next()){\n        vaVars.default_system = locationAdminGr.system;\n    }\n\n    //TODO :  if  vaVars.dt_res_u_auto_badge_allocation == 1\n    //get a badge Id and set Value to =    vaInputs.select_badge_number = \"1234\"\n\n    //TODO :  if  vaVars.dt_res_u_def_valid_from == 0\n    //set cuurent date   Value to =    vaInputs.badge_valid_from \n\n    //TODO :  if  vaVars.dt_res_u_def_valid_to == 0\n    //calc Value to =    vaInputs.badge_valid_to\n\n    //Pass  dt_res_u_def_access to SUBFLOW\n\n\n\n    \n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -524,6 +524,225 @@ Response String: A structured string confirming the result of the badge assignme
             "value": "",
             "mode": "query"
           }
+        },
+        "701dd7a87bc948d98a297d7a303e45b2": {
+          "id": "701dd7a87bc948d98a297d7a303e45b2",
+          "stepType": "AiDataCollector",
+          "name": "Additional Data Based on Configuration",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "db515326816c46da9b7faf4a89f39993",
+              "displayName": "Select Badge Number",
+              "name": "select_badge_number",
+              "description": "Select the badge number",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "carousel-image",
+              "variableId": "24a4a98d46ad4429aa0c83e2278bdf3a",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "(function execute() {\n    /* Code your script logic here.  When defining your enumeration list in javascript\n       ensure that you assign keys of Name, Description, Value, and Body. For example:\n    */\n       var options = [];\n       options.push(\n            {\n                'name': 'name1',\n                'value': 'value_1',\n                'description': 'a description of value_1 item',\n                'body': 'https://somehost/somepath/somepic1.jpg'\n            }\n       );\n       options.push(\n            {\n                'name': 'name2',\n                'value': 'value_2',\n                'description': 'a description of value_2 item',\n                'body': 'https://somehost/somepath/somepic2.jpg'\n            }\n       );\n       return options;\n    \n\n    var options = []; // add options here...\n    return options;\n})()\n",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "CarouselPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "script",
+                "value": "(function execute() {\n    return false;\n})()\n"
+              },
+              "applicability": {
+                "mode": "script",
+                "value": "(function execute() {\nif (vaVars.dt_res_u_auto_badge_allocation == 0) {\n    return true;\n }\n})()\n"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true
+            },
+            {
+              "itemId": "d05e0df8f29a4877b76ce824b6bfbcc0",
+              "displayName": "Badge Valid From",
+              "name": "badge_valid_from",
+              "description": "Enter Badge Valid From",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "date_time",
+              "variableId": "d2418dbd98ef4c8986de9bf5236a482f",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "DateTimePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "script",
+                "value": "(function execute() {\n if (vaVars.dt_res_u_def_valid_from == 1) {\n    return true;\n }\n})()\n"
+              },
+              "applicability": {
+                "mode": "script",
+                "value": "(function execute() {\n if (vaVars.dt_res_u_def_valid_from == 0) {\n    return true;\n }\n})()\n"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            },
+            {
+              "itemId": "7734fa6569434e65ba0689c73487cf6e",
+              "displayName": "Badge Valid To",
+              "name": "badge_valid_to",
+              "description": "Enter Badge Valid To",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "date_time",
+              "variableId": "dc3c4895527b45b89d6b9d643456ed7f",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "DateTimePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "script",
+                "value": "(function execute() {\n    return true;\n})()\n"
+              },
+              "applicability": {
+                "mode": "script",
+                "value": "(function execute() {\n  if (vaVars.dt_res_u_def_valid_to == \"\"){\n    return true;\n  }\n})()\n"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": true,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "c290bfdbfd924872aab65c3493083fb0"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_701dd7a87bc948d98a297d7a303e45b2_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "variableIds": [
+            "24a4a98d46ad4429aa0c83e2278bdf3a",
+            "d2418dbd98ef4c8986de9bf5236a482f",
+            "dc3c4895527b45b89d6b9d643456ed7f"
+          ],
+          "standalone": false
         }
       },
       "edges": [
@@ -548,14 +767,6 @@ Response String: A structured string confirming the result of the badge assignme
           "edgeType": "Edge",
           "source": "f16955ef9e724edb9417999db2bd353b",
           "target": "c11a799b86594182b747ec8d0974ff70",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "bda4250bd7b04e888bd1e449bbc83194",
-          "edgeType": "Edge",
-          "source": "4714693e19b843dfa3edff4a07f9f956",
-          "target": "1075fc19c99447d3b0e46f6f472f3551",
           "sourcePort": "",
           "targetPort": ""
         },
@@ -648,6 +859,22 @@ Response String: A structured string confirming the result of the badge assignme
           "edgeType": "Edge",
           "source": "f02dfc272af34a079197739e1b0aeac5",
           "target": "a2ee8aecd3184254b755fb5bc409adf4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "bda4250bd7b04e888bd1e449bbc83194",
+          "edgeType": "Edge",
+          "source": "4714693e19b843dfa3edff4a07f9f956",
+          "target": "701dd7a87bc948d98a297d7a303e45b2",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7aa2387d4d194ed697ad8b730b4bb84f",
+          "edgeType": "Edge",
+          "source": "701dd7a87bc948d98a297d7a303e45b2",
+          "target": "1075fc19c99447d3b0e46f6f472f3551",
           "sourcePort": "",
           "targetPort": ""
         }
@@ -933,6 +1160,141 @@ Response String: A structured string confirming the result of the badge assignme
       "inputId": 1,
       "description": "Ask reason?",
       "translation": true
+    },
+    "c95920f281b74df5b338426c0bdba31e": {
+      "id": "c95920f281b74df5b338426c0bdba31e",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_auto_badge_allocation",
+      "label": "dt_res_u_auto_badge_allocation",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "379707570dc74668bc88878c15593260": {
+      "id": "379707570dc74668bc88878c15593260",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_create_request",
+      "label": "dt_res_u_create_request",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "2b2d6c98c11d4f90b7d5b62891bf44b0": {
+      "id": "2b2d6c98c11d4f90b7d5b62891bf44b0",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_def_valid_from",
+      "label": "dt_res_u_def_valid_from",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "fc5f97929a46486bac11d6d998c4c92a": {
+      "id": "fc5f97929a46486bac11d6d998c4c92a",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_def_valid_to",
+      "label": "dt_res_u_def_valid_to",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c021c204698549969cd0f77f020c8b71": {
+      "id": "c021c204698549969cd0f77f020c8b71",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_def_access",
+      "label": "dt_res_u_def_access",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c290bfdbfd924872aab65c3493083fb0": {
+      "id": "c290bfdbfd924872aab65c3493083fb0",
+      "name": "ai_data_collector_701dd7a87bc948d98a297d7a303e45b2_output",
+      "label": "Ai_data_collector_701dd7a87bc948d98a297d7a303e45b2_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "24a4a98d46ad4429aa0c83e2278bdf3a": {
+      "id": "24a4a98d46ad4429aa0c83e2278bdf3a",
+      "varType": "carousel-image",
+      "category": "vaInputs",
+      "label": "Select Badge Number",
+      "name": "select_badge_number",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "701dd7a87bc948d98a297d7a303e45b2",
+      "isHidden": false,
+      "inputId": 0
+    },
+    "d2418dbd98ef4c8986de9bf5236a482f": {
+      "id": "d2418dbd98ef4c8986de9bf5236a482f",
+      "varType": "date_time",
+      "category": "vaInputs",
+      "label": "Badge Valid From",
+      "name": "badge_valid_from",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "date_time",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "701dd7a87bc948d98a297d7a303e45b2",
+      "isHidden": false,
+      "inputId": 1
+    },
+    "dc3c4895527b45b89d6b9d643456ed7f": {
+      "id": "dc3c4895527b45b89d6b9d643456ed7f",
+      "varType": "date_time",
+      "category": "vaInputs",
+      "label": "Badge Valid To",
+      "name": "badge_valid_to",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "date_time",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "701dd7a87bc948d98a297d7a303e45b2",
+      "isHidden": false,
+      "inputId": 2
     }
   }
 }</graph>
@@ -957,14 +1319,14 @@ Response String: A structured string confirming the result of the badge assignme
         <sys_created_on>2025-09-11 07:49:37</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9728b0232bffee10d4dffd74ce91bfcc</sys_id>
-        <sys_mod_count>110</sys_mod_count>
+        <sys_mod_count>114</sys_mod_count>
         <sys_name>Guardian Badge Assignment Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_9728b0232bffee10d4dffd74ce91bfcc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-14 08:06:48</sys_updated_on>
+        <sys_updated_on>2025-09-15 03:58:17</sys_updated_on>
         <title>Guardian Badge Assignment Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
