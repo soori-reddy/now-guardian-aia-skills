@@ -1,0 +1,1692 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__afe465aaeff54bb8bbfe9ce9891dd567">caf96a7833083a50bf1221382e5c7b04</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"01cf129b430a4e858c0c2a709e0ee7d0","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"01cf129b430a4e858c0c2a709e0ee7d0"}],"goals":[{"name":"primary","trigger_id":"01cf129b430a4e858c0c2a709e0ee7d0","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"d93fd5536a214959ad54393aacc51dc9","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"b1513b274e2144f7a069773f647d812f","name":"End","expert_mode":false},{"type":"ScriptedAction","script":"(function execute() {\n\n    vaVars.user_badge_count = 0;\n    var identityId = vaInputs.user_sys_id;    \n    var badgeAction = \"replace\" //\n   //TODO - DO not replace mobile creds\n    var badgeArray = [];\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset'); \n    badgeGr.addQuery('identity', identityId);\n    badgeGr.addNotNullQuery('status');\n    badgeGr.addQuery('status.code', 'ACTIVE');\n    badgeGr.addQuery('is_deleted',false);\n    badgeGr.addQuery('asset.type.code','!=','MOBILE-CREDENTIAL');\n    badgeGr.query();\n    while (badgeGr.next()) {\n        badgeArray.push({\n            'name': badgeGr.getDisplayValue(\"asset.serial\"),\n            'value':badgeGr.getValue(\"sys_id\"),\n            'description':badgeGr.getDisplayValue(\"asset.type\"),\n            'body':'x_aleen_snguardian.asset.jpg'\n        });\n    }\n    vaVars.user_badges_list = JSON.stringify(badgeArray);\n    if(badgeArray.length &gt;0){\n       vaVars.user_badge_count = badgeArray.length;\n    }\n})();","id":"f1762558ad1c41c8992f1f3fa36e8afa","name":"Get User Active Badges","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"Decision","name":"Active Badges Found?","branches":[{"type":"Branch","label":"Found","expression":{"type":"Applicability","mode":"script","value":"(function() { return (function execute() {\n  var condition = vaVars.user_badge_count&gt;0 ? true : false;\n  return condition;\n})()\n})()"},"id":"3795aac6cf6e4b52967337072debd1ad","name":"Found","expert_mode":false},{"type":"Branch","label":"Not Found","expression":{"type":"Applicability","mode":"script","value":"(function() { return (function execute() {\n   var condition = vaVars.user_badge_count== 0 ? true : false;\n   return condition;\n})()\n})()"},"id":"28c59191cb6d44b1b9275e8f24c45d9e","name":"Not Found","expert_mode":false}],"id":"57f7cf8c85964cf0a88fcfadeb5834e0","goal_id":"primary","expert_mode":false},{"type":"LibraryCall","library_topic_name":"Data Collector","library_topic_id":"4c19933e4322211006650464dbb8f22d","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"purpose\":\"{{0}}\",\"inputs\":[{\"name\":\"display_user_active_badges\",\"type\":\"carousel\",\"discoverable\":true,\"description\":\"Ask user to select one of displayed badges to take further action \\nASK ONE LINE QUESTION as Please select badge to be replaced.\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"script\":\"(function(vaVars, vaInputs) {return (function execute() {\\n     var options = [];\\n     var items = JSON.parse(vaVars.user_badges_list|| '[]');\\n    if (items.length === 0) {\\n        options.push({\\n            name: 'No Badge',\\n            value: 'none',\\n            description: 'No badge found',\\n            body: 'https://somehost/somepath/somepic1.jpg'\\n        });\\n    } else {\\n        items.forEach(function(it) {\\n            options.push({\\n                name: it.name || '',\\n                value: it.value || '',\\n                description: it.description || '',\\n                body: it.body || ''\\n            });\\n        });\\n    }\\nreturn options;\\n})();\\n;})(_taskVaVars[{{4}}], _taskVaInputs[{{5}}])\",\"applicability\":\"\",\"validation\":\"\"},{\"name\":\"ask_reason\",\"type\":\"choice\",\"discoverable\":true,\"description\":\"Ask user the reason for replacement of badge as \\nPlease select reason for replacement of selected badge.\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"choices\":[{\"value\":\"lost\",\"label\":\"Lost\"},{\"value\":\"stolen\",\"label\":\"Stolen\"}],\"applicability\":\"\",\"validation\":\"\"}],\"instructions\":\"{{1}}\",\"advanced_parameters\":\"{{2}}\",\"callingTask\":\"{{3}}\",\"confirm_summary\":false,\"slots\":[{\"name\":\"select_new_badge\",\"type\":\"carousel\",\"discoverable\":true,\"description\":\"ask user to select the new badge\",\"validation\":\"\",\"script\":\"(function(vaVars, vaInputs) {return (function execute() {\\n    var options = [];\\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_asset');\\n    badgeGr.addQuery('status.code','UNASSIGNED');\\n    badgeGr.addQuery('type.code',vaVars.badge_type);\\n    badgeGr.addQuery('system',vaVars.badge_system);\\n    //subsytem , subtype\\n    badgeGr.query();\\n    var count=0;\\n    while(badgeGr.next()){\\n       if(count&lt;5){\\n            options.push({\\n            'name': badgeGr.serial,\\n            'value':badgeGr.getUniqueValue(),\\n            'description':badgeGr.type.code,\\n            'body':'x_aleen_snguardian.asset.jpg'\\n            })\\n       }\\n       count++;  //Displaying 5 badges only\\n    }\\n    return options;\\n})()\\n;})(_taskVaVars[{{6}}], _taskVaInputs[{{7}}])\"},{\"name\":\"badge_valid_from\",\"type\":\"date_time\",\"discoverable\":true,\"description\":\"Ask user to select valid from date\\n\",\"validation\":\"\",\"format\":\"date_time\"},{\"name\":\"badge_valid_to\",\"type\":\"date_time\",\"discoverable\":true,\"description\":\"Ask user to select valid to date\\n\",\"validation\":\"\",\"format\":\"date_time\"}],\"applicability\":\"\",\"classificationOverrides\":[]}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"script","value":"(function() { return vaSystem.getConversationTaskId()})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"}],"use_items":true}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"outputs","main_topic_mapped_variable_name":"ai_data_collector_b411940e662b430286405ddff35e30f2_output"}],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"b411940e662b430286405ddff35e30f2","name":"Display User Active Badges","goal_id":"primary","expert_mode":false,"variableIds":["a31136ca77c44916979c3d9cd3b81a40","8e591118a6ac4084afc2e68137e89f34"]},{"type":"ScriptedAction","script":"(function execute() {\n    //GETTING USER LOCATION , USER TYPE\n    var idenlocationGr = new GlideRecordSecure('x_aleen_snguardian_identity_location')\n    idenlocationGr.addQuery('identity',vaInputs.user_sys_id);\n    idenlocationGr.query();\n    var location = \"\";\n    if(idenlocationGr.next()){\n        location = idenlocationGr.location;\n        vaVars.user_location = location;\n        vaVars.user_type = idenlocationGr.identity.type;\n    }\n\n    //BADGE TYPE BASED ON SELECTED BADGE \n    vaVars.badge_to_replace = vaInputs.display_user_active_badges;\n    var idenAssetGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset');\n    idenAssetGr.addQuery('sys_id',vaVars.badge_to_replace);\n    idenAssetGr.query();\n    if(idenAssetGr.next()){\n        vaVars.badge_type = idenAssetGr.getDisplayValue('asset.type.code'); //asset type code\n        vaVars.badge_system = idenAssetGr.asset.system   // system sys_id\n    }\n    \n    //GET DT BADGE ACTION CONFIG - user location, user type, badge action , badge type\n    //USER TYPE - ??? input or fetch using script\n    vaVars.badge_action = \"replace\"\n    var inputs = {};\n    inputs['user_location'] = vaVars.user_location; // Reference, Sys ID of the record \n    inputs['user_type'] = vaVars.user_type; // Reference, Sys ID of the record \n    inputs['u_badge_type'] = vaVars.badge_type; // String \n    inputs['u_badge_action'] = vaVars.badge_action; // String \n    \n    var dt = new sn_dt.DecisionTableAPI();\n    var response = dt.getDecision('0d37c78833843650bf1221382e5c7bc7', inputs);\n\n    var result_elements = response.result_elements;\n    vaVars.dt_res_u_auto_badge_allocation = result_elements.u_auto_badge_allocation.getValue(); // True/False\n    vaVars.dt_res_u_create_request = result_elements.u_create_request.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_from = result_elements.u_def_valid_from.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_to = result_elements.u_def_valid_to.getValue(); // Duration\n    vaVars.dt_res_u_def_access = result_elements.u_def_access.getValue(); // True/False\n    vaVars.dt_res_u_copy_access = result_elements.u_copy_access ;   //True/False\n    vaVars.dt_res_u_deactivate_old_badge = result_elements.u_deactivate_old_badge;  //True/False\n    \n    var badgeTypeSysId = metadataGlideRecordHelper.getRecordSysIdByCode('x_aleen_snguardian_asset_type',vaVars.badge_type);\n        \n    //IF dt_res_u_auto_badge_allocation == 1\n    if(vaVars.dt_res_u_auto_badge_allocation){\n        var assetGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n        assetGr.addQuery('type.code',vaVars.badge_type);   //code\n        assetGr.addQuery('system',vaVars.badge_system);   //sys_id\n        assetGr.addQuery('status.code',\"UNASSIGNED\");\n        assetGr.query();\n        if(assetGr.next()){\n            vaVars.new_asset_id = assetGr.getUniqueValue();  //sys_id\n        }//IF NO BADGE IN INVENTORY\n        else{\n            var badge_number = (GlideSecureRandomUtil.getSecureRandomIntBound(90000) + 10000).toString();// set random number 5 digit\n            //VIGIL DONT support 5 digits\n            var creatAssetGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n            creatAssetGr.initialize();\n            creatAssetGr.setValue('serial',badge_number);\n            creatAssetGr.setValue('system',vaVars.badge_system);\n            creatAssetGr.setValue('status', metadataGlideRecordHelper.getRecordSysIdByCode('x_aleen_snguardian_status_code',\"UNASSIGNED\"));\n            creatAssetGr.setValue('type',badgeTypeSysId);\n            vaVars.new_asset_id = creatAssetGr.insert();\n        }\n        \n    }\n\n    //HANDLE DEFAULT VALID FROM = 1, VALID TO !=\"\" - timezone based\n    //if  vaVars.dt_res_u_def_valid_from == 1, set value of badge_valid_from\n    if(vaVars.dt_res_u_def_valid_from == \"1\"){\n        vaInputs.badge_valid_from = new GlideDateTime().getDisplayValue();\n    }\n    // if  vaVars.dt_res_u_def_valid_to'' set value of badge_valid_to\n    if(\"1970-01-01 00:00:00\" != vaVars.dt_res_u_def_valid_to &amp;&amp; \"\" != vaVars.dt_res_u_def_valid_to){\n        vaInputs.badge_valid_to = new x_aleen_snguardian.TimeZoneUtil().getDurationDifference(vaVars.dt_res_u_def_valid_to, \"add\");\n    }\n\n    //ASK USER INPUT :: IF MANUAL, valid from ==0 , valid to ==0\n    if( vaVars.dt_res_u_create_request == \"0\"){\n       vaVars.submission_mode = \"direct\";\n    }else{\n       // vaVars.submission_mode = \"request\";\n        vaVars.submission_mode = \"direct\";\n    }\n    \n})()\n","id":"52afc7f40a0e461ab30b407b69cbda85","name":"Get Badge Action Config","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Inform the user that there are no avtive badges to be replaced for the selected user."}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"321a27143dd44e928768eb150b3426ec","name":"No Active Badges found","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LibraryCall","library_topic_name":"Data Collector","library_topic_id":"4c19933e4322211006650464dbb8f22d","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"purpose\":\"{{0}}\",\"inputs\":[{\"name\":\"select_new_badge\",\"type\":\"carousel\",\"discoverable\":true,\"description\":\"ask user to select the new badge\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"script\":\"(function(vaVars, vaInputs) {return (function execute() {\\n    var options = [];\\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_asset');\\n    badgeGr.addQuery('status.code','UNASSIGNED');\\n    badgeGr.addQuery('type.code',vaVars.badge_type);\\n    badgeGr.addQuery('system',vaVars.badge_system);\\n    //subsytem , subtype\\n    badgeGr.query();\\n    var count=0;\\n    while(badgeGr.next()){\\n       if(count&lt;5){\\n            options.push({\\n            'name': badgeGr.serial,\\n            'value':badgeGr.getUniqueValue(),\\n            'description':badgeGr.type.code,\\n            'body':'x_aleen_snguardian.asset.jpg'\\n            })\\n       }\\n       count++;  //Displaying 5 badges only\\n    }\\n    return options;\\n})()\\n;})(_taskVaVars[{{4}}], _taskVaInputs[{{5}}])\",\"applicability\":\"(function(vaVars, vaInputs) {return (function execute() {\\n   if (vaVars.dt_res_u_auto_badge_allocation == \\\"0\\\" || vaVars.dt_res_u_auto_badge_allocation == 0) {\\n    return true;\\n   }else{\\n       return false;\\n   }\\n})()\\n;})(_taskVaVars[{{6}}], _taskVaInputs[{{7}}])\",\"validation\":\"\"},{\"name\":\"badge_valid_from\",\"type\":\"date_time\",\"discoverable\":true,\"description\":\"Ask user to select valid from date\\n\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"format\":\"date_time\",\"applicability\":\"(function(vaVars, vaInputs) {return (function execute() {\\n if (vaVars.dt_res_u_def_valid_from == \\\"0\\\" || vaVars.dt_res_u_def_valid_from == 0) {\\n    return true;\\n }else{\\n     return false;\\n }\\n})()\\n;})(_taskVaVars[{{8}}], _taskVaInputs[{{9}}])\",\"validation\":\"\"},{\"name\":\"badge_valid_to\",\"type\":\"date_time\",\"discoverable\":true,\"description\":\"Ask user to select valid to date\\n\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"format\":\"date_time\",\"applicability\":\"(function(vaVars, vaInputs) {return (function execute() {\\n  if (vaVars.dt_res_u_def_valid_to == \\\"1970-01-01 00:00:00\\\" || vaVars.dt_res_u_def_valid_to == \\\"\\\"){\\n    return true;\\n  }else{\\n    return false;\\n  }\\n})()\\n;})(_taskVaVars[{{10}}], _taskVaInputs[{{11}}])\",\"validation\":\"\"}],\"instructions\":\"{{1}}\",\"advanced_parameters\":\"{{2}}\",\"callingTask\":\"{{3}}\",\"confirm_summary\":true,\"slots\":[{\"name\":\"display_user_active_badges\",\"type\":\"carousel\",\"discoverable\":true,\"description\":\"Ask user to select one of displayed badges to take further action \\nASK ONE LINE QUESTION as Please select badge to be replaced.\",\"validation\":\"\",\"script\":\"(function(vaVars, vaInputs) {return (function execute() {\\n     var options = [];\\n     var items = JSON.parse(vaVars.user_badges_list|| '[]');\\n    if (items.length === 0) {\\n        options.push({\\n            name: 'No Badge',\\n            value: 'none',\\n            description: 'No badge found',\\n            body: 'https://somehost/somepath/somepic1.jpg'\\n        });\\n    } else {\\n        items.forEach(function(it) {\\n            options.push({\\n                name: it.name || '',\\n                value: it.value || '',\\n                description: it.description || '',\\n                body: it.body || ''\\n            });\\n        });\\n    }\\nreturn options;\\n})();\\n;})(_taskVaVars[{{12}}], _taskVaInputs[{{13}}])\"},{\"name\":\"ask_reason\",\"type\":\"choice\",\"discoverable\":true,\"description\":\"Ask user the reason for replacement of badge as \\nPlease select reason for replacement of selected badge.\",\"validation\":\"\",\"choices\":[{\"value\":\"lost\",\"label\":\"Lost\"},{\"value\":\"stolen\",\"label\":\"Stolen\"}]}],\"applicability\":\"\",\"classificationOverrides\":[]}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"script","value":"(function() { return vaSystem.getConversationTaskId()})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"},{"type":"String","mode":"script","value":"(function() { return JSON.stringify(vaSystem.getConversationTaskId())})()"}],"use_items":true}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"outputs","main_topic_mapped_variable_name":"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output"}],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"6dfd0a6bd26e42a181b2130d98602426","name":"Data Required Based on Config","goal_id":"primary","expert_mode":false,"variableIds":["40a92a2d57874438a664092c077ee863","6d7c6bc4bf674b9e8d4f72541cd7a7ff","d6694f7b06b84f14828600ca7ab37a08"]},{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"\"Great news! 🎉 The badge replacement has been successfully processed. Your new badge is all set and ready to go!\""}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"caf58e4313164b7ca17c9978a4f3c450","name":"Replace Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"ScriptedAction","script":"(function execute() {\n   vaVars.new_asset_id = vaInputs.select_new_badge;\n})()\n","id":"d50f8c1f0f2842e687e93f1d9accab2d","name":"set new asset id","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"FDIHInvocation","name":"Process Badge operation","kind":"subflow","mode":"sync","inputs":[{"supported_input_modes":[],"name":"location_sys_id","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.user_location}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"user_sys_id","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaInputs.user_sys_id}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"action_to_perform","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"replace"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"valid_from","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaInputs.badge_valid_from}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"valid_to","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaInputs.badge_valid_to}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"submission_mode","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.submission_mode}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"reason","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaInputs.ask_reason}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"assign_default_access","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.dt_res_u_def_access}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"badge_id_assign","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.new_asset_id}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"badge_id_to_replace","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.badge_to_replace}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"copy_access","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.dt_res_u_copy_access}}"}],"is_list_data_entry":false},{"supported_input_modes":[],"name":"deactivate_old_badge","type":"string","order":0,"required":false,"value":[{"type":"String","mode":"string","value":"{{vaVars.dt_res_u_deactivate_old_badge}}"}],"is_list_data_entry":false}],"outputs":[{"name":"response","order":0,"value":[],"is_list_data_entry":false,"topicVariableName":"response"}],"id":"8b492743592c48ed981e8ef60ee5deea","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"sys_id":"26bcc9b82bc8b650d4dffd74ce91bfe9","scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f"},{"type":"ScriptedAction","script":"(function execute() {\n                    var mappings = {\"display_user_active_badges\":\"display_user_active_badges\",\"ask_reason\":\"ask_reason\",\"ai_data_collector_b411940e662b430286405ddff35e30f2_output\":\"ai_data_collector_b411940e662b430286405ddff35e30f2_output\"};\n                    var output = JSON.parse(vaInputs['ai_data_collector_b411940e662b430286405ddff35e30f2_output']);\n                    var variables = {\"user\":{\"category\":\"vaInputs\",\"id\":\"current-user\",\"label\":\"User\",\"name\":\"user\",\"table\":\"sys_user\",\"varType\":\"reference\"},\"user_sys_id\":{\"id\":\"32ba54824f6f4e059fb2c4dcc0c663ce\",\"name\":\"user_sys_id\",\"label\":\"User_sys_id\",\"defaultValue\":\"21fe134c33083650bf1221382e5c7bc3\",\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"input\"},\"nodeId\":\"d93fd5536a214959ad54393aacc51dc9\",\"isHidden\":false},\"user_location\":{\"id\":\"a62f1150cf79472a86f87c237799b0db\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_location\",\"label\":\"user_location\",\"varType\":\"script\",\"category\":\"vaVars\"},\"badge_type\":{\"id\":\"dbcfa6ce4e304decb9f31626a401f754\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"badge_type\",\"label\":\"badge_type\",\"varType\":\"script\",\"category\":\"vaVars\"},\"ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output\":{\"id\":\"c42df1b0bfc64bdab6865cb24d196da9\",\"name\":\"ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output\",\"label\":\"Ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"user_badges_list\":{\"id\":\"3b05abc9863d435391e47163f4fd2ed0\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_badges_list\",\"label\":\"user_badges_list\",\"varType\":\"script\",\"category\":\"vaVars\"},\"badge_action\":{\"id\":\"9ff9cb34baa54e8ab664d6ddc189da1b\",\"value\":{\"mode\":\"simple\",\"value\":\"replace\"},\"name\":\"badge_action\",\"label\":\"badge_action\",\"varType\":\"script\",\"category\":\"vaVars\"},\"user_badge_count\":{\"id\":\"3116e9e0183142dc99b87b81ff29035b\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_badge_count\",\"label\":\"user_badge_count\",\"varType\":\"script\",\"category\":\"vaVars\"},\"ai_data_collector_b411940e662b430286405ddff35e30f2_output\":{\"id\":\"b28ce12def1c4c778c65fdfd4b382d6d\",\"name\":\"ai_data_collector_b411940e662b430286405ddff35e30f2_output\",\"label\":\"Ai_data_collector_b411940e662b430286405ddff35e30f2_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"display_user_active_badges\":{\"id\":\"a31136ca77c44916979c3d9cd3b81a40\",\"varType\":\"carousel-image\",\"category\":\"vaInputs\",\"label\":\"Display User Active Badges\",\"name\":\"display_user_active_badges\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"inputId\":0,\"nodeId\":\"b411940e662b430286405ddff35e30f2\",\"isHidden\":false,\"description\":\"Ask user to select one of displayed badges to take further action \\nASK ONE LINE QUESTION as Please select badge to be replaced.\"},\"ai_data_collector_0bfe89b255874b62834030917c656e25_output\":{\"id\":\"43d0a86767554e79a6b23da73a4a604a\",\"name\":\"ai_data_collector_0bfe89b255874b62834030917c656e25_output\",\"label\":\"Ai_data_collector_0bfe89b255874b62834030917c656e25_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"ask_reason\":{\"id\":\"8e591118a6ac4084afc2e68137e89f34\",\"varType\":\"choice\",\"category\":\"vaInputs\",\"label\":\"Ask Reason\",\"name\":\"ask_reason\",\"choices\":[{\"label\":\"Lost\",\"value\":\"lost\"},{\"label\":\"Stolen\",\"value\":\"stolen\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"inputId\":0,\"nodeId\":\"0bfe89b255874b62834030917c656e25\",\"isHidden\":false,\"description\":\"Ask user the reason for replacement of badge as \\nPlease select reason for replacement of selected badge.\",\"translation\":true},\"badge_to_replace\":{\"id\":\"3f0dce20b34248a7b2f242f1dedef29d\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"badge_to_replace\",\"label\":\"badge_to_replace\",\"varType\":\"script\",\"category\":\"vaVars\"},\"badge_system\":{\"id\":\"306cd3ca4d914c6d957d37bc5e4ec575\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"badge_system\",\"label\":\"badge_system\",\"varType\":\"script\",\"category\":\"vaVars\"},\"user_type\":{\"id\":\"30c42d0008ce4361935ce5e095e6c196\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_type\",\"label\":\"user_type\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_auto_badge_allocation\":{\"id\":\"f9f373e107f945098ca83045e8e6b560\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_auto_badge_allocation\",\"label\":\"dt_res_u_auto_badge_allocation\",\"varType\":\"script\",\"category\":\"vaVars\"},\"submission_mode\":{\"id\":\"8c02f1c951ff4a7484c1057ae6916997\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"submission_mode\",\"label\":\"submission_mode\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_def_valid_from\":{\"id\":\"2d4c41148bad45788c711e2e6e5bd86f\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_def_valid_from\",\"label\":\"dt_res_u_def_valid_from\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_def_valid_to\":{\"id\":\"762168c2f5894670b15adbb30e22134d\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_def_valid_to\",\"label\":\"dt_res_u_def_valid_to\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_def_access\":{\"id\":\"c84debd9612a43d08132458786466110\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_def_access\",\"label\":\"dt_res_u_def_access\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_copy_access\":{\"id\":\"35fc4725afbf4d909792eea1f9ebb930\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_copy_access\",\"label\":\"dt_res_u_copy_access\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_deactivate_old_badge\":{\"id\":\"93e8e89818844d01add262552fb8c26c\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_deactivate_old_badge\",\"label\":\"dt_res_u_deactivate_old_badge\",\"varType\":\"script\",\"category\":\"vaVars\"},\"new_asset_id\":{\"id\":\"8e5940198aa44546ad2db35fb5eabf9b\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"new_asset_id\",\"label\":\"new_asset_id\",\"varType\":\"script\",\"category\":\"vaVars\"},\"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\":{\"id\":\"bf94fbc608d9436b947b9c890695ae3e\",\"name\":\"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\",\"label\":\"Ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"select_new_badge\":{\"id\":\"40a92a2d57874438a664092c077ee863\",\"varType\":\"carousel-image\",\"category\":\"vaInputs\",\"label\":\"Select New Badge\",\"name\":\"select_new_badge\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"nodeId\":\"6dfd0a6bd26e42a181b2130d98602426\",\"isHidden\":false,\"inputId\":0,\"description\":\"ask user to select the new badge\"},\"badge_valid_from\":{\"id\":\"6d7c6bc4bf674b9e8d4f72541cd7a7ff\",\"varType\":\"date_time\",\"category\":\"vaInputs\",\"label\":\"Badge Valid From\",\"name\":\"badge_valid_from\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"date_time\",\"table\":\"\",\"aiInput\":true,\"nodeId\":\"6dfd0a6bd26e42a181b2130d98602426\",\"isHidden\":false,\"inputId\":1,\"description\":\"Ask user to select valid from date\\n\"},\"badge_valid_to\":{\"id\":\"d6694f7b06b84f14828600ca7ab37a08\",\"varType\":\"date_time\",\"category\":\"vaInputs\",\"label\":\"Badge Valid To\",\"name\":\"badge_valid_to\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"date_time\",\"table\":\"\",\"aiInput\":true,\"nodeId\":\"6dfd0a6bd26e42a181b2130d98602426\",\"isHidden\":false,\"inputId\":2,\"description\":\"Ask user to select valid to date\\n\"},\"response\":{\"id\":\"efc1755d67214dbfbb84e94ad034043a\",\"name\":\"response\",\"label\":\"Response\",\"defaultValue\":\"Response\",\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"},\"description\":\"\",\"is_list_data_entry\":false,\"dependent_on_field\":\"\",\"nodeId\":\"8b492743592c48ed981e8ef60ee5deea\",\"isHidden\":false},\"dt_res_u_create_request\":{\"id\":\"12bfdc40d2b44321adaa272b83d54bc5\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_create_request\",\"label\":\"dt_res_u_create_request\",\"varType\":\"script\",\"category\":\"vaVars\"}}\n                    Object.keys(output).forEach(function(key) {\n                        var mappedKey = mappings[key];\n                        if (!vaInputs[mappedKey]) {vaInputs.initialize(mappedKey);}\n                        var isMultiSelect = variables[mappedKey] &amp;&amp; variables[mappedKey].varType === 'array.reference';\n                        if (isMultiSelect) {vaInputs[mappedKey] = output[key] ? JSON.parse(output[key]) : '';}\n                        else {vaInputs[mappedKey] = output[key];}\n                    });\n                })()","id":"091e582b99974d27844334918743146f","name":"b411940e662b430286405ddff35e30f2_ai_data_collector_output_handler","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"ScriptedAction","script":"(function execute() {\n                    var mappings = {\"select_new_badge\":\"select_new_badge\",\"badge_valid_from\":\"badge_valid_from\",\"badge_valid_to\":\"badge_valid_to\",\"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\":\"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\"};\n                    var output = JSON.parse(vaInputs['ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output']);\n                    var variables = {\"user\":{\"category\":\"vaInputs\",\"id\":\"current-user\",\"label\":\"User\",\"name\":\"user\",\"table\":\"sys_user\",\"varType\":\"reference\"},\"user_sys_id\":{\"id\":\"32ba54824f6f4e059fb2c4dcc0c663ce\",\"name\":\"user_sys_id\",\"label\":\"User_sys_id\",\"defaultValue\":\"21fe134c33083650bf1221382e5c7bc3\",\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"input\"},\"nodeId\":\"d93fd5536a214959ad54393aacc51dc9\",\"isHidden\":false},\"user_location\":{\"id\":\"a62f1150cf79472a86f87c237799b0db\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_location\",\"label\":\"user_location\",\"varType\":\"script\",\"category\":\"vaVars\"},\"badge_type\":{\"id\":\"dbcfa6ce4e304decb9f31626a401f754\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"badge_type\",\"label\":\"badge_type\",\"varType\":\"script\",\"category\":\"vaVars\"},\"ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output\":{\"id\":\"c42df1b0bfc64bdab6865cb24d196da9\",\"name\":\"ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output\",\"label\":\"Ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"user_badges_list\":{\"id\":\"3b05abc9863d435391e47163f4fd2ed0\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_badges_list\",\"label\":\"user_badges_list\",\"varType\":\"script\",\"category\":\"vaVars\"},\"badge_action\":{\"id\":\"9ff9cb34baa54e8ab664d6ddc189da1b\",\"value\":{\"mode\":\"simple\",\"value\":\"replace\"},\"name\":\"badge_action\",\"label\":\"badge_action\",\"varType\":\"script\",\"category\":\"vaVars\"},\"user_badge_count\":{\"id\":\"3116e9e0183142dc99b87b81ff29035b\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_badge_count\",\"label\":\"user_badge_count\",\"varType\":\"script\",\"category\":\"vaVars\"},\"ai_data_collector_b411940e662b430286405ddff35e30f2_output\":{\"id\":\"b28ce12def1c4c778c65fdfd4b382d6d\",\"name\":\"ai_data_collector_b411940e662b430286405ddff35e30f2_output\",\"label\":\"Ai_data_collector_b411940e662b430286405ddff35e30f2_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"display_user_active_badges\":{\"id\":\"a31136ca77c44916979c3d9cd3b81a40\",\"varType\":\"carousel-image\",\"category\":\"vaInputs\",\"label\":\"Display User Active Badges\",\"name\":\"display_user_active_badges\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"inputId\":0,\"nodeId\":\"b411940e662b430286405ddff35e30f2\",\"isHidden\":false,\"description\":\"Ask user to select one of displayed badges to take further action \\nASK ONE LINE QUESTION as Please select badge to be replaced.\"},\"ai_data_collector_0bfe89b255874b62834030917c656e25_output\":{\"id\":\"43d0a86767554e79a6b23da73a4a604a\",\"name\":\"ai_data_collector_0bfe89b255874b62834030917c656e25_output\",\"label\":\"Ai_data_collector_0bfe89b255874b62834030917c656e25_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"ask_reason\":{\"id\":\"8e591118a6ac4084afc2e68137e89f34\",\"varType\":\"choice\",\"category\":\"vaInputs\",\"label\":\"Ask Reason\",\"name\":\"ask_reason\",\"choices\":[{\"label\":\"Lost\",\"value\":\"lost\"},{\"label\":\"Stolen\",\"value\":\"stolen\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"inputId\":0,\"nodeId\":\"0bfe89b255874b62834030917c656e25\",\"isHidden\":false,\"description\":\"Ask user the reason for replacement of badge as \\nPlease select reason for replacement of selected badge.\",\"translation\":true},\"badge_to_replace\":{\"id\":\"3f0dce20b34248a7b2f242f1dedef29d\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"badge_to_replace\",\"label\":\"badge_to_replace\",\"varType\":\"script\",\"category\":\"vaVars\"},\"badge_system\":{\"id\":\"306cd3ca4d914c6d957d37bc5e4ec575\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"badge_system\",\"label\":\"badge_system\",\"varType\":\"script\",\"category\":\"vaVars\"},\"user_type\":{\"id\":\"30c42d0008ce4361935ce5e095e6c196\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"user_type\",\"label\":\"user_type\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_auto_badge_allocation\":{\"id\":\"f9f373e107f945098ca83045e8e6b560\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_auto_badge_allocation\",\"label\":\"dt_res_u_auto_badge_allocation\",\"varType\":\"script\",\"category\":\"vaVars\"},\"submission_mode\":{\"id\":\"8c02f1c951ff4a7484c1057ae6916997\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"submission_mode\",\"label\":\"submission_mode\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_def_valid_from\":{\"id\":\"2d4c41148bad45788c711e2e6e5bd86f\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_def_valid_from\",\"label\":\"dt_res_u_def_valid_from\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_def_valid_to\":{\"id\":\"762168c2f5894670b15adbb30e22134d\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_def_valid_to\",\"label\":\"dt_res_u_def_valid_to\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_def_access\":{\"id\":\"c84debd9612a43d08132458786466110\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_def_access\",\"label\":\"dt_res_u_def_access\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_copy_access\":{\"id\":\"35fc4725afbf4d909792eea1f9ebb930\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_copy_access\",\"label\":\"dt_res_u_copy_access\",\"varType\":\"script\",\"category\":\"vaVars\"},\"dt_res_u_deactivate_old_badge\":{\"id\":\"93e8e89818844d01add262552fb8c26c\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_deactivate_old_badge\",\"label\":\"dt_res_u_deactivate_old_badge\",\"varType\":\"script\",\"category\":\"vaVars\"},\"new_asset_id\":{\"id\":\"8e5940198aa44546ad2db35fb5eabf9b\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"new_asset_id\",\"label\":\"new_asset_id\",\"varType\":\"script\",\"category\":\"vaVars\"},\"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\":{\"id\":\"bf94fbc608d9436b947b9c890695ae3e\",\"name\":\"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\",\"label\":\"Ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"select_new_badge\":{\"id\":\"40a92a2d57874438a664092c077ee863\",\"varType\":\"carousel-image\",\"category\":\"vaInputs\",\"label\":\"Select New Badge\",\"name\":\"select_new_badge\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"nodeId\":\"6dfd0a6bd26e42a181b2130d98602426\",\"isHidden\":false,\"inputId\":0,\"description\":\"ask user to select the new badge\"},\"badge_valid_from\":{\"id\":\"6d7c6bc4bf674b9e8d4f72541cd7a7ff\",\"varType\":\"date_time\",\"category\":\"vaInputs\",\"label\":\"Badge Valid From\",\"name\":\"badge_valid_from\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"date_time\",\"table\":\"\",\"aiInput\":true,\"nodeId\":\"6dfd0a6bd26e42a181b2130d98602426\",\"isHidden\":false,\"inputId\":1,\"description\":\"Ask user to select valid from date\\n\"},\"badge_valid_to\":{\"id\":\"d6694f7b06b84f14828600ca7ab37a08\",\"varType\":\"date_time\",\"category\":\"vaInputs\",\"label\":\"Badge Valid To\",\"name\":\"badge_valid_to\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"date_time\",\"table\":\"\",\"aiInput\":true,\"nodeId\":\"6dfd0a6bd26e42a181b2130d98602426\",\"isHidden\":false,\"inputId\":2,\"description\":\"Ask user to select valid to date\\n\"},\"response\":{\"id\":\"efc1755d67214dbfbb84e94ad034043a\",\"name\":\"response\",\"label\":\"Response\",\"defaultValue\":\"Response\",\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"},\"description\":\"\",\"is_list_data_entry\":false,\"dependent_on_field\":\"\",\"nodeId\":\"8b492743592c48ed981e8ef60ee5deea\",\"isHidden\":false},\"dt_res_u_create_request\":{\"id\":\"12bfdc40d2b44321adaa272b83d54bc5\",\"value\":{\"value\":\"\",\"mode\":\"simple\"},\"name\":\"dt_res_u_create_request\",\"label\":\"dt_res_u_create_request\",\"varType\":\"script\",\"category\":\"vaVars\"}}\n                    Object.keys(output).forEach(function(key) {\n                        var mappedKey = mappings[key];\n                        if (!vaInputs[mappedKey]) {vaInputs.initialize(mappedKey);}\n                        var isMultiSelect = variables[mappedKey] &amp;&amp; variables[mappedKey].varType === 'array.reference';\n                        if (isMultiSelect) {vaInputs[mappedKey] = output[key] ? JSON.parse(output[key]) : '';}\n                        else {vaInputs[mappedKey] = output[key];}\n                    });\n                })()","id":"e97272d696b741e1ab951f69240f5f10","name":"6dfd0a6bd26e42a181b2130d98602426_ai_data_collector_output_handler","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"b411940e662b430286405ddff35e30f2","target_node_id":"091e582b99974d27844334918743146f","id":"ba9d646166334ddcbe1bee3c8cf3438b"},{"type":"Edge","source_node_id":"091e582b99974d27844334918743146f","target_node_id":"52afc7f40a0e461ab30b407b69cbda85","id":"fd0d5a94499049c59927a3712a9509a9"},{"type":"Edge","source_node_id":"52afc7f40a0e461ab30b407b69cbda85","target_node_id":"6dfd0a6bd26e42a181b2130d98602426","id":"fb7fc30513164e1998107c24784d2830"},{"type":"Edge","source_node_id":"321a27143dd44e928768eb150b3426ec","target_node_id":"b1513b274e2144f7a069773f647d812f","id":"30f2f7823d1a4d069f3465841e943f6b"},{"type":"Edge","source_node_id":"d93fd5536a214959ad54393aacc51dc9","target_node_id":"f1762558ad1c41c8992f1f3fa36e8afa","id":"cc07ab6b1632479294a1571e89ba4006"},{"type":"Edge","source_node_id":"f1762558ad1c41c8992f1f3fa36e8afa","target_node_id":"57f7cf8c85964cf0a88fcfadeb5834e0","id":"5bb47afe2ef540849a83ae064b1ba327"},{"type":"Edge","source_node_id":"57f7cf8c85964cf0a88fcfadeb5834e0","target_node_id":"b411940e662b430286405ddff35e30f2","branch_id":"3795aac6cf6e4b52967337072debd1ad","id":"1b293a341b77459494f0e032e810f9d5","name":"3795aac6cf6e4b52967337072debd1ad"},{"type":"Edge","source_node_id":"57f7cf8c85964cf0a88fcfadeb5834e0","target_node_id":"321a27143dd44e928768eb150b3426ec","branch_id":"28c59191cb6d44b1b9275e8f24c45d9e","id":"9666121de2d54013a8b800bbf6472c3d","name":"28c59191cb6d44b1b9275e8f24c45d9e"},{"type":"Edge","source_node_id":"caf58e4313164b7ca17c9978a4f3c450","target_node_id":"b1513b274e2144f7a069773f647d812f","id":"80f933b17db4445e9f120c2f45d9b217"},{"type":"Edge","source_node_id":"6dfd0a6bd26e42a181b2130d98602426","target_node_id":"e97272d696b741e1ab951f69240f5f10","id":"99555075b2254f99875cbbb757884a5d"},{"type":"Edge","source_node_id":"e97272d696b741e1ab951f69240f5f10","target_node_id":"d50f8c1f0f2842e687e93f1d9accab2d","id":"a980d1a1693149c4ba838551ad004fe1"},{"type":"Edge","source_node_id":"d50f8c1f0f2842e687e93f1d9accab2d","target_node_id":"8b492743592c48ed981e8ef60ee5deea","id":"34bee143078a4d5f97be2626030ed543"},{"type":"Edge","source_node_id":"8b492743592c48ed981e8ef60ee5deea","target_node_id":"caf58e4313164b7ca17c9978a4f3c450","id":"996c95e813f24ac48af5ae080f72475d"}],"id":"primary"}],"script_variables":[{"type":"String","name":"user_location","value":{"type":"String","mode":"string"},"list":false,"id":"a62f1150cf79472a86f87c237799b0db","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_type","value":{"type":"String","mode":"string"},"list":false,"id":"dbcfa6ce4e304decb9f31626a401f754","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_badges_list","value":{"type":"String","mode":"string"},"list":false,"id":"3b05abc9863d435391e47163f4fd2ed0","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_action","value":{"type":"String","mode":"string","value":"replace"},"list":false,"id":"9ff9cb34baa54e8ab664d6ddc189da1b","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_badge_count","value":{"type":"String","mode":"string"},"list":false,"id":"3116e9e0183142dc99b87b81ff29035b","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_to_replace","value":{"type":"String","mode":"string"},"list":false,"id":"3f0dce20b34248a7b2f242f1dedef29d","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"badge_system","value":{"type":"String","mode":"string"},"list":false,"id":"306cd3ca4d914c6d957d37bc5e4ec575","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"user_type","value":{"type":"String","mode":"string"},"list":false,"id":"30c42d0008ce4361935ce5e095e6c196","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_auto_badge_allocation","value":{"type":"String","mode":"string"},"list":false,"id":"f9f373e107f945098ca83045e8e6b560","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"submission_mode","value":{"type":"String","mode":"string"},"list":false,"id":"8c02f1c951ff4a7484c1057ae6916997","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_def_valid_from","value":{"type":"String","mode":"string"},"list":false,"id":"2d4c41148bad45788c711e2e6e5bd86f","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_def_valid_to","value":{"type":"String","mode":"string"},"list":false,"id":"762168c2f5894670b15adbb30e22134d","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_def_access","value":{"type":"String","mode":"string"},"list":false,"id":"c84debd9612a43d08132458786466110","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_copy_access","value":{"type":"String","mode":"string"},"list":false,"id":"35fc4725afbf4d909792eea1f9ebb930","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_deactivate_old_badge","value":{"type":"String","mode":"string"},"list":false,"id":"93e8e89818844d01add262552fb8c26c","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"new_asset_id","value":{"type":"String","mode":"string"},"list":false,"id":"8e5940198aa44546ad2db35fb5eabf9b","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"dt_res_u_create_request","value":{"type":"String","mode":"string"},"list":false,"id":"12bfdc40d2b44321adaa272b83d54bc5","formatType":"text","secure":false,"sensitive":false,"aiInput":false}],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"user_sys_id","list":false,"id":"32ba54824f6f4e059fb2c4dcc0c663ce","formatType":"text","metadata":{"libraryMappingType":"input"},"secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output","list":false,"id":"c42df1b0bfc64bdab6865cb24d196da9","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"ai_data_collector_b411940e662b430286405ddff35e30f2_output","list":false,"id":"b28ce12def1c4c778c65fdfd4b382d6d","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false},{"type":"CarouselImage","id":"a31136ca77c44916979c3d9cd3b81a40","name":"display_user_active_badges","description":"Ask user to select one of displayed badges to take further action \nASK ONE LINE QUESTION as Please select badge to be replaced.","formatType":"text","secure":false,"sensitive":false,"aiInput":true,"list":false},{"type":"String","name":"ai_data_collector_0bfe89b255874b62834030917c656e25_output","list":false,"id":"43d0a86767554e79a6b23da73a4a604a","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false},{"type":"Choice","choices":[{"name":"Lost","element":"lost"},{"name":"Stolen","element":"stolen"}],"id":"8e591118a6ac4084afc2e68137e89f34","name":"ask_reason","description":"Ask user the reason for replacement of badge as \nPlease select reason for replacement of selected badge.","formatType":"text","secure":false,"sensitive":false,"aiInput":true,"list":false,"translation":true,"label":"Ask Reason"},{"type":"String","name":"ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output","list":false,"id":"bf94fbc608d9436b947b9c890695ae3e","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false},{"type":"CarouselImage","id":"40a92a2d57874438a664092c077ee863","name":"select_new_badge","description":"ask user to select the new badge","formatType":"text","secure":false,"sensitive":false,"aiInput":true,"list":false},{"type":"Date/Time","mode":"date_time","id":"6d7c6bc4bf674b9e8d4f72541cd7a7ff","name":"badge_valid_from","description":"Ask user to select valid from date\n","formatType":"text","secure":false,"sensitive":false,"aiInput":true,"list":false},{"type":"Date/Time","mode":"date_time","id":"d6694f7b06b84f14828600ca7ab37a08","name":"badge_valid_to","description":"Ask user to select valid to date\n","formatType":"text","secure":false,"sensitive":false,"aiInput":true,"list":false},{"type":"String","name":"response","description":"","list":false,"id":"efc1755d67214dbfbb84e94ad034043a","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"4c2b85dceb3f6610e4a8f1b4cad0cd2f","library-usage":{"type":"Library","input-parameters":[{"name":"user_sys_id","label":"user_sys_id","default-value":"\"21fe134c33083650bf1221382e5c7bc3\"","required":true,"metadata":{"type":"String","list":false,"items":[],"use_items":false},"id":"32ba54824f6f4e059fb2c4dcc0c663ce","type":"String"}],"return-values-mapping":[]},"domain":"global","topic_type":"TOPIC_BLOCK","channels":[],"dialog_acts_enabled":false,"id":"4099f4632bffee10d4dffd74ce91bfe5","name":"_PRVW__afe465aaeff54bb8bbfe9ce9891dd567","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":true,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"This Topic Block handles the replacement of an existing badge for a user. It is typically used when a badge is lost, damaged, expired, or needs to be upgraded (e.g., from a temporary to a permanent badge).\nInputs:\nUser ID: The unique identifier of the user whose badge is being replaced.\nBadge Type: Type of the badge to be replaced\nOutput:\nResponse String: A confirmation message or status string indicating the outcome of the badge replacement process.","model_type":"llm","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Guardian Badge Replacement Topic Block","library":true,"csTopicId":"c7dcfca72bffee10d4dffd74ce91bf9b","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>4099f4632bffee10d4dffd74ce91bfe5</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "d93fd5536a214959ad54393aacc51dc9": {
+          "id": "d93fd5536a214959ad54393aacc51dc9",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "parameters": [
+            {
+              "type": "String",
+              "value": "21fe134c33083650bf1221382e5c7bc3",
+              "id": "32ba54824f6f4e059fb2c4dcc0c663ce",
+              "name": "user_sys_id",
+              "required": true,
+              "referenced": true,
+              "disabled": true
+            }
+          ],
+          "variableIds": [
+            "32ba54824f6f4e059fb2c4dcc0c663ce"
+          ]
+        },
+        "b1513b274e2144f7a069773f647d812f": {
+          "id": "b1513b274e2144f7a069773f647d812f",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "f1762558ad1c41c8992f1f3fa36e8afa": {
+          "id": "f1762558ad1c41c8992f1f3fa36e8afa",
+          "name": "Get User Active Badges",
+          "script": "(function execute() {\n\n    vaVars.user_badge_count = 0;\n    var identityId = vaInputs.user_sys_id;    \n    var badgeAction = \"replace\" //\n   //TODO - DO not replace mobile creds\n    var badgeArray = [];\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset'); \n    badgeGr.addQuery('identity', identityId);\n    badgeGr.addNotNullQuery('status');\n    badgeGr.addQuery('status.code', 'ACTIVE');\n    badgeGr.addQuery('is_deleted',false);\n    badgeGr.addQuery('asset.type.code','!=','MOBILE-CREDENTIAL');\n    badgeGr.query();\n    while (badgeGr.next()) {\n        badgeArray.push({\n            'name': badgeGr.getDisplayValue(\"asset.serial\"),\n            'value':badgeGr.getValue(\"sys_id\"),\n            'description':badgeGr.getDisplayValue(\"asset.type\"),\n            'body':'x_aleen_snguardian.asset.jpg'\n        });\n    }\n    vaVars.user_badges_list = JSON.stringify(badgeArray);\n    if(badgeArray.length &gt;0){\n       vaVars.user_badge_count = badgeArray.length;\n    }\n})();",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "57f7cf8c85964cf0a88fcfadeb5834e0": {
+          "id": "57f7cf8c85964cf0a88fcfadeb5834e0",
+          "stepType": "Decision",
+          "name": "Active Badges Found?"
+        },
+        "b411940e662b430286405ddff35e30f2": {
+          "id": "b411940e662b430286405ddff35e30f2",
+          "stepType": "StandaloneAICarouselPrompt",
+          "name": "Display User Active Badges",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "e52a3222159845bbba78533b52f60b7c",
+              "displayName": "Display User Active Badges",
+              "name": "display_user_active_badges",
+              "description": "Ask user to select one of displayed badges to take further action \nASK ONE LINE QUESTION as Please select badge to be replaced.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "carousel-image",
+              "variableId": "a31136ca77c44916979c3d9cd3b81a40",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "(function execute() {\n     var options = [];\n     var items = JSON.parse(vaVars.user_badges_list|| '[]');\n    if (items.length === 0) {\n        options.push({\n            name: 'No Badge',\n            value: 'none',\n            description: 'No badge found',\n            body: 'https://somehost/somepath/somepic1.jpg'\n        });\n    } else {\n        items.forEach(function(it) {\n            options.push({\n                name: it.name || '',\n                value: it.value || '',\n                description: it.description || '',\n                body: it.body || ''\n            });\n        });\n    }\nreturn options;\n})();\n",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "CarouselPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "b28ce12def1c4c778c65fdfd4b382d6d"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_b411940e662b430286405ddff35e30f2_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "a31136ca77c44916979c3d9cd3b81a40"
+          ]
+        },
+        "0bfe89b255874b62834030917c656e25": {
+          "id": "0bfe89b255874b62834030917c656e25",
+          "stepType": "StandaloneAIChoicePrompt",
+          "name": "Ask Reason",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "b67ebc86812d4b0e9533ef4b39ecbc81",
+              "displayName": "Ask Reason",
+              "name": "ask_reason",
+              "description": "Ask user the reason for replacement of badge as \nPlease select reason for replacement of selected badge.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "choice",
+              "variableId": "8e591118a6ac4084afc2e68137e89f34",
+              "choices": [
+                {
+                  "label": "Lost",
+                  "value": "lost"
+                },
+                {
+                  "label": "Stolen",
+                  "value": "stolen"
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "ChoicePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "43d0a86767554e79a6b23da73a4a604a"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_0bfe89b255874b62834030917c656e25_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "8e591118a6ac4084afc2e68137e89f34"
+          ]
+        },
+        "52afc7f40a0e461ab30b407b69cbda85": {
+          "id": "52afc7f40a0e461ab30b407b69cbda85",
+          "name": "Get Badge Action Config",
+          "script": "(function execute() {\n    //GETTING USER LOCATION , USER TYPE\n    var idenlocationGr = new GlideRecordSecure('x_aleen_snguardian_identity_location')\n    idenlocationGr.addQuery('identity',vaInputs.user_sys_id);\n    idenlocationGr.query();\n    var location = \"\";\n    if(idenlocationGr.next()){\n        location = idenlocationGr.location;\n        vaVars.user_location = location;\n        vaVars.user_type = idenlocationGr.identity.type;\n    }\n\n    //BADGE TYPE BASED ON SELECTED BADGE \n    vaVars.badge_to_replace = vaInputs.display_user_active_badges;\n    var idenAssetGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset');\n    idenAssetGr.addQuery('sys_id',vaVars.badge_to_replace);\n    idenAssetGr.query();\n    if(idenAssetGr.next()){\n        vaVars.badge_type = idenAssetGr.getDisplayValue('asset.type.code'); //asset type code\n        vaVars.badge_system = idenAssetGr.asset.system   // system sys_id\n    }\n    \n    //GET DT BADGE ACTION CONFIG - user location, user type, badge action , badge type\n    //USER TYPE - ??? input or fetch using script\n    vaVars.badge_action = \"replace\"\n    var inputs = {};\n    inputs['user_location'] = vaVars.user_location; // Reference, Sys ID of the record \n    inputs['user_type'] = vaVars.user_type; // Reference, Sys ID of the record \n    inputs['u_badge_type'] = vaVars.badge_type; // String \n    inputs['u_badge_action'] = vaVars.badge_action; // String \n    \n    var dt = new sn_dt.DecisionTableAPI();\n    var response = dt.getDecision('0d37c78833843650bf1221382e5c7bc7', inputs);\n\n    var result_elements = response.result_elements;\n    vaVars.dt_res_u_auto_badge_allocation = result_elements.u_auto_badge_allocation.getValue(); // True/False\n    vaVars.dt_res_u_create_request = result_elements.u_create_request.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_from = result_elements.u_def_valid_from.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_to = result_elements.u_def_valid_to.getValue(); // Duration\n    vaVars.dt_res_u_def_access = result_elements.u_def_access.getValue(); // True/False\n    vaVars.dt_res_u_copy_access = result_elements.u_copy_access ;   //True/False\n    vaVars.dt_res_u_deactivate_old_badge = result_elements.u_deactivate_old_badge;  //True/False\n    \n    var badgeTypeSysId = metadataGlideRecordHelper.getRecordSysIdByCode('x_aleen_snguardian_asset_type',vaVars.badge_type);\n        \n    //IF dt_res_u_auto_badge_allocation == 1\n    if(vaVars.dt_res_u_auto_badge_allocation){\n        var assetGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n        assetGr.addQuery('type.code',vaVars.badge_type);   //code\n        assetGr.addQuery('system',vaVars.badge_system);   //sys_id\n        assetGr.addQuery('status.code',\"UNASSIGNED\");\n        assetGr.query();\n        if(assetGr.next()){\n            vaVars.new_asset_id = assetGr.getUniqueValue();  //sys_id\n        }//IF NO BADGE IN INVENTORY\n        else{\n            var badge_number = (GlideSecureRandomUtil.getSecureRandomIntBound(90000) + 10000).toString();// set random number 5 digit\n            //VIGIL DONT support 5 digits\n            var creatAssetGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n            creatAssetGr.initialize();\n            creatAssetGr.setValue('serial',badge_number);\n            creatAssetGr.setValue('system',vaVars.badge_system);\n            creatAssetGr.setValue('status', metadataGlideRecordHelper.getRecordSysIdByCode('x_aleen_snguardian_status_code',\"UNASSIGNED\"));\n            creatAssetGr.setValue('type',badgeTypeSysId);\n            vaVars.new_asset_id = creatAssetGr.insert();\n        }\n        \n    }\n\n    //HANDLE DEFAULT VALID FROM = 1, VALID TO !=\"\" - timezone based\n    //if  vaVars.dt_res_u_def_valid_from == 1, set value of badge_valid_from\n    if(vaVars.dt_res_u_def_valid_from == \"1\"){\n        vaInputs.badge_valid_from = new GlideDateTime().getDisplayValue();\n    }\n    // if  vaVars.dt_res_u_def_valid_to'' set value of badge_valid_to\n    if(\"1970-01-01 00:00:00\" != vaVars.dt_res_u_def_valid_to &amp;&amp; \"\" != vaVars.dt_res_u_def_valid_to){\n        vaInputs.badge_valid_to = new x_aleen_snguardian.TimeZoneUtil().getDurationDifference(vaVars.dt_res_u_def_valid_to, \"add\");\n    }\n\n    //ASK USER INPUT :: IF MANUAL, valid from ==0 , valid to ==0\n    if( vaVars.dt_res_u_create_request == \"0\"){\n       vaVars.submission_mode = \"direct\";\n    }else{\n       // vaVars.submission_mode = \"request\";\n        vaVars.submission_mode = \"direct\";\n    }\n    \n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "321a27143dd44e928768eb150b3426ec": {
+          "id": "321a27143dd44e928768eb150b3426ec",
+          "stepType": "AITextOutput",
+          "name": "No Active Badges found",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Inform the user that there are no avtive badges to be replaced for the selected user."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6dfd0a6bd26e42a181b2130d98602426": {
+          "id": "6dfd0a6bd26e42a181b2130d98602426",
+          "stepType": "AiDataCollector",
+          "name": "Data Required Based on Config",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "3bafb0e173534e6d8cb60a649490f9c3",
+              "displayName": "Select new badge",
+              "name": "select_new_badge",
+              "description": "ask user to select the new badge",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "carousel-image",
+              "variableId": "40a92a2d57874438a664092c077ee863",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "(function execute() {\n    var options = [];\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n    badgeGr.addQuery('status.code','UNASSIGNED');\n    badgeGr.addQuery('type.code',vaVars.badge_type);\n    badgeGr.addQuery('system',vaVars.badge_system);\n    //subsytem , subtype\n    badgeGr.query();\n    var count=0;\n    while(badgeGr.next()){\n       if(count&lt;5){\n            options.push({\n            'name': badgeGr.serial,\n            'value':badgeGr.getUniqueValue(),\n            'description':badgeGr.type.code,\n            'body':'x_aleen_snguardian.asset.jpg'\n            })\n       }\n       count++;  //Displaying 5 badges only\n    }\n    return options;\n})()\n",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "CarouselPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "query",
+                "value": ""
+              },
+              "applicability": {
+                "mode": "script",
+                "value": "(function execute() {\n   if (vaVars.dt_res_u_auto_badge_allocation == \"0\" || vaVars.dt_res_u_auto_badge_allocation == 0) {\n    return true;\n   }else{\n       return false;\n   }\n})()\n"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true
+            },
+            {
+              "itemId": "cc51ff37efd14fd28953d9d12844a93c",
+              "displayName": "Badge Valid From",
+              "name": "badge_valid_from",
+              "description": "Ask user to select valid from date\n",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "date_time",
+              "variableId": "6d7c6bc4bf674b9e8d4f72541cd7a7ff",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "DateTimePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "query",
+                "value": ""
+              },
+              "applicability": {
+                "mode": "script",
+                "value": "(function execute() {\n if (vaVars.dt_res_u_def_valid_from == \"0\" || vaVars.dt_res_u_def_valid_from == 0) {\n    return true;\n }else{\n     return false;\n }\n})()\n"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            },
+            {
+              "itemId": "e20d3f6253b14859905adae41d53ee58",
+              "displayName": "Badge Valid To",
+              "name": "badge_valid_to",
+              "description": "Ask user to select valid to date\n",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "date_time",
+              "variableId": "d6694f7b06b84f14828600ca7ab37a08",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "DateTimePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "mode": "query",
+                "value": ""
+              },
+              "applicability": {
+                "mode": "script",
+                "value": "(function execute() {\n  if (vaVars.dt_res_u_def_valid_to == \"1970-01-01 00:00:00\" || vaVars.dt_res_u_def_valid_to == \"\"){\n    return true;\n  }else{\n    return false;\n  }\n})()\n"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": true,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "bf94fbc608d9436b947b9c890695ae3e"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "variableIds": [
+            "40a92a2d57874438a664092c077ee863",
+            "6d7c6bc4bf674b9e8d4f72541cd7a7ff",
+            "d6694f7b06b84f14828600ca7ab37a08"
+          ],
+          "standalone": false
+        },
+        "caf58e4313164b7ca17c9978a4f3c450": {
+          "id": "caf58e4313164b7ca17c9978a4f3c450",
+          "stepType": "AITextOutput",
+          "name": "Replace Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "\"Great news! 🎉 The badge replacement has been successfully processed. Your new badge is all set and ready to go!\""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "d50f8c1f0f2842e687e93f1d9accab2d": {
+          "id": "d50f8c1f0f2842e687e93f1d9accab2d",
+          "name": "set new asset id",
+          "script": "(function execute() {\n   vaVars.new_asset_id = vaInputs.select_new_badge;\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "8b492743592c48ed981e8ef60ee5deea": {
+          "id": "8b492743592c48ed981e8ef60ee5deea",
+          "name": "Process Badge operation",
+          "invocationType": "subflow",
+          "stepType": "FlowAction",
+          "actionRunAs": "session_user",
+          "permissionsNote": "By default, the Action executes based on the permissions of the user who initiated the conversation. For elevated privileges, you can set to System User.",
+          "actionSecureField": false,
+          "actionSelectSecureField": "",
+          "actionPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "actionConfirmPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "actionNonSecureChannelMessage": {
+            "mode": "simple",
+            "value": "This action is not supported on this channel."
+          },
+          "subflowSpoke": "4c2b85dceb3f6610e4a8f1b4cad0cd2f",
+          "subflowSpokeSubflow": "26bcc9b82bc8b650d4dffd74ce91bfe9",
+          "subflowWaitType": "sync",
+          "subflowSecureField": false,
+          "subflowSelectSecureField": "",
+          "subflowPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowConfirmPromptSecureField": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowNonSecureChannelMessage": {
+            "mode": "simple",
+            "value": ""
+          },
+          "subflowInputs": {
+            "input-location_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.user_location}}",
+                        "displayValue": "Script Variables➛user_location"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-user_sys_id": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.user_sys_id}}",
+                        "displayValue": "Input Variables➛User_sys_id"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-action_to_perform": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "replace"
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-valid_from": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.badge_valid_from}}",
+                        "displayValue": "Input Variables➛Badge Valid From"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-valid_to": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.badge_valid_to}}",
+                        "displayValue": "Input Variables➛Badge Valid To"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-reason": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.ask_reason}}",
+                        "displayValue": "Input Variables➛Ask Reason"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-assign_default_access": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.dt_res_u_def_access}}",
+                        "displayValue": "Script Variables➛dt_res_u_def_access"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-badge_id_assign": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.new_asset_id}}",
+                        "displayValue": "Script Variables➛new_asset_id"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-badge_id_to_replace": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.badge_to_replace}}",
+                        "displayValue": "Script Variables➛badge_to_replace"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-copy_access": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.dt_res_u_copy_access}}",
+                        "displayValue": "Script Variables➛dt_res_u_copy_access"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-deactivate_old_badge": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.dt_res_u_deactivate_old_badge}}",
+                        "displayValue": "Script Variables➛dt_res_u_deactivate_old_badge"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            },
+            "input-submission_mode": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.submission_mode}}",
+                        "displayValue": "Script Variables➛submission_mode"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
+            }
+          },
+          "subflowOutputs": {
+            "output-response": [
+              {
+                "id": "efc1755d67214dbfbb84e94ad034043a",
+                "mapping": "Response",
+                "disabled": false,
+                "type": "string",
+                "value": "Response",
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": "",
+                "variable": "Response",
+                "variableName": "response"
+              }
+            ]
+          },
+          "subflowDefinition": {
+            "id": "26bcc9b82bc8b650d4dffd74ce91bfe9",
+            "latest_snapshot_id": "b00299b02b0cb650d4dffd74ce91bf24",
+            "parent_id": null,
+            "type": "subflow",
+            "name": "guardian_ai_agent_badge_assignment_subflow",
+            "label": "Guardian AI Agent Badge Assignment subflow",
+            "scope_id": "4c2b85dceb3f6610e4a8f1b4cad0cd2f",
+            "description": "This Subflow is designed to support the AI Agent in handling badge management tasks. Specifically, it processes scenarios related to the assignment of a new badge to a user, as well as cases where an existing badge needs to be replaced. The Subflow ensures that these operations are executed consistently, accurately, and in alignment with Virtual Agent Topic blocks",
+            "category": null,
+            "parameters_have_loaded": true,
+            "input_parameters": [
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "location_sys_id",
+                "label": "location_sys_id",
+                "type": "string",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "user_sys_id",
+                "label": "user_sys_id",
+                "type": "string",
+                "order": 2,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "action_to_perform",
+                "label": "action_to_perform",
+                "type": "string",
+                "order": 3,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "valid_from",
+                "label": "valid_from",
+                "type": "string",
+                "order": 4,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "valid_to",
+                "label": "valid_to",
+                "type": "string",
+                "order": 5,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "submission_mode",
+                "label": "submission_mode",
+                "type": "string",
+                "order": 6,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "reason",
+                "label": "reason",
+                "type": "string",
+                "order": 7,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "assign_default_access",
+                "label": "assign_default_access",
+                "type": "string",
+                "order": 8,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "badge_id_assign",
+                "label": "badge_id_assign",
+                "type": "string",
+                "order": 9,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "badge_id_to_replace",
+                "label": "badge_id_to_replace",
+                "type": "string",
+                "order": 10,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "copy_access",
+                "label": "copy_access",
+                "type": "string",
+                "order": 11,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
+                "name": "deactivate_old_badge",
+                "label": "deactivate_old_badge",
+                "type": "string",
+                "order": 12,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              }
+            ],
+            "output_parameters": [
+              {
+                "name": "response",
+                "label": "Response",
+                "type": "string",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              }
+            ]
+          },
+          "variableIds": [
+            "efc1755d67214dbfbb84e94ad034043a"
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "fb7fc30513164e1998107c24784d2830",
+          "edgeType": "Edge",
+          "source": "52afc7f40a0e461ab30b407b69cbda85",
+          "target": "6dfd0a6bd26e42a181b2130d98602426",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "30f2f7823d1a4d069f3465841e943f6b",
+          "edgeType": "Edge",
+          "source": "321a27143dd44e928768eb150b3426ec",
+          "target": "b1513b274e2144f7a069773f647d812f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "cc07ab6b1632479294a1571e89ba4006",
+          "edgeType": "Edge",
+          "source": "d93fd5536a214959ad54393aacc51dc9",
+          "target": "f1762558ad1c41c8992f1f3fa36e8afa",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5bb47afe2ef540849a83ae064b1ba327",
+          "edgeType": "Edge",
+          "source": "f1762558ad1c41c8992f1f3fa36e8afa",
+          "target": "57f7cf8c85964cf0a88fcfadeb5834e0",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1b293a341b77459494f0e032e810f9d5",
+          "edgeType": "Branch",
+          "source": "57f7cf8c85964cf0a88fcfadeb5834e0",
+          "target": "b411940e662b430286405ddff35e30f2",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n  var condition = vaVars.user_badge_count&gt;0 ? true : false;\n  return condition;\n})()\n"
+          },
+          "label": "Found"
+        },
+        {
+          "id": "b18fc75a13534ffca723001d3e7d42cd",
+          "edgeType": "Edge",
+          "source": "b411940e662b430286405ddff35e30f2",
+          "target": "0bfe89b255874b62834030917c656e25",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "aa532bc8a6414c28b8407cdb8889f300",
+          "edgeType": "Edge",
+          "source": "0bfe89b255874b62834030917c656e25",
+          "target": "52afc7f40a0e461ab30b407b69cbda85",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9666121de2d54013a8b800bbf6472c3d",
+          "edgeType": "Branch",
+          "source": "57f7cf8c85964cf0a88fcfadeb5834e0",
+          "target": "321a27143dd44e928768eb150b3426ec",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   var condition = vaVars.user_badge_count== 0 ? true : false;\n   return condition;\n})()\n"
+          },
+          "label": "Not Found"
+        },
+        {
+          "id": "80f933b17db4445e9f120c2f45d9b217",
+          "edgeType": "Edge",
+          "source": "caf58e4313164b7ca17c9978a4f3c450",
+          "target": "b1513b274e2144f7a069773f647d812f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "42e618462d4e4b5094b783edbadf6706",
+          "edgeType": "Edge",
+          "source": "6dfd0a6bd26e42a181b2130d98602426",
+          "target": "d50f8c1f0f2842e687e93f1d9accab2d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "34bee143078a4d5f97be2626030ed543",
+          "edgeType": "Edge",
+          "source": "d50f8c1f0f2842e687e93f1d9accab2d",
+          "target": "8b492743592c48ed981e8ef60ee5deea",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "996c95e813f24ac48af5ae080f72475d",
+          "edgeType": "Edge",
+          "source": "8b492743592c48ed981e8ef60ee5deea",
+          "target": "caf58e4313164b7ca17c9978a4f3c450",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "32ba54824f6f4e059fb2c4dcc0c663ce": {
+      "id": "32ba54824f6f4e059fb2c4dcc0c663ce",
+      "name": "user_sys_id",
+      "label": "User_sys_id",
+      "defaultValue": "21fe134c33083650bf1221382e5c7bc3",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "d93fd5536a214959ad54393aacc51dc9",
+      "isHidden": false
+    },
+    "a62f1150cf79472a86f87c237799b0db": {
+      "id": "a62f1150cf79472a86f87c237799b0db",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_location",
+      "label": "user_location",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "dbcfa6ce4e304decb9f31626a401f754": {
+      "id": "dbcfa6ce4e304decb9f31626a401f754",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_type",
+      "label": "badge_type",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c42df1b0bfc64bdab6865cb24d196da9": {
+      "id": "c42df1b0bfc64bdab6865cb24d196da9",
+      "name": "ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output",
+      "label": "Ai_data_collector_de38333d7d0d4b60b97952fb08ac5c38_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "3b05abc9863d435391e47163f4fd2ed0": {
+      "id": "3b05abc9863d435391e47163f4fd2ed0",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_badges_list",
+      "label": "user_badges_list",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "9ff9cb34baa54e8ab664d6ddc189da1b": {
+      "id": "9ff9cb34baa54e8ab664d6ddc189da1b",
+      "value": {
+        "mode": "simple",
+        "value": "replace"
+      },
+      "name": "badge_action",
+      "label": "badge_action",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "3116e9e0183142dc99b87b81ff29035b": {
+      "id": "3116e9e0183142dc99b87b81ff29035b",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_badge_count",
+      "label": "user_badge_count",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "b28ce12def1c4c778c65fdfd4b382d6d": {
+      "id": "b28ce12def1c4c778c65fdfd4b382d6d",
+      "name": "ai_data_collector_b411940e662b430286405ddff35e30f2_output",
+      "label": "Ai_data_collector_b411940e662b430286405ddff35e30f2_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "a31136ca77c44916979c3d9cd3b81a40": {
+      "id": "a31136ca77c44916979c3d9cd3b81a40",
+      "varType": "carousel-image",
+      "category": "vaInputs",
+      "label": "Display User Active Badges",
+      "name": "display_user_active_badges",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "b411940e662b430286405ddff35e30f2",
+      "isHidden": false,
+      "description": "Ask user to select one of displayed badges to take further action \nASK ONE LINE QUESTION as Please select badge to be replaced."
+    },
+    "43d0a86767554e79a6b23da73a4a604a": {
+      "id": "43d0a86767554e79a6b23da73a4a604a",
+      "name": "ai_data_collector_0bfe89b255874b62834030917c656e25_output",
+      "label": "Ai_data_collector_0bfe89b255874b62834030917c656e25_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "8e591118a6ac4084afc2e68137e89f34": {
+      "id": "8e591118a6ac4084afc2e68137e89f34",
+      "varType": "choice",
+      "category": "vaInputs",
+      "label": "Ask Reason",
+      "name": "ask_reason",
+      "choices": [
+        {
+          "label": "Lost",
+          "value": "lost"
+        },
+        {
+          "label": "Stolen",
+          "value": "stolen"
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "0bfe89b255874b62834030917c656e25",
+      "isHidden": false,
+      "description": "Ask user the reason for replacement of badge as \nPlease select reason for replacement of selected badge.",
+      "translation": true
+    },
+    "3f0dce20b34248a7b2f242f1dedef29d": {
+      "id": "3f0dce20b34248a7b2f242f1dedef29d",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_to_replace",
+      "label": "badge_to_replace",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "306cd3ca4d914c6d957d37bc5e4ec575": {
+      "id": "306cd3ca4d914c6d957d37bc5e4ec575",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_system",
+      "label": "badge_system",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "30c42d0008ce4361935ce5e095e6c196": {
+      "id": "30c42d0008ce4361935ce5e095e6c196",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "user_type",
+      "label": "user_type",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "f9f373e107f945098ca83045e8e6b560": {
+      "id": "f9f373e107f945098ca83045e8e6b560",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_auto_badge_allocation",
+      "label": "dt_res_u_auto_badge_allocation",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "8c02f1c951ff4a7484c1057ae6916997": {
+      "id": "8c02f1c951ff4a7484c1057ae6916997",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "submission_mode",
+      "label": "submission_mode",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "2d4c41148bad45788c711e2e6e5bd86f": {
+      "id": "2d4c41148bad45788c711e2e6e5bd86f",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_def_valid_from",
+      "label": "dt_res_u_def_valid_from",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "762168c2f5894670b15adbb30e22134d": {
+      "id": "762168c2f5894670b15adbb30e22134d",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_def_valid_to",
+      "label": "dt_res_u_def_valid_to",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c84debd9612a43d08132458786466110": {
+      "id": "c84debd9612a43d08132458786466110",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_def_access",
+      "label": "dt_res_u_def_access",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "35fc4725afbf4d909792eea1f9ebb930": {
+      "id": "35fc4725afbf4d909792eea1f9ebb930",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_copy_access",
+      "label": "dt_res_u_copy_access",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "93e8e89818844d01add262552fb8c26c": {
+      "id": "93e8e89818844d01add262552fb8c26c",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_deactivate_old_badge",
+      "label": "dt_res_u_deactivate_old_badge",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "8e5940198aa44546ad2db35fb5eabf9b": {
+      "id": "8e5940198aa44546ad2db35fb5eabf9b",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "new_asset_id",
+      "label": "new_asset_id",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "bf94fbc608d9436b947b9c890695ae3e": {
+      "id": "bf94fbc608d9436b947b9c890695ae3e",
+      "name": "ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output",
+      "label": "Ai_data_collector_6dfd0a6bd26e42a181b2130d98602426_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "40a92a2d57874438a664092c077ee863": {
+      "id": "40a92a2d57874438a664092c077ee863",
+      "varType": "carousel-image",
+      "category": "vaInputs",
+      "label": "Select New Badge",
+      "name": "select_new_badge",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "6dfd0a6bd26e42a181b2130d98602426",
+      "isHidden": false,
+      "inputId": 0,
+      "description": "ask user to select the new badge"
+    },
+    "6d7c6bc4bf674b9e8d4f72541cd7a7ff": {
+      "id": "6d7c6bc4bf674b9e8d4f72541cd7a7ff",
+      "varType": "date_time",
+      "category": "vaInputs",
+      "label": "Badge Valid From",
+      "name": "badge_valid_from",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "date_time",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "6dfd0a6bd26e42a181b2130d98602426",
+      "isHidden": false,
+      "inputId": 1,
+      "description": "Ask user to select valid from date\n"
+    },
+    "d6694f7b06b84f14828600ca7ab37a08": {
+      "id": "d6694f7b06b84f14828600ca7ab37a08",
+      "varType": "date_time",
+      "category": "vaInputs",
+      "label": "Badge Valid To",
+      "name": "badge_valid_to",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "date_time",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "6dfd0a6bd26e42a181b2130d98602426",
+      "isHidden": false,
+      "inputId": 2,
+      "description": "Ask user to select valid to date\n"
+    },
+    "efc1755d67214dbfbb84e94ad034043a": {
+      "id": "efc1755d67214dbfbb84e94ad034043a",
+      "name": "response",
+      "label": "Response",
+      "defaultValue": "Response",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "description": "",
+      "is_list_data_entry": false,
+      "dependent_on_field": "",
+      "nodeId": "8b492743592c48ed981e8ef60ee5deea",
+      "isHidden": false
+    },
+    "12bfdc40d2b44321adaa272b83d54bc5": {
+      "id": "12bfdc40d2b44321adaa272b83d54bc5",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_create_request",
+      "label": "dt_res_u_create_request",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "3af81486b6904cb0b592d9188e46a212": {
+      "id": "3af81486b6904cb0b592d9188e46a212",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_sub_type",
+      "label": "badge_sub_type",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "a43fa10c37d64485a9408594ef546228": {
+      "id": "a43fa10c37d64485a9408594ef546228",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_sub_system",
+      "label": "badge_sub_system",
+      "varType": "script",
+      "category": "vaVars"
+    }
+  }
+}</graph>
+        <name>_PRVW__afe465aaeff54bb8bbfe9ce9891dd567</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>harmandeep.kaur</sys_created_by>
+        <sys_created_on>2025-09-15 13:19:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>4af96a7833083a50bf1221382e5c7b07</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_cb_design_topic_4af96a7833083a50bf1221382e5c7b07</sys_update_name>
+        <sys_updated_by>harmandeep.kaur</sys_updated_by>
+        <sys_updated_on>2025-09-15 13:19:12</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>
