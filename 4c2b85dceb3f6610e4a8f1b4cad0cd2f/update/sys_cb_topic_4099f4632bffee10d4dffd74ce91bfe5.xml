@@ -917,6 +917,34 @@ Response String: A confirmation message or status string indicating the outcome 
                 }
               ],
               "mode": "string"
+            },
+            "input-web_prov": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.web_prov}}",
+                        "displayValue": "Script Variables➛web_prov"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string"
             }
           },
           "subflowOutputs": {
@@ -953,10 +981,26 @@ Response String: A confirmation message or status string indicating the outcome 
                   "data_pill",
                   "data_entry"
                 ],
+                "name": "web_prov",
+                "label": "web_prov",
+                "type": "string",
+                "order": 1,
+                "required": false,
+                "value": [],
+                "description": "",
+                "is_list_data_entry": false,
+                "dependent_on_field": ""
+              },
+              {
+                "supported_input_modes": [
+                  "script",
+                  "data_pill",
+                  "data_entry"
+                ],
                 "name": "location_sys_id",
                 "label": "location_sys_id",
                 "type": "string",
-                "order": 1,
+                "order": 2,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -972,7 +1016,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "user_sys_id",
                 "label": "user_sys_id",
                 "type": "string",
-                "order": 2,
+                "order": 3,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -988,7 +1032,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "action_to_perform",
                 "label": "action_to_perform",
                 "type": "string",
-                "order": 3,
+                "order": 4,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1004,7 +1048,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "valid_from",
                 "label": "valid_from",
                 "type": "string",
-                "order": 4,
+                "order": 5,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1020,7 +1064,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "valid_to",
                 "label": "valid_to",
                 "type": "string",
-                "order": 5,
+                "order": 6,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1036,7 +1080,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "submission_mode",
                 "label": "submission_mode",
                 "type": "string",
-                "order": 6,
+                "order": 7,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1052,7 +1096,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "reason",
                 "label": "reason",
                 "type": "string",
-                "order": 7,
+                "order": 8,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1068,7 +1112,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "assign_default_access",
                 "label": "assign_default_access",
                 "type": "string",
-                "order": 8,
+                "order": 9,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1084,7 +1128,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "badge_id_assign",
                 "label": "badge_id_assign",
                 "type": "string",
-                "order": 9,
+                "order": 10,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1100,7 +1144,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "badge_id_to_replace",
                 "label": "badge_id_to_replace",
                 "type": "string",
-                "order": 10,
+                "order": 11,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1116,7 +1160,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "copy_access",
                 "label": "copy_access",
                 "type": "string",
-                "order": 11,
+                "order": 12,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1132,7 +1176,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "name": "deactivate_old_badge",
                 "label": "deactivate_old_badge",
                 "type": "string",
-                "order": 12,
+                "order": 13,
                 "required": false,
                 "value": [],
                 "description": "",
@@ -1636,6 +1680,17 @@ Response String: A confirmation message or status string indicating the outcome 
       "inputId": 2,
       "description": "Ask user to select valid to date\n"
     },
+    "12bfdc40d2b44321adaa272b83d54bc5": {
+      "id": "12bfdc40d2b44321adaa272b83d54bc5",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "dt_res_u_create_request",
+      "label": "dt_res_u_create_request",
+      "varType": "script",
+      "category": "vaVars"
+    },
     "efc1755d67214dbfbb84e94ad034043a": {
       "id": "efc1755d67214dbfbb84e94ad034043a",
       "name": "response",
@@ -1649,17 +1704,19 @@ Response String: A confirmation message or status string indicating the outcome 
       "description": "",
       "is_list_data_entry": false,
       "dependent_on_field": "",
+      "variable": "Response",
+      "variableName": "response",
       "nodeId": "8b492743592c48ed981e8ef60ee5deea",
       "isHidden": false
     },
-    "12bfdc40d2b44321adaa272b83d54bc5": {
-      "id": "12bfdc40d2b44321adaa272b83d54bc5",
+    "708399d1d6314f75b9a4466fcbf0511f": {
+      "id": "708399d1d6314f75b9a4466fcbf0511f",
       "value": {
-        "value": "",
-        "mode": "simple"
+        "mode": "simple",
+        "value": "0"
       },
-      "name": "dt_res_u_create_request",
-      "label": "dt_res_u_create_request",
+      "name": "web_prov",
+      "label": "web_prov",
       "varType": "script",
       "category": "vaVars"
     }
@@ -1686,14 +1743,14 @@ Response String: A confirmation message or status string indicating the outcome 
         <sys_created_on>2025-09-11 07:55:40</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>4099f4632bffee10d4dffd74ce91bfe5</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>Guardian Badge Replacement Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_4099f4632bffee10d4dffd74ce91bfe5</sys_update_name>
-        <sys_updated_by>harmandeep.kaur</sys_updated_by>
-        <sys_updated_on>2025-09-15 13:42:24</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-15 16:13:55</sys_updated_on>
         <title>Guardian Badge Replacement Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
