@@ -73,7 +73,7 @@ Response String: A confirmation message or status string indicating the outcome 
         "f1762558ad1c41c8992f1f3fa36e8afa": {
           "id": "f1762558ad1c41c8992f1f3fa36e8afa",
           "name": "Get User Active Badges",
-          "script": "(function execute() {\n\n    vaVars.user_badge_count = 0;\n    var identityId = vaInputs.user_sys_id;    \n    var badgeAction = \"replace\" //\n   //TODO - DO not replace mobile creds\n    var baseURL = gs.getProperty('glide.servlet.uri');\n    var images = {};\n    images['PERMANENT_BADGE'] = baseURL + '/x_aleen_aia_skills.permanentbadge.png';\n    images['TEMP_BADGE'] = baseURL + '/x_aleen_aia_skills.visitorbadge.png';\n    images['MOBILE_CREDENTIAL'] = baseURL + '/x_aleen_aia_skills.digitalbadge.png';\n\n    var badgeArray = [];\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset'); \n    badgeGr.addQuery('identity', identityId);\n    badgeGr.addNotNullQuery('status');\n    badgeGr.addQuery('status.code', 'ACTIVE');\n    badgeGr.addQuery('is_deleted',false);\n    badgeGr.addQuery('asset.type.code','!=','MOBILE-CREDENTIAL');\n    badgeGr.query();\n    while (badgeGr.next()) {\n        badgeArray.push({\n            'name': badgeGr.getDisplayValue(\"asset.serial\")+\"(\"+badgeGr.getDisplayValue(\"identifier\") +\")\",\n            'value':badgeGr.getValue(\"sys_id\"),\n            'description':badgeGr.getDisplayValue(\"asset.system.code\") +\" - \" +badgeGr.getDisplayValue(\"valid_to\")+\" - \" +badgeGr.getDisplayValue(\"status.name\"),\n            'body': images[badgeGr.getDisplayValue(\"asset.type.code\")]\n        });\n    }\n    vaVars.user_badges_list = JSON.stringify(badgeArray);\n    if(badgeArray.length &gt;0){\n       vaVars.user_badge_count = badgeArray.length;\n    }\n})();",
+          "script": "(function execute() {\n\n    vaVars.user_badge_count = 0;\n    var identityId = vaInputs.user_sys_id;    \n    var badgeAction = \"replace\" //\n   //TODO - DO not replace mobile creds\n    var baseURL = gs.getProperty('glide.servlet.uri');\n    var images = {};\n    images['PERMANENT_BADGE'] = baseURL + '/x_aleen_aia_skills.permanentbadge.png';\n    images['TEMP_BADGE'] = baseURL + '/x_aleen_aia_skills.visitorbadge.png';\n    images['MOBILE_CREDENTIAL'] = baseURL + '/x_aleen_aia_skills.digitalbadge.png';\n\n    var badgeArray = [];\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset'); \n    badgeGr.addQuery('identity', identityId);\n    badgeGr.addNotNullQuery('status');\n    badgeGr.addQuery('status.code', 'ACTIVE');\n    badgeGr.addQuery('is_deleted',false);\n    badgeGr.addQuery('asset.type.code','!=','MOBILE-CREDENTIAL');\n    badgeGr.query();\n    while (badgeGr.next()) {\n        badgeArray.push({\n            'name': badgeGr.getDisplayValue(\"asset.serial\")+\"(\"+badgeGr.getDisplayValue(\"identifier\") +\")\",\n            'value':badgeGr.getValue(\"sys_id\"),\n            'description':badgeGr.getDisplayValue(\"identity.full_name\") +\" - \" +badgeGr.getDisplayValue(\"valid_to\")+\" - \" +badgeGr.getDisplayValue(\"status.name\"),\n            'body': images[badgeGr.getDisplayValue(\"asset.type.code\")]\n        });\n    }\n    vaVars.user_badges_list = JSON.stringify(badgeArray);\n    if(badgeArray.length &gt;0){\n       vaVars.user_badge_count = badgeArray.length;\n    }\n})();",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -1743,14 +1743,14 @@ Response String: A confirmation message or status string indicating the outcome 
         <sys_created_on>2025-09-11 07:55:40</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>4099f4632bffee10d4dffd74ce91bfe5</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_name>Guardian Badge Replacement Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_4099f4632bffee10d4dffd74ce91bfe5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-15 17:05:19</sys_updated_on>
+        <sys_updated_on>2025-09-15 17:41:01</sys_updated_on>
         <title>Guardian Badge Replacement Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
