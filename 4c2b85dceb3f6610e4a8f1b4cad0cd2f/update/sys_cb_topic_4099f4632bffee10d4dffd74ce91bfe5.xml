@@ -278,7 +278,7 @@ Response String: A confirmation message or status string indicating the outcome 
         "52afc7f40a0e461ab30b407b69cbda85": {
           "id": "52afc7f40a0e461ab30b407b69cbda85",
           "name": "Get Badge Action Config",
-          "script": "(function execute() {\n    //GETTING USER LOCATION , USER TYPE\n    var idenlocationGr = new GlideRecordSecure('x_aleen_snguardian_identity_location')\n    idenlocationGr.addQuery('identity',vaInputs.user_sys_id);\n    idenlocationGr.query();\n    var location = \"\";\n    if(idenlocationGr.next()){\n        location = idenlocationGr.location;\n        vaVars.user_location = location;\n        vaVars.user_type = idenlocationGr.identity.type;\n    }\n\n    //BADGE TYPE BASED ON SELECTED BADGE \n    vaVars.badge_to_replace = vaInputs.display_user_active_badges;\n    var idenAssetGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset');\n    idenAssetGr.addQuery('sys_id',vaVars.badge_to_replace);\n    idenAssetGr.query();\n    if(idenAssetGr.next()){\n        vaVars.badge_type = idenAssetGr.getDisplayValue('asset.type.code'); //asset type code\n        vaVars.badge_system = idenAssetGr.asset.system   // system sys_id\n    }\n    \n    //GET DT BADGE ACTION CONFIG - user location, user type, badge action , badge type\n    //USER TYPE - ??? input or fetch using script\n    vaVars.badge_action = \"replace\"\n    var inputs = {};\n    inputs['user_location'] = vaVars.user_location; // Reference, Sys ID of the record \n    inputs['user_type'] = vaVars.user_type; // Reference, Sys ID of the record \n    inputs['u_badge_type'] = vaVars.badge_type; // String \n    inputs['u_badge_action'] = vaVars.badge_action; // String \n    \n    var dt = new sn_dt.DecisionTableAPI();\n    var response = dt.getDecision('0d37c78833843650bf1221382e5c7bc7', inputs);\n\n    var result_elements = response.result_elements;\n    vaVars.dt_res_u_auto_badge_allocation = result_elements.u_auto_badge_allocation.getValue(); // True/False\n    vaVars.dt_res_u_create_request = result_elements.u_create_request.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_from = result_elements.u_def_valid_from.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_to = result_elements.u_def_valid_to.getValue(); // Duration\n    vaVars.dt_res_u_def_access = result_elements.u_def_access.getValue(); // True/False\n    vaVars.dt_res_u_copy_access = result_elements.u_copy_access.getValue() ;   //True/False\n    vaVars.dt_res_u_deactivate_old_badge = result_elements.u_deactivate_old_badge.getValue();  //True/False\n    var metadataGlideRecordHelper = new x_aleen_snguardian.MetadataGlideRecordHelper();\n    var badgeTypeSysId = metadataGlideRecordHelper.getRecordSysIdByCode('x_aleen_snguardian_asset_type',vaVars.badge_type);\n        \n    //IF dt_res_u_auto_badge_allocation == 1\n    if(vaVars.dt_res_u_auto_badge_allocation){\n        var assetGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n        assetGr.addQuery('type.code',vaVars.badge_type);   //code\n        assetGr.addQuery('system',vaVars.badge_system);   //sys_id\n        assetGr.addQuery('status.code',\"UNASSIGNED\");\n        assetGr.query();\n        if(assetGr.next()){\n            vaVars.new_asset_id = assetGr.getUniqueValue();  //sys_id\n        }//IF NO BADGE IN INVENTORY\n        \n        \n    }\n\n    //HANDLE DEFAULT VALID FROM = 1, VALID TO !=\"\" - timezone based\n    //if  vaVars.dt_res_u_def_valid_from == 1, set value of badge_valid_from\n    if(vaVars.dt_res_u_def_valid_from == \"1\"){\n        vaInputs.badge_valid_from = new GlideDateTime().getDisplayValue();\n    }\n    // if  vaVars.dt_res_u_def_valid_to'' set value of badge_valid_to\n    if(\"1970-01-01 00:00:00\" != vaVars.dt_res_u_def_valid_to &amp;&amp; \"\" != vaVars.dt_res_u_def_valid_to){\n        vaInputs.badge_valid_to = new x_aleen_snguardian.TimeZoneUtil().getDurationDifference(vaVars.dt_res_u_def_valid_to, \"add\");\n    }\n\n    //ASK USER INPUT :: IF MANUAL, valid from ==0 , valid to ==0\n    if( vaVars.dt_res_u_create_request == \"0\"){\n       vaVars.submission_mode = \"direct\";\n    }else{\n       // vaVars.submission_mode = \"request\";\n        vaVars.submission_mode = \"direct\";\n    }\n    \n})()\n",
+          "script": "(function execute() {\n    //GETTING USER LOCATION , USER TYPE\n    var idenlocationGr = new GlideRecordSecure('x_aleen_snguardian_identity_location')\n    idenlocationGr.addQuery('identity',vaInputs.user_sys_id);\n    idenlocationGr.query();\n    var location = \"\";\n    if(idenlocationGr.next()){\n        location = idenlocationGr.location;\n        vaVars.user_location = location;\n        vaVars.user_type = idenlocationGr.identity.type;\n    }\n\n    //BADGE TYPE BASED ON SELECTED BADGE \n    vaVars.badge_to_replace = vaInputs.display_user_active_badges;\n    var idenAssetGr = new GlideRecordSecure('x_aleen_snguardian_identity_asset');\n    idenAssetGr.addQuery('sys_id',vaVars.badge_to_replace);\n    idenAssetGr.query();\n    if(idenAssetGr.next()){\n        vaVars.badge_type = idenAssetGr.getDisplayValue('asset.type.code'); //asset type code\n        vaVars.badge_system = idenAssetGr.asset.system   // system sys_id\n    }\n    \n    //GET DT BADGE ACTION CONFIG - user location, user type, badge action , badge type\n    //USER TYPE - ??? input or fetch using script\n    vaVars.badge_action = \"replace\"\n    var inputs = {};\n    inputs['user_location'] = vaVars.user_location; // Reference, Sys ID of the record \n    inputs['user_type'] = vaVars.user_type; // Reference, Sys ID of the record \n    inputs['u_badge_type'] = vaVars.badge_type; // String \n    inputs['u_badge_action'] = vaVars.badge_action; // String \n    \n    var dt = new sn_dt.DecisionTableAPI();\n    var response = dt.getDecision('0d37c78833843650bf1221382e5c7bc7', inputs);\n\n    var result_elements = response.result_elements;\n    vaVars.dt_res_u_auto_badge_allocation = result_elements.u_auto_badge_allocation.getValue(); // True/False\n    vaVars.dt_res_u_create_request = result_elements.u_create_request.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_from = result_elements.u_def_valid_from.getValue(); // True/False\n    vaVars.dt_res_u_def_valid_to = result_elements.u_def_valid_to.getValue(); // Duration\n    vaVars.dt_res_u_def_access = result_elements.u_def_access.getValue(); // True/False\n    vaVars.dt_res_u_copy_access = result_elements.u_copy_access.getValue() ;   //True/False\n    vaVars.dt_res_u_deactivate_old_badge = result_elements.u_deactivate_old_badge.getValue();  //True/False\n    var metadataGlideRecordHelper = new x_aleen_snguardian.MetadataGlideRecordHelper();\n    var badgeTypeSysId = metadataGlideRecordHelper.getRecordSysIdByCode('x_aleen_snguardian_asset_type',vaVars.badge_type);\n\n    vaVars.new_asset_id = \"\";   \n    //IF dt_res_u_auto_badge_allocation == 1\n    if(vaVars.dt_res_u_auto_badge_allocation == \"1\" || vaVars.dt_res_u_auto_badge_allocation == 1){\n        var assetGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n        assetGr.addQuery('type.code',vaVars.badge_type);   //code\n        assetGr.addQuery('system',vaVars.badge_system);   //sys_id\n        assetGr.addQuery('status.code',\"UNASSIGNED\");\n        assetGr.query();\n        if(assetGr.next()){\n            vaVars.new_asset_id = assetGr.getUniqueValue();  //sys_id\n        }\n    }\n\n    //HANDLE DEFAULT VALID FROM = 1, VALID TO !=\"\" - timezone based\n    //if  vaVars.dt_res_u_def_valid_from == 1, set value of badge_valid_from\n    if(vaVars.dt_res_u_def_valid_from == \"1\"){\n        vaVars.badge_valid_from_cal = new GlideDateTime().getDisplayValue();\n    }else{\n        vaVars.badge_valid_from_cal = \"\";\n    }\n    // if  vaVars.dt_res_u_def_valid_to'' set value of badge_valid_to\n    if(\"1970-01-01 00:00:00\" != vaVars.dt_res_u_def_valid_to &amp;&amp; \"\" != vaVars.dt_res_u_def_valid_to){\n        vaVars.badge_valid_to_calc = new x_aleen_snguardian.TimeZoneUtil().getDurationDifference(vaVars.dt_res_u_def_valid_to, \"add\");\n    }else{\n        vaVars.badge_valid_to_calc = \"\";\n    }\n\n    //ASK USER INPUT :: IF MANUAL, valid from ==0 , valid to ==0\n    if( vaVars.dt_res_u_create_request == \"0\"){\n       vaVars.submission_mode = \"direct\";\n    }else{\n       // vaVars.submission_mode = \"request\";\n        vaVars.submission_mode = \"direct\";\n    }\n    \n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -321,17 +321,17 @@ Response String: A confirmation message or status string indicating the outcome 
           },
           "inputs": [
             {
-              "itemId": "3bafb0e173534e6d8cb60a649490f9c3",
-              "displayName": "Select new badge",
-              "name": "select_new_badge",
-              "description": "ask user to select the new badge ",
+              "itemId": "5925f9c5d84b48ecbce1878a8289a93b",
+              "displayName": "Enter Badge Serial Number",
+              "name": "enter_badge_serial_number",
+              "description": "Enter Badge Serial Number",
               "discoverable": true,
               "dynamicDescription": {
                 "value": "",
                 "mode": "simple"
               },
-              "type": "carousel-image",
-              "variableId": "40a92a2d57874438a664092c077ee863",
+              "type": "string",
+              "variableId": "8a513dd20b704ab6ad45108d706e9c6f",
               "choices": [
                 {
                   "label": "",
@@ -343,21 +343,21 @@ Response String: A confirmation message or status string indicating the outcome 
                 }
               ],
               "mode": "",
-              "script": "(function execute() {\n\n    var baseURL = gs.getProperty('glide.servlet.uri');\n    var images = {};\n    images['PERMANENT_BADGE'] = baseURL + '/x_aleen_aia_skills.permanentbadge.png';\n    images['TEMP_BADGE'] = baseURL + '/x_aleen_aia_skills.visitorbadge.png';\n    images['MOBILE_CREDENTIAL'] = baseURL + '/x_aleen_aia_skills.digitalbadge.png';\n\n    var options = [];\n    var badgeGr = new GlideRecordSecure('x_aleen_snguardian_asset');\n    badgeGr.addQuery('status.code','UNASSIGNED');\n    badgeGr.addQuery('type.code',vaVars.badge_type);\n    badgeGr.addQuery('system',vaVars.badge_system);\n    //subsytem , subtype\n    badgeGr.setLimit(5);\n    badgeGr.query();\n    while(badgeGr.next()){\n            options.push({\n            'name': badgeGr.getDisplayValue(\"serial\"),\n            'value': badgeGr.getValue(\"sys_id\"),\n            'description': badgeGr.getDisplayValue(\"system.code\") + \" - \" + badgeGr.getDisplayValue(\"status.name\"),\n            'body': images[badgeGr.getDisplayValue(\"type.code\")]\n            })  \n    }\n   \n    return options;\n})()\n",
+              "script": "",
               "condition": {
                 "value": "",
                 "mode": "glide_query"
               },
-              "stepType": "CarouselPrompt",
+              "stepType": "TextPrompt",
               "enforcePrompt": false,
               "helpText": false,
               "skippable": {
-                "mode": "query",
-                "value": ""
+                "mode": "script",
+                "value": "(function execute() {\n    return true;\n})()\n"
               },
               "applicability": {
                 "mode": "script",
-                "value": "(function execute() {\n   if (vaVars.dt_res_u_auto_badge_allocation == \"0\" || vaVars.dt_res_u_auto_badge_allocation == 0) {\n    return true;\n   }else{\n       return false;\n   }\n})()\n"
+                "value": "(function execute() {\n    if (vaVars.dt_res_u_auto_badge_allocation == \"0\" || vaVars.dt_res_u_auto_badge_allocation == 0) {\n       return true;\n   }else if (vaVars.dt_res_u_auto_badge_allocation == \"1\" || vaVars.dt_res_u_auto_badge_allocation == 1) {\n        if(vaVars.new_asset_id == \"\"){ // AUTO, BUT INVENTORY\n          return true;\n        }\n   }\n   return false;\n})()\n"
               },
               "promptMessage": {
                 "value": "",
@@ -373,7 +373,15 @@ Response String: A confirmation message or status string indicating the outcome 
               },
               "isMultipleSelect": false,
               "validation": "",
-              "autoSelect": true
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
             },
             {
               "itemId": "cc51ff37efd14fd28953d9d12844a93c",
@@ -407,8 +415,8 @@ Response String: A confirmation message or status string indicating the outcome 
               "enforcePrompt": false,
               "helpText": false,
               "skippable": {
-                "mode": "query",
-                "value": ""
+                "mode": "script",
+                "value": "(function execute() {\n    return true;\n})()\n"
               },
               "applicability": {
                 "mode": "script",
@@ -470,8 +478,8 @@ Response String: A confirmation message or status string indicating the outcome 
               "enforcePrompt": false,
               "helpText": false,
               "skippable": {
-                "mode": "query",
-                "value": ""
+                "mode": "script",
+                "value": "(function execute() {\n    return true;\n})()\n"
               },
               "applicability": {
                 "mode": "script",
@@ -520,9 +528,9 @@ Response String: A confirmation message or status string indicating the outcome 
           "classificationEnabled": false,
           "classificationOverrides": [],
           "variableIds": [
-            "40a92a2d57874438a664092c077ee863",
             "6d7c6bc4bf674b9e8d4f72541cd7a7ff",
-            "d6694f7b06b84f14828600ca7ab37a08"
+            "d6694f7b06b84f14828600ca7ab37a08",
+            "8a513dd20b704ab6ad45108d706e9c6f"
           ],
           "standalone": false
         },
@@ -543,16 +551,6 @@ Response String: A confirmation message or status string indicating the outcome 
             ],
             "mode": "simple"
           },
-          "applicability": {
-            "value": "",
-            "mode": "query"
-          }
-        },
-        "d50f8c1f0f2842e687e93f1d9accab2d": {
-          "id": "d50f8c1f0f2842e687e93f1d9accab2d",
-          "name": "set new asset id",
-          "script": "(function execute() {\n    vaVars.new_asset_id = vaInputs.select_new_badge;\n})()\n",
-          "stepType": "ScriptAction",
           "applicability": {
             "value": "",
             "mode": "query"
@@ -667,60 +665,12 @@ Response String: A confirmation message or status string indicating the outcome 
               "mode": "string"
             },
             "input-valid_from": {
-              "value": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    },
-                    {
-                      "type": "datapill",
-                      "dataPill": {
-                        "value": "{{vaInputs.badge_valid_from}}",
-                        "displayValue": "Input Variables➛Badge Valid From"
-                      },
-                      "children": [
-                        {
-                          "text": ""
-                        }
-                      ]
-                    },
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ],
-              "mode": "string"
+              "value": "(function execute() {\n  if (vaVars.badge_valid_from_cal != \"\"){\n        return vaVars.badge_valid_from_cal.toString();\n  }else if (vaInputs.badge_valid_from){\n        return vaInputs.badge_valid_from.toString();\n  }\n    return '';\n})()\n",
+              "mode": "script"
             },
             "input-valid_to": {
-              "value": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    },
-                    {
-                      "type": "datapill",
-                      "dataPill": {
-                        "value": "{{vaInputs.badge_valid_to}}",
-                        "displayValue": "Input Variables➛Badge Valid To"
-                      },
-                      "children": [
-                        {
-                          "text": ""
-                        }
-                      ]
-                    },
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ],
-              "mode": "string"
+              "value": "(function execute() {\n   if (vaVars.badge_valid_to_cal != \"\"){\n        return vaVars.badge_valid_to_cal.toString();\n  }else if (vaInputs.badge_valid_to){\n        return vaInputs.badge_valid_to.toString();\n  }\n    return '';\n})()\n",
+              "mode": "script"
             },
             "input-reason": {
               "value": [
@@ -779,32 +729,8 @@ Response String: A confirmation message or status string indicating the outcome 
               "mode": "string"
             },
             "input-badge_id_assign": {
-              "value": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    },
-                    {
-                      "type": "datapill",
-                      "dataPill": {
-                        "value": "{{vaVars.new_asset_id}}",
-                        "displayValue": "Script Variables➛new_asset_id"
-                      },
-                      "children": [
-                        {
-                          "text": ""
-                        }
-                      ]
-                    },
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ],
-              "mode": "string"
+              "value": "(function execute() {\n    if(vaVars.new_asset_id != \"\"){ //AUTO\n        return vaVars.new_asset_id.toString();\n    }else if (vaVars.asset_sys_id_selected != \"\"){ //MANUAL , AUTO WITHOUT INVENTORY\n        return vaVars.asset_sys_id_selected.toString();\n    }\n})()\n",
+              "mode": "script"
             },
             "input-badge_id_to_replace": {
               "value": [
@@ -1205,17 +1131,19 @@ Response String: A confirmation message or status string indicating the outcome 
             "value": "",
             "mode": "query"
           }
+        },
+        "d2bd7b4ec54c4bd5b9e0bab4a38b04ea": {
+          "id": "d2bd7b4ec54c4bd5b9e0bab4a38b04ea",
+          "name": "Get Or Create Asset By Serial Number",
+          "script": "(function execute() {\nvaVars.asset_sys_id_selected = \"\";\n\n//GET Asset BY  SYS_ID\n//CREATE WITH Serial Number\n\nvaVars.asset_sys_id_selected = \"\";\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "mode": "script",
+            "value": "(function execute() {\n    if(vaVars.new_asset_id == \"\"){\n      return true;\n    }\n})()\n"
+          }
         }
       },
       "edges": [
-        {
-          "id": "42e618462d4e4b5094b783edbadf6706",
-          "edgeType": "Edge",
-          "source": "6dfd0a6bd26e42a181b2130d98602426",
-          "target": "d50f8c1f0f2842e687e93f1d9accab2d",
-          "sourcePort": "",
-          "targetPort": ""
-        },
         {
           "id": "fb7fc30513164e1998107c24784d2830",
           "edgeType": "Edge",
@@ -1299,18 +1227,26 @@ Response String: A confirmation message or status string indicating the outcome 
           "targetPort": ""
         },
         {
-          "id": "34bee143078a4d5f97be2626030ed543",
-          "edgeType": "Edge",
-          "source": "d50f8c1f0f2842e687e93f1d9accab2d",
-          "target": "8b492743592c48ed981e8ef60ee5deea",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
           "id": "996c95e813f24ac48af5ae080f72475d",
           "edgeType": "Edge",
           "source": "8b492743592c48ed981e8ef60ee5deea",
           "target": "caf58e4313164b7ca17c9978a4f3c450",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "42e618462d4e4b5094b783edbadf6706",
+          "edgeType": "Edge",
+          "source": "6dfd0a6bd26e42a181b2130d98602426",
+          "target": "d2bd7b4ec54c4bd5b9e0bab4a38b04ea",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "68239756fb2a487c96d4589938ab181f",
+          "edgeType": "Edge",
+          "source": "d2bd7b4ec54c4bd5b9e0bab4a38b04ea",
+          "target": "8b492743592c48ed981e8ef60ee5deea",
           "sourcePort": "",
           "targetPort": ""
         }
@@ -1608,30 +1544,6 @@ Response String: A confirmation message or status string indicating the outcome 
         "libraryMappingType": "output"
       }
     },
-    "40a92a2d57874438a664092c077ee863": {
-      "id": "40a92a2d57874438a664092c077ee863",
-      "varType": "carousel-image",
-      "category": "vaInputs",
-      "label": "Select New Badge",
-      "name": "select_new_badge",
-      "choices": [
-        {
-          "label": "",
-          "value": ""
-        },
-        {
-          "label": "",
-          "value": ""
-        }
-      ],
-      "mode": "",
-      "table": "",
-      "aiInput": true,
-      "nodeId": "6dfd0a6bd26e42a181b2130d98602426",
-      "isHidden": false,
-      "inputId": 0,
-      "description": "ask user to select the new badge"
-    },
     "6d7c6bc4bf674b9e8d4f72541cd7a7ff": {
       "id": "6d7c6bc4bf674b9e8d4f72541cd7a7ff",
       "varType": "date_time",
@@ -1719,6 +1631,62 @@ Response String: A confirmation message or status string indicating the outcome 
       "label": "web_prov",
       "varType": "script",
       "category": "vaVars"
+    },
+    "0114cea5b7f047f5b016397bf3e1fcb8": {
+      "id": "0114cea5b7f047f5b016397bf3e1fcb8",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_valid_from_cal",
+      "label": "badge_valid_from_cal",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "c505f0a907254463ab6198965fc5c24a": {
+      "id": "c505f0a907254463ab6198965fc5c24a",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "badge_valid_to_calc",
+      "label": "badge_valid_to_calc",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "8a513dd20b704ab6ad45108d706e9c6f": {
+      "id": "8a513dd20b704ab6ad45108d706e9c6f",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Enter Badge Serial Number",
+      "name": "enter_badge_serial_number",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "6dfd0a6bd26e42a181b2130d98602426",
+      "isHidden": false,
+      "inputId": 0
+    },
+    "43e6d42dc3fb4656ac708d22773fb504": {
+      "id": "43e6d42dc3fb4656ac708d22773fb504",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "asset_sys_id_selected",
+      "label": "asset_sys_id_selected",
+      "varType": "script",
+      "category": "vaVars"
     }
   }
 }</graph>
@@ -1743,14 +1711,14 @@ Response String: A confirmation message or status string indicating the outcome 
         <sys_created_on>2025-09-11 07:55:40</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>4099f4632bffee10d4dffd74ce91bfe5</sys_id>
-        <sys_mod_count>50</sys_mod_count>
+        <sys_mod_count>61</sys_mod_count>
         <sys_name>Guardian Badge Replacement Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_4099f4632bffee10d4dffd74ce91bfe5</sys_update_name>
-        <sys_updated_by>harmandeep.kaur</sys_updated_by>
-        <sys_updated_on>2025-09-16 11:05:30</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-17 07:01:11</sys_updated_on>
         <title>Guardian Badge Replacement Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
