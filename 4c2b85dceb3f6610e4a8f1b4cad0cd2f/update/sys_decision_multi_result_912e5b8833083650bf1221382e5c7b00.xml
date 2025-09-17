@@ -34,18 +34,4 @@
         <value>1</value>
         <variable display_value="MC_SUPPORT">3efd17c833083650bf1221382e5c7b51</variable>
     </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_decision_multi_result</document>
-        <document_key>912e5b8833083650bf1221382e5c7b00</document_key>
-        <order>200</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 09:11:43</sys_created_on>
-        <sys_id>d52e5b8833083650bf1221382e5c7b00</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 09:11:43</sys_updated_on>
-        <value/>
-        <variable display_value="MC_PAC_SYSTEM">47fd17c833083650bf1221382e5c7b96</variable>
-    </sys_variable_value>
 </record_update>

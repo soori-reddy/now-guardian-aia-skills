@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_multi_result">
+    <sys_decision_multi_result action="INSERT_OR_UPDATE">
+        <decision_table display_value="Guardian AI Agent Badge Action Config">0d37c78833843650bf1221382e5c7bc7</decision_table>
+        <label>AUTO_BADGE_ALLOCATION: false, DEF_ACCESS: false, DEF_VALID_FROM: false, COPY_ACCESS: false, CREATE_REQUEST: false, DEACTIVATE_OLD_BADGE: false, DEF_VALID_TO: 2 Days</label>
+        <result_elements/>
+        <sys_class_name>sys_decision_multi_result</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>04a6201d2b047a50d4dffd74ce91bf77</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AUTO_BADGE_ALLOCATION: false, DEF_ACCESS: false, DEF_VALID_FROM: false, COPY_ACCESS: false, CREATE_REQUEST: false, DEACTIVATE_OLD_BADGE: false, DEF_VALID_TO: 2 Days</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_decision_multi_result_04a6201d2b047a50d4dffd74ce91bf77</sys_update_name>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+    </sys_decision_multi_result>
+    <sys_variable_value action="delete_multiple" query="document_key=04a6201d2b047a50d4dffd74ce91bf77"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>700</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>08a6201d2b047a50d4dffd74ce91bf78</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>0</value>
+        <variable display_value="DEACTIVATE_OLD_BADGE">633b8fcc33843650bf1221382e5c7b87</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>0ca6201d2b047a50d4dffd74ce91bf77</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>0</value>
+        <variable display_value="AUTO_BADGE_ALLOCATION">163b8b4833843650bf1221382e5c7bfd</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>550</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>44a6201d2b047a50d4dffd74ce91bf78</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>0</value>
+        <variable display_value="COPY_ACCESS">1f3b8fcc33843650bf1221382e5c7b23</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>80a6201d2b047a50d4dffd74ce91bf78</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>0</value>
+        <variable display_value="DEF_VALID_FROM">763b4fcc33843650bf1221382e5c7ba8</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>500</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>8ca6201d2b047a50d4dffd74ce91bf78</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>1970-01-03 00:00:00</value>
+        <variable display_value="DEF_VALID_TO">073b4fcc33843650bf1221382e5c7bd3</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>c8a6201d2b047a50d4dffd74ce91bf78</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>0</value>
+        <variable display_value="CREATE_REQUEST">6a3b4fcc33843650bf1221382e5c7b96</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>04a6201d2b047a50d4dffd74ce91bf77</document_key>
+        <order>600</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 17:02:18</sys_created_on>
+        <sys_id>cca6201d2b047a50d4dffd74ce91bf77</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 17:02:18</sys_updated_on>
+        <value>0</value>
+        <variable display_value="DEF_ACCESS">933b8fcc33843650bf1221382e5c7b4f</variable>
+    </sys_variable_value>
+</record_update>

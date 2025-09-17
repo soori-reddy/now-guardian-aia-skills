@@ -23,34 +23,6 @@
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_decision_multi_result</document>
         <document_key>6ecde27033483a50bf1221382e5c7bcc</document_key>
-        <order>300</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-15 13:35:53</sys_created_on>
-        <sys_id>26cde27033483a50bf1221382e5c7bcd</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-15 13:35:53</sys_updated_on>
-        <value/>
-        <variable display_value="MC_NFC_SYSTEM">f61551b033003a50bf1221382e5c7b0c</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_decision_multi_result</document>
-        <document_key>6ecde27033483a50bf1221382e5c7bcc</document_key>
-        <order>200</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-15 13:35:53</sys_created_on>
-        <sys_id>62cde27033483a50bf1221382e5c7bcd</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-15 13:35:53</sys_updated_on>
-        <value/>
-        <variable display_value="MC_PAC_SYSTEM">47fd17c833083650bf1221382e5c7b96</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_decision_multi_result</document>
-        <document_key>6ecde27033483a50bf1221382e5c7bcc</document_key>
         <order>500</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_multi_result">
+    <sys_decision_multi_result action="INSERT_OR_UPDATE">
+        <decision_table display_value="Guardian AI Agent Location Config">a57ddb4833083650bf1221382e5c7b7e</decision_table>
+        <label>MC_NFC_SYSYEM: ALERT-MC-01, MC_PAC_SYSTEM: CCURE-US-01, MC_SUPPORT: true, MC_SUB_TYPE: Wavelynx, WEB_PROV: true</label>
+        <result_elements/>
+        <sys_class_name>sys_decision_multi_result</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 16:58:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>aad5acd92b047a50d4dffd74ce91bff2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MC_NFC_SYSYEM: ALERT-MC-01, MC_PAC_SYSTEM: CCURE-US-01, MC_SUPPORT: true, MC_SUB_TYPE: Wavelynx, WEB_PROV: true</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>sys_decision_multi_result_aad5acd92b047a50d4dffd74ce91bff2</sys_update_name>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 16:58:55</sys_updated_on>
+    </sys_decision_multi_result>
+    <sys_variable_value action="delete_multiple" query="document_key=aad5acd92b047a50d4dffd74ce91bff2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>aad5acd92b047a50d4dffd74ce91bff2</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 16:58:55</sys_created_on>
+        <sys_id>26d5acd92b047a50d4dffd74ce91bff3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 16:58:55</sys_updated_on>
+        <value>1</value>
+        <variable display_value="MC_SUPPORT">3efd17c833083650bf1221382e5c7b51</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>aad5acd92b047a50d4dffd74ce91bff2</document_key>
+        <order>325</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 16:58:55</sys_created_on>
+        <sys_id>62d5acd92b047a50d4dffd74ce91bff3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 16:58:55</sys_updated_on>
+        <value>d95b281d2bf7e210d4dffd74ce91bf94</value>
+        <variable display_value="MC_PAC_SYSTEM">54cb4f38330c3a50bf1221382e5c7b44</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>aad5acd92b047a50d4dffd74ce91bff2</document_key>
+        <order>500</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 16:58:55</sys_created_on>
+        <sys_id>aad5acd92b047a50d4dffd74ce91bff3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 16:58:55</sys_updated_on>
+        <value>1</value>
+        <variable display_value="WEB_PROV">82cd627033483a50bf1221382e5c7bf0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>aad5acd92b047a50d4dffd74ce91bff2</document_key>
+        <order>250</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 16:58:55</sys_created_on>
+        <sys_id>aed5acd92b047a50d4dffd74ce91bff2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 16:58:55</sys_updated_on>
+        <value>2e3b7a692b3f6610d4dffd74ce91bffb</value>
+        <variable display_value="MC_NFC_SYSYEM">c8cb0f38330c3a50bf1221382e5c7bf9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>aad5acd92b047a50d4dffd74ce91bff2</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>chirag.alert</sys_created_by>
+        <sys_created_on>2025-09-16 16:58:55</sys_created_on>
+        <sys_id>e6d5acd92b047a50d4dffd74ce91bff3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-16 16:58:55</sys_updated_on>
+        <value>608f8ed51bbc8210759455342a4bcbce</value>
+        <variable display_value="MC_SUB_TYPE">be6b69f433803a50bf1221382e5c7b8d</variable>
+    </sys_variable_value>
+</record_update>

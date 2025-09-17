@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_decision_table_decision_condition">
     <sn_decision_table_decision_condition action="INSERT_OR_UPDATE">
-        <decision_input display_value="Employee Type">7068430c33843650bf1221382e5c7b43</decision_input>
+        <decision_input display_value="User Type">7068430c33843650bf1221382e5c7b43</decision_input>
         <decision_table display_value="Guardian AI Agent Badge Action Config">0d37c78833843650bf1221382e5c7bc7</decision_table>
         <default_operator>=</default_operator>
         <description/>
