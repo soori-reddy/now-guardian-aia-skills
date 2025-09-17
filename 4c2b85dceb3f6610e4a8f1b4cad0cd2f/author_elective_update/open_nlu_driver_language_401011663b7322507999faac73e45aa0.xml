@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="open_nlu_driver_language">
+    <open_nlu_driver_language action="DELETE">
+        <code>pt</code>
+        <dialog_acts_supported>false</dialog_acts_supported>
+        <driver display_value="ServiceNow NLU">64c023c17300330021a044764df6a70e</driver>
+        <driver_codes>pt</driver_codes>
+        <language>Portuguese</language>
+        <sys_class_name>open_nlu_driver_language</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 07:00:04</sys_created_on>
+        <sys_id>401011663b7322507999faac73e45aa0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Portuguese</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>open_nlu_driver_language_401011663b7322507999faac73e45aa0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 07:00:04</sys_updated_on>
+    </open_nlu_driver_language>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</application>
+        <file_path/>
+        <instance_id>e930a3a4db4f5780cbf6d5b0cf9619fd</instance_id>
+        <instance_name>alert</instance_name>
+        <name>open_nlu_driver_language_401011663b7322507999faac73e45aa0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="open_nlu_driver_language">
+    <open_nlu_driver_language action="INSERT_OR_UPDATE">
+        <code>pt</code>
+        <dialog_acts_supported>false</dialog_acts_supported>
+        <driver display_value="ServiceNow NLU">64c023c17300330021a044764df6a70e</driver>
+        <driver_codes>pt</driver_codes>
+        <language>Portuguese</language>
+        <sys_class_name>open_nlu_driver_language</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 07:00:04</sys_created_on>
+        <sys_id>401011663b7322507999faac73e45aa0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Portuguese</sys_name>
+        <sys_package display_value="Guardian AI" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>open_nlu_driver_language_401011663b7322507999faac73e45aa0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 07:00:04</sys_updated_on>
+    </open_nlu_driver_language>
+</record_update>]]></payload>
+        <payload_hash>-54811121</payload_hash>
+        <record_name>Portuguese</record_name>
+        <reverted_from/>
+        <source/>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-10 10:39:07</sys_created_on>
+        <sys_id>e4651c5b2bb7ae10d4dffd74ce91bf71</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19933352d110000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-10 10:39:07</sys_updated_on>
+        <type>Open NLU Driver Language</type>
+        <update_guid>a4651c5bc5b7ae10434fda9cb864ab71</update_guid>
+        <update_guid_history>a4651c5bc5b7ae10434fda9cb864ab71:-54811121</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Portuguese">ab0e15212b40fa50d4dffd74ce91bf82</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-17 15:42:58</sys_created_on>
+        <sys_db_object display_value="" name="open_nlu_driver_language">open_nlu_driver_language</sys_db_object>
+        <sys_id>9a19e721990c4eb4a4efe4c08b7d4c24</sys_id>
+        <sys_metadata>401011663b7322507999faac73e45aa0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Portuguese</sys_name>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_scope_delete display_value="">9ec05a3293244f7799d83cc267c72489</sys_scope_delete>
+        <sys_update_name>open_nlu_driver_language_401011663b7322507999faac73e45aa0</sys_update_name>
+        <sys_update_version display_value="open_nlu_driver_language_401011663b7322507999faac73e45aa0">e4651c5b2bb7ae10d4dffd74ce91bf71</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-17 15:42:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
