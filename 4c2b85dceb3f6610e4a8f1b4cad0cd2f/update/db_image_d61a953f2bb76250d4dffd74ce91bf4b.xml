@@ -4,21 +4,21 @@
         <category/>
         <format/>
         <height>2045</height>
-        <image>c32c730c33c83650bf1221382e5c7bde</image>
+        <image>5464b5612bc0fa50d4dffd74ce91bff3</image>
         <name>x_aleen_aia_skills.permanentbadge.png</name>
         <size_bytes>665</size_bytes>
         <sys_class_name>db_image</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-12 04:59:55</sys_created_on>
         <sys_id>d61a953f2bb76250d4dffd74ce91bf4b</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>x_aleen_aia_skills.permanentbadge.png</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>db_image_d61a953f2bb76250d4dffd74ce91bf4b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 11:22:54</sys_updated_on>
+        <sys_updated_on>2025-09-17 17:20:29</sys_updated_on>
         <thumbnail/>
         <width>2045</width>
     </db_image>
@@ -28,18 +28,18 @@
         <compressed>true</compressed>
         <content_type>image/svg+xml</content_type>
         <file_name>image</file_name>
-        <hash>235b6d37437a4c06422fc43d41fdd44b16ff4a2a271809f22dfe3b70fec0f23f</hash>
+        <hash>e08ea39f62c93649fe8929ff62d14fc0eab502a9e38507c9b935b9d05902cbe3</hash>
         <image_height/>
         <image_width/>
         <size_bytes>665</size_bytes>
-        <size_compressed>335</size_compressed>
+        <size_compressed>336</size_compressed>
         <state>available</state>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 11:22:54</sys_created_on>
-        <sys_id>c32c730c33c83650bf1221382e5c7bde</sys_id>
+        <sys_created_on>2025-09-17 17:20:29</sys_created_on>
+        <sys_id>5464b5612bc0fa50d4dffd74ce91bff3</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2025-09-13 11:22:55</sys_updated_on>
+        <sys_updated_on>2025-09-17 17:20:30</sys_updated_on>
         <table_name>ZZ_YYdb_image</table_name>
         <table_sys_id>d61a953f2bb76250d4dffd74ce91bf4b</table_sys_id>
     </sys_attachment>
@@ -47,18 +47,18 @@
         <data>H4sIAAAAAAAA/w==</data>
         <length>16</length>
         <position>0</position>
-        <sys_attachment display_value="image" sys_id="c32c730c33c83650bf1221382e5c7bde">c32c730c33c83650bf1221382e5c7bde</sys_attachment>
+        <sys_attachment display_value="image" sys_id="5464b5612bc0fa50d4dffd74ce91bff3">5464b5612bc0fa50d4dffd74ce91bff3</sys_attachment>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 11:22:54</sys_created_on>
-        <sys_id>072c730c33c83650bf1221382e5c7bde</sys_id>
+        <sys_created_on>2025-09-17 17:20:29</sys_created_on>
+        <sys_id>9464b5612bc0fa50d4dffd74ce91bff3</sys_id>
     </sys_attachment_doc>
     <sys_attachment_doc action="INSERT_OR_UPDATE">
-        <data>tVLLasMwELwH8g9CpeRSR3JCAnajQNJrCz30XmR7Y4vIkpFUP/r1lRyTtrSnQvegZXZntLNCO9uWqAVjhVYMx8sYI1Ew/MgHMK8e9LVUluHKuSYlpOu6ZbdealOSFaWUePFESXsp1Pk3YpwkCRm7nsowbXqMhkuez1oB3VGHMqIopvR2PDCybpDAMCieSYgynp9Lo99UkSro0Dfu/WggtQ3PvaAxYMG0gPfz2c5A7tBJSMnwDV1vV4cHjDpRuMovOk6pQJSVmxAJEge9Cy43oT1c8nyGxphuOo3xWdXKRSdeC+npi4MRXEZHLYunl8UduuDFd7IV795pvKLXcpgacZVX2jBci6KQcO0VuhaKe1nGLfhXhCtjHyjP3jQJ+hH98J9s/sv/evtX+5l2TteTfTA1V6DclzV24VvtPwC5hc+QmQIAAA==</data>
+        <data>tVI9T8MwEN0r9T9YRqgLSZxWrZrQVKIDE0gM7MhJrolVx45skw9+PbYbFSqYkLjBp3f3nu+d5Z3uKtSB0kyKDMdhjBErM/xER1BvFgwNFzrDtTFtGkV934f9KpSqipaEkMiKJ0o6cCZOvxHjJEki37XUDJN2wGg85/msY9AfpCsjgmJCbv2BkTYjhwyDoDmHIKfFqVLyXZSpgB5dce+9gVS3tLCCVoEG1QHez2c7BYVBR8Z5hm/ibbxdbjDqWWlqu6ifUgOrajOhyEkMDMa5XLv2eM7zGfIx3fTo46sqhQmOtGHc0hcPilEeHCQvn18Xd+iMF9dkzT6s03hJLmU3NaCiqKXKcMPKksOlV8qGCWplOdVgXxEujL2jvFjTkdN79MN/sv4v/6vNX+3n0hjZTPZBNVSAMN/W2Llvtf8EBWgufpkCAAA=</data>
         <length>436</length>
         <position>1</position>
-        <sys_attachment display_value="image" sys_id="c32c730c33c83650bf1221382e5c7bde">c32c730c33c83650bf1221382e5c7bde</sys_attachment>
+        <sys_attachment display_value="image" sys_id="5464b5612bc0fa50d4dffd74ce91bff3">5464b5612bc0fa50d4dffd74ce91bff3</sys_attachment>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 11:22:54</sys_created_on>
-        <sys_id>872c730c33c83650bf1221382e5c7bde</sys_id>
+        <sys_created_on>2025-09-17 17:20:29</sys_created_on>
+        <sys_id>1864b5612bc0fa50d4dffd74ce91bff3</sys_id>
     </sys_attachment_doc>
 </record_update>

@@ -4,21 +4,21 @@
         <category/>
         <format/>
         <height>213</height>
-        <image>7baa7b4833c83650bf1221382e5c7bac</image>
+        <image>de34b5612bc0fa50d4dffd74ce91bf29</image>
         <name>x_aleen_aia_skills.digitalbadge.png</name>
         <size_bytes>663</size_bytes>
         <sys_class_name>db_image</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-09-12 05:03:30</sys_created_on>
         <sys_id>059bd5332bf76250d4dffd74ce91bfba</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>33</sys_mod_count>
         <sys_name>x_aleen_aia_skills.digitalbadge.png</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>db_image_059bd5332bf76250d4dffd74ce91bfba</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-13 11:16:24</sys_updated_on>
+        <sys_updated_on>2025-09-17 17:19:49</sys_updated_on>
         <thumbnail/>
         <width>600</width>
     </db_image>
@@ -28,18 +28,18 @@
         <compressed>true</compressed>
         <content_type>image/svg+xml</content_type>
         <file_name>image</file_name>
-        <hash>a89c24995226191024ea99318186b2139af687aad2207c959c853f28df6c361a</hash>
+        <hash>97d686de65a7939e12f0f440f24e7983620cc8312ab0f93944b14dd35644848a</hash>
         <image_height/>
         <image_width/>
         <size_bytes>663</size_bytes>
         <size_compressed>334</size_compressed>
         <state>available</state>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 11:16:24</sys_created_on>
-        <sys_id>7baa7b4833c83650bf1221382e5c7bac</sys_id>
+        <sys_created_on>2025-09-17 17:19:49</sys_created_on>
+        <sys_id>de34b5612bc0fa50d4dffd74ce91bf29</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2025-09-13 11:16:24</sys_updated_on>
+        <sys_updated_on>2025-09-17 17:19:50</sys_updated_on>
         <table_name>ZZ_YYdb_image</table_name>
         <table_sys_id>059bd5332bf76250d4dffd74ce91bfba</table_sys_id>
     </sys_attachment>
@@ -47,18 +47,18 @@
         <data>H4sIAAAAAAAA/w==</data>
         <length>16</length>
         <position>0</position>
-        <sys_attachment display_value="image" sys_id="7baa7b4833c83650bf1221382e5c7bac">7baa7b4833c83650bf1221382e5c7bac</sys_attachment>
+        <sys_attachment display_value="image" sys_id="de34b5612bc0fa50d4dffd74ce91bf29">de34b5612bc0fa50d4dffd74ce91bf29</sys_attachment>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 11:16:24</sys_created_on>
-        <sys_id>bbaa7b4833c83650bf1221382e5c7bac</sys_id>
+        <sys_created_on>2025-09-17 17:19:49</sys_created_on>
+        <sys_id>1234b5612bc0fa50d4dffd74ce91bf2a</sys_id>
     </sys_attachment_doc>
     <sys_attachment_doc action="INSERT_OR_UPDATE">
-        <data>tVKxTsMwEN0r9R8sI9SFNE5LUROaSlTARDd25CTXxKpjR7aJE74eO40KFUxI3ODTu3vP987yRrclakFpJkWKo3mEEStS/EJ7UG8OdDUXOsWVMU0ShtbauV3OpSrDBSEkdOKRknScieNvxCiO43DoOmqKSdNh1J/ydNIysDvpy4igiJDr4cBIm55DikHQjEOQ0fxYKvkuikSARRfc+8FAohuaO0GjQINqAW+nk42C3KAD4zzFV9HTer26xciywlRu0WFKBayszIhCLzHQGe9y5dv9KU8naIjxpuchvqpSmOBAa8YdffagGOXBTvJi/zq7QSc8uyRr9uGcRgtyLvupARV5JVWKa1YUHM69QtZMUCfLqAb3inBmbD3l0ZkOvX5AP/zHq//yv7z7q/1MGiPr0T4rmaH82xIb/6m2n0K2h3mXAgAA</data>
+        <data>tVLLasMwELwH8g9CpeRS23JCQuzGgYbSU3vrvcj2xhaRJSOpfvTrKykmbWhPhe5By+zOaGeFdrqrUAdKMykyHIcxRqzM8DMdQb1ZMDRc6AzXxrRpFPV9H/arUKoqWhJCIiueKOnAmTj9RoyTJIl811IzTNoBo/Gc57OOQX+QrowIigm59QdG2owcMgyC5hyCnBanSsl3UaYCenTFvfcGUt3SwgpaBRpUB3g/n+0UFAYdGecZvom38Xa5wahnpanton5KDayqzYQiJzEwGOdy7drjOc9nyMd005OPr6oUJjjShnFLXzwoRnlwkLx8eV3coTNeXJM1+7BO4yW5lN3UgIqilirDDStLDpdeKRsmqJXlVIN9Rbgw9o7yaE1HTu/RD//J+r/8rzZ/tZ9LY2Qz2WcVM5R/W2LnPtX+E4Y/avqXAgAA</data>
         <length>432</length>
         <position>1</position>
-        <sys_attachment display_value="image" sys_id="7baa7b4833c83650bf1221382e5c7bac">7baa7b4833c83650bf1221382e5c7bac</sys_attachment>
+        <sys_attachment display_value="image" sys_id="de34b5612bc0fa50d4dffd74ce91bf29">de34b5612bc0fa50d4dffd74ce91bf29</sys_attachment>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-09-13 11:16:24</sys_created_on>
-        <sys_id>3faa7b4833c83650bf1221382e5c7bac</sys_id>
+        <sys_created_on>2025-09-17 17:19:49</sys_created_on>
+        <sys_id>9234b5612bc0fa50d4dffd74ce91bf2a</sys_id>
     </sys_attachment_doc>
 </record_update>
