@@ -91,7 +91,7 @@ Response String: A structured string confirming the result of the badge assignme
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Present Response to user "
+                    "text": "Prompt user that"
                   },
                   {
                     "type": "datapill",
@@ -106,7 +106,7 @@ Response String: A structured string confirming the result of the badge assignme
                     ]
                   },
                   {
-                    "text": ", "
+                    "text": ",  and Success! 🎉 A new badge has been assigned successfully. You're all set to use your badge!"
                   }
                 ]
               },
@@ -114,15 +114,7 @@ Response String: A structured string confirming the result of the badge assignme
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Success! 🎉 A new badge has been assigned successfully. You're all set to use your badge!"
-                  }
-                ]
-              },
-              {
-                "type": "paragraph",
-                "children": [
-                  {
-                    "text": "then end the chat"
+                    "text": "then end the chat."
                   }
                 ]
               }
@@ -137,7 +129,7 @@ Response String: A structured string confirming the result of the badge assignme
         "c11a799b86594182b747ec8d0974ff70": {
           "id": "c11a799b86594182b747ec8d0974ff70",
           "name": "Get User Location &amp; Location Config",
-          "script": "(function execute() {\n\n    //TODO: in all flows convert inputs to lower case. \n    if(null!= vaInputs.badge_type &amp;&amp;  \"\"!= vaInputs.badge_type){\n        vaVars.badge_type= vaInputs.badge_type;\n    }else{\n        vaInputs.badge_type = \"\";\n        vaVars.badge_type= \"\";\n    }\n\n    var idenlocationGr = new GlideRecordSecure('x_aleen_snguardian_identity_location')\n    idenlocationGr.addQuery('identity',vaInputs.user_sys_id);\n    idenlocationGr.query();\n    var location = \"\";\n    if(idenlocationGr.next()){\n        location = idenlocationGr.location;\n        vaVars.user_location = location;\n    }\n     //TODO : will use guardian Location administrator config.\n    var dtInputs = {};\n    dtInputs.user_location = vaVars.user_location;\n    var result = new GuardianAIAgentHelper().getDTConfigs(\"a57ddb4833083650bf1221382e5c7b7e\",dtInputs);\n    vaVars.location_mobile_cred_enabled = result.MC_SUPPORT;\n    vaVars.mc_system = result.MC_NFC_SYSYEM;\n    vaVars.default_system = result.MC_PAC_SYSTEM;\n    vaVars.web_prov = result.WEB_PROV;\n    vaVars.default_badge_subtype = result.MC_SUB_TYPE;\n\n\n    //set default system based on user/logged in user location\n    var locationAdminGr = new GlideRecordSecure('x_aleen_snguardian_badge_office');\n    locationAdminGr.addQuery('locationsLIKE'+vaVars.user_location);\n    locationAdminGr.orderBy('order');\n    locationAdminGr.query();\n    if(locationAdminGr.next()){\n        vaVars.default_system = locationAdminGr.system;\n    }\n})()\n",
+          "script": "(function execute() {\n\n    //TODO: in all flows convert inputs to lower case. \n    if(null!= vaInputs.badge_type &amp;&amp;  \"\"!= vaInputs.badge_type){\n        vaVars.badge_type= vaInputs.badge_type;\n    }else{\n        vaInputs.badge_type = \"\";\n        vaVars.badge_type= \"\";\n    }\n\n    var idenlocationGr = new GlideRecordSecure('x_aleen_snguardian_identity_location')\n    idenlocationGr.addQuery('identity',vaInputs.user_sys_id);\n    idenlocationGr.query();\n    var location = \"\";\n    if(idenlocationGr.next()){\n        location = idenlocationGr.location;\n        vaVars.user_location = location;\n    }\n     //TODO : will use guardian Location administrator config.\n    var dtInputs = {};\n    dtInputs.user_location = vaVars.user_location;\n    var result = new GuardianAIAgentHelper().getDTConfigs(\"a57ddb4833083650bf1221382e5c7b7e\",dtInputs);\n    vaVars.location_mobile_cred_enabled = result.MC_SUPPORT;\n    vaVars.mc_system = result.MC_NFC_SYSYEM;\n    vaVars.default_system = result.MC_PAC_SYSTEM;\n    vaVars.web_prov = result.WEB_PROV==1 || result.WEB_PROV==\"true\"?\"1\":\"0\";\n    vaVars.default_badge_subtype = result.MC_SUB_TYPE;\n\n\n    //set default system based on user/logged in user location\n    var locationAdminGr = new GlideRecordSecure('x_aleen_snguardian_badge_office');\n    locationAdminGr.addQuery('locationsLIKE'+vaVars.user_location);\n    locationAdminGr.orderBy('order');\n    locationAdminGr.query();\n    if(locationAdminGr.next()){\n        vaVars.default_system = locationAdminGr.system;\n    }\n})()\n",
           "stepType": "ScriptAction",
           "applicability": {
             "value": "",
@@ -309,7 +301,7 @@ Response String: A structured string confirming the result of the badge assignme
               "itemId": "f50a669fe30546cd969f1b2f8747b215",
               "displayName": "badge_issue_type",
               "name": "badge_issue_type",
-              "description": "Ask user to select one badge Issue Type",
+              "description": "ask badge Issue Type",
               "discoverable": true,
               "dynamicDescription": {
                 "value": "",
@@ -1643,7 +1635,7 @@ Response String: A structured string confirming the result of the badge assignme
       "nodeId": "25f3c8600b1042f7983fd4f6f918add5",
       "isHidden": false,
       "inputId": 2,
-      "description": "Ask user to select one badge Issue Type",
+      "description": "Prompt user to select one badge Issue Type",
       "translation": true
     },
     "dd9f6a7ac99a4c4f9c58397669a16a09": {
@@ -1963,14 +1955,14 @@ Response String: A structured string confirming the result of the badge assignme
         <sys_created_on>2025-09-11 07:49:37</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>9728b0232bffee10d4dffd74ce91bfcc</sys_id>
-        <sys_mod_count>216</sys_mod_count>
+        <sys_mod_count>222</sys_mod_count>
         <sys_name>Guardian Badge Assignment Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_9728b0232bffee10d4dffd74ce91bfcc</sys_update_name>
         <sys_updated_by>chirag.alert</sys_updated_by>
-        <sys_updated_on>2025-09-19 09:58:57</sys_updated_on>
+        <sys_updated_on>2025-09-25 04:55:03</sys_updated_on>
         <title>Guardian Badge Assignment Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>

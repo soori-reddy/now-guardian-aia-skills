@@ -700,8 +700,8 @@
                     {
                       "type": "datapill",
                       "dataPill": {
-                        "value": "{{vaInputs.topic_input_badge_action}}",
-                        "displayValue": "Input Variables➛Topic_input_badge_action"
+                        "value": "{{vaVars.badge_action}}",
+                        "displayValue": "Script Variables➛badge_action"
                       },
                       "children": [
                         {
@@ -1292,14 +1292,14 @@
         <sys_created_on>2025-09-09 09:53:08</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>5941c7f23b3f62507999faac73e45a9f</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>66</sys_mod_count>
         <sys_name>Guardian Badge Operations Topic</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_5941c7f23b3f62507999faac73e45a9f</sys_update_name>
         <sys_updated_by>chirag.alert</sys_updated_by>
-        <sys_updated_on>2025-09-16 10:57:13</sys_updated_on>
+        <sys_updated_on>2025-09-24 06:27:22</sys_updated_on>
         <title>Guardian Badge Operations Topic</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
