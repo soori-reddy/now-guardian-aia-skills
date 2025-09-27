@@ -295,7 +295,39 @@ Response String: A confirmation message or status string indicating the outcome 
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Inform the user that there are no avtive badges to be replaced for the selected user."
+                    "text": "Display the following message to the user in a clear and disappointed tone:"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "\"Employee do not have a valid active badge to replace.\""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "After displaying this message, gracefully end the chat session without asking further questions."
                   }
                 ]
               }
@@ -544,7 +576,23 @@ Response String: A confirmation message or status string indicating the outcome 
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Present Response to user "
+                    "text": "Display the following success message to the user in a clear and friendly tone:"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
                   },
                   {
                     "type": "datapill",
@@ -559,7 +607,7 @@ Response String: A confirmation message or status string indicating the outcome 
                     ]
                   },
                   {
-                    "text": " ,"
+                    "text": ","
                   }
                 ]
               },
@@ -567,7 +615,7 @@ Response String: A confirmation message or status string indicating the outcome 
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "\"Great news! 🎉 The badge replacement has been successfully processed. Your new badge is all set and ready to go!\""
+                    "text": "\"Great news! 🎉 The badge replacement has been successfully processed.\""
                   }
                 ]
               },
@@ -575,7 +623,15 @@ Response String: A confirmation message or status string indicating the outcome 
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "then end the chat."
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "After displaying this message, gracefully end the chat session without asking further questions."
                   }
                 ]
               }
@@ -1743,14 +1799,14 @@ Response String: A confirmation message or status string indicating the outcome 
         <sys_created_on>2025-09-11 07:55:40</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>4099f4632bffee10d4dffd74ce91bfe5</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>73</sys_mod_count>
         <sys_name>Guardian Badge Replacement Topic Block</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sys_cb_topic_4099f4632bffee10d4dffd74ce91bfe5</sys_update_name>
         <sys_updated_by>chirag.alert</sys_updated_by>
-        <sys_updated_on>2025-09-19 10:02:26</sys_updated_on>
+        <sys_updated_on>2025-09-25 12:42:51</sys_updated_on>
         <title>Guardian Badge Replacement Topic Block</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>

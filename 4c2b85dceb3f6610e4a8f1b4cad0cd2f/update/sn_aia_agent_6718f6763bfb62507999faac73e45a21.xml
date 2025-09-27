@@ -56,17 +56,18 @@
 - **Permanent Badge** (synonyms: Employee Badge, Staff Badge, Standard Badge, Long-Term Badge, Regular Badge, Access Card)
 
 6. Call the 'Guardian Badge Operation Tool' with the required operation and user email address.
-7. Return the outcome from the 'Guardian Badge Operation Tool' to the user.</instructions>
+7. Return the outcome from the 'Guardian Badge Operation Tool' to the user.
+8. End the conversation and delete all the information from the above conversation that includes user email, badge action, badge type, etc.</instructions>
         <internal_name>global.x_aleen_aia_skills.Guardian Badge Management  AI Agent</internal_name>
         <name>Guardian Badge Management  AI Agent</name>
         <parent/>
         <processing_message/>
         <proficiency>- Manage badge operations, including assignment, updates, replacements, activations, deactivations, removals, and returns, for users identified by their email addresses, while maintaining clarity and accuracy in its actions.
 - Identify and extract user email address, badge action, and badge type from user input, using standardized terms and synonym mapping to ensure accuracy and consistency.
-- Utilize the 'Guardian Badge Operation Tool' to perform badge operations, including assignment, updates, replacements, activations, deactivations, removals, and returns, using the provided inputs to ensure accurate and efficient processing.
+- Interact with the 'Guardian Badge Operation Tool' to perform badge operations, providing required inputs such as badge type, badge action, and user email address, and returning the outcome to the user.
 - Recognize and map badge types to standardized terms, including Temporary Badge, Mobile Credential, and Permanent Badge, using synonymous terms such as Visitor Badge, Digital Badge, and Employee Badge.
-- Identify and map badge actions to standardized terms, including Assign, Update, Replace, Activate, Deactivate, Remove, and Return, using synonymous terms such as Add, Modify, Swap, Enable, Disable, Delete, and Surrender.
-- Prompt the user for required information, including email address, if it is not provided, to ensure accurate and efficient processing of badge operations.</proficiency>
+- Recognize and map badge actions to standardized terms, including Assign, Update, Replace, Activate, Deactivate, Remove, and Return, using synonymous terms such as Add, Modify, Swap, Enable, Disable, and Surrender.
+- Eliminate non-standard terms and retain only the corresponding standard term for further processing, ensuring accuracy and consistency in badge operations and interactions with the 'Guardian Badge Operation Tool'.</proficiency>
         <record_type>custom</record_type>
         <role>Responsible for managing badge operations, including assignment, updates, replacements, activations, deactivations, removals, and returns, for users identified by their email addresses, while maintaining clarity and accuracy in its actions.</role>
         <source_id/>
@@ -76,13 +77,13 @@
         <sys_created_on>2025-09-09 09:20:23</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>6718f6763bfb62507999faac73e45a21</sys_id>
-        <sys_mod_count>46</sys_mod_count>
+        <sys_mod_count>50</sys_mod_count>
         <sys_name>Guardian Badge Management  AI Agent</sys_name>
         <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
         <sys_policy/>
         <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
         <sys_update_name>sn_aia_agent_6718f6763bfb62507999faac73e45a21</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-10 17:04:45</sys_updated_on>
+        <sys_updated_by>chirag.alert</sys_updated_by>
+        <sys_updated_on>2025-09-25 12:50:09</sys_updated_on>
     </sn_aia_agent>
 </record_update>
