@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-29 06:15:13</sys_created_on>
+        <sys_id>c00f0d552b9cbe90d4dffd74ce91bf2b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>.x_aleen_snguardian.visitor</sys_name>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_security_acl display_value="sys_email">fcde09552b9cbe90d4dffd74ce91bfe9</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_c00f0d552b9cbe90d4dffd74ce91bf2b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-29 06:15:13</sys_updated_on>
+        <sys_user_role display_value="x_aleen_snguardian.visitor" name="x_aleen_snguardian.visitor">612894132bb85210d4dffd74ce91bf9c</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

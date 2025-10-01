@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="open_nlu_driver_language">
+    <open_nlu_driver_language action="INSERT_OR_UPDATE">
+        <code>pt</code>
+        <dialog_acts_supported>false</dialog_acts_supported>
+        <driver display_value="ServiceNow NLU">64c023c17300330021a044764df6a70e</driver>
+        <driver_codes>pt</driver_codes>
+        <language>Portuguese</language>
+        <sys_class_name>open_nlu_driver_language</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-29 07:00:12</sys_created_on>
+        <sys_id>07795d1d339832d0bf1221382e5c7bb6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Portuguese</sys_name>
+        <sys_package display_value="Guardian AI Agent" source="x_aleen_aia_skills">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Guardian AI Agent">4c2b85dceb3f6610e4a8f1b4cad0cd2f</sys_scope>
+        <sys_update_name>open_nlu_driver_language_07795d1d339832d0bf1221382e5c7bb6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-29 07:00:12</sys_updated_on>
+    </open_nlu_driver_language>
+</record_update>
